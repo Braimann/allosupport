@@ -1,0 +1,65 @@
+# 🔒 Règles Firebase Complètes pour AlloSupport.ma
+
+## 📋 RÈGLES FIRESTORE
+
+Copiez-collez ce code dans Firebase Console > Firestore Database > Règles :
+
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Blog posts (Cluster Posts): lecture publique, écriture authentifiée
+    match /blog_posts/{postId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Services (Pillar Pages): lecture publique, écriture authentifiée
+    match /services/{serviceId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
+
+---
+
+## 📦 RÈGLES STORAGE
+
+Copiez-collez ce code dans Firebase Console > Storage > Règles :
+
+```javascript
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Blog images: lecture publique, écriture authentifiée
+    match /blog/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Service images: lecture publique, écriture authentifiée
+    match /services/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
+
+---
+
+## ✅ VÉRIFICATION
+
+Après avoir collé les règles :
+
+1. Cliquez sur **"Publier"** (ou "Publish")
+2. Attendez quelques secondes
+3. Vérifiez qu'il n'y a pas d'erreurs (texte en rouge)
+
+---
+
+**Note:** Ces règles permettent :
+- ✅ **Lecture publique** : Tout le monde peut lire les articles et services
+- ✅ **Écriture authentifiée** : Seuls les admins connectés peuvent créer/modifier

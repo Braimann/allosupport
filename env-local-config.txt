@@ -1,0 +1,24 @@
+# =====================================================
+# FICHIER .env.local - À CRÉER MANUELLEMENT
+# =====================================================
+# 
+# INSTRUCTIONS:
+# 1. Créez un fichier nommé ".env.local" à la racine du projet
+# 2. Copiez-collez le contenu ci-dessous dans ce fichier
+# 3. Remplacez NEXT_PUBLIC_ADMIN_EMAIL par votre email
+# 4. Sauvegardez le fichier
+# 5. Redémarrez le serveur Next.js (npm run dev)
+#
+# =====================================================
+
+# Firebase Configuration - supporttechnique-84e72
+NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyBODz6Jyyd1G4ZlPlo5CBQKtYAJNwF-LVs
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=supporttechnique-84e72.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=supporttechnique-84e72
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=supporttechnique-84e72.firebasestorage.app
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=60760511085
+NEXT_PUBLIC_FIREBASE_APP_ID=1:60760511085:web:8ccd92704ef4c6eb03a564
+
+# Admin Email (remplacez par votre email pour l'admin)
+# Ce sera l'email que vous utiliserez pour vous connecter à /admin/login
+NEXT_PUBLIC_ADMIN_EMAIL=votre-email@gmail.com

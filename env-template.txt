@@ -1,0 +1,38 @@
+# =====================================================
+# CONFIGURATION FIREBASE - AlloSupport.ma
+# =====================================================
+# 
+# INSTRUCTIONS:
+# 1. Créez un fichier nommé ".env.local" à la racine du projet
+# 2. Copiez-collez le contenu ci-dessous dans .env.local
+# 3. Remplissez les valeurs avec celles de votre projet Firebase
+# 4. Pour trouver ces valeurs:
+#    - Allez sur https://console.firebase.google.com
+#    - Sélectionnez votre projet
+#    - Cliquez sur l'engrenage (Paramètres) > Paramètres du projet
+#    - Dans "Vos applications", cliquez sur "</>" (Web)
+#    - Copiez les valeurs de firebaseConfig
+#
+# =====================================================
+
+# Firebase API Key (trouvé dans firebaseConfig)
+NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# Firebase Auth Domain (trouvé dans firebaseConfig)
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=votre-projet.firebaseapp.com
+
+# Firebase Project ID (trouvé dans firebaseConfig)
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=votre-projet-id
+
+# Firebase Storage Bucket (trouvé dans firebaseConfig)
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=votre-projet.appspot.com
+
+# Firebase Messaging Sender ID (trouvé dans firebaseConfig)
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=123456789012
+
+# Firebase App ID (trouvé dans firebaseConfig)
+NEXT_PUBLIC_FIREBASE_APP_ID=1:123456789012:web:abcdef123456
+
+# Email de l'administrateur (celui que vous créerez dans Firebase Auth)
+# Ce sera l'email que vous utiliserez pour vous connecter à /admin/login
+NEXT_PUBLIC_ADMIN_EMAIL=votre-email@gmail.com
