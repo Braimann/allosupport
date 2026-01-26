@@ -250,7 +250,7 @@ export default function Hero() {
               <motion.div
                 className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl"
                 whileHover={{ rotateY: 5, rotateX: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                transition={{ type: "spring" as const, stiffness: 300 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="space-y-6">
@@ -304,7 +304,7 @@ export default function Hero() {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ delay: 1, type: "spring" }}
+                  transition={{ delay: 1, type: "spring" as const }}
                   className="absolute -bottom-4 -right-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white px-6 py-3 rounded-xl shadow-2xl"
                 >
                   <p className="font-bold">Satisfait ou Remboursé</p>
