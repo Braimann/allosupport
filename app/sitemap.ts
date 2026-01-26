@@ -37,28 +37,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let servicePages: MetadataRoute.Sitemap = [];
   try {
     const serviceSlugs = await getAllServiceSlugs();
-    servicePages = serviceSlugs.map((slug) => ({
-      url: `${baseUrl}/services/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.9, // High priority for commercial pages
-    }));
+    if (serviceSlugs && serviceSlugs.length > 0) {
+      servicePages = serviceSlugs.map((slug) => ({
+        url: `${baseUrl}/services/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.9, // High priority for commercial pages
+      }));
+    }
   } catch (error) {
-    console.error("Error generating service sitemap:", error);
+    console.warn("⚠️  Warning: Could not generate service sitemap. Firebase may not be configured. Error:", error);
+    // Continue without service pages - static pages will still be included
   }
 
   // Dynamic blog posts (Cluster Posts) - Lower priority
   let blogPages: MetadataRoute.Sitemap = [];
   try {
     const blogSlugs = await getAllSlugs();
-    blogPages = blogSlugs.map((slug) => ({
-      url: `${baseUrl}/blog/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8, // Lower priority for educational content
-    }));
+    if (blogSlugs && blogSlugs.length > 0) {
+      blogPages = blogSlugs.map((slug) => ({
+        url: `${baseUrl}/blog/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.8, // Lower priority for educational content
+      }));
+    }
   } catch (error) {
-    console.error("Error generating blog sitemap:", error);
+    console.warn("⚠️  Warning: Could not generate blog sitemap. Firebase may not be configured. Error:", error);
+    // Continue without blog pages - static pages will still be included
   }
 
   return [...staticPages, ...servicePages, ...blogPages];
