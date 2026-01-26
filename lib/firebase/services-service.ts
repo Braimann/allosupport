@@ -62,6 +62,15 @@ const COLLECTION_NAME = "services";
 
 // Get all published service pages
 export async function getPublishedServices(): Promise<ServicePage[]> {
+  if (!db) {
+    console.warn("Firebase not initialized. Falling back to static services.");
+    try {
+      const { getAllStaticServices } = await import("../services-data");
+      return getAllStaticServices();
+    } catch {
+      return [];
+    }
+  }
   try {
     const servicesRef = collection(db, COLLECTION_NAME);
     const q = query(
@@ -97,6 +106,10 @@ export async function getPublishedServices(): Promise<ServicePage[]> {
 
 // Get all service pages (including drafts) - for admin
 export async function getAllServices(): Promise<ServicePage[]> {
+  if (!db) {
+    console.warn("Firebase not initialized. Returning empty array.");
+    return [];
+  }
   try {
     const servicesRef = collection(db, COLLECTION_NAME);
     const q = query(servicesRef, orderBy("createdAt", "desc"));
@@ -114,6 +127,15 @@ export async function getAllServices(): Promise<ServicePage[]> {
 
 // Get a single service by slug
 export async function getServiceBySlug(slug: string): Promise<ServicePage | null> {
+  if (!db) {
+    console.warn("Firebase not initialized. Falling back to static service.");
+    try {
+      const { getStaticServiceBySlug } = await import("../services-data");
+      return getStaticServiceBySlug(slug);
+    } catch {
+      return null;
+    }
+  }
   try {
     const servicesRef = collection(db, COLLECTION_NAME);
     const q = query(servicesRef, where("slug", "==", slug), limit(1));

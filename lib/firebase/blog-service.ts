@@ -20,6 +20,16 @@ import {
 } from "firebase/storage";
 import { db, storage } from "./config";
 
+// Helper to check if Firebase is initialized
+function checkFirebase() {
+  if (!db) {
+    throw new Error(
+      "Firebase is not initialized. Please check your .env.local file."
+    );
+  }
+  return db;
+}
+
 // Types
 export interface BlogPost {
   id?: string;
@@ -60,6 +70,10 @@ const COLLECTION_NAME = "blog_posts";
 
 // Get all published blog posts
 export async function getPublishedPosts(): Promise<BlogPost[]> {
+  if (!db) {
+    console.warn("Firebase not initialized. Returning empty array.");
+    return [];
+  }
   try {
     const postsRef = collection(db, COLLECTION_NAME);
     
@@ -127,6 +141,10 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
 
 // Get all blog posts (including drafts) - for admin
 export async function getAllPosts(): Promise<BlogPost[]> {
+  if (!db) {
+    console.warn("Firebase not initialized. Returning empty array.");
+    return [];
+  }
   try {
     const postsRef = collection(db, COLLECTION_NAME);
     const q = query(postsRef, orderBy("createdAt", "desc"));
@@ -144,6 +162,10 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 
 // Get a single post by slug
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  if (!db) {
+    console.warn("Firebase not initialized. Returning null.");
+    return null;
+  }
   try {
     const postsRef = collection(db, COLLECTION_NAME);
     const q = query(postsRef, where("slug", "==", slug), limit(1));
