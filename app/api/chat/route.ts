@@ -67,7 +67,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const result = streamText({
+    const result = await streamText({
       model: openai("gpt-4o-mini"),
       system: SYSTEM_PROMPT,
       messages: messages.map((msg: { role: string; content: string }) => ({
@@ -78,7 +78,7 @@ export async function POST(req: Request) {
       maxTokens: 500,
     });
 
-    return result.toDataStreamResponse();
+    return result.toTextStreamResponse();
   } catch (error) {
     console.error("Erreur API Chat:", error);
     return new Response(
