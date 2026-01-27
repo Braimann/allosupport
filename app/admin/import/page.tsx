@@ -224,7 +224,7 @@ export default function ImportPage() {
           imageUrl: "",
           imageAlt: article.images[0]?.alt || article.title,
           metaDescription: article.metaDescription || excerpt,
-          keywords: [...new Set(keywords)],
+          keywords: Array.from(new Set(keywords)),
           author: "AlloSupport.ma",
           readTime: estimateReadTime(htmlContent),
           published: true,
