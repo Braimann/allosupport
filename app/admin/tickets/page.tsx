@@ -46,7 +46,7 @@ export default function AdminTicketsPage() {
     setTickets(data);
     
     // Load user profiles for all tickets
-    const userIds = [...new Set(data.map(t => t.userId))];
+    const userIds = Array.from(new Set(data.map(t => t.userId)));
     const profiles = await getUserProfiles(userIds);
     setUserProfiles(profiles);
     
