@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SchemaLocalBusiness from "@/components/SchemaLocalBusiness";
 import { AuthProvider } from "@/context/AuthContext";
-import { generateLocalBusinessSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "AlloSupport.ma | Dépannage Informatique à Distance au Maroc - Intervention 15 min",
+  title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
   description:
-    "Dépannage Informatique à Distance au Maroc. Particuliers & PME. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé. PC lent, virus, panne ? Réparé en 15 minutes ou remboursé.",
+    "Leader du dépannage informatique à distance au Maroc. PC lent, Virus, Maintenance PME. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
   keywords: [
     "dépannage informatique Maroc",
     "support informatique à distance",
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
     "panne PC assistance",
     "maintenance informatique PME",
     "support IT télétravail",
+    "dépannage informatique distance",
+    "réparation PC Maroc",
+    "support IT Casablanca",
+    "maintenance PME Maroc",
   ],
   authors: [{ name: "AlloSupport.ma" }],
   creator: "AlloSupport.ma",
@@ -40,47 +45,44 @@ export const metadata: Metadata = {
   },
 };
 
-// Generate LocalBusiness Schema using centralized SEO engine
-const localBusinessSchema = generateLocalBusinessSchema({
-  telephone: "+212-6-XX-XX-XX-XX",
-  email: "contact@allosupport.ma",
-  address: {
-    addressLocality: "Casablanca",
-    addressRegion: "Casablanca-Settat",
-  },
-});
-
-// Update areaServed to include specific cities
+// Generate LocalBusiness + ProfessionalService Schema
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      ...localBusinessSchema,
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      name: "AlloSupport.ma",
+      description: "Leader du dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp.",
+      url: "https://allosupport.ma",
+      telephone: "+212-6-XX-XX-XX-XX",
+      email: "contact@allosupport.ma",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Casablanca",
+        addressRegion: "Casablanca-Settat",
+        addressCountry: "MA",
+      },
       areaServed: [
-        "Casablanca",
-        "Rabat",
-        "Marrakech",
-        "Tanger",
-        "Agadir",
-        "Maroc",
+        {
+          "@type": "Country",
+          name: "Morocco",
+        },
+        {
+          "@type": "City",
+          name: "Casablanca",
+        },
+        {
+          "@type": "City",
+          name: "Rabat",
+        },
       ],
-      priceRange: "$$", // 250-450 MAD
-    },
-    {
-      "@type": "Service",
+      priceRange: "150 DH - 500 DH",
+      openingHours: "Mo-Su 00:00-23:59",
       serviceType: "Dépannage Informatique à Distance",
-      provider: {
-        "@type": "LocalBusiness",
-        name: "AlloSupport.ma",
-      },
-      areaServed: {
-        "@type": "Country",
-        name: "Morocco",
-      },
-      availableChannel: {
-        "@type": "ServiceChannel",
-        serviceUrl: "https://wa.me/2126XXXXXXXX",
-        serviceType: "WhatsApp",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "127",
       },
     },
   ],
@@ -100,15 +102,13 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <SchemaLocalBusiness />
       </head>
       <body className="antialiased bg-gray-50">
         <AuthProvider>
           {children}
           <StickyWhatsApp />
+          <WhatsAppFloat />
         </AuthProvider>
       </body>
     </html>

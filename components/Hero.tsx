@@ -111,12 +111,12 @@ export default function Hero() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
               <span className="bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent">
-                Dépannage IT à Distance
+                Dépannage Informatique à Distance au Maroc
               </span>
               <br />
-              <span className="text-primary-400">Résolu en 15 min</span>
+              <span className="text-primary-400">Intervention 15 min</span>
               <br />
-              <span className="text-white/90">ou Remboursé</span>
+              <span className="text-white/90">Satisfait ou Remboursé</span>
             </motion.h1>
 
             {/* Subtext */}
@@ -178,13 +178,13 @@ export default function Hero() {
                       Intervention rapide à partir de <strong className="text-primary-400">250 Dhs</strong>
                     </p>
                     <a
-                      href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
+                      href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, je souhaite un diagnostic gratuit pour mon problème informatique"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"
                     >
                       <MessageCircle className="w-5 h-5" />
-                      Réparer maintenant (250 Dhs)
+                      Diagnostic Gratuit via WhatsApp
                     </a>
                   </div>
                 ) : (

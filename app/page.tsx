@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Pricing from "@/components/Pricing";
 import Services from "@/components/Services";
 import Trust from "@/components/Trust";
 import Locations from "@/components/Locations";
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
+      <Pricing />
       <Services />
       <Trust />
       <ClientPortal />
