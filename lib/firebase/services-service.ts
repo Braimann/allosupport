@@ -166,6 +166,10 @@ export async function getServiceBySlug(slug: string): Promise<ServicePage | null
 
 // Get a single service by ID
 export async function getServiceById(id: string): Promise<ServicePage | null> {
+  if (!db) {
+    console.warn("Firebase not initialized. Returning null.");
+    return null;
+  }
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     const docSnap = await getDoc(docRef);
@@ -188,6 +192,10 @@ export async function getServiceById(id: string): Promise<ServicePage | null> {
 export async function createService(
   service: ServicePageInput
 ): Promise<string | null> {
+  if (!db) {
+    console.warn("Firebase not initialized. Cannot create service.");
+    return null;
+  }
   try {
     const servicesRef = collection(db, COLLECTION_NAME);
     const now = Timestamp.now();
@@ -210,6 +218,10 @@ export async function updateService(
   id: string,
   service: Partial<ServicePageInput>
 ): Promise<boolean> {
+  if (!db) {
+    console.warn("Firebase not initialized. Cannot update service.");
+    return false;
+  }
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     await updateDoc(docRef, {
@@ -225,6 +237,10 @@ export async function updateService(
 
 // Delete a service page
 export async function deleteService(id: string): Promise<boolean> {
+  if (!db) {
+    console.warn("Firebase not initialized. Cannot delete service.");
+    return false;
+  }
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     await deleteDoc(docRef);
