@@ -59,7 +59,7 @@ export default function CGVPage() {
                   <h3 className="font-semibold text-gray-900 mb-3">Nos tarifs (TTC) :</h3>
                   <ul className="space-y-2">
                     <li className="flex justify-between">
-                      <span>Ticket Urgence (Intervention < 30 min)</span>
+                      <span>Ticket Urgence (Intervention &lt; 30 min)</span>
                       <strong className="text-emerald-600">150 DH</strong>
                     </li>
                     <li className="flex justify-between">
