@@ -4,7 +4,17 @@ import {
   onAuthStateChanged,
   User,
 } from "firebase/auth";
+import type { Auth } from "firebase/auth";
 import { auth } from "./config";
+
+function getAuthInstance(): Auth {
+  if (!auth) {
+    throw new Error(
+      "Firebase auth is not initialized. Please check your .env.local Firebase configuration."
+    );
+  }
+  return auth;
+}
 
 // Sign in with email and password
 export async function signIn(
@@ -13,7 +23,7 @@ export async function signIn(
 ): Promise<User | null> {
   try {
     const userCredential = await signInWithEmailAndPassword(
-      auth,
+      getAuthInstance(),
       email,
       password
     );
@@ -27,7 +37,7 @@ export async function signIn(
 // Sign out
 export async function signOut(): Promise<boolean> {
   try {
-    await firebaseSignOut(auth);
+    await firebaseSignOut(getAuthInstance());
     return true;
   } catch (error) {
     console.error("Error signing out:", error);
@@ -37,12 +47,12 @@ export async function signOut(): Promise<boolean> {
 
 // Get current user
 export function getCurrentUser(): User | null {
-  return auth.currentUser;
+  return getAuthInstance().currentUser;
 }
 
 // Listen to auth state changes
 export function onAuthChange(callback: (user: User | null) => void) {
-  return onAuthStateChanged(auth, callback);
+  return onAuthStateChanged(getAuthInstance(), callback);
 }
 
 // Check if user is admin
