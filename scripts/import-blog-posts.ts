@@ -179,7 +179,7 @@ async function importArticles() {
         imageUrl: "", // L'utilisateur devra ajouter les images via l'admin
         imageAlt: article.images[0]?.alt || article.title,
         metaDescription: article.metaDescription || excerpt,
-        keywords: [...new Set(keywords)], // Supprimer les doublons
+        keywords: Array.from(new Set(keywords)), // Supprimer les doublons
         author: "AlloSupport.ma",
         readTime: estimateReadTime(htmlContent),
         published: true, // Publier directement
