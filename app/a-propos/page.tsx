@@ -214,7 +214,7 @@ export default function AboutPage() {
                         <p className="text-gray-700">{value.description}</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
