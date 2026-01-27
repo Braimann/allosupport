@@ -9,12 +9,12 @@
 - ✅ `app/robots.ts` - URL mise à jour
 - ✅ `app/sitemap.ts` - URL mise à jour
 
-### ⚠️ ACTION REQUISE:
+### ✅ Numéro de téléphone configuré:
 **Dans `components/WhatsAppButton.tsx` ligne 9:**
 ```typescript
-phoneNumber = "2126XXXXXXXX", // REMPLACER par votre numéro WhatsApp
+phoneNumber = "212770303940"
 ```
-Remplacez `2126XXXXXXXX` par votre vrai numéro WhatsApp (format: 212612345678)
+Le numéro WhatsApp est configuré : +212 770 30 39 40
 
 ---
 
@@ -116,7 +116,7 @@ export const BLOG_CATEGORIES = [
 
 **Format du numéro:**
 - Format international: `212612345678` (sans +)
-- URL WhatsApp: `https://wa.me/212612345678?text=...`
+- URL WhatsApp: `https://wa.me/212770303940?text=...`
 
 **Message par défaut:**
 ```

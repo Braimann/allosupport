@@ -309,12 +309,11 @@ Get-Content .env.local
 - [ ] Il ouvre WhatsApp avec le message pré-rempli
 - [ ] Le numéro de téléphone est correct (vérifiez dans `StickyWhatsApp.tsx`)
 
-**⚠️ Action requise :** 
-Ouvrez `components/conversion/StickyWhatsApp.tsx` et remplacez :
+**✅ Numéro de téléphone configuré :** 
+Le numéro WhatsApp est configuré dans `components/conversion/StickyWhatsApp.tsx` :
 ```typescript
-phoneNumber = "2126XXXXXXXX"
+phoneNumber = "212770303940"
 ```
-par votre vrai numéro WhatsApp (format: `212612345678`)
 
 ---
 
