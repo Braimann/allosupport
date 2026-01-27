@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function AIChatBubble() {
   const [isOpen, setIsOpen] = useState(false);
+  const [input, setInput] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const { messages, append, isLoading } = useChat({
     api: "/api/chat",
   });
 
@@ -28,11 +29,20 @@ export default function AIChatBubble() {
     }
   }, [isOpen]);
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim() && !isLoading) {
-      handleSubmit(e);
+      const userMessage = input;
+      setInput("");
+      await append({
+        role: "user",
+        content: userMessage,
+      });
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
   };
 
   return (
