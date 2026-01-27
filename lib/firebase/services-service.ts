@@ -92,9 +92,61 @@ export async function getPublishedServices(): Promise<ServicePage[]> {
     const additionalStatic = staticServices.filter((s) => !staticSlugs.has(s.slug));
 
     return [...firebaseServices, ...additionalStatic];
-  } catch (error) {
+  } catch (error: unknown) {
+    const err = error as { code?: string; message?: string };
+    // If index is missing, fallback to static data without orderBy
+    if (err.code === "failed-precondition") {
+      console.warn("Firestore index missing. Fetching without orderBy. Please create an index for: published (asc) + createdAt (desc)");
+      try {
+        const servicesRef = collection(db, COLLECTION_NAME);
+        const q = query(servicesRef, where("published", "==", true));
+        const snapshot = await getDocs(q);
+        
+        const firebaseServices = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as ServicePage[];
+        
+        // Sort manually by createdAt
+        const sortedServices = firebaseServices.sort((a, b) => {
+          let dateA: number;
+          let dateB: number;
+          
+          if (a.createdAt && typeof (a.createdAt as { toDate?: () => Date }).toDate === 'function') {
+            dateA = (a.createdAt as { toDate: () => Date }).toDate().getTime();
+          } else {
+            dateA = new Date(a.createdAt as Date).getTime();
+          }
+          
+          if (b.createdAt && typeof (b.createdAt as { toDate?: () => Date }).toDate === 'function') {
+            dateB = (b.createdAt as { toDate: () => Date }).toDate().getTime();
+          } else {
+            dateB = new Date(b.createdAt as Date).getTime();
+          }
+          
+          return dateB - dateA;
+        });
+        
+        // Merge with static services
+        const { getAllStaticServices } = await import("../services-data");
+        const staticServices = getAllStaticServices();
+        const staticSlugs = new Set(sortedServices.map((s) => s.slug));
+        const additionalStatic = staticServices.filter((s) => !staticSlugs.has(s.slug));
+        
+        return [...sortedServices, ...additionalStatic];
+      } catch (fallbackError) {
+        console.error("Error in fallback query:", fallbackError);
+        // Final fallback to static data only
+        try {
+          const { getAllStaticServices } = await import("../services-data");
+          return getAllStaticServices();
+        } catch {
+          return [];
+        }
+      }
+    }
     console.error("Error fetching published services:", error);
-    // Fallback to static data on error
+    // Fallback to static data on other errors
     try {
       const { getAllStaticServices } = await import("../services-data");
       return getAllStaticServices();

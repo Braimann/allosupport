@@ -2,10 +2,25 @@
 
 import { AlertTriangle, Briefcase, Clock, Shield, Zap, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
   const [activeTab, setActiveTab] = useState<"particuliers" | "entreprises">("particuliers");
+  const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
+
+  useEffect(() => {
+    // SSR-safe: Only access window on client side
+    if (typeof window !== "undefined") {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      
+      const handleResize = () => {
+        setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+      
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
@@ -16,11 +31,11 @@ export default function Hero() {
             key={i}
             className="absolute w-2 h-2 bg-primary-500/30 rounded-full"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * windowSize.width,
+              y: Math.random() * windowSize.height,
             }}
             animate={{
-              y: [null, Math.random() * window.innerHeight],
+              y: [null, Math.random() * windowSize.height],
               opacity: [0.3, 0.8, 0.3],
             }}
             transition={{
