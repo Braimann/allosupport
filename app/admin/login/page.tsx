@@ -14,14 +14,22 @@ export default function AdminLoginPage() {
   const [checkingAuth, setCheckingAuth] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthChange((user) => {
-      if (user && isAdmin(user)) {
-        router.push("/admin");
-      }
-      setCheckingAuth(false);
-    });
+    try {
+      const unsubscribe = onAuthChange((user) => {
+        if (user && isAdmin(user)) {
+          router.push("/admin");
+        }
+        setCheckingAuth(false);
+      });
 
-    return () => unsubscribe();
+      return () => unsubscribe();
+    } catch (error) {
+      console.error("Firebase auth error:", error);
+      setError(
+        "Erreur de configuration Firebase. Vérifiez que .env.local contient toutes les variables NEXT_PUBLIC_FIREBASE_* et que l'application a été reconstruite (npm run build)."
+      );
+      setCheckingAuth(false);
+    }
   }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {

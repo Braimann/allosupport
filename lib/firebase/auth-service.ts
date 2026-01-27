@@ -58,11 +58,8 @@ export function onAuthChange(callback: (user: User | null) => void) {
 // Check if user is admin
 export function isAdmin(user: User | null): boolean {
   if (!user || !user.email) return false;
-  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
-  if (!adminEmail) {
-    console.error("NEXT_PUBLIC_ADMIN_EMAIL is not set in .env.local");
-    return false;
-  }
+  // Email admin hardcodé
+  const adminEmail = "brahim.boumai97@gmail.com";
   // Normaliser les emails (lowercase, trim) pour éviter les erreurs de casse/espaces
   return user.email.toLowerCase().trim() === adminEmail.toLowerCase().trim();
 }
