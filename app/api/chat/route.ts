@@ -78,7 +78,7 @@ export async function POST(req: Request) {
       maxTokens: 500,
     });
 
-    return result.toTextStreamResponse();
+    return result.toUIMessageStreamResponse();
   } catch (error) {
     console.error("Erreur API Chat:", error);
     return new Response(
