@@ -293,6 +293,10 @@ export async function uploadImage(
 
 // Delete image from Firebase Storage
 export async function deleteImage(imageUrl: string): Promise<boolean> {
+  if (!storage) {
+    console.warn("Firebase Storage not initialized. Cannot delete image.");
+    return false;
+  }
   try {
     const storageRef = ref(storage, imageUrl);
     await deleteObject(storageRef);
