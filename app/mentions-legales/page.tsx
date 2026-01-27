@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FileText, Building2, User, Mail, MapPin, Globe } from "lucide-react";
-import { motion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "Mentions Légales | AlloSupport.ma",
@@ -19,13 +18,9 @@ export default function MentionsLegalesPage() {
         <div className="max-w-4xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500 rounded-2xl mb-6 shadow-lg"
-            >
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500 rounded-2xl mb-6 shadow-lg">
               <FileText className="w-8 h-8 text-white" />
-            </motion.div>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Mentions Légales
             </h1>

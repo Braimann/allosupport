@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Target, Award, TrendingUp, Shield, Heart, Clock, CheckCircle } from "lucide-react";
-import { motion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "À Propos de AlloSupport.ma | Qui Sommes-Nous",
@@ -111,13 +110,9 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl mb-6 shadow-lg"
-            >
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl mb-6 shadow-lg">
               <Users className="w-10 h-10 text-white" />
-            </motion.div>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               À Propos de AlloSupport.ma
             </h1>
@@ -132,11 +127,8 @@ export default function AboutPage() {
             {stats.map((stat, idx) => {
               const IconComponent = stat.icon;
               return (
-                <motion.div
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
                   className="bg-white rounded-xl shadow-lg p-6 text-center"
                 >
                   <IconComponent className="w-8 h-8 text-emerald-500 mx-auto mb-3" />
@@ -209,11 +201,8 @@ export default function AboutPage() {
               {values.map((value, idx) => {
                 const IconComponent = value.icon;
                 return (
-                  <motion.div
+                  <div
                     key={value.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
                     className="bg-gray-50 rounded-xl p-6"
                   >
                     <div className="flex items-start gap-4">
