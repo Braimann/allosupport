@@ -11,7 +11,7 @@ export default function AIChatBubble() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { messages, append, isLoading } = useChat({
+  const { messages, handleSubmit, isLoading } = useChat({
     api: "/api/chat",
   });
 
@@ -34,10 +34,9 @@ export default function AIChatBubble() {
     if (input.trim() && !isLoading) {
       const userMessage = input;
       setInput("");
-      await append({
-        role: "user",
-        content: userMessage,
-      });
+      // Use handleSubmit with the form event
+      // The input field will be read by handleSubmit
+      handleSubmit(e);
     }
   };
 
@@ -168,6 +167,7 @@ export default function AIChatBubble() {
                 <input
                   ref={inputRef}
                   type="text"
+                  name="message"
                   value={input}
                   onChange={handleInputChange}
                   placeholder="Tapez votre message..."
