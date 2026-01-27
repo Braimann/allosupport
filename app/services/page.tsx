@@ -115,7 +115,7 @@ export default async function ServicesPage() {
               Contactez-nous sur WhatsApp pour une intervention en 15 minutes.
             </p>
             <a
-              href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai besoin d'aide."
+              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors"

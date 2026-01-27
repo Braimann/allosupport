@@ -229,7 +229,7 @@ export default function Header() {
           {/* Left: Contact Info */}
           <div className="flex items-center gap-6">
             <motion.a
-              href="tel:+2126XXXXXXXX"
+              href="tel:+212770303940"
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
@@ -425,7 +425,7 @@ export default function Header() {
                 transition={{ delay: 0.3 }}
               >
                 <motion.a
-                  href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
+                  href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai une urgence informatique"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -623,7 +623,7 @@ export default function Header() {
 
                   {/* WhatsApp CTA */}
                   <motion.a
-                    href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
+                    href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai une urgence informatique"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}

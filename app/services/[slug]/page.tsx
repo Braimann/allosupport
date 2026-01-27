@@ -97,7 +97,7 @@ export default async function ServicePage({ params }: PageProps) {
     .slice(0, 3);
 
   const whatsappMessage = whatsappMessages[params.slug] || "Bonjour AlloSupport, je suis intéressé par ce service.";
-  const whatsappUrl = generateWhatsAppURL("2126XXXXXXXX", whatsappMessage, service.title);
+  const whatsappUrl = generateWhatsAppURL("212770303940", whatsappMessage, service.title);
 
   return (
     <>

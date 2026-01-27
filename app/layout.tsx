@@ -54,7 +54,7 @@ const jsonLd = {
       name: "AlloSupport.ma",
       description: "Leader du dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp.",
       url: "https://allosupport.ma",
-      telephone: "+212-6-XX-XX-XX-XX",
+      telephone: "+212 770 30 39 40",
       email: "contact@allosupport.ma",
       address: {
         "@type": "PostalAddress",

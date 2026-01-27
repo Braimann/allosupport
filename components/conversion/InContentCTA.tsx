@@ -13,7 +13,7 @@ interface InContentCTAProps {
 export default function InContentCTA({
   serviceName = "Dépannage Informatique",
   price = "250 DH",
-  phoneNumber = "2126XXXXXXXX",
+  phoneNumber = "212770303940",
   context,
 }: InContentCTAProps) {
   const whatsappUrl = generateWhatsAppURL(

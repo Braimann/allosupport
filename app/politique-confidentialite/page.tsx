@@ -337,7 +337,7 @@ export default function PolitiqueConfidentialitePage() {
                   <Phone className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-gray-900">Téléphone</p>
-                    <a href="tel:+2126XXXXXXXX" className="text-emerald-600 hover:text-emerald-700">
+                    <a href="tel:+212770303940" className="text-emerald-600 hover:text-emerald-700">
                       +212 6 XX XX XX XX
                     </a>
                   </div>

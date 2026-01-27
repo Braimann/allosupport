@@ -15,7 +15,7 @@ interface StickyWhatsAppProps {
 const StickyWhatsAppContent = lazy(() => Promise.resolve({ default: WhatsAppButtonContent }));
 
 function WhatsAppButtonContent({
-  phoneNumber = "2126XXXXXXXX",
+  phoneNumber = "212770303940",
   defaultMessage = "Bonjour AlloSupport, j'ai une urgence informatique. Pouvez-vous m'aider ?",
   context,
   position = "bottom-right",

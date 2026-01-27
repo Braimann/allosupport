@@ -217,7 +217,7 @@ export default function Footer() {
               </p>
             </div>
             <a
-              href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
+              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai une urgence informatique"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-emerald-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2"

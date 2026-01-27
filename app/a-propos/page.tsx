@@ -86,7 +86,7 @@ export default function AboutPage() {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+212-6-XX-XX-XX-XX",
+        telephone: "+212 770 30 39 40",
         contactType: "Support technique",
         areaServed: "MA",
         availableLanguage: "French",
@@ -282,7 +282,7 @@ export default function AboutPage() {
               Besoin d'aide ? Contactez-nous maintenant et obtenez une intervention en 15 minutes !
             </p>
             <a
-              href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai besoin d'aide"
+              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-emerald-600 font-semibold py-4 px-8 rounded-full hover:bg-gray-100 transition-colors shadow-lg"

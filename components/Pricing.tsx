@@ -60,7 +60,7 @@ const pricingPlans = [
 export default function Pricing() {
   const handleWhatsAppClick = (planName: string, price: string) => {
     const message = `Bonjour AlloSupport, je suis intéressé par le pack "${planName}" (${price}). Pouvez-vous me donner plus d'informations ?`;
-    const url = generateWhatsAppURL("2126XXXXXXXX", message);
+    const url = generateWhatsAppURL("212770303940", message);
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -195,7 +195,7 @@ export default function Pricing() {
           </p>
           <a
             href={generateWhatsAppURL(
-              "2126XXXXXXXX",
+              "212770303940",
               "Bonjour AlloSupport, j'aimerais discuter d'une solution personnalisée pour mes besoins informatiques."
             )}
             target="_blank"

@@ -88,7 +88,7 @@ export function generateLocalBusinessSchema(overrides?: {
     description:
       "Dépannage Informatique à Distance au Maroc. Intervention rapide en 15 minutes via WhatsApp. Services pour particuliers et PME. Satisfait ou Remboursé.",
     url: BASE_URL,
-    telephone: overrides?.telephone || "+212-6-XX-XX-XX-XX",
+    telephone: overrides?.telephone || "+212 770 30 39 40",
     email: overrides?.email || "contact@allosupport.ma",
     address: {
       "@type": "PostalAddress",
@@ -163,7 +163,7 @@ export function generateServiceSchema(service: {
     }),
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: "https://wa.me/2126XXXXXXXX",
+      serviceUrl: "https://wa.me/212770303940",
       serviceType: "WhatsApp",
     },
   };

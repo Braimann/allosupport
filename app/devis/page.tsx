@@ -89,7 +89,7 @@ Mes coordonnées :
 
 Merci de me contacter rapidement.`;
 
-    const whatsappUrl = `https://wa.me/2126XXXXXXXX?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/212770303940?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
     setSubmitted(true);
   };

@@ -43,7 +43,7 @@ const contactInfo = [
     icon: MessageCircle,
     title: "WhatsApp",
     content: "Disponible 24/7",
-    link: "https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai besoin d'aide",
+    link: "https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide",
   },
   {
     icon: MapPin,
@@ -69,7 +69,7 @@ export default function ContactPage() {
       url: "https://allosupport.ma",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+212-6-XX-XX-XX-XX",
+        telephone: "+212 770 30 39 40",
         contactType: "Support technique",
         areaServed: "MA",
         availableLanguage: ["French", "Arabic", "English"],
@@ -161,7 +161,7 @@ export default function ContactPage() {
               Que vous soyez à Casablanca, Rabat, Marrakech ou ailleurs au Maroc, notre équipe intervient rapidement pour résoudre vos problèmes informatiques.
             </p>
             <a
-              href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai besoin d'aide"
+              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-full transition-colors shadow-lg"

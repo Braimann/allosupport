@@ -21,7 +21,7 @@ interface PricingTableProps {
 export default function PricingTable({
   services,
   highlighted,
-  phoneNumber = "2126XXXXXXXX",
+  phoneNumber = "212770303940",
 }: PricingTableProps) {
   const handleWhatsAppClick = (serviceName: string) => {
     const message = `Bonjour AlloSupport, je suis intéressé par: ${serviceName}. Pouvez-vous m'en dire plus ?`;

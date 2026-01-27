@@ -6,7 +6,7 @@ interface SchemaLocalBusinessProps {
 }
 
 export default function SchemaLocalBusiness({
-  phoneNumber = "+212-6-XX-XX-XX-XX",
+  phoneNumber = "+212 770 30 39 40",
   email = "contact@allosupport.ma",
 }: SchemaLocalBusinessProps) {
   const baseSchema = generateLocalBusinessSchema({
