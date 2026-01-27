@@ -188,6 +188,10 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 
 // Get a single post by ID
 export async function getPostById(id: string): Promise<BlogPost | null> {
+  if (!db) {
+    console.warn("Firebase not initialized. Returning null.");
+    return null;
+  }
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     const docSnap = await getDoc(docRef);
@@ -208,6 +212,10 @@ export async function getPostById(id: string): Promise<BlogPost | null> {
 
 // Create a new blog post
 export async function createPost(post: BlogPostInput): Promise<string | null> {
+  if (!db) {
+    console.warn("Firebase not initialized. Cannot create post.");
+    return null;
+  }
   try {
     const postsRef = collection(db, COLLECTION_NAME);
     const now = Timestamp.now();
@@ -230,6 +238,10 @@ export async function updatePost(
   id: string,
   post: Partial<BlogPostInput>
 ): Promise<boolean> {
+  if (!db) {
+    console.warn("Firebase not initialized. Cannot update post.");
+    return false;
+  }
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     await updateDoc(docRef, {
@@ -245,6 +257,10 @@ export async function updatePost(
 
 // Delete a blog post
 export async function deletePost(id: string): Promise<boolean> {
+  if (!db) {
+    console.warn("Firebase not initialized. Cannot delete post.");
+    return false;
+  }
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     await deleteDoc(docRef);
@@ -260,6 +276,10 @@ export async function uploadImage(
   file: File,
   path: string
 ): Promise<string | null> {
+  if (!storage) {
+    console.warn("Firebase Storage not initialized. Cannot upload image.");
+    return null;
+  }
   try {
     const storageRef = ref(storage, `blog/${path}`);
     const snapshot = await uploadBytes(storageRef, file);
