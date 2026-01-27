@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function CGVPage() {
   return (
-    <>
+    <main>
       <Header />
-      <main className="pt-40 pb-20 bg-gray-50 min-h-screen">
+      <div className="pt-40 pb-20 bg-gray-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-12">
@@ -211,8 +211,8 @@ export default function CGVPage() {
             </section>
           </div>
         </div>
-      </main>
+      </div>
       <Footer />
-    </>
+    </main>
   );
 }
