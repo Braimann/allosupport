@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
-import AIChatBubble from "@/components/AIChatBubble";
 import { AuthProvider } from "@/context/AuthContext";
 import { generateLocalBusinessSchema } from "@/lib/seo";
 
@@ -110,7 +109,6 @@ export default function RootLayout({
         <AuthProvider>
           {children}
           <StickyWhatsApp />
-          <AIChatBubble />
         </AuthProvider>
       </body>
     </html>
