@@ -134,7 +134,7 @@ export default function AboutPage() {
                   <IconComponent className="w-8 h-8 text-emerald-500 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
                   <div className="text-sm text-gray-600">{stat.label}</div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
