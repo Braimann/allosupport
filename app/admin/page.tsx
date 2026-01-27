@@ -14,6 +14,8 @@ import {
   Loader2,
   FileText,
   AlertCircle,
+  Upload,
+  Ticket,
 } from "lucide-react";
 import { onAuthChange, isAdmin, signOut } from "@/lib/firebase/auth-service";
 import { getAllPosts, deletePost, updatePost, BlogPost } from "@/lib/firebase/blog-service";
@@ -108,6 +110,13 @@ export default function AdminDashboard() {
 
             <div className="flex items-center gap-4">
               <Link
+                href="/admin/tickets"
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-emerald-600 transition-colors"
+              >
+                <Ticket className="w-4 h-4" />
+                Tickets
+              </Link>
+              <Link
                 href="/"
                 className="text-sm text-gray-600 hover:text-primary-600 transition-colors"
               >
@@ -171,13 +180,22 @@ export default function AdminDashboard() {
         {/* Actions */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-900">Articles du blog</h2>
-          <Link
-            href="/admin/posts/new"
-            className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
-          >
-            <Plus className="w-5 h-5" />
-            Nouvel article
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin/import"
+              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+            >
+              <Upload className="w-5 h-5" />
+              Importer articles
+            </Link>
+            <Link
+              href="/admin/posts/new"
+              className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+            >
+              <Plus className="w-5 h-5" />
+              Nouvel article
+            </Link>
+          </div>
         </div>
 
         {/* Posts List */}

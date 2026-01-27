@@ -314,6 +314,37 @@ export async function getAllServiceSlugs(): Promise<string[]> {
   }
 }
 
+// Get all services with metadata for sitemap (includes dates)
+export async function getAllServicesForSitemap(): Promise<Array<{ slug: string; updatedAt: Date }>> {
+  try {
+    const services = await getPublishedServices();
+    return services.map((service) => {
+      let updatedAt: Date;
+      
+      // Handle Firestore Timestamp or Date
+      if (service.updatedAt && typeof (service.updatedAt as { toDate?: () => Date }).toDate === 'function') {
+        updatedAt = (service.updatedAt as { toDate: () => Date }).toDate();
+      } else if (service.updatedAt) {
+        updatedAt = new Date(service.updatedAt as Date);
+      } else if (service.createdAt && typeof (service.createdAt as { toDate?: () => Date }).toDate === 'function') {
+        updatedAt = (service.createdAt as { toDate: () => Date }).toDate();
+      } else if (service.createdAt) {
+        updatedAt = new Date(service.createdAt as Date);
+      } else {
+        updatedAt = new Date(); // Fallback to current date
+      }
+      
+      return {
+        slug: service.slug,
+        updatedAt,
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching services for sitemap:", error);
+    return [];
+  }
+}
+
 // Find services by keywords (for internal linking)
 export async function findServicesByKeywords(
   keywords: string[]

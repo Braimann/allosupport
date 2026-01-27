@@ -1,5 +1,8 @@
 import {
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User,
@@ -30,6 +33,36 @@ export async function signIn(
     return userCredential.user;
   } catch (error) {
     console.error("Error signing in:", error);
+    return null;
+  }
+}
+
+// Sign up with email and password
+export async function signUp(
+  email: string,
+  password: string
+): Promise<User | null> {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      getAuthInstance(),
+      email,
+      password
+    );
+    return userCredential.user;
+  } catch (error) {
+    console.error("Error signing up:", error);
+    return null;
+  }
+}
+
+// Sign in with Google
+export async function signInWithGoogle(): Promise<User | null> {
+  try {
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(getAuthInstance(), provider);
+    return result.user;
+  } catch (error) {
+    console.error("Error signing in with Google:", error);
     return null;
   }
 }

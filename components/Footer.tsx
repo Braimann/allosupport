@@ -1,5 +1,4 @@
 import {
-  Phone,
   Mail,
   MapPin,
   Clock,
@@ -7,6 +6,7 @@ import {
   Linkedin,
   Instagram,
   Monitor,
+  MessageCircle,
 } from "lucide-react";
 
 const services = [
@@ -45,79 +45,115 @@ export default function Footer() {
           <div className="lg:col-span-1">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
                 <Monitor className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-white">MarocTech</span>
-                <span className="text-xl font-bold text-accent-500">
-                  {" "}Solutions
+                <span className="text-xl font-bold text-white">AlloSupport</span>
+                <span className="text-xl font-bold text-emerald-500">
+                  .ma
                 </span>
               </div>
             </a>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Votre partenaire de confiance pour le support informatique,
-              l&apos;infogérance et le référencement Google au Maroc.
+              Dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+212522000000"
-                className="flex items-center gap-3 text-gray-300 hover:text-accent-400 transition-colors"
+                href="mailto:contact@allosupport.ma"
+                className="flex items-center gap-3 text-gray-300 hover:text-emerald-400 transition-colors"
               >
-                <Phone className="w-5 h-5 text-primary-400" />
-                <span>+212 5 22 00 00 00</span>
-              </a>
-              <a
-                href="mailto:contact@maroctech-solutions.ma"
-                className="flex items-center gap-3 text-gray-300 hover:text-accent-400 transition-colors"
-              >
-                <Mail className="w-5 h-5 text-primary-400" />
-                <span>contact@maroctech-solutions.ma</span>
+                <Mail className="w-5 h-5 text-emerald-400" />
+                <span>contact@allosupport.ma</span>
               </a>
               <div className="flex items-start gap-3 text-gray-300">
-                <MapPin className="w-5 h-5 text-primary-400 flex-shrink-0 mt-1" />
-                <span>Boulevard Zerktouni, Casablanca, Maroc</span>
+                <MapPin className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-1" />
+                <span>Casablanca, Maroc</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
-                <Clock className="w-5 h-5 text-primary-400" />
-                <span>Lun - Ven : 9h00 - 18h00</span>
+                <Clock className="w-5 h-5 text-emerald-400" />
+                <span>Disponible 24/7</span>
               </div>
             </div>
           </div>
 
-          {/* Services IT */}
+          {/* Services Particuliers */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Services IT</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">Particuliers</h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-accent-400 transition-colors"
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/services/depannage-pc-mac"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Dépannage PC & Mac
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/suppression-virus"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Suppression Virus
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/installation-config"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Installation & Config
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/recuperation-donnees"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Récupération Données
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Services SEO */}
+          {/* Services Entreprises */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Services SEO</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">Entreprises</h3>
             <ul className="space-y-3">
-              {seoServices.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-accent-400 transition-colors"
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/services/infogerance-pme"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Infogérance PME
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/cybersecurite"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Cybersécurité
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/reseau-wifi"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Réseau & Wi-Fi
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/email-cloud"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  Email Pro & Cloud
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -144,22 +180,22 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="https://facebook.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
-                aria-label="Facebook MarocTech Solutions"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                aria-label="Facebook AlloSupport.ma"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="https://linkedin.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
-                aria-label="LinkedIn MarocTech Solutions"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                aria-label="LinkedIn AlloSupport.ma"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="https://instagram.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
-                aria-label="Instagram MarocTech Solutions"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                aria-label="Instagram AlloSupport.ma"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -169,24 +205,25 @@ export default function Footer() {
       </div>
 
       {/* CTA Bar */}
-      <div className="bg-accent-500">
+      <div className="bg-emerald-500">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <p className="text-lg font-bold text-white">
-                🚨 Urgence informatique ? Nous intervenons en 30 minutes !
+                🚨 Urgence informatique ? Intervention en 15 minutes !
               </p>
-              <p className="text-white/80 text-sm">
-                SOS informatique disponible pour les entreprises à Casablanca et
-                Rabat.
+              <p className="text-white/90 text-sm">
+                Dépannage à distance disponible 24/7 partout au Maroc.
               </p>
             </div>
             <a
-              href="tel:+212522000000"
-              className="bg-white text-accent-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-2"
+              href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-emerald-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2"
             >
-              <Phone className="w-5 h-5" />
-              Appeler maintenant
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp maintenant
             </a>
           </div>
         </div>
@@ -197,16 +234,33 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
             <p>
-              © 2026 MarocTech Solutions. Tous droits réservés. SARL au capital
-              de 100 000 MAD.
+              © 2026 AlloSupport.ma. Tous droits réservés.
             </p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a href="/a-propos" className="hover:text-white transition-colors">
+                À propos
+              </a>
+              <span className="text-gray-600">•</span>
+              <a href="/faq" className="hover:text-white transition-colors">
+                FAQ
+              </a>
+              <span className="text-gray-600">•</span>
+              <a href="/devis" className="hover:text-white transition-colors">
+                Devis gratuit
+              </a>
+              <span className="text-gray-600">•</span>
               <a href="/mentions-legales" className="hover:text-white transition-colors">
                 Mentions légales
               </a>
+              <span className="text-gray-600">•</span>
               <a href="/politique-confidentialite" className="hover:text-white transition-colors">
                 Politique de confidentialité
               </a>
+              <span className="text-gray-600">•</span>
+              <a href="/cgu" className="hover:text-white transition-colors">
+                CGU
+              </a>
+              <span className="text-gray-600">•</span>
               <a href="/cgv" className="hover:text-white transition-colors">
                 CGV
               </a>

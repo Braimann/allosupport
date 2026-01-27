@@ -23,8 +23,19 @@ import {
   Lock,
   Wifi,
   Cloud,
+  User,
+  Ticket,
+  Wrench,
+  Code,
+  Key,
+  Gauge,
+  HardDriveIcon,
+  QrCode,
+  ArrowRight,
+  FileText,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/context/AuthContext";
 
 // Services data for dropdowns
 const servicesParticuliers = [
@@ -81,7 +92,47 @@ const servicesEntreprises = [
   },
 ];
 
+const tools = [
+  {
+    name: "Éditeur HTML",
+    href: "/tools/html-editor",
+    icon: Code,
+    desc: "Éditeur HTML/CSS/JS en ligne",
+  },
+  {
+    name: "Générateur de Mots de Passe",
+    href: "/tools/password-generator",
+    icon: Key,
+    desc: "Créer des mots de passe sécurisés",
+  },
+  {
+    name: "Test de Vitesse",
+    href: "/tools/speed-test",
+    icon: Gauge,
+    desc: "Tester votre connexion internet",
+  },
+  {
+    name: "Convertisseur d'Unités",
+    href: "/tools/unit-converter",
+    icon: HardDriveIcon,
+    desc: "Convertir bytes, KB, MB, GB, TB",
+  },
+  {
+    name: "Générateur QR Code",
+    href: "/tools/qr-generator",
+    icon: QrCode,
+    desc: "Créer des QR codes instantanément",
+  },
+  {
+    name: "Générateur Devis/Facture",
+    href: "/tools/invoice-generator",
+    icon: FileText,
+    desc: "Créer des devis et factures en PDF",
+  },
+];
+
 export default function Header() {
+  const { user, loading } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -143,6 +194,14 @@ export default function Header() {
       isHighlighted: true,
     },
     { href: "/blog", label: "Blog", icon: BookOpen },
+    {
+      href: "/tools",
+      label: "Outils",
+      icon: Wrench,
+      hasDropdown: true,
+      dropdownKey: "tools",
+      services: tools,
+    },
   ];
 
   const handleDropdownToggle = (key: string) => {
@@ -319,6 +378,17 @@ export default function Header() {
                                       </Link>
                                     );
                                   })}
+                                  {/* Link to all tools page */}
+                                  {link.dropdownKey === "tools" && (
+                                    <Link
+                                      href="/tools"
+                                      className="flex items-center justify-center gap-2 p-3 mt-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-600 font-semibold transition-colors group border-t border-slate-200"
+                                    >
+                                      <Wrench className="w-4 h-4" />
+                                      <span className="text-sm">Voir tous les outils</span>
+                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                  )}
                                 </div>
                               </motion.div>
                             )}
@@ -331,31 +401,48 @@ export default function Header() {
               })}
             </div>
 
-            {/* CTA Button - Emerald Green */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="hidden lg:block"
-            >
-              <motion.a
-                href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group"
+            {/* Account & CTA Buttons */}
+            <div className="hidden lg:flex items-center gap-3">
+              {/* Account Button */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.25 }}
               >
-                {/* Pulse Animation */}
-                <motion.div
-                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute inset-0 bg-emerald-400 rounded-full"
-                />
-                <MessageCircle className="w-4 h-4 relative z-10" />
-                <span className="relative z-10">Réponse Immédiate</span>
-              </motion.a>
-            </motion.div>
+                <Link
+                  href={user ? "/dashboard" : "/login"}
+                  className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-emerald-600 font-medium transition-colors rounded-lg hover:bg-slate-50"
+                >
+                  <User className="w-4 h-4" />
+                  <span>{user ? "Mon Compte" : "Connexion"}</span>
+                </Link>
+              </motion.div>
+
+              {/* WhatsApp CTA Button - Emerald Green */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <motion.a
+                  href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group"
+                >
+                  {/* Pulse Animation */}
+                  <motion.div
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute inset-0 bg-emerald-400 rounded-full"
+                  />
+                  <MessageCircle className="w-4 h-4 relative z-10" />
+                  <span className="relative z-10">Réponse Immédiate</span>
+                </motion.a>
+              </motion.div>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -468,6 +555,18 @@ export default function Header() {
                                       </Link>
                                     );
                                   })}
+                                  {/* Link to all tools page - Mobile */}
+                                  {link.dropdownKey === "tools" && (
+                                    <Link
+                                      href="/tools"
+                                      onClick={() => setIsMenuOpen(false)}
+                                      className="flex items-center justify-center gap-2 p-3 mt-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-600 font-semibold transition-colors group border-t border-slate-200"
+                                    >
+                                      <Wrench className="w-4 h-4" />
+                                      <span className="text-sm">Voir tous les outils</span>
+                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                  )}
                                 </div>
                               </motion.div>
                             )}
@@ -499,13 +598,30 @@ export default function Header() {
                   );
                 })}
 
-                {/* Mobile CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navLinks.length * 0.05 }}
-                  className="pt-4 border-t border-slate-200"
-                >
+                {/* Mobile Account & CTA */}
+                <div className="pt-4 border-t border-slate-200 space-y-3">
+                  {/* Account Link */}
+                  {user ? (
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 text-slate-700 hover:text-emerald-600 font-medium py-3 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full"
+                    >
+                      <User className="w-5 h-5" />
+                      <span>Mon Compte</span>
+                    </Link>
+                  ) : (
+                    <Link
+                      href="/login"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 text-slate-700 hover:text-emerald-600 font-medium py-3 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full"
+                    >
+                      <User className="w-5 h-5" />
+                      <span>Connexion</span>
+                    </Link>
+                  )}
+
+                  {/* WhatsApp CTA */}
                   <motion.a
                     href="https://wa.me/2126XXXXXXXX?text=Bonjour AlloSupport, j'ai une urgence informatique"
                     target="_blank"
@@ -524,7 +640,7 @@ export default function Header() {
                     <MessageCircle className="w-5 h-5 relative z-10" />
                     <span className="relative z-10">Réponse Immédiate</span>
                   </motion.a>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           )}

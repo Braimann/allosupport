@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Règles existantes pour blog_posts et services (à conserver)
+    match /blog_posts/{postId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /services/{serviceId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Collection "tickets" - NOUVELLES RÈGLES
+    match /tickets/{ticketId} {
+      // Lecture : utilisateur authentifié peut lire ses propres tickets OU admin peut lire tous
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid || 
+        request.auth.token.email == "brahim.boumai97@gmail.com"
+      );
+      
+      // Création : utilisateur authentifié peut créer un ticket (avec son userId)
+      allow create: if request.auth != null && 
+        request.resource.data.userId == request.auth.uid;
+      
+      // Mise à jour : utilisateur peut mettre à jour ses tickets OU admin peut mettre à jour tous
+      allow update: if request.auth != null && (
+        resource.data.userId == request.auth.uid || 
+        request.auth.token.email == "brahim.boumai97@gmail.com"
+      );
+      
+      // Suppression : seul l'admin peut supprimer
+      allow delete: if request.auth != null && 
+        request.auth.token.email == "brahim.boumai97@gmail.com";
+    }
+    
+    // Collection "users" (profils utilisateurs) - NOUVELLES RÈGLES
+    match /users/{userId} {
+      // Lecture : utilisateur peut lire son propre profil OU admin peut lire tous
+      allow read: if request.auth != null && (
+        userId == request.auth.uid || 
+        request.auth.token.email == "brahim.boumai97@gmail.com"
+      );
+      
+      // Création : utilisateur peut créer son propre profil
+      allow create: if request.auth != null && 
+        userId == request.auth.uid;
+      
+      // Mise à jour : utilisateur peut mettre à jour son propre profil OU admin
+      allow update: if request.auth != null && (
+        userId == request.auth.uid || 
+        request.auth.token.email == "brahim.boumai97@gmail.com"
+      );
+      
+      // Suppression : seul l'admin peut supprimer
+      allow delete: if request.auth != null && 
+        request.auth.token.email == "brahim.boumai97@gmail.com";
+    }
+  }
+}

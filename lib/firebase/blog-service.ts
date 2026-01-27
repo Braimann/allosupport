@@ -318,6 +318,37 @@ export async function getAllSlugs(): Promise<string[]> {
   }
 }
 
+// Get all blog posts with metadata for sitemap (includes dates)
+export async function getAllPostsForSitemap(): Promise<Array<{ slug: string; updatedAt: Date }>> {
+  try {
+    const posts = await getPublishedPosts();
+    return posts.map((post) => {
+      let updatedAt: Date;
+      
+      // Handle Firestore Timestamp or Date
+      if (post.updatedAt && typeof (post.updatedAt as { toDate?: () => Date }).toDate === 'function') {
+        updatedAt = (post.updatedAt as { toDate: () => Date }).toDate();
+      } else if (post.updatedAt) {
+        updatedAt = new Date(post.updatedAt as Date);
+      } else if (post.createdAt && typeof (post.createdAt as { toDate?: () => Date }).toDate === 'function') {
+        updatedAt = (post.createdAt as { toDate: () => Date }).toDate();
+      } else if (post.createdAt) {
+        updatedAt = new Date(post.createdAt as Date);
+      } else {
+        updatedAt = new Date(); // Fallback to current date
+      }
+      
+      return {
+        slug: post.slug,
+        updatedAt,
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching posts for sitemap:", error);
+    return [];
+  }
+}
+
 // Helper: Generate slug from title
 export function generateSlug(title: string): string {
   return title
