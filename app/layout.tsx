@@ -3,9 +3,12 @@ import "./globals.css";
 import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SchemaLocalBusiness from "@/components/SchemaLocalBusiness";
-import { AuthProvider } from "@/context/AuthContext";
+import { lazy, Suspense } from "react";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ScrollTracker from "@/components/analytics/ScrollTracker";
+
+// Lazy load AuthProvider pour réduire JS initial (Firebase auth iframe chargé après LCP)
+const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
 
 export const metadata: Metadata = {
   title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
@@ -123,11 +126,14 @@ export default function RootLayout({
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         
-        {/* Preconnect critiques (DNS lookup) */}
+        {/* Preconnect critiques (DNS lookup) - Max 4 pour performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://supporttechnique-84e72.firebaseapp.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googleapis.com" />
+        <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
         
         {/* Preload fonts critiques pour LCP */}
         <link
@@ -149,12 +155,14 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-gray-50">
         <GoogleAnalytics />
-        <AuthProvider>
-          {children}
-          <StickyWhatsApp />
-          <WhatsAppFloat />
-          <ScrollTracker />
-        </AuthProvider>
+        <Suspense fallback={<>{children}</>}>
+          <AuthProviderLazy>
+            {children}
+            <StickyWhatsApp />
+            <WhatsAppFloat />
+            <ScrollTracker />
+          </AuthProviderLazy>
+        </Suspense>
       </body>
     </html>
   );

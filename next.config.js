@@ -5,6 +5,12 @@ const nextConfig = {
   // Optimisations PageSpeed
   compress: true,
   poweredByHeader: false,
+  swcMinify: true,
+  
+  // Éviter polyfills inutiles (target ES2020+)
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
   
   // Optimisation images (WebP automatique)
   images: {
@@ -62,7 +68,23 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/:all*(js|css)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
+  },
+  
+  // Optimiser JavaScript (éviter polyfills inutiles)
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
   },
   
   // Webpack optimisations
