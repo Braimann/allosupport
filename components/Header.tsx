@@ -234,7 +234,7 @@ export default function Header() {
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>+212 6 XX XX XX XX</span>
+              <span>07 70 30 39 40</span>
             </motion.a>
             <motion.a
               href="mailto:contact@allosupport.ma"

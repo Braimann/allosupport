@@ -79,21 +79,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services Particuliers */}
+          {/* Services Particuliers - liens SEO vers pages services */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-white">Particuliers</h3>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="/services/depannage-pc-mac"
+                  href="/depannage-informatique"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  Dépannage PC & Mac
+                  Dépannage informatique
                 </a>
               </li>
               <li>
                 <a
-                  href="/services/suppression-virus"
+                  href="/virus-ordinateur-maroc"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
                   Suppression Virus
@@ -101,15 +101,15 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/services/installation-config"
+                  href="/pc-lent-solution"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  Installation & Config
+                  PC lent solution
                 </a>
               </li>
               <li>
                 <a
-                  href="/services/recuperation-donnees"
+                  href="/recuperation-donnees"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
                   Récupération Données
@@ -118,13 +118,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services Entreprises */}
+          {/* Services Entreprises - liens SEO vers support PME */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-white">Entreprises</h3>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="/services/infogerance-pme"
+                  href="/support-pme"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
                   Infogérance PME
@@ -132,15 +132,15 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/services/cybersecurite"
+                  href="/maintenance-informatique"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  Cybersécurité
+                  Maintenance informatique
                 </a>
               </li>
               <li>
                 <a
-                  href="/services/reseau-wifi"
+                  href="/antivirus-maroc"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
                   Réseau & Wi-Fi
@@ -148,10 +148,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/services/email-cloud"
+                  href="/services"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  Email Pro & Cloud
+                  Tous nos services
                 </a>
               </li>
             </ul>
@@ -159,20 +159,48 @@ export default function Footer() {
 
           {/* Zones & Newsletter */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">
-              Zones d&apos;intervention
-            </h3>
+            <h3 className="text-lg font-bold mb-6 text-white">Zones d&apos;intervention</h3>
             <ul className="space-y-3 mb-8">
-              {zones.map((zone, index) => (
-                <li key={index}>
-                  <a
-                    href="#zones"
-                    className="text-gray-400 hover:text-accent-400 transition-colors"
-                  >
-                    {zone}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/casablanca"
+                  className="text-gray-400 hover:text-accent-400 transition-colors"
+                >
+                  Casablanca
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/rabat"
+                  className="text-gray-400 hover:text-accent-400 transition-colors"
+                >
+                  Rabat
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/marrakech"
+                  className="text-gray-400 hover:text-accent-400 transition-colors"
+                >
+                  Marrakech
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/fes"
+                  className="text-gray-400 hover:text-accent-400 transition-colors"
+                >
+                  Fès
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/agadir"
+                  className="text-gray-400 hover:text-accent-400 transition-colors"
+                >
+                  Agadir
+                </a>
+              </li>
             </ul>
 
             {/* Social Links */}
@@ -247,6 +275,10 @@ export default function Footer() {
               <span className="text-gray-600">•</span>
               <a href="/devis" className="hover:text-white transition-colors">
                 Devis gratuit
+              </a>
+              <span className="text-gray-600">•</span>
+              <a href="/plan-du-site" className="hover:text-white transition-colors">
+                Plan du site
               </a>
               <span className="text-gray-600">•</span>
               <a href="/mentions-legales" className="hover:text-white transition-colors">

@@ -35,7 +35,7 @@ export default function Locations() {
     <section id="zones" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <span className="inline-block bg-accent-100 text-accent-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             Zones d&apos;intervention
           </span>
@@ -44,9 +44,29 @@ export default function Locations() {
             <span className="text-accent-500">Partout au Maroc</span>
           </h2>
           <p className="section-subtitle">
-            Intervention sur site dans les principales zones économiques ou
-            support à distance via TeamViewer pour tout le Maroc.
+            Intervention à distance dans tout le Maroc, avec des pages dédiées
+            pour nos principales villes.
           </p>
+        </div>
+
+        {/* SEO city links */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {[
+            { href: "/casablanca", label: "Dépannage PC Casablanca" },
+            { href: "/rabat", label: "Dépannage informatique Rabat" },
+            { href: "/fes", label: "Réparation PC Fès" },
+            { href: "/marrakech", label: "Support informatique Marrakech" },
+            { href: "/agadir", label: "Dépannage PC Agadir" },
+          ].map((city) => (
+            <a
+              key={city.href}
+              href={city.href}
+              className="inline-flex items-center px-4 py-2 rounded-full border border-accent-200 bg-white hover:bg-accent-50 text-sm font-medium text-accent-700 shadow-sm transition"
+            >
+              <MapPin className="w-4 h-4 mr-2" />
+              {city.label}
+            </a>
+          ))}
         </div>
 
         {/* Locations Grid */}

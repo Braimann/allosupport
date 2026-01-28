@@ -124,12 +124,34 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-white/80 mb-8 leading-relaxed"
+              className="text-xl text-white/80 mb-6 leading-relaxed"
             >
-              PC lent, virus, panne ? Notre équipe d'experts intervient à distance en{" "}
-              <strong className="text-primary-400">15 minutes</strong>. Si on ne répare pas,{" "}
+              PC lent, virus, panne ? Notre équipe d&apos;experts intervient à distance en{" "}
+              <strong className="text-primary-400">15 minutes</strong>, partout au Maroc.
+              Si on ne répare pas,{" "}
               <strong className="text-primary-400">vous ne payez pas</strong>.
             </motion.p>
+
+            {/* Quick internal SEO links */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="flex flex-wrap gap-3 mb-6"
+            >
+              <a
+                href="/casablanca"
+                className="text-sm px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white/90 transition"
+              >
+                Dépannage PC Casablanca
+              </a>
+              <a
+                href="/pc-lent-solution"
+                className="text-sm px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white/90 transition"
+              >
+                PC lent solution
+              </a>
+            </motion.div>
 
             {/* Tab Interface */}
             <motion.div
