@@ -103,7 +103,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Critical CSS inline pour LCP < 2.5s */}
+        {/* Critical CSS inline pour LCP < 2.5s. Ne pas ajouter <link onLoad="..."> : onLoad doit être une fonction React, pas une string. */}
         <style dangerouslySetInnerHTML={{
           __html: `
             *{box-sizing:border-box;margin:0;padding:0}
