@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 export default function Hero() {
   const [activeTab, setActiveTab] = useState<"particuliers" | "entreprises">("particuliers");
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // SSR-safe: Only access window on client side
     if (typeof window !== "undefined") {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      setMounted(true); // Mark as mounted to enable animations
       
       const handleResize = () => {
         setWindowSize({ width: window.innerWidth, height: window.innerHeight });
@@ -31,8 +33,8 @@ export default function Hero() {
             key={i}
             className="absolute w-2 h-2 bg-primary-500/30 rounded-full"
             initial={{
-              x: Math.random() * windowSize.width,
-              y: Math.random() * windowSize.height,
+              x: Math.random() * (windowSize?.width || 1920),
+              y: Math.random() * (windowSize?.height || 1080),
             }}
             animate={{
               y: [null, Math.random() * windowSize.height],
@@ -82,16 +84,17 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={mounted ? { opacity: 0, x: -50 } : false}
+            animate={mounted ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white"
+            className={`text-white ${!mounted ? "opacity-100" : ""}`}
           >
             {/* Animated Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 20 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
+              className={!mounted ? "opacity-100" : ""}
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6 shadow-lg"
             >
               <motion.div
@@ -105,9 +108,10 @@ export default function Hero() {
 
             {/* Main Title with Gradient Text */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 20 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
+              className={!mounted ? "opacity-100" : ""}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             >
               <span className="bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent">
@@ -121,9 +125,10 @@ export default function Hero() {
 
             {/* Subtext */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 20 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
+              className={!mounted ? "opacity-100" : ""}
               className="text-xl text-white/80 mb-6 leading-relaxed"
             >
               PC lent, virus, panne ? Notre équipe d&apos;experts intervient à distance en{" "}
@@ -134,9 +139,10 @@ export default function Hero() {
 
             {/* Quick internal SEO links */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 10 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.45 }}
+              className={!mounted ? "opacity-100" : ""}
               className="flex flex-wrap gap-3 mb-6"
             >
               <a
@@ -155,9 +161,10 @@ export default function Hero() {
 
             {/* Tab Interface */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 20 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
+              className={!mounted ? "opacity-100" : ""}
               className="mb-8"
             >
               <div className="flex gap-2 mb-6 bg-white/10 backdrop-blur-md rounded-xl p-1 border border-white/20">
@@ -186,9 +193,10 @@ export default function Hero() {
               {/* Tab Content */}
               <motion.div
                 key={activeTab}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={mounted ? { opacity: 0, x: -20 } : false}
+                animate={mounted ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
+                className={!mounted ? "opacity-100" : ""}
                 className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
               >
                 {activeTab === "particuliers" ? (
@@ -233,9 +241,10 @@ export default function Hero() {
 
             {/* Trust Indicators */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 20 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
+              className={!mounted ? "opacity-100" : ""}
               className="flex flex-wrap gap-4 mb-8"
             >
               <div className="flex items-center gap-2 text-white/80 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10">
@@ -250,9 +259,10 @@ export default function Hero() {
 
             {/* Quick Stats */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={mounted ? { opacity: 0, y: 20 } : false}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
+              className={!mounted ? "opacity-100" : ""}
               className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20"
             >
               {[
@@ -262,9 +272,10 @@ export default function Hero() {
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={mounted ? { opacity: 0, scale: 0.8 } : false}
+                  animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + idx * 0.1 }}
+                  className={!mounted ? "opacity-100" : ""}
                   className="text-center"
                 >
                   <p className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
@@ -278,9 +289,10 @@ export default function Hero() {
 
           {/* Right Content - 3D Card Effect */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={mounted ? { opacity: 0, x: 50 } : false}
+            animate={mounted ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className={!mounted ? "opacity-100" : ""}
             className="hidden lg:block"
           >
             <div className="relative perspective-1000">
@@ -316,9 +328,10 @@ export default function Hero() {
                   ].map((service, idx) => (
                     <motion.div
                       key={idx}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={mounted ? { opacity: 0, x: 20 } : false}
+                      animate={mounted ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
                       transition={{ delay: 0.5 + idx * 0.1 }}
+                      className={!mounted ? "opacity-100" : ""}
                       className="flex items-start gap-4 p-4 bg-white/10 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group"
                     >
                       <motion.div
@@ -339,9 +352,10 @@ export default function Hero() {
 
                 {/* Floating Badge */}
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
+                  initial={mounted ? { scale: 0 } : false}
+                  animate={mounted ? { scale: 1 } : { scale: 1 }}
                   transition={{ delay: 1, type: "spring" as const }}
+                  className={!mounted ? "opacity-100 scale-100" : ""}
                   className="absolute -bottom-4 -right-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white px-6 py-3 rounded-xl shadow-2xl"
                 >
                   <p className="font-bold">Satisfait ou Remboursé</p>

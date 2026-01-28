@@ -6,6 +6,7 @@ import SchemaLocalBusiness from "@/components/SchemaLocalBusiness";
 import { lazy, Suspense } from "react";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ScrollTracker from "@/components/analytics/ScrollTracker";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 // Lazy load AuthProvider pour réduire JS initial (Firebase auth iframe chargé après LCP)
 const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
@@ -155,14 +156,16 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-gray-50">
         <GoogleAnalytics />
-        <Suspense fallback={<>{children}</>}>
-          <AuthProviderLazy>
-            {children}
-            <StickyWhatsApp />
-            <WhatsAppFloat />
-            <ScrollTracker />
-          </AuthProviderLazy>
-        </Suspense>
+        <ErrorBoundary fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
+          <Suspense fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
+            <AuthProviderLazy>
+              {children}
+              <StickyWhatsApp />
+              <WhatsAppFloat />
+              <ScrollTracker />
+            </AuthProviderLazy>
+          </Suspense>
+        </ErrorBoundary>
       </body>
     </html>
   );
