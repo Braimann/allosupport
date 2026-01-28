@@ -145,17 +145,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         
-        {/* CSS non-critique chargé en defer */}
-        <link
-          rel="preload"
-          href="/globals.css"
-          as="style"
-          onLoad="this.onload=null;this.rel='stylesheet'"
-        />
-        <noscript>
-          <link rel="stylesheet" href="/globals.css" />
-        </noscript>
-        
         <SchemaLocalBusiness />
       </head>
       <body className="antialiased bg-gray-50">
