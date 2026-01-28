@@ -2,6 +2,7 @@
 
 import { MessageCircle } from "lucide-react";
 import { generateWhatsAppURL } from "@/lib/seo";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 interface WhatsAppFloatProps {
   phoneNumber?: string;
@@ -21,6 +22,7 @@ export default function WhatsAppFloat({
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-[9999] group"
       aria-label="Contacter AlloSupport via WhatsApp"
+      onClick={() => trackWhatsAppClick("float_button", message)}
     >
       <div className="relative">
         {/* Pulse Animation Background */}

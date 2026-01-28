@@ -4,6 +4,8 @@ import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SchemaLocalBusiness from "@/components/SchemaLocalBusiness";
 import { AuthProvider } from "@/context/AuthContext";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import ScrollTracker from "@/components/analytics/ScrollTracker";
 
 export const metadata: Metadata = {
   title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
@@ -102,13 +104,17 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <SchemaLocalBusiness />
       </head>
       <body className="antialiased bg-gray-50">
+        <GoogleAnalytics />
         <AuthProvider>
           {children}
           <StickyWhatsApp />
           <WhatsAppFloat />
+          <ScrollTracker />
         </AuthProvider>
       </body>
     </html>

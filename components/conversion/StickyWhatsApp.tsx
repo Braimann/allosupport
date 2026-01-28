@@ -3,6 +3,7 @@
 import { MessageCircle } from "lucide-react";
 import { useState, useEffect, lazy, Suspense } from "react";
 import { generateWhatsAppURL } from "@/lib/seo";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 interface StickyWhatsAppProps {
   phoneNumber?: string;
@@ -54,6 +55,7 @@ function WhatsAppButtonContent({
         rel="noopener noreferrer"
         className={`fixed ${positionClass} bottom-6 z-50 group`}
         aria-label="Contacter AlloSupport via WhatsApp"
+        onClick={() => trackWhatsAppClick(context || "sticky_button", defaultMessage)}
       >
         <div className="relative">
           {/* Pulse Animation Background */}
@@ -91,6 +93,7 @@ function WhatsAppButtonContent({
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 font-semibold"
+            onClick={() => trackWhatsAppClick(context || "mobile_bar", defaultMessage)}
           >
             <MessageCircle className="w-5 h-5" />
             <span>Urgence ? Contactez-nous sur WhatsApp</span>
