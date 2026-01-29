@@ -3,13 +3,11 @@ import "./globals.css";
 import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SchemaLocalBusiness from "@/components/SchemaLocalBusiness";
-import { lazy, Suspense } from "react";
+// FIREBASE AUTH DÉSACTIVÉ - Performance optimization (LCP/FCP)
+// import { lazy, Suspense } from "react";
+// const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ScrollTracker from "@/components/analytics/ScrollTracker";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-
-// Lazy load AuthProvider pour réduire JS initial (Firebase auth iframe chargé après LCP)
-const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
 
 export const metadata: Metadata = {
   title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
@@ -127,14 +125,11 @@ export default function RootLayout({
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         
-        {/* Preconnect critiques (DNS lookup) - Max 4 pour performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* Preconnect critiques - réduction LCP/FCP (max 4 preconnect) */}
         <link rel="preconnect" href="https://supporttechnique-84e72.firebaseapp.com" />
+        <link rel="preconnect" href="https://firestore.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googleapis.com" />
-        <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
         
         {/* Preload fonts critiques pour LCP */}
         <link
@@ -155,7 +150,13 @@ export default function RootLayout({
         <SchemaLocalBusiness />
       </head>
       <body className="antialiased bg-gray-50">
+        {children}
+        <StickyWhatsApp />
+        <WhatsAppFloat />
+        <ScrollTracker />
+        {/* GTM/GA4 chargé après le contenu principal (lazyOnload) pour ne pas bloquer LCP/FCP */}
         <GoogleAnalytics />
+        {/* FIREBASE AUTH DÉSACTIVÉ - Performance optimization - Réactivation: décommenter ci-dessous et réimporter lazy, Suspense, AuthProviderLazy, ErrorBoundary
         <ErrorBoundary fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
           <Suspense fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
             <AuthProviderLazy>
@@ -166,6 +167,7 @@ export default function RootLayout({
             </AuthProviderLazy>
           </Suspense>
         </ErrorBoundary>
+        */}
       </body>
     </html>
   );
