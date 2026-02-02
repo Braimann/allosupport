@@ -3,6 +3,7 @@
 import { AlertTriangle, Briefcase, Clock, Shield, Zap, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { WHATSAPP_URL } from "@/components/PhoneLink";
 
 export default function Hero() {
   const [activeTab, setActiveTab] = useState<"particuliers" | "entreprises">("particuliers");
@@ -202,7 +203,7 @@ export default function Hero() {
                       Intervention rapide à partir de <strong className="text-primary-400">250 Dhs</strong>
                     </p>
                     <a
-                      href="https://wa.me/212770303940?text=Bonjour AlloSupport, je souhaite un diagnostic gratuit pour mon problème informatique"
+                      href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, je souhaite un diagnostic gratuit pour mon problème informatique")}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"
@@ -220,7 +221,7 @@ export default function Hero() {
                       Support dédié pour votre équipe. Devis personnalisé.
                     </p>
                     <a
-                      href="https://wa.me/212770303940?text=Bonjour AlloSupport, je souhaite un devis pour mon entreprise"
+                      href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, je souhaite un devis pour mon entreprise")}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "Dépannage PC Agadir - Réparation à Distance | AlloSupport.ma",
@@ -25,7 +25,7 @@ const jsonLd = {
   description:
     "Dépannage informatique à distance à Agadir pour PME, agriculture, pêche, freelances et particuliers (Talborjt, Cité Suisse, Hay Dakhla, Sonaba).",
   url: "https://allosupport.ma/agadir",
-  telephone: "+212 770 30 39 40",
+  telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Agadir",

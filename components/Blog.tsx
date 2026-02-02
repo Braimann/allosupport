@@ -3,10 +3,8 @@
 import Link from "next/link";
 import { ArrowRight, Monitor, Cloud, ShieldAlert, Server, Search, Settings } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { getPublishedPosts, type BlogPost } from "@/lib/firebase/blog-service";
+import { getPublishedPosts, type BlogPost } from "@/content/blog/posts";
 
-// Icon mapping based on category
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   "Dépannage": Monitor,
   "Productivité": Cloud,
@@ -25,12 +23,9 @@ const categoryGradients: Record<string, string> = {
   "SEO": "from-teal-500 to-cyan-500",
 };
 
-function formatDate(date: { toDate?: () => Date } | Date): string {
+function formatDate(isoDate: string): string {
   try {
-    const d = date && typeof (date as { toDate?: () => Date }).toDate === 'function' 
-      ? (date as { toDate: () => Date }).toDate() 
-      : new Date(date as Date);
-    return d.toLocaleDateString("fr-FR", {
+    return new Date(isoDate).toLocaleDateString("fr-FR", {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -41,34 +36,7 @@ function formatDate(date: { toDate?: () => Date } | Date): string {
 }
 
 export default function Blog() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const fetchedPosts = await getPublishedPosts();
-        setPosts(fetchedPosts.slice(0, 3)); // Show only 3 posts on homepage
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchPosts();
-  }, []);
-
-  if (loading) {
-    return (
-      <section id="blog" className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <div className="inline-block h-8 w-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const posts = getPublishedPosts().slice(0, 3);
 
   if (posts.length === 0) {
     return null;
@@ -117,7 +85,7 @@ export default function Blog() {
 
             return (
               <motion.article
-                key={post.id || index}
+                key={post.slug}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -158,7 +126,7 @@ export default function Blog() {
                   {/* Content */}
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                      <span>{formatDate(post.createdAt)}</span>
+                      <span>{formatDate(post.publishedAt)}</span>
                       <span>•</span>
                       <span>{post.readTime || "5 min"}</span>
                     </div>

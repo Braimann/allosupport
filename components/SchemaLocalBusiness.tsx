@@ -1,4 +1,5 @@
 import { generateLocalBusinessSchema } from "@/lib/seo";
+import { PHONE_SCHEMA } from "@/components/PhoneLink";
 
 interface SchemaLocalBusinessProps {
   phoneNumber?: string;
@@ -6,7 +7,7 @@ interface SchemaLocalBusinessProps {
 }
 
 export default function SchemaLocalBusiness({
-  phoneNumber = "+212 770 30 39 40",
+  phoneNumber = PHONE_SCHEMA,
   email = "contact@allosupport.ma",
 }: SchemaLocalBusinessProps) {
   const baseSchema = generateLocalBusinessSchema({

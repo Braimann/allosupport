@@ -14,6 +14,18 @@ interface ParsedArticle {
   content: string;
   category: string;
   images: Array<{ alt: string }>;
+  /** MDX: slug from frontmatter */
+  slug?: string;
+  /** MDX: author from frontmatter */
+  author?: string;
+  /** MDX: image URL from frontmatter */
+  imageUrl?: string;
+  /** MDX: keywords from frontmatter/tags */
+  keywords?: string[];
+  /** MDX: reading time e.g. "8 min de lecture" */
+  readTime?: string;
+  /** true if parsed from .mdx (single article) */
+  fromMdx?: boolean;
 }
 
 export default function ImportPage() {
@@ -158,6 +170,114 @@ export default function ImportPage() {
     return articles;
   };
 
+  /** Parse un fichier .mdx (un article avec frontmatter YAML) */
+  const parseMdxFile = (content: string): ParsedArticle[] => {
+    const start = content.indexOf("---\n");
+    const end = content.indexOf("\n---\n", start + 4);
+    if (start === -1 || end === -1) return [];
+    const frontmatter = content.slice(start + 4, end).trim();
+    const body = content.slice(end + 5).trim();
+
+    const get = (key: string): string => {
+      const re = new RegExp(`^${key}:\\s*(.+)$`, "m");
+      const m = frontmatter.match(re);
+      if (!m) return "";
+      return m[1].trim().replace(/^["']|["']$/g, "");
+    };
+    const slug = get("slug") || "";
+    const title = get("title") || "Sans titre";
+    const description = get("description") || "";
+    const categoryRaw = get("category") || "Dépannage";
+    const author = get("author") || "Équipe AlloSupport";
+    const readingTime = get("readingTime") || "8";
+    const featuredImage = get("featuredImage") || "";
+    const metaDesc =
+      frontmatter.match(/metaDescription:\s*(.+?)(?=\n|$)/m)?.[1]?.trim()?.replace(/^["']|["']$/g, "") ||
+      frontmatter.match(/seo:\s*\n[\s\S]*?metaDescription:\s*(.+?)(?=\n|$)/m)?.[1]?.trim()?.replace(/^["']|["']$/g, "") ||
+      description;
+    const keywordsMatch = frontmatter.match(/keywords:\s*\n([\s\S]*?)(?=\n[A-Za-z]|\n---|$)/);
+    const keywords: string[] = [];
+    if (keywordsMatch) {
+      keywordsMatch[1].split("\n").forEach((line) => {
+        const m = line.match(/-\s*["']?(.+?)["']?(?=\s*$|\s*#)/);
+        if (m) keywords.push(m[1].trim());
+      });
+    }
+    const tagsMatch = frontmatter.match(/tags:\s*\n([\s\S]*?)(?=\n[A-Za-z]|\n---|$)/);
+    if (tagsMatch) {
+      tagsMatch[1].split("\n").forEach((line) => {
+        const m = line.match(/-\s*["']?(.+?)["']?(?=\s*$|\s*#)/);
+        if (m) keywords.push(m[1].trim());
+      });
+    }
+    const categoryMap: Record<string, string> = {
+      "entreprise-maroc": "Infogérance",
+      "Infogérance": "Infogérance",
+      "Dépannage": "Dépannage",
+      "Cybersécurité": "Cybersécurité",
+      "Productivité": "Productivité",
+      "Cloud": "Cloud",
+      "SEO": "SEO",
+    };
+    const category = categoryMap[categoryRaw] || "Infogérance";
+    const imageUrl = featuredImage.startsWith("http") ? featuredImage : featuredImage ? `https://allosupport.ma${featuredImage.startsWith("/") ? "" : "/"}${featuredImage}` : "";
+
+    const htmlContent = markdownToHTMLWithTables(body);
+    const excerpt = description || body.slice(0, 200).replace(/\n/g, " ").trim() + "...";
+    const readTimeStr = readingTime && !readingTime.includes("min") ? `${readingTime} min de lecture` : readingTime || estimateReadTime(htmlContent);
+
+    return [
+      {
+        title,
+        titleSEO: title,
+        metaDescription: metaDesc || excerpt,
+        content: htmlContent,
+        category,
+        images: [{ alt: title }],
+        slug: slug || undefined,
+        author,
+        imageUrl: imageUrl || undefined,
+        keywords: keywords.length ? keywords : undefined,
+        readTime: readTimeStr,
+        fromMdx: true,
+      },
+    ];
+  };
+
+  const markdownToHTMLWithTables = (md: string): string => {
+    let html = md;
+    const tableRegex = /\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/g;
+    html = html.replace(tableRegex, (_, headerRow, bodyRows) => {
+      const headers = headerRow.split("|").map((c: string) => c.trim()).filter(Boolean);
+      const rows = bodyRows.trim().split("\n").map((row: string) => row.split("|").map((c: string) => c.trim()).filter(Boolean));
+      let table = '<table class="w-full border border-gray-300 my-4"><thead><tr>';
+      headers.forEach((h: string) => { table += `<th class="border border-gray-300 px-3 py-2 text-left bg-gray-100">${h}</th>`; });
+      table += "</tr></thead><tbody>";
+      rows.forEach((row: string[]) => {
+        table += "<tr>";
+        row.forEach((cell: string) => { table += `<td class="border border-gray-300 px-3 py-2">${cell}</td>`; });
+        table += "</tr>";
+      });
+      table += "</tbody></table>";
+      return table;
+    });
+    html = html.replace(/^### (.+)$/gm, "<h3 class=\"text-xl font-bold mt-6 mb-2 text-gray-900\">$1</h3>");
+    html = html.replace(/^## (.+)$/gm, "<h2 class=\"text-2xl font-bold mt-8 mb-3 text-gray-900\">$1</h2>");
+    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary-600 hover:text-primary-700 underline">$1</a>');
+    html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
+    html = html.replace(/(^|\n)(((?:<li>.*?<\/li>)(?:\n<li>.*?<\/li>)*))/g, '$1<ul class="list-disc pl-6 my-3 space-y-1">$2</ul>');
+    html = html.replace(/^---$/gm, '<hr class="my-8 border-gray-200" />');
+    html = html.split("\n\n").map((para) => {
+      const p = para.trim();
+      if (!p) return "";
+      if (p.startsWith("<")) return p;
+      return `<p class="my-3 text-gray-700 leading-relaxed">${p}</p>`;
+    }).join("\n");
+    html = html.replace(/\n/g, "<br/>");
+    return html;
+  };
+
   const markdownToHTML = (markdown: string): string => {
     let html = markdown;
     html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
@@ -182,7 +302,9 @@ export default function ImportPage() {
     reader.onload = (event) => {
       const content = event.target?.result as string;
       setFileContent(content);
-      const articles = parseMarkdown(content);
+      setImportResults([]);
+      const isMdx = file.name.toLowerCase().endsWith(".mdx");
+      const articles = isMdx ? parseMdxFile(content) : parseMarkdown(content);
       setParsedArticles(articles);
     };
     reader.readAsText(file);

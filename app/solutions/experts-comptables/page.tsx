@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "Support IT Experts-Comptables - Sécurité Données & Période Fiscale | AlloSupport.ma",
@@ -22,7 +22,7 @@ const jsonLd = {
   name: "Support informatique pour experts-comptables - AlloSupport.ma",
   serviceType: "IT Support for Accounting Firms",
   description: "Support IT pour fiduciaires et experts-comptables au Maroc : sécurité des données financières, maintenance serveurs, logiciels Sage Ciel EBP, sauvegardes automatisées.",
-  provider: { "@type": "Organization", name: "AlloSupport.ma", telephone: "+212 770 30 39 40" },
+  provider: { "@type": "Organization", name: "AlloSupport.ma", telephone: "+212 7 75 23 70 38" },
   areaServed: { "@type": "Country", name: "Morocco" },
   url: "https://allosupport.ma/solutions/experts-comptables",
 };

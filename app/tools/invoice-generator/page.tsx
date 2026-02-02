@@ -790,7 +790,7 @@ export default function InvoiceGeneratorPage() {
                 Contactez-nous via WhatsApp pour une assistance rapide !
               </p>
               <a
-                href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide"
+                href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j'ai%20besoin%20d'aide"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-full transition-colors"

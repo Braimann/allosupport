@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title:
@@ -26,7 +26,7 @@ const jsonLd = {
   description:
     "Service de dépannage informatique à distance pour particuliers et PME à Rabat (Agdal, Hay Riad, Souissi, Hassan, Centre‑ville). Intervention en 15 minutes via WhatsApp.",
   url: "https://allosupport.ma/rabat",
-  telephone: "+212 770 30 39 40",
+  telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Rabat",

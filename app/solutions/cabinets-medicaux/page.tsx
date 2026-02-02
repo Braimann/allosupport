@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "Support IT Cabinets Médicaux - Conformité CNDP & Sécurité Données Patients | AlloSupport.ma",
@@ -22,7 +22,7 @@ const jsonLd = {
   name: "Support informatique pour cabinets médicaux - AlloSupport.ma",
   serviceType: "IT Support for Medical Practices",
   description: "Support IT pour médecins, dentistes et cliniques au Maroc : conformité CNDP, protection des données patients, anti-ransomware, logiciels médicaux (Damancom, MédiClick).",
-  provider: { "@type": "Organization", name: "AlloSupport.ma", telephone: "+212 770 30 39 40" },
+  provider: { "@type": "Organization", name: "AlloSupport.ma", telephone: "+212 7 75 23 70 38" },
   areaServed: { "@type": "Country", name: "Morocco" },
   url: "https://allosupport.ma/solutions/cabinets-medicaux",
 };

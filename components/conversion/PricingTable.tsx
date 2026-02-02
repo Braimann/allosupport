@@ -2,6 +2,7 @@
 
 import { Check, MessageCircle, Zap } from "lucide-react";
 import { generateWhatsAppURL } from "@/lib/seo";
+import { WHATSAPP_PHONE } from "@/components/PhoneLink";
 
 interface PricingItem {
   name: string;
@@ -21,7 +22,7 @@ interface PricingTableProps {
 export default function PricingTable({
   services,
   highlighted,
-  phoneNumber = "212770303940",
+  phoneNumber = WHATSAPP_PHONE,
 }: PricingTableProps) {
   const handleWhatsAppClick = (serviceName: string) => {
     const message = `Bonjour AlloSupport, je suis intéressé par: ${serviceName}. Pouvez-vous m'en dire plus ?`;

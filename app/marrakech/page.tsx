@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title:
@@ -26,7 +26,7 @@ const jsonLd = {
   description:
     "Support informatique à distance à Marrakech pour tourisme, hôtels, riads et expatriés (Guéliz, Hivernage, Palmeraie, Massira, Sidi Youssef Ben Ali).",
   url: "https://allosupport.ma/marrakech",
-  telephone: "+212 770 30 39 40",
+  telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Marrakech",

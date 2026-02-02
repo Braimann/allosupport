@@ -2,6 +2,7 @@
 
 import { MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+import { WHATSAPP_PHONE } from "@/components/PhoneLink";
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -9,7 +10,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  phoneNumber = "212770303940",
+  phoneNumber = WHATSAPP_PHONE,
   defaultMessage = "Bonjour AlloSupport, j'ai une urgence informatique. Pouvez-vous m'aider ?",
 }: WhatsAppButtonProps) {
   const [isVisible, setIsVisible] = useState(false);

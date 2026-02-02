@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "Support Informatique PME & TPE au Maroc | AlloSupport.ma",

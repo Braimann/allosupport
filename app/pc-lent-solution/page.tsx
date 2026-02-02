@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "PC Lent Solution - Accélération & Optimisation Windows | AlloSupport.ma",
@@ -27,7 +27,7 @@ const jsonLd = {
   provider: {
     "@type": "LocalBusiness",
     name: "AlloSupport.ma",
-    telephone: "+212 770 30 39 40",
+    telephone: "+212 7 75 23 70 38",
   },
   description:
     "Service d'optimisation pour PC lent au Maroc : nettoyage, désinstallation, optimisation démarrage et réglages Windows.",

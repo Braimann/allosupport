@@ -3,6 +3,7 @@
 import { Check, Zap, Shield, Briefcase, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateWhatsAppURL } from "@/lib/seo";
+import { WHATSAPP_PHONE } from "@/components/PhoneLink";
 
 const pricingPlans = [
   {
@@ -60,7 +61,7 @@ const pricingPlans = [
 export default function Pricing() {
   const handleWhatsAppClick = (planName: string, price: string) => {
     const message = `Bonjour AlloSupport, je suis intéressé par le pack "${planName}" (${price}). Pouvez-vous me donner plus d'informations ?`;
-    const url = generateWhatsAppURL("212770303940", message);
+    const url = generateWhatsAppURL(WHATSAPP_PHONE, message);
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -195,7 +196,7 @@ export default function Pricing() {
           </p>
           <a
             href={generateWhatsAppURL(
-              "212770303940",
+              WHATSAPP_PHONE,
               "Bonjour AlloSupport, j'aimerais discuter d'une solution personnalisée pour mes besoins informatiques."
             )}
             target="_blank"

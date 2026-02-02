@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Nos Services - Dépannage IT à Distance | AlloSupport.ma",
   description:
     "Découvrez tous nos services de dépannage informatique à distance au Maroc. Intervention en 15 minutes. Satisfait ou Remboursé.",
+  alternates: {
+    canonical: "https://allosupport.ma/services",
+  },
 };
 
 // Revalidate every 60 seconds (ISR)
@@ -115,7 +118,7 @@ export default async function ServicesPage() {
               Contactez-nous sur WhatsApp pour une intervention en 15 minutes.
             </p>
             <a
-              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide."
+              href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j'ai%20besoin%20d'aide."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors"

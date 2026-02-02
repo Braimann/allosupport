@@ -2,6 +2,7 @@
 
 import { MessageCircle, Clock, Shield, CheckCircle } from "lucide-react";
 import { generateWhatsAppURL } from "@/lib/seo";
+import { WHATSAPP_PHONE } from "@/components/PhoneLink";
 
 interface InContentCTAProps {
   serviceName?: string;
@@ -13,7 +14,7 @@ interface InContentCTAProps {
 export default function InContentCTA({
   serviceName = "Dépannage Informatique",
   price = "250 DH",
-  phoneNumber = "212770303940",
+  phoneNumber = WHATSAPP_PHONE,
   context,
 }: InContentCTAProps) {
   const whatsappUrl = generateWhatsAppURL(

@@ -1,99 +1,49 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Contact from "@/components/Contact";
-import { MapPin, Mail, MessageCircle, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, MessageSquare } from "lucide-react";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
+import GoogleBadge from "@/components/GoogleBadge";
 
 export const metadata: Metadata = {
-  title: "Contactez AlloSupport.ma | Support Informatique au Maroc",
-  description:
-    "Contactez AlloSupport.ma pour votre dépannage informatique au Maroc. Intervention en 15 minutes, devis gratuit, support 24/7. Casablanca, Rabat, Marrakech.",
+  title: "Contact - Dépannage à Domicile | AlloSupport Maroc",
+  description: `Service à domicile dans ${GOOGLE_BUSINESS.SERVICE_AREA.join(", ")}. Appel ou WhatsApp: ${GOOGLE_BUSINESS.PHONE_FORMATTED}`,
   keywords: [
     "contact AlloSupport",
-    "support informatique Maroc",
-    "dépannage PC Casablanca",
-    "assistance informatique",
-    "devis gratuit informatique",
-    "contact IT Maroc",
+    "dépannage à domicile Maroc",
+    "support informatique Casablanca",
+    "WhatsApp AlloSupport",
   ],
   openGraph: {
-    title: "Contactez AlloSupport.ma | Support IT au Maroc",
-    description: "Intervention en 15 minutes. Devis gratuit. Support 24/7.",
+    title: "Contact - Dépannage à Domicile | AlloSupport Maroc",
+    description: "Service à domicile - Nous venons chez vous.",
     type: "website",
     url: "https://allosupport.ma/contact",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contactez AlloSupport.ma",
-    description: "Support informatique au Maroc - Intervention rapide",
   },
   alternates: {
     canonical: "https://allosupport.ma/contact",
   },
 };
 
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email",
-    content: "contact@allosupport.ma",
-    link: "mailto:contact@allosupport.ma",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp",
-    content: "Disponible 24/7",
-    link: "https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide",
-  },
-  {
-    icon: MapPin,
-    title: "Adresse",
-    content: "Casablanca, Maroc",
-    link: null,
-  },
-  {
-    icon: Clock,
-    title: "Horaires",
-    content: "24h/7j - Intervention rapide",
-    link: null,
-  },
-];
-
 export default function ContactPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     mainEntity: {
-      "@type": "Organization",
-      name: "AlloSupport.ma",
+      "@type": "ProfessionalService",
+      name: "AlloSupport Maroc",
       url: "https://allosupport.ma",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+212 770 30 39 40",
-        contactType: "Support technique",
+        telephone: GOOGLE_BUSINESS.PHONE,
+        contactType: "customer service",
         areaServed: "MA",
-        availableLanguage: ["French", "Arabic", "English"],
-        hoursAvailable: {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-          ],
-          opens: "00:00",
-          closes: "23:59",
-        },
+        availableLanguage: ["fr", "ar"],
       },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Casablanca",
-        addressRegion: "Casablanca-Settat",
-        addressCountry: "MA",
-      },
+      areaServed: GOOGLE_BUSINESS.SERVICE_AREA.map((city) => ({
+        "@type": "City",
+        name: city,
+      })),
     },
   };
 
@@ -104,71 +54,188 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-24 pb-16">
+      <main className="min-h-screen py-16 pt-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl mb-6 shadow-lg">
-              <MessageCircle className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Contactez AlloSupport.ma
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Besoin d'aide ? Notre équipe est disponible 24h/7j pour répondre à vos questions et intervenir rapidement.
-            </p>
-          </div>
+          <h1 className="text-4xl font-bold text-center mb-4 text-gray-900">
+            Contactez-Nous
+          </h1>
+          <p className="text-xl text-gray-600 text-center mb-12">
+            Service de dépannage à domicile - Nous venons chez vous !
+          </p>
 
-          {/* Contact Info Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, idx) => {
-              const IconComponent = info.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow"
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-lg mb-4">
-                    <IconComponent className="w-6 h-6 text-emerald-600" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Coordonnées */}
+            <div className="space-y-8">
+              {/* Zones Intervention */}
+              <div className="bg-blue-50 p-6 rounded-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-blue-600 p-3 rounded-lg">
+                    <MapPin className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{info.title}</h3>
-                  {info.link ? (
-                    <a
-                      href={info.link}
-                      target={info.link.startsWith("http") ? "_blank" : undefined}
-                      rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-emerald-600 hover:text-emerald-700 font-medium"
-                    >
-                      {info.content}
-                    </a>
-                  ) : (
-                    <p className="text-gray-700">{info.content}</p>
-                  )}
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    Zones d&apos;Intervention
+                  </h2>
                 </div>
-              );
-            })}
-          </div>
+                <p className="text-gray-600 mb-4">
+                  Nous intervenons à domicile dans toutes ces villes :
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {GOOGLE_BUSINESS.SERVICE_AREA.map((city) => (
+                    <div
+                      key={city}
+                      className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full" />
+                      <span className="font-semibold text-gray-900">{city}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-500 mt-4">
+                  💡 Service mobile - pas de déplacement nécessaire de votre
+                  part
+                </p>
+              </div>
 
-          {/* Contact Form Section */}
-          <Contact />
+              {/* Téléphone */}
+              <a
+                href={`tel:${GOOGLE_BUSINESS.PHONE}`}
+                className="flex items-center gap-4 bg-green-50 hover:bg-green-100 p-6 rounded-2xl transition group"
+              >
+                <div className="bg-green-600 p-4 rounded-xl group-hover:scale-110 transition">
+                  <Phone className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-600 mb-1">Appelez-nous</div>
+                  <div className="text-2xl font-bold text-gray-900">
+                    {GOOGLE_BUSINESS.PHONE_FORMATTED}
+                  </div>
+                  <div className="text-sm text-green-600 font-medium">
+                    Cliquez pour appeler
+                  </div>
+                </div>
+              </a>
 
-          {/* Additional Info */}
-          <div className="mt-16 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Intervention en 15 minutes maximum
-            </h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Que vous soyez à Casablanca, Rabat, Marrakech ou ailleurs au Maroc, notre équipe intervient rapidement pour résoudre vos problèmes informatiques.
-            </p>
-            <a
-              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai besoin d'aide"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-8 rounded-full transition-colors shadow-lg"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Contacter via WhatsApp
-            </a>
+              {/* WhatsApp */}
+              <a
+                href={GOOGLE_BUSINESS.WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 bg-[#E7F8ED] hover:bg-[#D1F4DD] p-6 rounded-2xl transition group"
+              >
+                <div className="bg-[#25D366] p-4 rounded-xl group-hover:scale-110 transition">
+                  <MessageSquare className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-600 mb-1">
+                    WhatsApp Business
+                  </div>
+                  <div className="text-xl font-bold text-gray-900">
+                    Message instantané
+                  </div>
+                  <div className="text-sm text-[#25D366] font-medium">
+                    Réponse rapide garantie
+                  </div>
+                </div>
+              </a>
+
+              {/* Horaires */}
+              <div className="bg-yellow-50 p-6 rounded-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-yellow-600 p-3 rounded-lg">
+                    <Clock className="w-6 h-6 text-white" />
+                  </div>
+                  <h2 className="text-xl font-bold text-gray-900">Horaires</h2>
+                </div>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex justify-between">
+                    <span>Lundi - Samedi</span>
+                    <span className="font-semibold">8h00 - 20h00</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Dimanche</span>
+                    <span className="font-semibold">10h00 - 18h00</span>
+                  </li>
+                  <li className="flex justify-between border-t border-yellow-200 pt-3 mt-3">
+                    <span>Urgences</span>
+                    <span className="font-semibold text-green-600">24/7 ⚡</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Badge Google : invitation à laisser un avis (sans afficher de note/avis) */}
+              <GoogleBadge variant="card" showCTA={true} inviteOnly />
+            </div>
+
+            {/* Formulaire Contact */}
+            <div className="bg-white p-8 rounded-2xl shadow-xl">
+              <h2 className="text-2xl font-bold mb-6 text-gray-900">
+                Demander un Devis Gratuit
+              </h2>
+
+              <form className="space-y-4" action="#" method="post">
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                    Nom complet *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    name="name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                    Téléphone *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    name="phone"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                    Ville *
+                  </label>
+                  <select
+                    required
+                    name="city"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  >
+                    <option value="">Sélectionnez votre ville</option>
+                    {GOOGLE_BUSINESS.SERVICE_AREA.map((city) => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                    Problème *
+                  </label>
+                  <textarea
+                    required
+                    name="message"
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Décrivez votre problème informatique..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold transition"
+                >
+                  Envoyer la Demande
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </main>

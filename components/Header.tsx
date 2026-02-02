@@ -36,6 +36,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 
 // Services data for dropdowns
 const servicesParticuliers = [
@@ -229,12 +230,12 @@ export default function Header() {
           {/* Left: Contact Info */}
           <div className="flex items-center gap-6">
             <motion.a
-              href="tel:+212770303940"
+              href={`tel:${GOOGLE_BUSINESS.PHONE}`}
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>07 70 30 39 40</span>
+              <span>{GOOGLE_BUSINESS.PHONE_FORMATTED}</span>
             </motion.a>
             <motion.a
               href="mailto:contact@allosupport.ma"
@@ -425,7 +426,7 @@ export default function Header() {
                 transition={{ delay: 0.3 }}
               >
                 <motion.a
-                  href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai une urgence informatique"
+                  href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -623,7 +624,7 @@ export default function Header() {
 
                   {/* WhatsApp CTA */}
                   <motion.a
-                    href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai une urgence informatique"
+                    href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}

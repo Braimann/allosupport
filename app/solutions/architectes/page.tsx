@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "Support IT Architectes - Workstations 3D, AutoCAD, Revit, Archicad | AlloSupport.ma",
@@ -22,7 +22,7 @@ const jsonLd = {
   name: "Support informatique pour architectes - AlloSupport.ma",
   serviceType: "IT Support for Architects",
   description: "Support IT pour architectes et bureaux d'études au Maroc : performance workstations (AutoCAD, Revit, Archicad), stockage fichiers lourds, NAS/Cloud, calibrage écrans.",
-  provider: { "@type": "Organization", name: "AlloSupport.ma", telephone: "+212 770 30 39 40" },
+  provider: { "@type": "Organization", name: "AlloSupport.ma", telephone: "+212 7 75 23 70 38" },
   areaServed: { "@type": "Country", name: "Morocco" },
   url: "https://allosupport.ma/solutions/architectes",
 };

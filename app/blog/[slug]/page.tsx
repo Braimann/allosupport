@@ -6,17 +6,23 @@ import { ArrowLeft, Calendar, Clock, Share2, Facebook, Linkedin, Twitter, Monito
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InContentCTA from "@/components/conversion/InContentCTA";
-import RelatedPillars from "@/components/conversion/RelatedPillars";
-import { getPostBySlug, getPublishedPosts } from "@/lib/firebase/blog-service";
-import { findServicesByKeywords } from "@/lib/firebase/services-service";
-import { generateTitle, generateDescription, generateCanonical, extractKeywords } from "@/lib/seo";
+import { getPostBySlug, getPublishedPosts, getAllSlugs } from "@/content/blog/posts";
+import { generateTitle, generateDescription, generateCanonical } from "@/lib/seo";
+
+const BASE_URL = "https://allosupport.ma";
+
+function getAbsoluteImageUrl(imageUrl: string | undefined): string | undefined {
+  if (!imageUrl) return undefined;
+  return imageUrl.startsWith("http") ? imageUrl : `${BASE_URL}${imageUrl}`;
+}
 
 interface PageProps {
   params: { slug: string };
 }
 
-// Revalidate every 60 seconds (ISR)
-export const revalidate = 60;
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }));
+}
 
 // Icon mapping based on category
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -31,66 +37,57 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   "Télétravail": Cloud,
 };
 
-function formatDate(date: { toDate?: () => Date } | Date): string {
-  const d = date && typeof (date as { toDate?: () => Date }).toDate === 'function' 
-    ? (date as { toDate: () => Date }).toDate() 
-    : new Date(date as Date);
-  return d.toLocaleDateString("fr-FR", {
+function formatDate(isoDate: string): string {
+  return new Date(isoDate).toLocaleDateString("fr-FR", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
 }
 
-function formatDateISO(date: { toDate?: () => Date } | Date): string {
-  const d = date && typeof (date as { toDate?: () => Date }).toDate === 'function' 
-    ? (date as { toDate: () => Date }).toDate() 
-    : new Date(date as Date);
-  return d.toISOString().split('T')[0];
+function formatDateISO(isoDate: string): string {
+  return new Date(isoDate).toISOString().split("T")[0];
 }
 
-// Generate metadata for each blog post
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+export function generateMetadata({ params }: PageProps): Metadata {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
-    return {
-      title: "Article non trouvé | AlloSupport.ma",
-    };
+    return { title: "Article non trouvé | AlloSupport.ma" };
   }
 
   const title = generateTitle(post.title, "Guide Pratique");
   const description = generateDescription(post.metaDescription || post.excerpt, 160);
   const canonical = generateCanonical(`blog/${params.slug}`);
 
+  const absoluteImageUrl = getAbsoluteImageUrl(post.imageUrl);
+
   return {
     title,
     description,
-    alternates: {
-      canonical,
-    },
+    alternates: { canonical },
     keywords: post.keywords,
     openGraph: {
       title,
       description,
       type: "article",
-      publishedTime: formatDateISO(post.createdAt),
+      publishedTime: formatDateISO(post.publishedAt),
       authors: [post.author || "AlloSupport.ma"],
       tags: post.keywords,
-      images: post.imageUrl ? [post.imageUrl] : [],
+      images: absoluteImageUrl ? [{ url: absoluteImageUrl, alt: post.imageAlt || post.title }] : [],
       url: canonical,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: post.imageUrl ? [post.imageUrl] : [],
+      images: absoluteImageUrl ? [absoluteImageUrl] : [],
     },
   };
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
-  const post = await getPostBySlug(params.slug);
+export default function BlogPostPage({ params }: PageProps) {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
@@ -98,21 +95,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const IconComponent = categoryIcons[post.category] || Monitor;
 
-  // Get related posts (excluding current)
-  const allPosts = await getPublishedPosts();
+  const allPosts = getPublishedPosts();
   const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
-  // Extract keywords from content for internal linking
-  const contentKeywords = extractKeywords(post.content);
-  const allKeywords = [...(post.keywords || []), ...contentKeywords];
-  
-  // Find related Pillar Pages (services)
-  const relatedServices = await findServicesByKeywords(allKeywords);
-
-  // Determine service name and price for InContentCTA
   let serviceName = "Dépannage Informatique";
   let price = "250 DH";
-  
   if (post.category.includes("Sécurité") || post.category.includes("Cybersécurité")) {
     serviceName = "Protection & Sécurité";
     price = "450 DH";
@@ -121,31 +108,39 @@ export default async function BlogPostPage({ params }: PageProps) {
     price = "250 DH";
   }
 
-  // JSON-LD for the article
+  const absoluteImageUrl = getAbsoluteImageUrl(post.imageUrl);
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription || post.excerpt,
-    image: post.imageUrl || `https://allosupport.ma/images/blog/${post.slug}.jpg`,
-    datePublished: formatDateISO(post.createdAt),
+    image: absoluteImageUrl
+      ? {
+          "@type": "ImageObject" as const,
+          url: absoluteImageUrl,
+          width: 1200,
+          height: 630,
+        }
+      : `${BASE_URL}/blog/${post.slug}.jpg`,
+    datePublished: formatDateISO(post.publishedAt),
     dateModified: formatDateISO(post.updatedAt),
     author: {
-      "@type": "Organization",
+      "@type": "Organization" as const,
       name: post.author || "AlloSupport.ma",
-      url: "https://allosupport.ma",
+      url: BASE_URL,
     },
     publisher: {
-      "@type": "Organization",
+      "@type": "Organization" as const,
       name: "AlloSupport.ma",
       logo: {
-        "@type": "ImageObject",
-        url: "https://allosupport.ma/logo.png",
+        "@type": "ImageObject" as const,
+        url: `${BASE_URL}/logo.png`,
       },
     },
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://allosupport.ma/blog/${post.slug}`,
+      "@type": "WebPage" as const,
+      "@id": `${BASE_URL}/blog/${post.slug}`,
     },
     keywords: post.keywords?.join(", ") || "",
   };
@@ -190,7 +185,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="flex flex-wrap items-center gap-6 text-white/80">
               <span className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
-                {formatDate(post.createdAt)}
+                {formatDate(post.publishedAt)}
               </span>
               <span className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
@@ -326,14 +321,6 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </article>
 
-        {/* Related Pillar Pages (Services) */}
-        {relatedServices.length > 0 && (
-          <RelatedPillars 
-            services={relatedServices} 
-            currentKeywords={allKeywords}
-          />
-        )}
-
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
           <section className="py-16 bg-white">
@@ -346,7 +333,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   const RelatedIcon = categoryIcons[relatedPost.category] || Monitor;
                   return (
                     <Link
-                      key={relatedPost.id}
+                      key={relatedPost.slug}
                       href={`/blog/${relatedPost.slug}`}
                       className="group flex gap-6 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                     >

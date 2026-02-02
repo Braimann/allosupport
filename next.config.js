@@ -79,6 +79,23 @@ const nextConfig = {
       },
     ];
   },
+
+  // Redirection www → non-www (301) pour GSC
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.allosupport.ma',
+          },
+        ],
+        destination: 'https://allosupport.ma/:path*',
+        permanent: true,
+      },
+    ];
+  },
   
   // Optimiser JavaScript (éviter polyfills inutiles)
   compiler: {

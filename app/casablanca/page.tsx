@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = GOOGLE_BUSINESS.WHATSAPP;
 
 export const metadata: Metadata = {
-  title: "Dépannage PC Casablanca - Intervention à Distance en 15 min | AlloSupport.ma",
-  description:
-    "Réparation et dépannage PC à Casablanca (Derb Ghallef, Maarif, Sidi Maarouf). PC lent, virus, formatage, Windows. Intervention 100% à distance en 15 minutes, dès 250 DH. Satisfait ou Remboursé.",
+  title: "Dépannage Informatique à Domicile Casablanca | AlloSupport",
+  description: `Service de dépannage informatique à domicile à Casablanca. Intervention rapide tous quartiers: Maarif, Gauthier, Ain Diab. ⭐ ${GOOGLE_BUSINESS.RATING}/5`,
   alternates: {
     canonical: "https://allosupport.ma/casablanca",
   },
   openGraph: {
-    title: "Dépannage PC Casablanca - Intervention à Distance en 15 min",
+    title: "Dépannage Informatique à Domicile Casablanca",
     description:
-      "Dépannage informatique et réparation PC à Casablanca. Intervention immédiate à distance via WhatsApp, sans déplacement. Tarifs transparents dès 250 DH.",
+      "Nous venons chez vous à Casablanca pour réparer votre PC",
     url: "https://allosupport.ma/casablanca",
     type: "website",
   },
@@ -25,13 +25,7 @@ const jsonLd = {
   description:
     "Service de dépannage informatique à distance pour particuliers et PME à Casablanca (Derb Ghallef, Maarif, Sidi Maarouf, Sidi Maârouf et toute la ville). Intervention en 15 minutes via WhatsApp.",
   url: "https://allosupport.ma/casablanca",
-  telephone: "+212 770 30 39 40",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Casablanca",
-    addressRegion: "Casablanca-Settat",
-    addressCountry: "MA",
-  },
+  telephone: "+212 7 75 23 70 38",
   areaServed: [
     {
       "@type": "City",
@@ -93,14 +87,10 @@ export default function CasablancaPage() {
                 Dépannage PC Casablanca
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Dépannage PC Casablanca - Intervention à Distance en 15 min
+                Dépannage Informatique à Domicile Casablanca
               </h1>
               <p className="text-lg text-slate-200 mb-6">
-                Votre PC est en panne, très lent ou rempli de virus à Casablanca ? Que
-                vous soyez à <strong>Derb Ghallef</strong>, <strong>Maarif</strong> ou{" "}
-                <strong>Sidi Maarouf</strong>, nos techniciens interviennent{" "}
-                <strong className="text-emerald-300">100% à distance en moins de 15 minutes</strong>,
-                sans que vous ayez à vous déplacer.
+                Service mobile - Nous intervenons chez vous partout à Casablanca (Derb Ghallef, Maarif, Sidi Maarouf). Intervention rapide à domicile.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -119,6 +109,23 @@ export default function CasablancaPage() {
                   Satisfait ou Remboursé
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Service à Domicile */}
+        <section className="py-8">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="bg-blue-50 p-6 rounded-xl">
+              <h2 className="text-2xl font-bold mb-4 text-slate-900">
+                🏠 Service à Votre Domicile
+              </h2>
+              <ul className="space-y-2 text-slate-700">
+                <li>✅ Pas besoin de vous déplacer</li>
+                <li>✅ Intervention dans votre quartier</li>
+                <li>✅ Matériel professionnel sur place</li>
+                <li>✅ Réparation immédiate</li>
+              </ul>
             </div>
           </div>
         </section>

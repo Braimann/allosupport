@@ -2,12 +2,30 @@ import {
   Mail,
   MapPin,
   Clock,
+  Phone,
   Facebook,
-  Linkedin,
-  Instagram,
   Monitor,
   MessageCircle,
+  Star,
+  Share2,
 } from "lucide-react";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/AlloSupportMaroc",
+    icon: Facebook,
+    ariaLabel:
+      "Suivez AlloSupport sur Facebook - Dépannage Informatique Maroc",
+  },
+  {
+    name: "WhatsApp Business",
+    href: `${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour, je souhaite un devis pour dépannage informatique")}`,
+    icon: MessageCircle,
+    ariaLabel: "Contactez AlloSupport via WhatsApp Business",
+  },
+];
 
 const services = [
   "Dépannage PC",
@@ -56,11 +74,27 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.
+              Service de dépannage informatique à domicile. Nous nous déplaçons chez vous partout au Maroc.
             </p>
 
-            {/* Contact Info */}
+            {/* Contact - pas d'adresse physique */}
             <div className="space-y-3">
+              <a
+                href={`tel:${GOOGLE_BUSINESS.PHONE}`}
+                className="flex items-center gap-3 text-gray-300 hover:text-emerald-400 transition-colors"
+              >
+                <Phone className="w-5 h-5 text-emerald-400" />
+                <span>{GOOGLE_BUSINESS.PHONE_FORMATTED}</span>
+              </a>
+              <a
+                href={GOOGLE_BUSINESS.WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-emerald-400 transition-colors"
+              >
+                <MessageCircle className="w-5 h-5 text-emerald-400" />
+                <span>WhatsApp Business</span>
+              </a>
               <a
                 href="mailto:contact@allosupport.ma"
                 className="flex items-center gap-3 text-gray-300 hover:text-emerald-400 transition-colors"
@@ -68,13 +102,9 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-emerald-400" />
                 <span>contact@allosupport.ma</span>
               </a>
-              <div className="flex items-start gap-3 text-gray-300">
-                <MapPin className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-1" />
-                <span>Casablanca, Maroc</span>
-              </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <Clock className="w-5 h-5 text-emerald-400" />
-                <span>Disponible 24/7</span>
+                <span>Lun-Sam 8h-20h · Urgences 24/7</span>
               </div>
             </div>
           </div>
@@ -157,77 +187,77 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Zones & Newsletter */}
+          {/* Zones d'intervention (remplace adresse) */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Zones d&apos;intervention</h3>
-            <ul className="space-y-3 mb-8">
-              <li>
-                <a
-                  href="/casablanca"
-                  className="text-gray-400 hover:text-accent-400 transition-colors"
-                >
-                  Casablanca
-                </a>
+            <h3 className="text-lg font-bold mb-4 text-white flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-emerald-400" />
+              Zones d&apos;intervention
+            </h3>
+            <ul className="space-y-2 text-gray-400 text-sm mb-6">
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                <a href="/casablanca" className="hover:text-white transition-colors">Casablanca</a>
               </li>
-              <li>
-                <a
-                  href="/rabat"
-                  className="text-gray-400 hover:text-accent-400 transition-colors"
-                >
-                  Rabat
-                </a>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                <a href="/rabat" className="hover:text-white transition-colors">Rabat</a>
               </li>
-              <li>
-                <a
-                  href="/marrakech"
-                  className="text-gray-400 hover:text-accent-400 transition-colors"
-                >
-                  Marrakech
-                </a>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                <a href="/fes" className="hover:text-white transition-colors">Fès</a>
               </li>
-              <li>
-                <a
-                  href="/fes"
-                  className="text-gray-400 hover:text-accent-400 transition-colors"
-                >
-                  Fès
-                </a>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                <a href="/marrakech" className="hover:text-white transition-colors">Marrakech</a>
               </li>
-              <li>
-                <a
-                  href="/agadir"
-                  className="text-gray-400 hover:text-accent-400 transition-colors"
-                >
-                  Agadir
-                </a>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                <a href="/agadir" className="hover:text-white transition-colors">Agadir</a>
               </li>
             </ul>
 
-            {/* Social Links */}
+            {/* Social Links - Facebook Page + WhatsApp Business (SEO) */}
             <h3 className="text-lg font-bold mb-4 text-white">Suivez-nous</h3>
             <div className="flex gap-4">
-              <a
-                href="https://facebook.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="Facebook AlloSupport.ma"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="LinkedIn AlloSupport.ma"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="Instagram AlloSupport.ma"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
+              {socialLinks.map(({ name, href, icon: Icon, ariaLabel }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
+                  aria-label={ariaLabel}
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Avis Google + Partage */}
+      <div className="border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href={GOOGLE_BUSINESS.REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-4 rounded-xl font-semibold transition"
+            >
+              <Star className="w-5 h-5 fill-current" />
+              Laisser un Avis Google
+            </a>
+            <a
+              href={GOOGLE_BUSINESS.SHARE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition"
+            >
+              <Share2 className="w-5 h-5" />
+              Notre Profil Google
+            </a>
           </div>
         </div>
       </div>
@@ -245,7 +275,7 @@ export default function Footer() {
               </p>
             </div>
             <a
-              href="https://wa.me/212770303940?text=Bonjour AlloSupport, j'ai une urgence informatique"
+              href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-emerald-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2"
@@ -262,7 +292,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
             <p>
-              © 2026 AlloSupport.ma. Tous droits réservés.
+              © 2026 AlloSupport Maroc - Service à domicile | Tous droits réservés
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/a-propos" className="hover:text-white transition-colors">

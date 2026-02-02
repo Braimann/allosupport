@@ -220,7 +220,7 @@ export default function Contact() {
                 en moins de 30 minutes à Casablanca et Rabat.
               </p>
               <a
-                href="tel:+212522000000"
+                href="tel:+212775237038"
                 className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
               >
                 <Phone className="w-5 h-5" />
@@ -235,7 +235,7 @@ export default function Contact() {
               </h3>
               <div className="space-y-5">
                 <a
-                  href="tel:+212522000000"
+                  href="tel:+212775237038"
                   className="flex items-center gap-4 text-gray-700 hover:text-blue-600 transition-colors"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
@@ -243,7 +243,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold">Téléphone</p>
-                    <p className="text-gray-500">+212 5 22 00 00 00</p>
+                    <p className="text-gray-500">07 75 23 70 38</p>
                   </div>
                 </a>
 

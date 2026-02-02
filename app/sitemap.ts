@@ -1,9 +1,6 @@
 import { MetadataRoute } from "next";
-import { getAllPostsForSitemap } from "@/lib/firebase/blog-service";
+import { getAllPostsForSitemap } from "@/content/blog/posts";
 import { getAllServicesForSitemap } from "@/lib/firebase/services-service";
-
-// Revalidate sitemap every 60 seconds (ISR)
-export const revalidate = 60;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://allosupport.ma";
@@ -249,6 +246,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/avis`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/mentions-legales`,
       lastModified: now,
       changeFrequency: "yearly",
@@ -259,98 +262,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.5,
-    },
-    // City SEO pages
-    {
-      url: `${baseUrl}/casablanca`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/rabat`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fes`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/marrakech`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/agadir`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    // Service SEO pages
-    {
-      url: `${baseUrl}/depannage-informatique`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/pc-lent-solution`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/virus-ordinateur-maroc`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/formatage-pc`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/support-pme`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/reparation-ordinateur`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/installation-windows`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/antivirus-maroc`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/recuperation-donnees`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/maintenance-informatique`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
   ];
 
@@ -371,22 +282,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Continue without service pages - static pages will still be included
   }
 
-  // Dynamic blog posts (Cluster Posts) - Lower priority with real dates
-  let blogPages: MetadataRoute.Sitemap = [];
-  try {
-    const posts = await getAllPostsForSitemap();
-    if (posts && posts.length > 0) {
-      blogPages = posts.map((post) => ({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: post.updatedAt,
-        changeFrequency: "monthly" as const,
-        priority: 0.8, // Lower priority for educational content
-      }));
-    }
-  } catch (error) {
-    console.warn("⚠️  Warning: Could not generate blog sitemap. Firebase may not be configured. Error:", error);
-    // Continue without blog pages - static pages will still be included
-  }
+  // Blog posts (local content/blog/posts)
+  const blogPosts = getAllPostsForSitemap();
+  const blogPages: MetadataRoute.Sitemap =
+    blogPosts.length > 0
+      ? blogPosts.map((post) => ({
+          url: `${baseUrl}/blog/${post.slug}`,
+          lastModified: post.updatedAt,
+          changeFrequency: "monthly" as const,
+          priority: 0.8,
+        }))
+      : [];
 
   // Combine all pages
   const allPages = [...staticPages, ...servicePages, ...blogPages];

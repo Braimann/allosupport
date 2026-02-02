@@ -4,6 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { useState, useEffect, lazy, Suspense } from "react";
 import { generateWhatsAppURL } from "@/lib/seo";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { WHATSAPP_PHONE } from "@/components/PhoneLink";
 
 interface StickyWhatsAppProps {
   phoneNumber?: string;
@@ -16,7 +17,7 @@ interface StickyWhatsAppProps {
 const StickyWhatsAppContent = lazy(() => Promise.resolve({ default: WhatsAppButtonContent }));
 
 function WhatsAppButtonContent({
-  phoneNumber = "212770303940",
+  phoneNumber = WHATSAPP_PHONE,
   defaultMessage = "Bonjour AlloSupport, j'ai une urgence informatique. Pouvez-vous m'aider ?",
   context,
   position = "bottom-right",

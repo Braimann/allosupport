@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "import:vision-maroc": "npx ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/import-vision-maroc-2030.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.66",

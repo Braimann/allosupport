@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import GoogleBadge from "@/components/GoogleBadge";
 import Pricing from "@/components/Pricing";
 import Services from "@/components/Services";
 import Trust from "@/components/Trust";
@@ -23,6 +24,10 @@ export default function Home() {
       {/* Above the fold - chargé immédiatement */}
       <Header />
       <Hero />
+      <div className="flex justify-center -mt-8 relative z-10">
+        <GoogleBadge variant="inline" inviteOnly />
+      </div>
+      <GoogleBadge variant="floating" inviteOnly />
       <Pricing />
       <Services />
       <Trust />

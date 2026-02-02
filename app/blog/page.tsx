@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Monitor, Cloud, ShieldAlert, Server, Search, Settings } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getPublishedPosts, BlogPost } from "@/lib/firebase/blog-service";
+import { getPublishedPosts } from "@/content/blog/posts";
+import type { BlogPost } from "@/content/blog/posts";
 
 export const metadata: Metadata = {
   title: "Blog & Actualités IT | AlloSupport.ma",
@@ -20,11 +21,12 @@ export const metadata: Metadata = {
     title: "Blog & Actualités IT | AlloSupport.ma",
     description: "Conseils d'experts en dépannage informatique à distance pour particuliers et PME au Maroc.",
     type: "website",
+    url: "https://allosupport.ma/blog",
+  },
+  alternates: {
+    canonical: "https://allosupport.ma/blog",
   },
 };
-
-// Revalidate every 60 seconds (ISR)
-export const revalidate = 60;
 
 // Icon mapping based on category
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -36,19 +38,16 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   "SEO": Search,
 };
 
-function formatDate(date: { toDate?: () => Date } | Date): string {
-  const d = date && typeof (date as { toDate?: () => Date }).toDate === 'function' 
-    ? (date as { toDate: () => Date }).toDate() 
-    : new Date(date as Date);
-  return d.toLocaleDateString("fr-FR", {
+function formatDate(isoDate: string): string {
+  return new Date(isoDate).toLocaleDateString("fr-FR", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
 }
 
-export default async function BlogPage() {
-  const posts = await getPublishedPosts();
+export default function BlogPage() {
+  const posts = getPublishedPosts();
 
   return (
     <>
@@ -89,7 +88,7 @@ export default async function BlogPage() {
                   const IconComponent = categoryIcons[post.category] || Monitor;
                   return (
                     <article
-                      key={post.id}
+                      key={post.slug}
                       className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300"
                     >
                       {/* Image */}
@@ -117,7 +116,7 @@ export default async function BlogPage() {
                       {/* Content */}
                       <div className="p-6">
                         <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                          <span>{formatDate(post.createdAt)}</span>
+                          <span>{formatDate(post.publishedAt)}</span>
                           <span>•</span>
                           <span>{post.readTime}</span>
                         </div>

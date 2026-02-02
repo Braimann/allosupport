@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const whatsappBase = "https://wa.me/212770303940";
+const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title: "Dépannage PC Fès - Réparation à Distance en 15 min | AlloSupport.ma",
@@ -25,7 +25,7 @@ const jsonLd = {
   description:
     "Dépannage informatique à distance à Fès pour artisans en Médina, riads et étudiants (Ville Nouvelle, Batha, Route d'Imouzzer, Narjiss). Intervention en 15 min.",
   url: "https://allosupport.ma/fes",
-  telephone: "+212 770 30 39 40",
+  telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Fès",

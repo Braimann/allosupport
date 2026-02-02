@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import SchemaLocalBusiness from "@/components/SchemaLocalBusiness";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 // FIREBASE AUTH DÉSACTIVÉ - Performance optimization (LCP/FCP)
 // import { lazy, Suspense } from "react";
 // const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
@@ -10,6 +10,10 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ScrollTracker from "@/components/analytics/ScrollTracker";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://allosupport.ma"),
+  alternates: {
+    canonical: "https://allosupport.ma",
+  },
   title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
   description:
     "Leader du dépannage informatique à distance au Maroc. PC lent, Virus, Maintenance PME. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
@@ -54,47 +58,72 @@ export const metadata: Metadata = {
   },
 };
 
-// Generate LocalBusiness + ProfessionalService Schema
-const jsonLd = {
+// Schema ProfessionalService - Service à domicile (PAS d'adresse physique)
+const hasReviews =
+  GOOGLE_BUSINESS.HAS_REVIEWS &&
+  parseInt(GOOGLE_BUSINESS.REVIEW_COUNT, 10) > 0;
+
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "ProfessionalService",
+  name: "AlloSupport Maroc",
+  description:
+    "Service de dépannage informatique à domicile au Maroc. Intervention rapide à Casablanca, Rabat, Fès, Marrakech et Agadir.",
+  url: "https://allosupport.ma",
+  logo: "https://allosupport.ma/logo.png",
+  image: "https://allosupport.ma/og-image.jpg",
+  telephone: GOOGLE_BUSINESS.PHONE,
+  priceRange: "$$",
+  areaServed: GOOGLE_BUSINESS.SERVICE_AREA.map((city) => ({
+    "@type": "City",
+    name: city,
+    containedInPlace: {
+      "@type": "Country",
+      name: "Maroc",
+    },
+  })),
+  serviceType: "Dépannage informatique à domicile",
+  provider: {
+    "@type": "Organization",
+    name: "AlloSupport Maroc",
+  },
+  ...(hasReviews
+    ? {
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: GOOGLE_BUSINESS.RATING,
+          reviewCount: GOOGLE_BUSINESS.REVIEW_COUNT,
+          bestRating: "5",
+          worstRating: "1",
+        },
+      }
+    : {}),
+  openingHoursSpecification: [
     {
-      "@type": ["LocalBusiness", "ProfessionalService"],
-      name: "AlloSupport.ma",
-      description: "Leader du dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp.",
-      url: "https://allosupport.ma",
-      telephone: "+212 770 30 39 40",
-      email: "contact@allosupport.ma",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Casablanca",
-        addressRegion: "Casablanca-Settat",
-        addressCountry: "MA",
-      },
-      areaServed: [
-        {
-          "@type": "Country",
-          name: "Morocco",
-        },
-        {
-          "@type": "City",
-          name: "Casablanca",
-        },
-        {
-          "@type": "City",
-          name: "Rabat",
-        },
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
       ],
-      priceRange: "150 DH - 500 DH",
-      openingHours: "Mo-Su 00:00-23:59",
-      serviceType: "Dépannage Informatique à Distance",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "127",
-      },
+      opens: "08:00",
+      closes: "20:00",
     },
   ],
+  sameAs: [
+    GOOGLE_BUSINESS.SHARE_URL,
+    "https://www.facebook.com/AlloSupportMaroc",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: GOOGLE_BUSINESS.PHONE,
+    contactType: "customer service",
+    availableLanguage: ["fr", "ar"],
+    areaServed: "MA",
+  },
 };
 
 export default function RootLayout({
@@ -147,7 +176,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         
-        <SchemaLocalBusiness />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
       </head>
       <body className="antialiased bg-gray-50">
         {children}

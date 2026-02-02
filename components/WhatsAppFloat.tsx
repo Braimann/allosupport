@@ -3,6 +3,7 @@
 import { MessageCircle } from "lucide-react";
 import { generateWhatsAppURL } from "@/lib/seo";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 
 interface WhatsAppFloatProps {
   phoneNumber?: string;
@@ -10,7 +11,7 @@ interface WhatsAppFloatProps {
 }
 
 export default function WhatsAppFloat({
-  phoneNumber = "212770303940",
+  phoneNumber = GOOGLE_BUSINESS.WHATSAPP_PHONE,
   message = "Bonjour AlloSupport, j'ai besoin d'aide pour mon problème informatique.",
 }: WhatsAppFloatProps) {
   const whatsappUrl = generateWhatsAppURL(phoneNumber, message);
