@@ -21,11 +21,24 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
-  name: "Dépannage PC Casablanca - AlloSupport.ma",
+  name: "AlloSupport Casablanca - Dépannage Informatique",
   description:
-    "Service de dépannage informatique à distance pour particuliers et PME à Casablanca (Derb Ghallef, Maarif, Sidi Maarouf, Sidi Maârouf et toute la ville). Intervention en 15 minutes via WhatsApp.",
+    "Service de dépannage informatique à distance pour particuliers et PME à Casablanca (Derb Ghallef, Maarif, Sidi Maarouf et toute la ville). Intervention en 15 minutes via WhatsApp.",
   url: "https://allosupport.ma/casablanca",
-  telephone: "+212 7 75 23 70 38",
+  telephone: "+212775237038",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Service à domicile tous quartiers",
+    addressLocality: "Casablanca",
+    addressRegion: "Casablanca-Settat",
+    postalCode: "20000",
+    addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 33.5731,
+    longitude: -7.5898,
+  },
   areaServed: [
     {
       "@type": "City",
@@ -44,7 +57,7 @@ const jsonLd = {
       name: "Sidi Maarouf",
     },
   ],
-  priceRange: "150 DH - 499 DH",
+  priceRange: "$$",
   serviceType: "Dépannage PC Casablanca",
   offers: [
     {

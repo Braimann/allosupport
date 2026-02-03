@@ -16,9 +16,12 @@ export const metadata: Metadata = {
   },
   title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
   description:
-    "Leader du dépannage informatique à distance au Maroc. PC lent, Virus, Maintenance PME. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
+    "Leader du dépannage informatique à distance au Maroc. PC lent, Virus, Maintenance PME. Siège Casablanca. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
   keywords: [
     "dépannage informatique Maroc",
+    "dépannage informatique casablanca",
+    "réparation pc casablanca maroc",
+    "allosupport casablanca",
     "support informatique à distance",
     "réparation PC WhatsApp",
     "dépannage PC urgent Maroc",
@@ -58,7 +61,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema ProfessionalService - Service à domicile (PAS d'adresse physique)
+// Schema ProfessionalService + adresse complète (requis Rich Results .ma)
 const hasReviews =
   GOOGLE_BUSINESS.HAS_REVIEWS &&
   parseInt(GOOGLE_BUSINESS.REVIEW_COUNT, 10) > 0;
@@ -66,6 +69,7 @@ const hasReviews =
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://allosupport.ma",
   name: "AlloSupport Maroc",
   description:
     "Service de dépannage informatique à domicile au Maroc. Intervention rapide à Casablanca, Rabat, Fès, Marrakech et Agadir.",
@@ -74,6 +78,19 @@ const organizationSchema = {
   image: "https://allosupport.ma/og-image.jpg",
   telephone: GOOGLE_BUSINESS.PHONE,
   priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Service à domicile",
+    addressLocality: "Casablanca",
+    addressRegion: "Casablanca-Settat",
+    postalCode: "20000",
+    addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 33.5731,
+    longitude: -7.5898,
+  },
   areaServed: GOOGLE_BUSINESS.SERVICE_AREA.map((city) => ({
     "@type": "City",
     name: city,
@@ -112,10 +129,17 @@ const organizationSchema = {
       opens: "08:00",
       closes: "20:00",
     },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Sunday",
+      opens: "10:00",
+      closes: "18:00",
+    },
   ],
   sameAs: [
     GOOGLE_BUSINESS.SHARE_URL,
     "https://www.facebook.com/AlloSupportMaroc",
+    "https://g.page/r/CTT4BBV6QaxrEBM/review",
   ],
   contactPoint: {
     "@type": "ContactPoint",

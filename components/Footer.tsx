@@ -77,7 +77,25 @@ export default function Footer() {
               Service de dépannage informatique à domicile. Nous nous déplaçons chez vous partout au Maroc.
             </p>
 
-            {/* Contact - pas d'adresse physique */}
+            {/* Siège Social */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-white">
+                <MapPin className="w-5 h-5 text-emerald-400" />
+                Siège Social
+              </h3>
+              <address className="not-italic text-gray-400 text-sm" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <strong itemProp="name" className="text-gray-300">AlloSupport Maroc</strong><br />
+                <span itemProp="streetAddress">Service à domicile</span><br />
+                <span itemProp="addressLocality">Casablanca</span>, <span itemProp="postalCode">20000</span><br />
+                <span itemProp="addressCountry">Maroc</span>
+                <br />
+                <br />
+                Tél: <a href={`tel:${GOOGLE_BUSINESS.PHONE}`} itemProp="telephone" className="hover:text-white text-emerald-400">
+                  {GOOGLE_BUSINESS.PHONE_FORMATTED}
+                </a>
+              </address>
+            </div>
+
             <div className="space-y-3">
               <a
                 href={`tel:${GOOGLE_BUSINESS.PHONE}`}

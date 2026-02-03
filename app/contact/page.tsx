@@ -33,6 +33,15 @@ export default function ContactPage() {
       "@type": "ProfessionalService",
       name: "AlloSupport Maroc",
       url: "https://allosupport.ma",
+      telephone: GOOGLE_BUSINESS.PHONE,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Service à domicile",
+        addressLocality: "Casablanca",
+        addressRegion: "Casablanca-Settat",
+        postalCode: "20000",
+        addressCountry: "MA",
+      },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: GOOGLE_BUSINESS.PHONE,
@@ -66,6 +75,32 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Coordonnées */}
             <div className="space-y-8">
+              {/* Siège Social */}
+              <div className="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-blue-600 p-3 rounded-lg">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900">Siège Social</h2>
+                </div>
+                <address className="not-italic text-gray-700" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <p className="mb-2">
+                    <strong itemProp="name">AlloSupport Maroc</strong>
+                  </p>
+                  <p className="text-gray-600">
+                    <span itemProp="streetAddress">Service à domicile</span><br />
+                    <span itemProp="addressLocality">Casablanca</span> <span itemProp="postalCode">20000</span><br />
+                    <span itemProp="addressCountry">Maroc</span>
+                  </p>
+                </address>
+                <div className="mt-4 pt-4 border-t border-blue-200">
+                  <p className="text-sm text-gray-600">
+                    <strong>Zones d&apos;intervention :</strong><br />
+                    Casablanca · Rabat · Fès · Marrakech · Agadir
+                  </p>
+                </div>
+              </div>
+
               {/* Zones Intervention */}
               <div className="bg-blue-50 p-6 rounded-2xl">
                 <div className="flex items-center gap-3 mb-4">

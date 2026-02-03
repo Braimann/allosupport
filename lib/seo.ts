@@ -92,15 +92,11 @@ export function generateLocalBusinessSchema(overrides?: {
     email: overrides?.email || "contact@allosupport.ma",
     address: {
       "@type": "PostalAddress",
-      addressLocality: overrides?.address?.addressLocality || "Casablanca",
-      addressRegion: overrides?.address?.addressRegion || "Casablanca-Settat",
+      streetAddress: overrides?.address?.streetAddress ?? "Service à domicile",
+      addressLocality: overrides?.address?.addressLocality ?? "Casablanca",
+      addressRegion: overrides?.address?.addressRegion ?? "Casablanca-Settat",
+      postalCode: overrides?.address?.postalCode ?? "20000",
       addressCountry: "MA",
-      ...(overrides?.address?.streetAddress && {
-        streetAddress: overrides.address.streetAddress,
-      }),
-      ...(overrides?.address?.postalCode && {
-        postalCode: overrides.address.postalCode,
-      }),
     },
     areaServed: [
       "Casablanca",

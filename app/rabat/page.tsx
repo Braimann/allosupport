@@ -29,9 +29,16 @@ const jsonLd = {
   telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Rabat",
     addressRegion: "Rabat-Salé-Kénitra",
+    postalCode: "10000",
     addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 34.0209,
+    longitude: -6.8416,
   },
   areaServed: [
     {

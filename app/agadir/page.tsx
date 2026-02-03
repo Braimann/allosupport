@@ -28,9 +28,16 @@ const jsonLd = {
   telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Agadir",
     addressRegion: "Souss-Massa",
+    postalCode: "80000",
     addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 30.4278,
+    longitude: -9.5981,
   },
   areaServed: [
     { "@type": "City", name: "Agadir" },

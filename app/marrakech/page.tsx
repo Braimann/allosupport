@@ -29,9 +29,16 @@ const jsonLd = {
   telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Marrakech",
-    addressRegion: "Marrakesh-Safi",
+    addressRegion: "Marrakech-Safi",
+    postalCode: "40000",
     addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 31.6295,
+    longitude: -7.9811,
   },
   areaServed: [
     { "@type": "City", name: "Marrakech" },

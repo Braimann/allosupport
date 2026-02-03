@@ -28,9 +28,16 @@ const jsonLd = {
   telephone: "+212 7 75 23 70 38",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Fès",
     addressRegion: "Fès-Meknès",
+    postalCode: "30000",
     addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 34.0181,
+    longitude: -5.0078,
   },
   areaServed: [
     { "@type": "City", name: "Fès" },
