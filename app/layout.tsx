@@ -7,6 +7,7 @@ import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 // import { lazy, Suspense } from "react";
 // const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import ScrollTracker from "@/components/analytics/ScrollTracker";
 
 export const metadata: Metadata = {
@@ -183,6 +184,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://firestore.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
         
         {/* Preload fonts critiques pour LCP */}
         <link
@@ -212,8 +214,9 @@ export default function RootLayout({
         <StickyWhatsApp />
         <WhatsAppFloat />
         <ScrollTracker />
-        {/* GTM/GA4 chargé après le contenu principal (lazyOnload) pour ne pas bloquer LCP/FCP */}
+        {/* Analytics chargés après le contenu principal (lazyOnload) pour ne pas bloquer LCP/FCP */}
         <GoogleAnalytics />
+        <MicrosoftClarity />
         {/* FIREBASE AUTH DÉSACTIVÉ - Performance optimization - Réactivation: décommenter ci-dessous et réimporter lazy, Suspense, AuthProviderLazy, ErrorBoundary
         <ErrorBoundary fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
           <Suspense fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>

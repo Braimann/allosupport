@@ -36,3 +36,11 @@ NEXT_PUBLIC_FIREBASE_APP_ID=1:123456789012:web:abcdef123456
 # Email de l'administrateur (celui que vous créerez dans Firebase Auth)
 # Ce sera l'email que vous utiliserez pour vous connecter à /admin/login
 NEXT_PUBLIC_ADMIN_EMAIL=votre-email@gmail.com
+
+# =====================================================
+# MICROSOFT CLARITY (heatmaps, enregistrements de session)
+# =====================================================
+# 1. Créez un projet sur https://clarity.microsoft.com
+# 2. Copiez l'ID du projet (ex: abcdefgh12)
+# 3. Ajoutez-le ci-dessous pour activer Clarity
+# NEXT_PUBLIC_CLARITY_PROJECT_ID=
