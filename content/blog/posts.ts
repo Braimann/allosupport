@@ -345,7 +345,27 @@ const BLOG_POSTS: BlogPost[] = [
       "AlloSupport diagnostique et répare à distance ou sur site. <a href=\"/blog/recuperation-donnees-disque-dur-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">Récupération données</a>, <a href=\"/blog/nettoyer-pc-poussiere-maroc-tuto\" class=\"text-primary-600 hover:text-primary-700 underline\">nettoyage PC</a>, <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">services</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
-  // 14. Télétravail Maroc équipement
+  // 14. 7 pannes PC courantes Maroc 2026 (article dédié /blog/7-pannes-pc-courantes-2026-maroc)
+  {
+    slug: "7-pannes-pc-courantes-2026-maroc",
+    title: "Les 7 pannes PC courantes au Maroc en 2026 (et comment les réparer)",
+    excerpt: "PC lent, surchauffe, écran bleu, virus, WiFi, PC qui ne démarre plus, périphériques. Solutions et dépannage informatique Casablanca.",
+    metaDescription: "7 pannes PC courantes Maroc : PC lent, écran bleu, virus. Solutions + dépannage informatique casablanca par AlloSupport.",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/blog/6pro.webp",
+    imageAlt: "7 pannes PC courantes Maroc 2026 – solutions et dépannage Casablanca",
+    keywords: ["pannes pc courantes maroc", "ordinateur lent 2026", "réparer pc maroc", "dépannage informatique casablanca", "écran bleu windows 11"],
+    author: "AlloSupport Maroc",
+    readTime: "8 min de lecture",
+    publishedAt: "2026-02-06",
+    updatedAt: "2026-02-06",
+    content: toHtml([
+      "Guide complet des 7 pannes PC les plus courantes au Maroc en 2026 : PC lent chronique, surchauffe, écran bleu Windows 11, virus et malwares, problèmes WiFi Maroc Telecom, PC qui ne démarre plus, périphériques défaillants. Solutions DIY et intervention dépannage informatique Casablanca à distance par AlloSupport.",
+      "L'article complet est disponible sur cette page avec sommaire, FAQ et liens utiles. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
+    ]),
+  },
+  // 15. Télétravail Maroc équipement
   {
     slug: "teletravail-maroc-equipement-informatique",
     title: "Télétravail au Maroc : Équipement Informatique Essentiel 2026",
