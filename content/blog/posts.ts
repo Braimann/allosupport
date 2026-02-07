@@ -365,7 +365,27 @@ const BLOG_POSTS: BlogPost[] = [
       "L'article complet est disponible sur cette page avec sommaire, FAQ et liens utiles. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
     ]),
   },
-  // 15. Télétravail Maroc équipement
+  // 15. WiFi lent Maroc 2026 (article dédié /blog/wifi-lent-maroc-2026)
+  {
+    slug: "wifi-lent-maroc-2026",
+    title: "Wi-Fi Lent au Maroc 2026 : 10 Raisons + 10 Solutions Rapides",
+    excerpt: "Guide complet : réglages box Maroc Telecom, Inwi, Orange, canaux Wi-Fi, 5 GHz, répéteurs. Casablanca, Rabat, Marrakech.",
+    metaDescription: "Wi-Fi lent à Casablanca, Rabat ou Marrakech ? 10 solutions rapides 2026, réglages box FAI, prix répéteurs. AlloSupport.",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/blog/allo_support_wifi.webp",
+    imageAlt: "Wi-Fi lent au Maroc 2026 – 10 solutions et réglages box",
+    keywords: ["wifi lent maroc", "wifi lent casablanca", "booster wifi maroc", "répéteur wifi maroc 2026", "maroc telecom wifi lent", "inwi orange wifi"],
+    author: "AlloSupport Maroc",
+    readTime: "12 min de lecture",
+    publishedAt: "2026-02-07",
+    updatedAt: "2026-02-07",
+    content: toHtml([
+      "Guide WiFi lent au Maroc 2026 : causes (box Maroc Telecom/Orange/Inwi, pilote WiFi PC, position routeur, trop d'appareils) et solutions. Dépannage à distance AlloSupport pour diagnostic et optimisation.",
+      "L'article complet est sur cette page. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/blog/7-pannes-pc-courantes-2026-maroc\" class=\"text-primary-600 hover:underline\">7 pannes PC</a>.",
+    ]),
+  },
+  // 16. Télétravail Maroc équipement
   {
     slug: "teletravail-maroc-equipement-informatique",
     title: "Télétravail au Maroc : Équipement Informatique Essentiel 2026",

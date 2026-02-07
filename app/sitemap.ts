@@ -143,16 +143,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    // Blog listing + tous les articles sont ajoutés dynamiquement via blogPages ci-dessous
     {
       url: `${baseUrl}/blog`,
       lastModified: now,
       changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/7-pannes-pc-courantes-2026-maroc`,
-      lastModified: now,
-      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
