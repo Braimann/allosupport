@@ -20,8 +20,13 @@ interface PageProps {
   params: { slug: string };
 }
 
+// Slugs qui ont une page statique dédiée (évite conflit et erreurs vendor-chunks motion)
+const STATIC_BLOG_SLUGS = ["wifi-lent-maroc-2026", "7-pannes-pc-courantes-2026-maroc"];
+
 export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return getAllSlugs()
+    .filter((slug) => !STATIC_BLOG_SLUGS.includes(slug))
+    .map((slug) => ({ slug }));
 }
 
 // Icon mapping based on category

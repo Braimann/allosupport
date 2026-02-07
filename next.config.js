@@ -9,7 +9,8 @@ const nextConfig = {
   
   // Éviter polyfills inutiles (target ES2020+)
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    // framer-motion retiré : évite "Cannot find module vendor-chunks/motion-dom.js" en dev
+    optimizePackageImports: ['lucide-react'],
   },
   
   // Optimisation images (WebP automatique)

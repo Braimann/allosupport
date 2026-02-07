@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -24,21 +24,22 @@ import {
   Wifi,
   Cloud,
   User,
-  Ticket,
   Wrench,
   Code,
   Key,
   Gauge,
   HardDriveIcon,
   QrCode,
-  ArrowRight,
   FileText,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useAuth } from "@/context/AuthContext";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 
-// Services data for dropdowns
+// Email (contact centralisé)
+const EMAIL = "contact@allosupport.ma";
+
+// ============================================
+// 📋 SERVICES DATA
+// ============================================
 const servicesParticuliers = [
   {
     name: "Dépannage PC & Mac",
@@ -132,521 +133,457 @@ const tools = [
   },
 ];
 
+// ============================================
+// 🎯 COMPOSANT HEADER
+// ============================================
 export default function Header() {
-  const { user, loading } = useAuth();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // ============================================
+  // 🔧 EFFECTS
+  // ============================================
+  
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
+  // Close mobile menu on route change
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setOpenDropdown(null);
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+  }, [pathname]);
+
+  // Lock body scroll when mobile menu open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [mobileMenuOpen]);
+
+  // Close dropdown on Escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveDropdown(null);
+        setMobileMenuOpen(false);
       }
     };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
 
-    if (openDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+  // ============================================
+  // 🎨 HANDLERS
+  // ============================================
+  
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    setActiveDropdown(null);
+  };
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [openDropdown]);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
 
+  const toggleDropdown = (key: string) => {
+    setActiveDropdown(activeDropdown === key ? null : key);
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
+
+  // ============================================
+  // 📋 NAV LINKS
+  // ============================================
   const navLinks = [
-    { href: "/", label: "Accueil", icon: Home },
+    { 
+      label: "Accueil", 
+      href: "/", 
+      icon: Home 
+    },
     {
-      href: "/#particuliers",
       label: "Particuliers",
+      href: "/services",
       icon: Users,
-      hasDropdown: true,
-      dropdownKey: "particuliers",
-      services: servicesParticuliers,
+      dropdown: "particuliers",
+      items: servicesParticuliers,
     },
     {
-      href: "/#entreprises",
       label: "Entreprises",
+      href: "/services",
       icon: Building2,
-      hasDropdown: true,
-      dropdownKey: "entreprises",
-      services: servicesEntreprises,
+      dropdown: "entreprises",
+      items: servicesEntreprises,
     },
     {
-      href: "/#tarifs",
       label: "Tarifs",
+      href: "/#tarifs",
       icon: DollarSign,
-      isHighlighted: true,
+      highlight: true,
     },
-    { href: "/blog", label: "Blog", icon: BookOpen },
+    { 
+      label: "Blog", 
+      href: "/blog", 
+      icon: BookOpen 
+    },
     {
-      href: "/tools",
       label: "Outils",
+      href: "/tools",
       icon: Wrench,
-      hasDropdown: true,
-      dropdownKey: "tools",
-      services: tools,
+      dropdown: "tools",
+      items: tools,
     },
   ];
 
-  const handleDropdownToggle = (key: string) => {
-    setOpenDropdown(openDropdown === key ? null : key);
-  };
-
-  const handleMobileDropdownToggle = (key: string) => {
-    setMobileDropdown(mobileDropdown === key ? null : key);
-  };
-
+  // ============================================
+  // 🎨 RENDER
+  // ============================================
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="sticky top-0 left-0 right-0 z-50"
-    >
-      {/* Top Bar (Announcement Bar) - Navy Blue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="bg-slate-900 text-white py-2 hidden md:block relative overflow-hidden"
-      >
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs">
-          {/* Left: Contact Info */}
+    <>
+      {/* ============================================ */}
+      {/* TOP BAR - Desktop Only */}
+      {/* ============================================ */}
+      <div className="bg-slate-900 text-white py-2 hidden md:block">
+        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <motion.a
+            <a
               href={`tel:${GOOGLE_BUSINESS.PHONE}`}
-              whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-4 h-4" />
               <span>{GOOGLE_BUSINESS.PHONE_FORMATTED}</span>
-            </motion.a>
-            <motion.a
-              href="mailto:contact@allosupport.ma"
-              whileHover={{ scale: 1.05 }}
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
-              <Mail className="w-3.5 h-3.5" />
-              <span>contact@allosupport.ma</span>
-            </motion.a>
+              <Mail className="w-4 h-4" />
+              <span>{EMAIL}</span>
+            </a>
           </div>
-
-          {/* Right: Online Status */}
-          <motion.div
-            animate={{ opacity: [0.8, 1, 0.8] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex items-center gap-2 text-emerald-400 font-medium"
-          >
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-2 h-2 bg-emerald-500 rounded-full"
-            />
-            <span>Techniciens en ligne : Dispo immédiate</span>
-          </motion.div>
+          <div className="flex items-center gap-2 text-emerald-400">
+            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            <span className="font-medium">Techniciens en ligne : Dispo immédiate</span>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Main Navigation Bar - Pure White */}
-      <nav
-        className={`bg-white transition-all duration-300 ${
-          scrolled ? "shadow-md" : "shadow-sm"
+      {/* ============================================ */}
+      {/* MAIN HEADER */}
+      {/* ============================================ */}
+      <header
+        className={`sticky top-0 bg-white z-[999999] transition-shadow duration-300 ${
+          scrolled ? "shadow-lg" : "shadow-md"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4">
+        <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.5 }}
-                className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/50 transition-shadow"
-              >
+            
+            {/* ============================================ */}
+            {/* LOGO */}
+            {/* ============================================ */}
+            <Link 
+              href="/" 
+              className="flex items-center gap-3 group z-[1000000]"
+              onClick={closeMobileMenu}
+            >
+              <div className="w-11 h-11 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/50 transition-all duration-300">
                 <Monitor className="w-6 h-6 text-white" />
-              </motion.div>
+              </div>
               <div>
-                <span className="text-xl font-bold text-slate-900">
-                  AlloSupport
-                </span>
-                <span className="text-xl font-bold text-emerald-600">.ma</span>
-                <p className="text-xs text-slate-500 -mt-1">
+                <div className="text-xl font-bold">
+                  <span className="text-slate-900">AlloSupport</span>
+                  <span className="text-emerald-600">.ma</span>
+                </div>
+                <p className="text-xs text-slate-500 -mt-0.5">
                   Dépannage IT à Distance
                 </p>
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 relative">
-              {navLinks.map((link, idx) => {
-                const isActive =
-                  (link.href === "/" && pathname === "/") ||
-                  (link.href !== "/" && pathname.startsWith(link.href)) ||
-                  (link.href.startsWith("/#") && isHomePage);
-
-                return (
-                  <div key={link.href} className="relative" ref={link.hasDropdown ? dropdownRef : null}>
-                    <motion.div
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.05 }}
-                    >
-                      <div
-                        className="relative"
-                        onMouseEnter={() =>
-                          link.hasDropdown && setOpenDropdown(link.dropdownKey!)
-                        }
-                        onMouseLeave={() =>
-                          link.hasDropdown && setOpenDropdown(null)
-                        }
+            {/* ============================================ */}
+            {/* DESKTOP NAV */}
+            {/* ============================================ */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <div key={link.href} className="relative group">
+                  {link.dropdown ? (
+                    // Dropdown Link
+                    <div>
+                      <button
+                        onClick={() => toggleDropdown(link.dropdown!)}
+                        onMouseEnter={() => setActiveDropdown(link.dropdown!)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+                          isActive(link.href)
+                            ? "text-emerald-600 bg-emerald-50"
+                            : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
+                        }`}
                       >
-                        <Link
-                          href={link.href}
-                          onClick={() => !link.hasDropdown && setOpenDropdown(null)}
-                          className={`relative flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                            link.isHighlighted
-                              ? "text-emerald-600 font-bold"
-                              : isActive
-                              ? "text-emerald-600 bg-emerald-50"
-                              : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
+                        <link.icon className="w-4 h-4" />
+                        <span>{link.label}</span>
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform ${
+                            activeDropdown === link.dropdown ? "rotate-180" : ""
                           }`}
-                        >
-                          {link.icon && <link.icon className="w-4 h-4" />}
-                          <span>{link.label}</span>
-                          {link.hasDropdown && (
-                            <ChevronDown
-                              className={`w-3.5 h-3.5 opacity-60 transition-transform duration-200 ${
-                                openDropdown === link.dropdownKey
-                                  ? "rotate-180"
-                                  : ""
-                              }`}
-                            />
-                          )}
-                          {isActive && !link.isHighlighted && (
-                            <motion.div
-                              layoutId="activeTab"
-                              className="absolute bottom-0 left-0 right-0 h-0.5 bg-emerald-600 rounded-full"
-                            />
-                          )}
-                        </Link>
+                        />
+                      </button>
 
-                        {/* Dropdown Menu */}
-                        {link.hasDropdown && (
-                          <AnimatePresence>
-                            {openDropdown === link.dropdownKey && (
-                              <motion.div
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.2 }}
-                                className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden"
-                              >
-                                <div className="p-2">
-                                  {link.services?.map((service, serviceIdx) => {
-                                    const IconComponent = service.icon;
-                                    return (
-                                      <Link
-                                        key={service.href}
-                                        href={service.href}
-                                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group"
-                                      >
-                                        <div className="flex-shrink-0 w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
-                                          <IconComponent className="w-5 h-5 text-emerald-600" />
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <h4 className="text-sm font-semibold text-slate-900 group-hover:text-emerald-600 transition-colors">
-                                            {service.name}
-                                          </h4>
-                                          <p className="text-xs text-slate-500 mt-0.5">
-                                            {service.desc}
-                                          </p>
-                                        </div>
-                                      </Link>
-                                    );
-                                  })}
-                                  {/* Link to all tools page */}
-                                  {link.dropdownKey === "tools" && (
-                                    <Link
-                                      href="/tools"
-                                      className="flex items-center justify-center gap-2 p-3 mt-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-600 font-semibold transition-colors group border-t border-slate-200"
-                                    >
-                                      <Wrench className="w-4 h-4" />
-                                      <span className="text-sm">Voir tous les outils</span>
-                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                  )}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        )}
-                      </div>
-                    </motion.div>
-                  </div>
-                );
-              })}
+                      {/* Dropdown Menu */}
+                      {activeDropdown === link.dropdown && (
+                        <div
+                          onMouseEnter={() => setActiveDropdown(link.dropdown!)}
+                          onMouseLeave={() => setActiveDropdown(null)}
+                          className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 py-2 z-[1000000]"
+                        >
+                          {link.items?.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-start gap-3 px-4 py-3 hover:bg-slate-50 transition-colors group/item"
+                            >
+                              <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center group-hover/item:bg-emerald-100 transition-colors flex-shrink-0">
+                                <item.icon className="w-5 h-5 text-emerald-600" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-sm font-semibold text-slate-900 group-hover/item:text-emerald-600 transition-colors">
+                                  {item.name}
+                                </h4>
+                                <p className="text-xs text-slate-500 mt-0.5">
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    // Simple Link
+                    <Link
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+                        link.highlight
+                          ? "text-emerald-600 font-bold"
+                          : isActive(link.href)
+                          ? "text-emerald-600 bg-emerald-50"
+                          : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
+                      }`}
+                    >
+                      <link.icon className="w-4 h-4" />
+                      <span>{link.label}</span>
+                    </Link>
+                  )}
+                </div>
+              ))}
             </div>
 
-            {/* Account & CTA Buttons */}
+            {/* ============================================ */}
+            {/* DESKTOP CTA */}
+            {/* ============================================ */}
             <div className="hidden lg:flex items-center gap-3">
-              {/* Account Button */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.25 }}
+              <Link
+                href="/login"
+                className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-emerald-600 font-medium transition-colors rounded-lg hover:bg-slate-50"
               >
-                <Link
-                  href={user ? "/dashboard" : "/login"}
-                  className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-emerald-600 font-medium transition-colors rounded-lg hover:bg-slate-50"
-                >
-                  <User className="w-4 h-4" />
-                  <span>{user ? "Mon Compte" : "Connexion"}</span>
-                </Link>
-              </motion.div>
+                <User className="w-4 h-4" />
+                <span>Connexion</span>
+              </Link>
 
-              {/* WhatsApp CTA Button - Emerald Green */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
+              <a
+                href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl"
               >
-                <motion.a
+                <MessageCircle className="w-4 h-4" />
+                <span>Réponse Immédiate</span>
+              </a>
+            </div>
+
+            {/* ============================================ */}
+            {/* MOBILE HAMBURGER */}
+            {/* ============================================ */}
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-2 text-slate-700 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition-colors z-[1000000]"
+              aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* ============================================ */}
+      {/* MOBILE MENU */}
+      {/* ============================================ */}
+      {mobileMenuOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            onClick={closeMobileMenu}
+            className="fixed inset-0 bg-black/40 z-[999998] lg:hidden backdrop-blur-sm"
+            aria-hidden="true"
+          />
+
+          {/* Menu Panel */}
+          <div className="fixed top-20 left-0 right-0 bottom-0 bg-white z-[999999] lg:hidden overflow-y-auto shadow-2xl">
+            <div className="container mx-auto px-4 py-6 space-y-2">
+              {navLinks.map((link) => (
+                <div key={link.href}>
+                  {link.dropdown ? (
+                    // Dropdown in Mobile
+                    <div>
+                      <button
+                        onClick={() => toggleDropdown(link.dropdown!)}
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors ${
+                          isActive(link.href)
+                            ? "text-emerald-600 bg-emerald-50"
+                            : "text-slate-700 hover:bg-slate-50"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <link.icon className="w-5 h-5" />
+                          <span>{link.label}</span>
+                        </div>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform ${
+                            activeDropdown === link.dropdown ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+
+                      {activeDropdown === link.dropdown && (
+                        <div className="mt-2 ml-4 space-y-1">
+                          {link.items?.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={closeMobileMenu}
+                              className="flex items-start gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors"
+                            >
+                              <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <item.icon className="w-5 h-5 text-emerald-600" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-sm font-semibold text-slate-900">
+                                  {item.name}
+                                </h4>
+                                <p className="text-xs text-slate-500 mt-0.5">
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    // Simple Link in Mobile
+                    <Link
+                      href={link.href}
+                      onClick={closeMobileMenu}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
+                        link.highlight
+                          ? "text-emerald-600 font-bold bg-emerald-50"
+                          : isActive(link.href)
+                          ? "text-emerald-600 bg-emerald-50"
+                          : "text-slate-700 hover:bg-slate-50"
+                      }`}
+                    >
+                      <link.icon className="w-5 h-5" />
+                      <span>{link.label}</span>
+                    </Link>
+                  )}
+                </div>
+              ))}
+
+              {/* Mobile CTA */}
+              <div className="pt-6 border-t border-slate-200 space-y-3">
+                <Link
+                  href="/login"
+                  onClick={closeMobileMenu}
+                  className="flex items-center justify-center gap-2 text-slate-700 font-medium py-3 px-6 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
+                >
+                  <User className="w-5 h-5" />
+                  <span>Connexion</span>
+                </Link>
+
+                <a
                   href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  onClick={closeMobileMenu}
+                  className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-full transition-all shadow-lg"
                 >
-                  {/* Pulse Animation */}
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute inset-0 bg-emerald-400 rounded-full"
-                  />
-                  <MessageCircle className="w-4 h-4 relative z-10" />
-                  <span className="relative z-10">Réponse Immédiate</span>
-                </motion.a>
-              </motion.div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-slate-700 hover:text-emerald-600 transition-colors"
-              aria-label="Toggle menu"
-            >
-              <AnimatePresence mode="wait">
-                {isMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                  >
-                    <X className="w-6 h-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                  >
-                    <Menu className="w-6 h-6" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden bg-white border-t border-slate-200"
-            >
-              <div className="px-4 py-4 space-y-2">
-                {navLinks.map((link, idx) => {
-                  const isActive =
-                    (link.href === "/" && pathname === "/") ||
-                    (link.href !== "/" && pathname.startsWith(link.href)) ||
-                    (link.href.startsWith("/#") && isHomePage);
-
-                  return (
-                    <div key={link.href}>
-                      {link.hasDropdown ? (
-                        <div>
-                          <button
-                            onClick={() =>
-                              handleMobileDropdownToggle(link.dropdownKey!)
-                            }
-                            className={`w-full flex items-center justify-between gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
-                              link.isHighlighted
-                                ? "text-emerald-600 font-bold bg-emerald-50"
-                                : isActive
-                                ? "bg-emerald-50 text-emerald-600"
-                                : "text-slate-700 hover:bg-slate-50 hover:text-emerald-600"
-                            }`}
-                          >
-                            <div className="flex items-center gap-2">
-                              {link.icon && <link.icon className="w-5 h-5" />}
-                              <span>{link.label}</span>
-                            </div>
-                            <ChevronDown
-                              className={`w-4 h-4 opacity-60 transition-transform duration-200 ${
-                                mobileDropdown === link.dropdownKey
-                                  ? "rotate-180"
-                                  : ""
-                              }`}
-                            />
-                          </button>
-
-                          {/* Mobile Dropdown Content */}
-                          <AnimatePresence>
-                            {mobileDropdown === link.dropdownKey && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="overflow-hidden"
-                              >
-                                <div className="pl-4 pr-2 py-2 space-y-1">
-                                  {link.services?.map((service) => {
-                                    const IconComponent = service.icon;
-                                    return (
-                                      <Link
-                                        key={service.href}
-                                        href={service.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group"
-                                      >
-                                        <div className="flex-shrink-0 w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
-                                          <IconComponent className="w-5 h-5 text-emerald-600" />
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <h4 className="text-sm font-semibold text-slate-900 group-hover:text-emerald-600 transition-colors">
-                                            {service.name}
-                                          </h4>
-                                          <p className="text-xs text-slate-500 mt-0.5">
-                                            {service.desc}
-                                          </p>
-                                        </div>
-                                      </Link>
-                                    );
-                                  })}
-                                  {/* Link to all tools page - Mobile */}
-                                  {link.dropdownKey === "tools" && (
-                                    <Link
-                                      href="/tools"
-                                      onClick={() => setIsMenuOpen(false)}
-                                      className="flex items-center justify-center gap-2 p-3 mt-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-600 font-semibold transition-colors group border-t border-slate-200"
-                                    >
-                                      <Wrench className="w-4 h-4" />
-                                      <span className="text-sm">Voir tous les outils</span>
-                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                  )}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      ) : (
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.05 }}
-                        >
-                          <Link
-                            href={link.href}
-                            onClick={() => setIsMenuOpen(false)}
-                            className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
-                              link.isHighlighted
-                                ? "text-emerald-600 font-bold bg-emerald-50"
-                                : isActive
-                                ? "bg-emerald-50 text-emerald-600"
-                                : "text-slate-700 hover:bg-slate-50 hover:text-emerald-600"
-                            }`}
-                          >
-                            {link.icon && <link.icon className="w-5 h-5" />}
-                            <span>{link.label}</span>
-                          </Link>
-                        </motion.div>
-                      )}
-                    </div>
-                  );
-                })}
-
-                {/* Mobile Account & CTA */}
-                <div className="pt-4 border-t border-slate-200 space-y-3">
-                  {/* Account Link */}
-                  {user ? (
-                    <Link
-                      href="/dashboard"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 text-slate-700 hover:text-emerald-600 font-medium py-3 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full"
-                    >
-                      <User className="w-5 h-5" />
-                      <span>Mon Compte</span>
-                    </Link>
-                  ) : (
-                    <Link
-                      href="/login"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 text-slate-700 hover:text-emerald-600 font-medium py-3 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full"
-                    >
-                      <User className="w-5 h-5" />
-                      <span>Connexion</span>
-                    </Link>
-                  )}
-
-                  {/* WhatsApp CTA */}
-                  <motion.a
-                    href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="relative flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg w-full group"
-                  >
-                    {/* Pulse Animation */}
-                    <motion.div
-                      animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0 bg-emerald-400 rounded-full"
-                    />
-                    <MessageCircle className="w-5 h-5 relative z-10" />
-                    <span className="relative z-10">Réponse Immédiate</span>
-                  </motion.a>
-                </div>
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Réponse Immédiate</span>
+                </a>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-    </motion.header>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* ============================================ */}
+      {/* GLOBAL STYLES */}
+      {/* ============================================ */}
+      <style jsx global>{`
+        /* Header z-index maximum */
+        header {
+          isolation: isolate;
+        }
+
+        /* Hero animations en arrière-plan */
+        section[class*="min-h-screen"] > div[class*="absolute"],
+        section div[class*="absolute"][class*="blur"],
+        section div[class*="absolute"][class*="rounded-full"] {
+          z-index: -10 !important;
+          pointer-events: none !important;
+        }
+
+        /* Touch optimization */
+        button, a {
+          -webkit-tap-highlight-color: transparent;
+          touch-action: manipulation;
+        }
+
+        /* Mobile smooth scrolling */
+        @media (max-width: 1024px) {
+          html {
+            -webkit-overflow-scrolling: touch;
+          }
+        }
+      `}</style>
+    </>
   );
 }
