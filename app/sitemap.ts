@@ -283,7 +283,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Continue without service pages - static pages will still be included
   }
 
-  // Blog posts (local content/blog/posts)
+  // Blog posts (local content/blog/posts) — inclut tous les articles dont 192.168.1.1 et comparatif MT/Inwi/Orange
   const blogPosts = getAllPostsForSitemap();
   const blogPages: MetadataRoute.Sitemap =
     blogPosts.length > 0
