@@ -21,7 +21,7 @@ interface PageProps {
 }
 
 // Slugs qui ont une page statique dédiée (évite conflit et erreurs vendor-chunks motion)
-const STATIC_BLOG_SLUGS = ["wifi-lent-maroc-2026", "7-pannes-pc-courantes-2026-maroc"];
+const STATIC_BLOG_SLUGS = ["wifi-lent-maroc-2026", "7-pannes-pc-courantes-2026-maroc", "192-168-1-1-admin-login-maroc-routeur-2026", "comparatif-maroc-telecom-inwi-orange-2026"];
 
 export function generateStaticParams() {
   return getAllSlugs()

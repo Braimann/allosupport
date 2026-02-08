@@ -385,7 +385,47 @@ const BLOG_POSTS: BlogPost[] = [
       "L'article complet est sur cette page. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/blog/7-pannes-pc-courantes-2026-maroc\" class=\"text-primary-600 hover:underline\">7 pannes PC</a>.",
     ]),
   },
-  // 16. Télétravail Maroc équipement
+  // 16. 192.168.1.1 Admin Maroc (article dédié /blog/192-168-1-1-admin-login-maroc-routeur-2026)
+  {
+    slug: "192-168-1-1-admin-login-maroc-routeur-2026",
+    title: "192.168.1.1 Admin Maroc : Login Routeur MT, Inwi, Orange 2026",
+    excerpt: "Accès 192.168.1.1 au Maroc : login et mot de passe par défaut tous routeurs Maroc Telecom, Inwi, Orange. Changer WiFi, contrôle parental. Guide complet 2026.",
+    metaDescription: "192.168.1.1 Maroc : login/password par défaut Maroc Telecom, Inwi, Orange. Configuration WiFi, contrôle parental. Guide AlloSupport 2026.",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/blog/192.168.1.1.webp",
+    imageAlt: "192.168.1.1 Admin Login Routeur Maroc Telecom Inwi Orange",
+    keywords: ["192.168.1.1", "192.168.1.1 admin", "192.168.1.1 maroc telecom", "mot de passe admin routeur maroc", "login routeur maroc", "controle parental routeur maroc", "changer mot de passe wifi maroc"],
+    author: "AlloSupport Maroc",
+    readTime: "15 min de lecture",
+    publishedAt: "2026-02-10",
+    updatedAt: "2026-02-10",
+    content: toHtml([
+      "Guide complet 192.168.1.1 au Maroc : accès interface admin routeur Maroc Telecom (Technicolor, ZTE, Huawei), Inwi, Orange. Tous mots de passe par défaut (admin/admin, Menara/Menara), configuration WiFi, contrôle parental, dépannage.",
+      "L'article complet est sur cette page avec tableaux logins, étapes, FAQ. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/blog/wifi-lent-maroc-2026\" class=\"text-primary-600 hover:underline\">WiFi lent Maroc</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
+    ]),
+  },
+  // 17. Comparatif Maroc Telecom Inwi Orange 2026 (article dédié)
+  {
+    slug: "comparatif-maroc-telecom-inwi-orange-2026",
+    title: "Comparatif Complet Maroc Telecom vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?",
+    excerpt: "Prix, vitesse, couverture, fiabilité : analyse 2026 basée sur 2,500 tests réels. Verdict par profil (famille, gamer, pro, budget). Économisez 600+ DH/an.",
+    metaDescription: "Comparatif MT vs Inwi vs Orange 2026 : prix fibre, vitesse réelle, couverture, fiabilité. 2,500 tests. Verdict par profil. Guide AlloSupport.",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/blog/comparatif.webp",
+    imageAlt: "Comparatif Maroc Telecom Inwi Orange 2026",
+    keywords: ["comparatif maroc telecom inwi orange", "meilleur opérateur internet maroc 2026", "prix fibre optique maroc", "inwi vs orange vs maroc telecom", "quel fai choisir maroc"],
+    author: "AlloSupport Maroc",
+    readTime: "15 min de lecture",
+    publishedAt: "2026-02-10",
+    updatedAt: "2026-02-10",
+    content: toHtml([
+      "Comparatif complet 2026 : Maroc Telecom, Inwi, Orange. Prix fibre (20 Mbps à 1 Gbps), frais cachés, test vitesse réelle par ville, couverture, uptime, service client. Verdict par profil : famille, gamer, télétravail, petit budget, zone rurale.",
+      "L'article complet est sur cette page. <a href=\"/blog/192-168-1-1-admin-login-maroc-routeur-2026\" class=\"text-primary-600 hover:underline\">Config box 192.168.1.1</a> · <a href=\"/blog/wifi-lent-maroc-2026\" class=\"text-primary-600 hover:underline\">WiFi lent</a> · <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis</a>.",
+    ]),
+  },
+  // 18. Télétravail Maroc équipement
   {
     slug: "teletravail-maroc-equipement-informatique",
     title: "Télétravail au Maroc : Équipement Informatique Essentiel 2026",
