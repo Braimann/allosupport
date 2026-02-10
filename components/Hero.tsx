@@ -15,11 +15,11 @@ export default function Hero() {
     if (typeof window !== "undefined") {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
       setMounted(true); // Mark as mounted to enable animations
-      
+
       const handleResize = () => {
         setWindowSize({ width: window.innerWidth, height: window.innerHeight });
       };
-      
+
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
@@ -29,7 +29,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {mounted && [...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-primary-500/30 rounded-full"
@@ -101,7 +101,9 @@ export default function Hero() {
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               >
-                <Zap className="w-4 h-4 text-primary-400" />
+                <span className="flex items-center justify-center w-4 h-4">
+                  {mounted && <Zap className="w-4 h-4 text-primary-400" />}
+                </span>
               </motion.div>
               <span className="text-sm font-medium">Intervention en 15 min • Partout au Maroc</span>
             </motion.div>
@@ -166,21 +168,19 @@ export default function Hero() {
               <div className="flex gap-2 mb-6 bg-white/10 backdrop-blur-md rounded-xl p-1 border border-white/20">
                 <button
                   onClick={() => setActiveTab("particuliers")}
-                  className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                    activeTab === "particuliers"
-                      ? "bg-primary-500 text-white shadow-lg shadow-primary-500/50"
-                      : "text-white/70 hover:text-white"
-                  }`}
+                  className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${activeTab === "particuliers"
+                    ? "bg-primary-500 text-white shadow-lg shadow-primary-500/50"
+                    : "text-white/70 hover:text-white"
+                    }`}
                 >
                   Particuliers
                 </button>
                 <button
                   onClick={() => setActiveTab("entreprises")}
-                  className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                    activeTab === "entreprises"
-                      ? "bg-primary-500 text-white shadow-lg shadow-primary-500/50"
-                      : "text-white/70 hover:text-white"
-                  }`}
+                  className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${activeTab === "entreprises"
+                    ? "bg-primary-500 text-white shadow-lg shadow-primary-500/50"
+                    : "text-white/70 hover:text-white"
+                    }`}
                 >
                   Entreprises
                 </button>
@@ -208,7 +208,9 @@ export default function Hero() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"
                     >
-                      <MessageCircle className="w-5 h-5" />
+                      <span className="flex items-center justify-center w-5 h-5">
+                        {mounted && <MessageCircle className="w-5 h-5" />}
+                      </span>
                       Diagnostic Gratuit via WhatsApp
                     </a>
                   </div>
@@ -226,7 +228,9 @@ export default function Hero() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"
                     >
-                      <Briefcase className="w-5 h-5" />
+                      <span className="flex items-center justify-center w-5 h-5">
+                        {mounted && <Briefcase className="w-5 h-5" />}
+                      </span>
                       Parler à un expert
                     </a>
                   </div>
@@ -242,11 +246,11 @@ export default function Hero() {
               className={`flex flex-wrap gap-4 mb-8 ${!mounted ? "opacity-100" : ""}`}
             >
               <div className="flex items-center gap-2 text-white/80 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10">
-                <Clock className="w-5 h-5 text-primary-400" />
+                {mounted && <Clock className="w-5 h-5 text-primary-400" />}
                 <span>15 min de réponse</span>
               </div>
               <div className="flex items-center gap-2 text-white/80 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10">
-                <Shield className="w-5 h-5 text-primary-400" />
+                {mounted && <Shield className="w-5 h-5 text-primary-400" />}
                 <span>Satisfait ou Remboursé</span>
               </div>
             </motion.div>
@@ -329,7 +333,7 @@ export default function Hero() {
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.5 }}
                       >
-                        <service.icon className="w-6 h-6 text-white" />
+                        {mounted && <service.icon className="w-6 h-6 text-white" />}
                       </motion.div>
                       <div className="flex-1">
                         <h3 className="text-white font-semibold mb-1">{service.title}</h3>

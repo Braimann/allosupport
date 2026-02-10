@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, Upload, Loader2, CheckCircle, XCircle } from "lucide-react";
 import { onAuthChange, isAdmin } from "@/lib/firebase/auth-service";
 import { createPost, generateSlug, estimateReadTime, BLOG_CATEGORIES, BlogPostInput } from "@/lib/firebase/blog-service";
+import { getMarkdownTableRegex } from "@/lib/markdown-table-regex";
 
 interface ParsedArticle {
   title: string;
@@ -246,8 +247,7 @@ export default function ImportPage() {
 
   const markdownToHTMLWithTables = (md: string): string => {
     let html = md;
-    const tableRegex = /\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/g;
-    html = html.replace(tableRegex, (_, headerRow, bodyRows) => {
+    html = html.replace(getMarkdownTableRegex(), (_, headerRow, bodyRows) => {
       const headers = headerRow.split("|").map((c: string) => c.trim()).filter(Boolean);
       const rows = bodyRows.trim().split("\n").map((row: string) => row.split("|").map((c: string) => c.trim()).filter(Boolean));
       let table = '<table class="w-full border border-gray-300 my-4"><thead><tr>';

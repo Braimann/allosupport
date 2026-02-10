@@ -174,4 +174,30 @@
   img {
     content-visibility: auto;
   }
+
+  /* --- Styles globaux du Header (extraits pour éviter hydration mismatch) --- */
+  header {
+    isolation: isolate;
+  }
+
+  /* Hero animations en arrière-plan */
+  section[class*="min-h-screen"] > div[class*="absolute"],
+  section div[class*="absolute"][class*="blur"],
+  section div[class*="absolute"][class*="rounded-full"] {
+    z-index: -10 !important;
+    pointer-events: none !important;
+  }
+
+  /* Touch optimization */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Mobile smooth scrolling */
+  @media (max-width: 1024px) {
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 }

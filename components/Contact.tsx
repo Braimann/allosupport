@@ -1,39 +1,21 @@
 "use client";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
   Send,
-  CheckCircle,
   AlertTriangle,
 } from "lucide-react";
 
 export default function Contact() {
-  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
-  const [formData, setFormData] = useState({
-    nom: "",
-    email: "",
-    telephone: "",
-    entreprise: "",
-    service: "",
-    message: "",
-  });
+  const [mounted, setMounted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    setFormStatus("success");
-    setTimeout(() => setFormStatus("idle"), 5000);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section id="devis" className="py-20 bg-gray-50">
@@ -54,157 +36,36 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">
-              Formulaire de demande de devis
-            </h3>
+          {/* Contact CTA */}
+          <div className="bg-white rounded-2xl shadow-lg p-12 flex flex-col items-center justify-center text-center space-y-8 border border-gray-100">
+            <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center">
+              {mounted && <Send className="w-10 h-10 text-orange-600" />}
+            </div>
 
-            {formStatus === "success" && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <p className="text-green-700">
-                  Merci ! Votre demande a été envoyée. Nous vous recontactons sous 24h.
-                </p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label
-                    htmlFor="nom"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Nom complet *
-                  </label>
-                  <input
-                    type="text"
-                    id="nom"
-                    name="nom"
-                    required
-                    value={formData.nom}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="Votre nom"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="entreprise"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Entreprise
-                  </label>
-                  <input
-                    type="text"
-                    id="entreprise"
-                    name="entreprise"
-                    value={formData.entreprise}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="Nom de votre entreprise"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="votre@email.ma"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="telephone"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Téléphone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="telephone"
-                    name="telephone"
-                    required
-                    value={formData.telephone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="+212 6 XX XX XX XX"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="service"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Service souhaité *
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  required
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                >
-                  <option value="">Sélectionnez un service</option>
-                  <option value="depannage">Dépannage & Réparation PC</option>
-                  <option value="infogerance">Contrat Infogérance PME</option>
-                  <option value="reseau">Installation Réseau Entreprise</option>
-                  <option value="securite">Sécurité Informatique</option>
-                  <option value="seo">SEO & Création Site Web</option>
-                  <option value="audit">Audit Parc Informatique (Gratuit)</option>
-                  <option value="autre">Autre demande</option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Décrivez votre besoin *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                  placeholder="Décrivez votre problème ou besoin en détail..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-              >
-                <Send className="w-5 h-5" />
-                Envoyer ma demande de devis
-              </button>
-
-              <p className="text-xs text-gray-500 text-center">
-                En soumettant ce formulaire, vous acceptez notre politique de confidentialité.
-                Vos données ne seront jamais partagées.
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Prêt à obtenir votre devis personnalisé ?
+              </h3>
+              <p className="text-gray-600 max-w-md mx-auto">
+                Accédez à notre formulaire complet pour nous détailler votre besoin et recevoir une estimation précise sous 24h.
               </p>
-            </form>
+            </div>
+
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold py-5 px-10 rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+            >
+              <span>Demander mon Devis Gratuit</span>
+              <span className="flex items-center justify-center w-5 h-5">
+                {mounted && <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+              </span>
+            </Link>
+
+            <p className="text-sm text-gray-500">
+              Réponse garantie sous 3h pour les urgences.
+              <br />
+              Audit gratuit pour les PME.
+            </p>
           </div>
 
           {/* Contact Info */}
@@ -212,7 +73,7 @@ export default function Contact() {
             {/* Urgence Card */}
             <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-8 text-white">
               <div className="flex items-center gap-3 mb-4">
-                <AlertTriangle className="w-8 h-8" />
+                {mounted && <AlertTriangle className="w-8 h-8" />}
                 <h3 className="text-xl font-bold">Urgence Informatique ?</h3>
               </div>
               <p className="text-white/90 mb-6">
@@ -222,8 +83,11 @@ export default function Contact() {
               <a
                 href="tel:+212775237038"
                 className="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+                suppressHydrationWarning
               >
-                <Phone className="w-5 h-5" />
+                <span className="flex items-center justify-center w-5 h-5">
+                  {mounted && <Phone className="w-5 h-5" />}
+                </span>
                 Appeler maintenant
               </a>
             </div>
@@ -237,9 +101,10 @@ export default function Contact() {
                 <a
                   href="tel:+212775237038"
                   className="flex items-center gap-4 text-gray-700 hover:text-blue-600 transition-colors"
+                  suppressHydrationWarning
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-blue-600" />
+                    {mounted && <Phone className="w-6 h-6 text-blue-600" />}
                   </div>
                   <div>
                     <p className="font-semibold">Téléphone</p>
@@ -250,9 +115,10 @@ export default function Contact() {
                 <a
                   href="mailto:contact@maroctech-solutions.ma"
                   className="flex items-center gap-4 text-gray-700 hover:text-blue-600 transition-colors"
+                  suppressHydrationWarning
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-green-600" />
+                    {mounted && <Mail className="w-6 h-6 text-green-600" />}
                   </div>
                   <div>
                     <p className="font-semibold">Email</p>
@@ -262,7 +128,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-4 text-gray-700">
                   <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-purple-600" />
+                    {mounted && <MapPin className="w-6 h-6 text-purple-600" />}
                   </div>
                   <div>
                     <p className="font-semibold">Adresse</p>
@@ -274,7 +140,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-4 text-gray-700">
                   <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-orange-600" />
+                    {mounted && <Clock className="w-6 h-6 text-orange-600" />}
                   </div>
                   <div>
                     <p className="font-semibold">Horaires</p>

@@ -98,12 +98,14 @@ const nextConfig = {
     ];
   },
   
-  // Optimiser JavaScript (éviter polyfills inutiles)
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production' ? {
-      exclude: ['error', 'warn'],
-    } : false,
-  },
+  // Optimiser JavaScript (éviter polyfills inutiles). Désactivé avec Turbopack (npm run dev:turbo).
+  ...(process.env.TURBOPACK !== '1' && {
+    compiler: {
+      removeConsole: process.env.NODE_ENV === 'production' ? {
+        exclude: ['error', 'warn'],
+      } : false,
+    },
+  }),
   
   // Webpack optimisations
   webpack: (config, { dev, isServer }) => {

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Monitor, Cloud, ShieldAlert, Server, Search, Settings } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -83,64 +84,119 @@ export default function BlogPage() {
                 </p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post) => {
-                  const IconComponent = categoryIcons[post.category] || Monitor;
-                  return (
-                    <article
-                      key={post.slug}
-                      className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300"
-                    >
-                      {/* Image */}
-                      <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                        {post.imageUrl ? (
-                          <img
-                            src={post.imageUrl}
-                            alt={post.imageAlt || post.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              <>
+                {/* Featured Post (First Item) */}
+                {posts[0] && (
+                  <article className="featured-post bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl overflow-hidden border-2 border-blue-200 hover:border-blue-400 transition-all shadow-lg hover:shadow-2xl mb-12">
+                    <div className="md:flex">
+                      <div className="md:w-1/2 relative min-h-[300px]">
+                        {posts[0].imageUrl ? (
+                          <Image
+                            src={posts[0].imageUrl}
+                            alt={posts[0].imageAlt || posts[0].title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
                           />
                         ) : (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <IconComponent className="w-16 h-16 text-gray-300 group-hover:text-blue-400 transition-colors" />
+                          <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                            <Monitor className="w-20 h-20 text-gray-400" />
                           </div>
                         )}
-                        <div className="absolute top-4 left-4">
-                          <span
-                            className={`${post.categoryColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
-                          >
-                            {post.category}
-                          </span>
-                        </div>
                       </div>
-
-                      {/* Content */}
-                      <div className="p-6">
-                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                          <span>{formatDate(post.publishedAt)}</span>
-                          <span>•</span>
-                          <span>{post.readTime}</span>
+                      <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">NOUVEAU</span>
+                          <span className="text-blue-600 font-semibold">{posts[0].category}</span>
+                          <span className="text-gray-500">- </span>
+                          <span className="text-gray-600">{posts[0].readTime}</span>
                         </div>
-
-                        <h2 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
-                          {post.title}
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors leading-tight">
+                          <Link href={`/blog/${posts[0].slug}`}>
+                            {posts[0].title}
+                          </Link>
                         </h2>
-
-                        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                          {post.excerpt}
+                        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                          {posts[0].excerpt}
                         </p>
-
-                        <Link
-                          href={`/blog/${post.slug}`}
-                          className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-orange-500 transition-colors"
-                        >
-                          Lire l&apos;article
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        <div className="flex items-center justify-between mt-auto">
+                          <div className="flex items-center gap-3">
+                            <span className="text-sm text-gray-600">Par {posts[0].author}</span>
+                            <span className="text-gray-400">- </span>
+                            <span className="text-sm text-gray-600">{formatDate(posts[0].publishedAt)}</span>
+                          </div>
+                          <Link href={`/blog/${posts[0].slug}`} className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2">
+                            Lire l&apos;article
+                            <ArrowRight className="w-5 h-5" />
+                          </Link>
+                        </div>
                       </div>
-                    </article>
-                  );
-                })}
-              </div>
+                    </div>
+                  </article>
+                )}
+
+                {/* Remaining Posts Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {posts.slice(1).map((post) => {
+                    const IconComponent = categoryIcons[post.category] || Monitor;
+                    return (
+                      <article
+                        key={post.slug}
+                        className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300"
+                      >
+                        {/* Image */}
+                        <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                          {post.imageUrl ? (
+                            <Image
+                              src={post.imageUrl}
+                              alt={post.imageAlt || post.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <IconComponent className="w-16 h-16 text-gray-300 group-hover:text-blue-400 transition-colors" />
+                            </div>
+                          )}
+                          <div className="absolute top-4 left-4">
+                            <span
+                              className={`${post.categoryColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
+                            >
+                              {post.category}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-6">
+                          <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                            <span>{formatDate(post.publishedAt)}</span>
+                            <span>•</span>
+                            <span>{post.readTime}</span>
+                          </div>
+
+                          <h2 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                            {post.title}
+                          </h2>
+
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                            {post.excerpt}
+                          </p>
+
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-orange-500 transition-colors"
+                          >
+                            Lire l&apos;article
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              </>
             )}
           </div>
         </section>

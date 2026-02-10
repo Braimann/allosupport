@@ -8,6 +8,7 @@ import {
   X,
   Phone,
   Mail,
+  Send,
   Monitor,
   MessageCircle,
   ChevronDown,
@@ -23,7 +24,6 @@ import {
   Lock,
   Wifi,
   Cloud,
-  User,
   Wrench,
   Code,
   Key,
@@ -140,14 +140,16 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   // ============================================
   // 🔧 EFFECTS
   // ============================================
-  
-  // Scroll detection
+
+  // Scroll detection & Mount
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
@@ -194,7 +196,7 @@ export default function Header() {
   // ============================================
   // 🎨 HANDLERS
   // ============================================
-  
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     setActiveDropdown(null);
@@ -218,10 +220,10 @@ export default function Header() {
   // 📋 NAV LINKS
   // ============================================
   const navLinks = [
-    { 
-      label: "Accueil", 
-      href: "/", 
-      icon: Home 
+    {
+      label: "Accueil",
+      href: "/",
+      icon: Home
     },
     {
       label: "Particuliers",
@@ -243,10 +245,10 @@ export default function Header() {
       icon: DollarSign,
       highlight: true,
     },
-    { 
-      label: "Blog", 
-      href: "/blog", 
-      icon: BookOpen 
+    {
+      label: "Blog",
+      href: "/blog",
+      icon: BookOpen
     },
     {
       label: "Outils",
@@ -272,14 +274,18 @@ export default function Header() {
               href={`tel:${GOOGLE_BUSINESS.PHONE}`}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
-              <Phone className="w-4 h-4" />
+              <span className="flex items-center justify-center w-4 h-4">
+                {mounted && <Phone className="w-4 h-4" />}
+              </span>
               <span>{GOOGLE_BUSINESS.PHONE_FORMATTED}</span>
             </a>
             <a
               href={`mailto:${EMAIL}`}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
             >
-              <Mail className="w-4 h-4" />
+              <span className="flex items-center justify-center w-4 h-4">
+                {mounted && <Mail className="w-4 h-4" />}
+              </span>
               <span>{EMAIL}</span>
             </a>
           </div>
@@ -294,23 +300,22 @@ export default function Header() {
       {/* MAIN HEADER */}
       {/* ============================================ */}
       <header
-        className={`sticky top-0 bg-white z-[999999] transition-shadow duration-300 ${
-          scrolled ? "shadow-lg" : "shadow-md"
-        }`}
+        className={`sticky top-0 bg-white z-[999999] transition-shadow duration-300 ${scrolled ? "shadow-lg" : "shadow-md"
+          }`}
       >
         <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            
+
             {/* ============================================ */}
             {/* LOGO */}
             {/* ============================================ */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="flex items-center gap-3 group z-[1000000]"
               onClick={closeMobileMenu}
             >
               <div className="w-11 h-11 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/50 transition-all duration-300">
-                <Monitor className="w-6 h-6 text-white" />
+                {mounted && <Monitor className="w-6 h-6 text-white" />}
               </div>
               <div>
                 <div className="text-xl font-bold">
@@ -336,19 +341,17 @@ export default function Header() {
                         onClick={() => toggleDropdown(link.dropdown!)}
                         onMouseEnter={() => setActiveDropdown(link.dropdown!)}
                         onMouseLeave={() => setActiveDropdown(null)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                          isActive(link.href)
-                            ? "text-emerald-600 bg-emerald-50"
-                            : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
-                        }`}
-                      >
-                        <link.icon className="w-4 h-4" />
-                        <span>{link.label}</span>
-                        <ChevronDown
-                          className={`w-3.5 h-3.5 transition-transform ${
-                            activeDropdown === link.dropdown ? "rotate-180" : ""
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${isActive(link.href)
+                          ? "text-emerald-600 bg-emerald-50"
+                          : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
                           }`}
-                        />
+                      >
+                        <span className="flex items-center justify-center w-4 h-4">{mounted && <link.icon className="w-4 h-4" />}</span>
+                        <span>{link.label}</span>
+                        {mounted && <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform ${activeDropdown === link.dropdown ? "rotate-180" : ""
+                            }`}
+                        />}
                       </button>
 
                       {/* Dropdown Menu */}
@@ -366,7 +369,7 @@ export default function Header() {
                               className="flex items-start gap-3 px-4 py-3 hover:bg-slate-50 transition-colors group/item"
                             >
                               <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center group-hover/item:bg-emerald-100 transition-colors flex-shrink-0">
-                                <item.icon className="w-5 h-5 text-emerald-600" />
+                                {mounted && <item.icon className="w-5 h-5 text-emerald-600" />}
                               </div>
                               <div className="flex-1 min-w-0">
                                 <h4 className="text-sm font-semibold text-slate-900 group-hover/item:text-emerald-600 transition-colors">
@@ -385,15 +388,14 @@ export default function Header() {
                     // Simple Link
                     <Link
                       href={link.href}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                        link.highlight
-                          ? "text-emerald-600 font-bold"
-                          : isActive(link.href)
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${link.highlight
+                        ? "text-emerald-600 font-bold"
+                        : isActive(link.href)
                           ? "text-emerald-600 bg-emerald-50"
                           : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
-                      }`}
+                        }`}
                     >
-                      <link.icon className="w-4 h-4" />
+                      <span className="flex items-center justify-center w-4 h-4">{mounted && <link.icon className="w-4 h-4" />}</span>
                       <span>{link.label}</span>
                     </Link>
                   )}
@@ -406,11 +408,13 @@ export default function Header() {
             {/* ============================================ */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
-                href="/login"
+                href="/contact"
                 className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-emerald-600 font-medium transition-colors rounded-lg hover:bg-slate-50"
               >
-                <User className="w-4 h-4" />
-                <span>Connexion</span>
+                <span className="flex items-center justify-center w-4 h-4">
+                  {mounted && <Send className="w-4 h-4" />}
+                </span>
+                <span>Contact</span>
               </Link>
 
               <a
@@ -419,7 +423,7 @@ export default function Header() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl"
               >
-                <MessageCircle className="w-4 h-4" />
+                <span className="flex items-center justify-center w-4 h-4">{mounted && <MessageCircle className="w-4 h-4" />}</span>
                 <span>Réponse Immédiate</span>
               </a>
             </div>
@@ -434,9 +438,9 @@ export default function Header() {
               aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                mounted && <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6" />
+                mounted && <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -465,20 +469,18 @@ export default function Header() {
                     <div>
                       <button
                         onClick={() => toggleDropdown(link.dropdown!)}
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors ${
-                          isActive(link.href)
-                            ? "text-emerald-600 bg-emerald-50"
-                            : "text-slate-700 hover:bg-slate-50"
-                        }`}
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors ${isActive(link.href)
+                          ? "text-emerald-600 bg-emerald-50"
+                          : "text-slate-700 hover:bg-slate-50"
+                          }`}
                       >
                         <div className="flex items-center gap-3">
                           <link.icon className="w-5 h-5" />
                           <span>{link.label}</span>
                         </div>
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            activeDropdown === link.dropdown ? "rotate-180" : ""
-                          }`}
+                          className={`w-4 h-4 transition-transform ${activeDropdown === link.dropdown ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
 
@@ -512,13 +514,12 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={closeMobileMenu}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                        link.highlight
-                          ? "text-emerald-600 font-bold bg-emerald-50"
-                          : isActive(link.href)
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${link.highlight
+                        ? "text-emerald-600 font-bold bg-emerald-50"
+                        : isActive(link.href)
                           ? "text-emerald-600 bg-emerald-50"
                           : "text-slate-700 hover:bg-slate-50"
-                      }`}
+                        }`}
                     >
                       <link.icon className="w-5 h-5" />
                       <span>{link.label}</span>
@@ -530,12 +531,14 @@ export default function Header() {
               {/* Mobile CTA */}
               <div className="pt-6 border-t border-slate-200 space-y-3">
                 <Link
-                  href="/login"
+                  href="/contact"
                   onClick={closeMobileMenu}
                   className="flex items-center justify-center gap-2 text-slate-700 font-medium py-3 px-6 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
                 >
-                  <User className="w-5 h-5" />
-                  <span>Connexion</span>
+                  <span className="flex items-center justify-center w-5 h-5">
+                    {mounted && <Send className="w-5 h-5" />}
+                  </span>
+                  <span>Contact</span>
                 </Link>
 
                 <a
@@ -544,8 +547,9 @@ export default function Header() {
                   rel="noopener noreferrer"
                   onClick={closeMobileMenu}
                   className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-full transition-all shadow-lg"
+                  suppressHydrationWarning
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <span className="flex items-center justify-center"><MessageCircle className="w-5 h-5" /></span>
                   <span>Réponse Immédiate</span>
                 </a>
               </div>
@@ -557,33 +561,6 @@ export default function Header() {
       {/* ============================================ */}
       {/* GLOBAL STYLES */}
       {/* ============================================ */}
-      <style jsx global>{`
-        /* Header z-index maximum */
-        header {
-          isolation: isolate;
-        }
-
-        /* Hero animations en arrière-plan */
-        section[class*="min-h-screen"] > div[class*="absolute"],
-        section div[class*="absolute"][class*="blur"],
-        section div[class*="absolute"][class*="rounded-full"] {
-          z-index: -10 !important;
-          pointer-events: none !important;
-        }
-
-        /* Touch optimization */
-        button, a {
-          -webkit-tap-highlight-color: transparent;
-          touch-action: manipulation;
-        }
-
-        /* Mobile smooth scrolling */
-        @media (max-width: 1024px) {
-          html {
-            -webkit-overflow-scrolling: touch;
-          }
-        }
-      `}</style>
     </>
   );
 }

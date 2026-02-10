@@ -445,6 +445,27 @@ const BLOG_POSTS: BlogPost[] = [
       "Conseils : sauvegardes, cybersécurité (mots de passe, pas de WiFi public sensible). <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/blog/guide-achat-ordinateur-professionnel-maroc-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">guide achat PC</a>, <a href=\"/blog/google-workspace-vs-office-365-pme-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">Google vs Office 365</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
+  // 19. Meilleur Antivirus Gratuit Maroc 2026
+  {
+    slug: "meilleur-antivirus-gratuit-maroc-2026-comparatif",
+    title: "Meilleur Antivirus Gratuit Maroc 2026 - Comparatif Top 7 Testé",
+    excerpt: "Comparatif des 7 meilleurs antivirus gratuits au Maroc 2026 : Bitdefender, Avast, Kaspersky. Tests détection, performances, installation.",
+    metaDescription: "Comparatif complet des 7 meilleurs antivirus gratuits au Maroc en 2026 : Bitdefender, Kaspersky, Avast. Guide PME & particuliers.",
+    category: "Sécurité",
+    categoryColor: "bg-indigo-500",
+    imageUrl: "/blog/waf.webp",
+    imageAlt: "Comparatif meilleurs antivirus gratuits Maroc 2026 - Web Application Firewall et protection",
+    keywords: ["meilleur antivirus gratuit maroc", "antivirus gratuit 2026", "comparatif antivirus gratuit", "antivirus gratuit windows 11 maroc"],
+    author: "Équipe AlloSupport",
+    readTime: "12 min de lecture",
+    publishedAt: "2026-02-09",
+    updatedAt: "2026-02-09",
+    content: toHtml([
+      "En 2026, choisir le meilleur antivirus gratuit au Maroc est crucial face à la montée des cybermenaces. Découvrez notre comparatif des 7 meilleures solutions : Bitdefender, Kaspersky, Avast, et plus encore.",
+      "Nous analysons le taux de détection, l'impact sur les performances et les fonctionnalités spécifiques pour le Maroc. L'article complet contient des tableaux comparatifs, des guides d'installation et une FAQ détaillée.",
+      "L'article complet est disponible sur cette page. <a href=\"/blog/meilleur-antivirus-gratuit-maroc-2026-comparatif\" class=\"text-primary-600 hover:underline\">Lire le comparatif complet</a>."
+    ]),
+  },
 ];
 
 export function getPublishedPosts(): BlogPost[] {

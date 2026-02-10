@@ -31,7 +31,7 @@ function markdownToHTML(md: string): string {
   let html = md;
 
   // Tables: | ... | ... | \n|---|---|\n|...|
-  const tableRegex = /\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/g;
+  const tableRegex = /\|(.+)\|\n\|(?:-|:|\s|\|)+\|\n((?:\|.+\|\n?)+)/g;
   html = html.replace(tableRegex, (_, headerRow, bodyRows) => {
     const headers = headerRow.split("|").map((c: string) => c.trim()).filter(Boolean);
     const rows = bodyRows.trim().split("\n").map((row: string) =>

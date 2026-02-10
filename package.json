@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:turbo": "set TURBOPACK=1&& next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -25,7 +26,8 @@
     "openai": "^4.20.0",
     "qrcode": "^1.5.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "resend": "^6.9.1"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
