@@ -47,7 +47,7 @@ const categories = [
       { href: "/fes", label: "Réparation PC Fès" },
       { href: "/marrakech", label: "Support informatique Marrakech" },
       { href: "/agadir", label: "Dépannage PC Agadir" },
-      { href: "/tanger", label: "Dépannage informatique Tanger" },
+      // { href: "/tanger", label: "Dépannage informatique Tanger" }, // Page inexistante (404) - réactiver quand /tanger sera créée
     ],
   },
   {

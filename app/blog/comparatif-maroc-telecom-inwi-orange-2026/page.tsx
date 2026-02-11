@@ -180,7 +180,7 @@ export default function ComparatifOperateurs2026() {
               Comparatif Complet Maroc Telecom vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-6">
-              Prix, Vitesse, Couverture, Fiabilité : Analyse Impartiale Basée sur 2,500 Tests Réels
+              Prix, Vitesse, Couverture, Fiabilité : Analyse Impartiale Basée sur 2,500 Tests Réels. Problème de connexion récurrent ? Notre <Link href="/depannage-informatique" className="text-amber-200 hover:text-white underline">assistance dépannage réseau et box</Link> intervient à distance.
             </p>
             <div className="flex flex-wrap items-center gap-6 text-blue-200">
               <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> 15 min lecture</span>

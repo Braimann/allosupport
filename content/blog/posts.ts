@@ -57,7 +57,7 @@ const BLOG_POSTS: BlogPost[] = [
       "Le remplacement de votre disque dur classique par un SSD est la meilleure amélioration possible. Temps de démarrage divisé par 5 garanti ! À partir de 500 MAD installation comprise chez AlloSupport.",
       "**Quand faut-il faire appel à un professionnel ?**",
       "Si malgré ces astuces votre ordinateur reste lent, il peut y avoir un problème matériel plus profond. Nos techniciens à Casablanca peuvent effectuer un diagnostic complet et vous proposer la meilleure solution.",
-      "**Besoin d'aide ?** Nos techniciens interviennent à domicile partout à Casablanca pour diagnostiquer et optimiser votre ordinateur. <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">Devis gratuit</a> ! Consultez aussi notre <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">catalogue de services</a> et l'article <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision Maroc 2030</a> pour la digitalisation PME.",
+      "**Besoin d'aide ?** Nos techniciens interviennent à domicile partout à Casablanca pour diagnostiquer et optimiser votre ordinateur. <a href=\"/depannage-informatique\" class=\"text-blue-600 font-bold hover:underline\">Accélérer mon PC maintenant</a> en 15 min, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis gratuit</a> ou notre <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">catalogue de services</a> et l'article <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision Maroc 2030</a> pour la digitalisation PME.",
     ]),
   },
   // 2. Google Workspace vs Office 365
@@ -89,7 +89,7 @@ const BLOG_POSTS: BlogPost[] = [
       "Les deux solutions offrent un excellent niveau de sécurité. Microsoft propose des options de conformité plus avancées pour les secteurs réglementés (finance, santé).",
       "**Notre recommandation pour les PME marocaines**",
       "→ Équipe qui travaille principalement en ligne et collabore beaucoup : **Google Workspace** → Besoin d'applications de bureau puissantes (Excel avancé, Access) : **Microsoft 365** → Budget serré avec besoin de stockage : **Microsoft 365 Business Basic**",
-      "**Besoin d'accompagnement ?** AlloSupport vous aide à choisir, migrer et former vos équipes. <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">Contactez-nous</a> pour un audit gratuit ! Voir aussi notre <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">guide Vision Maroc 2030</a> et <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">demander un devis</a>.",
+      "**Besoin d'accompagnement ?** AlloSupport vous aide à choisir, migrer et former vos équipes. Pour une <a href=\"/support-pme\" class=\"text-blue-600 font-bold hover:underline\">gestion de parc informatique PME</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contactez-nous</a> pour un audit gratuit ! Voir aussi notre <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">guide Vision Maroc 2030</a> et <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">demander un devis</a>.",
     ]),
   },
   // 3. Ransomware
@@ -118,7 +118,7 @@ const BLOG_POSTS: BlogPost[] = [
       "**4. Antivirus professionnel** : Investissez dans Kaspersky, Bitdefender ou ESET. Budget : à partir de 300 MAD/poste/an.",
       "**5. Segmentation réseau** : Isolez les données sensibles sur des réseaux séparés.",
       "**Que faire en cas d'attaque ?** Déconnectez immédiatement les machines infectées, ne payez JAMAIS la rançon, contactez un expert en cybersécurité, signalez aux autorités (DGSN Cybercriminalité).",
-      "**Audit de sécurité gratuit** : AlloSupport propose des audits de sécurité pour les PME marocaines. <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">Contactez-nous</a>. Lisez notre <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision Maroc 2030</a> et <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">nos services</a>.",
+      "**Audit de sécurité gratuit** : AlloSupport propose des audits de sécurité pour les PME marocaines. Découvrez notre <a href=\"/antivirus-maroc\" class=\"text-blue-600 font-bold hover:underline\">protection antivirus professionnelle</a>. <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">Contactez-nous</a>. Lisez notre <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision Maroc 2030</a> et <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">nos services</a>.",
     ]),
   },
   // 4. Vision Maroc 2030
@@ -242,7 +242,7 @@ const BLOG_POSTS: BlogPost[] = [
     updatedAt: "2026-01-28",
     content: toHtml([
       "La cybersécurité pour les PME au Maroc en 2026 : enjeux (ransomware, phishing, vol de données), bonnes pratiques (mots de passe forts, 2FA, sauvegardes 3-2-1, antivirus pro, mises à jour, formation des employés).",
-      "Budget raisonnable : antivirus, sauvegarde cloud, formation. En cas d'incident : isoler les postes, ne pas payer la rançon, contacter un expert. <a href=\"/blog/ransomware-maroc-proteger-donnees-entreprise\" class=\"text-primary-600 hover:text-primary-700 underline\">Ransomware Maroc</a>, <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">audit sécurité</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>.",
+      "Budget raisonnable : antivirus, sauvegarde cloud, formation. Pour un <a href=\"/support-pme\" class=\"text-blue-600 font-bold hover:underline\">Audit de sécurité IT gratuit</a>, contactez-nous. En cas d'incident : isoler les postes, ne pas payer la rançon, contacter un expert. <a href=\"/blog/ransomware-maroc-proteger-donnees-entreprise\" class=\"text-primary-600 hover:text-primary-700 underline\">Ransomware Maroc</a>, <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>.",
     ]),
   },
   // 9. Récupération données disque dur Maroc
@@ -262,7 +262,7 @@ const BLOG_POSTS: BlogPost[] = [
     updatedAt: "2026-02-01",
     content: toHtml([
       "Récupérer des données perdues au Maroc : suppression accidentelle (logiciels de récupération, ne plus écrire sur le disque), disque dur qui claque (arrêt immédiat, labo spécialisé), sauvegardes préventives (règle 3-2-1).",
-      "AlloSupport propose une tentative de récupération logicielle à distance. Si le disque est physiquement endommagé, orientation vers un partenaire labo. <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">Service récupération données</a>, <a href=\"/blog/cybersecurite-pme-maroc-guide-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">cybersécurité</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
+      "AlloSupport propose une tentative de récupération logicielle à distance. Pour un <a href=\"/depannage-informatique\" class=\"text-blue-600 font-bold hover:underline\">diagnostic panne disque dur</a>, contactez-nous. Si le disque est physiquement endommagé, orientation vers un partenaire labo. <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">Service récupération données</a>, <a href=\"/blog/cybersecurite-pme-maroc-guide-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">cybersécurité</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
   // 10. Windows 11 vs 10 Maroc 2026
@@ -322,7 +322,7 @@ const BLOG_POSTS: BlogPost[] = [
     updatedAt: "2026-02-10",
     content: toHtml([
       "Au Maroc, la poussière encrasse vite les ventilateurs et radiateurs, ce qui provoque surchauffe et ralentissements. Tuto : éteindre et débrancher, ouvrir le boîtier, souffler l'air (bombe ou compresseur à faible pression), ne pas toucher aux composants avec les doigts, rebrancher proprement.",
-      "Fréquence : tous les 6 à 12 mois selon l'environnement. Si vous n'osez pas : faites intervenir un pro. <a href=\"/blog/mon-pc-est-lent-10-solutions-simples-pour-laccelerer-special-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">PC lent 10 solutions</a>, <a href=\"/blog/pannes-pc-frequentes-maroc-solutions\" class=\"text-primary-600 hover:text-primary-700 underline\">pannes fréquentes</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
+      "Fréquence : tous les 6 à 12 mois selon l'environnement. Si vous n'osez pas : faites intervenir un pro pour une <a href=\"/depannage-informatique\" class=\"text-blue-600 font-bold hover:underline\">maintenance PC à distance</a>. <a href=\"/blog/mon-pc-est-lent-10-solutions-simples-pour-laccelerer-special-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">PC lent 10 solutions</a>, <a href=\"/blog/pannes-pc-frequentes-maroc-solutions\" class=\"text-primary-600 hover:text-primary-700 underline\">pannes fréquentes</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
   // 13. Pannes PC fréquentes Maroc
@@ -341,7 +341,7 @@ const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2026-02-12",
     updatedAt: "2026-02-12",
     content: toHtml([
-      "**1. Surchauffe** : Poussière, ventilation bloquée. Nettoyer, vérifier les ventilateurs. **2. Virus et malwares** : Antivirus, scan, pas de clics suspects. **3. Disque dur défaillant** : Bruits bizarres, lenteur. Sauvegarder et remplacer par un SSD. **4. RAM insuffisante ou défectueuse** : PC qui freeze. Ajouter ou remplacer la RAM. **5. Alimentation ou coupures** : Parafoudre, onduleur, sauvegardes.",
+      "**1. Surchauffe** : Poussière, ventilation bloquée. Nettoyer, vérifier les ventilateurs. **2. Virus et malwares** : Antivirus, scan, pas de clics suspects ; pour <a href=\"/antivirus-maroc\" class=\"text-blue-600 font-bold hover:underline\">sécuriser votre ordinateur</a> ou une suppression de virus à distance, AlloSupport intervient en 15 min. **3. Disque dur défaillant** : Bruits bizarres, lenteur. Sauvegarder et remplacer par un SSD. **4. RAM insuffisante ou défectueuse** : PC qui freeze. Ajouter ou remplacer la RAM. **5. Alimentation ou coupures** : Parafoudre, onduleur, sauvegardes.",
       "AlloSupport diagnostique et répare à distance ou sur site. <a href=\"/blog/recuperation-donnees-disque-dur-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">Récupération données</a>, <a href=\"/blog/nettoyer-pc-poussiere-maroc-tuto\" class=\"text-primary-600 hover:text-primary-700 underline\">nettoyage PC</a>, <a href=\"/services\" class=\"text-primary-600 hover:text-primary-700 underline\">services</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
@@ -442,7 +442,7 @@ const BLOG_POSTS: BlogPost[] = [
     updatedAt: "2026-02-15",
     content: toHtml([
       "Télétravail au Maroc en 2026 : PC portable ou fixe (i5/Ryzen 5, 16 Go RAM, SSD), connexion internet stable (fibre si possible), VPN si l'entreprise l'exige, webcam et micro corrects, bureau et chaise ergonomiques, bonne lumière.",
-      "Conseils : sauvegardes, cybersécurité (mots de passe, pas de WiFi public sensible). <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/blog/guide-achat-ordinateur-professionnel-maroc-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">guide achat PC</a>, <a href=\"/blog/google-workspace-vs-office-365-pme-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">Google vs Office 365</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
+      "Conseils : sauvegardes, cybersécurité (mots de passe, pas de WiFi public sensible). Découvrez nos <a href=\"/support-pme\" class=\"text-blue-600 font-bold hover:underline\">solutions télétravail entreprise</a>. <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/blog/guide-achat-ordinateur-professionnel-maroc-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">guide achat PC</a>, <a href=\"/blog/google-workspace-vs-office-365-pme-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">Google vs Office 365</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
   // 19. Meilleur Antivirus Gratuit Maroc 2026

@@ -188,7 +188,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/antivirus-maroc"
+                  href="/services/reseau-wifi"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
                   Réseau & Wi-Fi

@@ -143,11 +143,47 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    // Blog listing + tous les articles sont ajoutés dynamiquement via blogPages ci-dessous
+    // Blog listing + articles statiques (pages dédiées app/blog/xxx/page.tsx)
     {
       url: `${baseUrl}/blog`,
       lastModified: now,
       changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/pc-portable-sans-windows-freedos-maroc`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/meilleur-antivirus-gratuit-maroc-2026-comparatif`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/7-pannes-pc-courantes-2026-maroc`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/wifi-lent-maroc-2026`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/comparatif-maroc-telecom-inwi-orange-2026`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/192-168-1-1-admin-login-maroc-routeur-2026`,
+      lastModified: now,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {

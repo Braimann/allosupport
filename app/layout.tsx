@@ -62,93 +62,136 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema ProfessionalService + adresse complète (requis Rich Results .ma)
+// Schema @graph All-in-One : ComputerRepairService + WebSite + FAQPage (SEO local Maroc)
 const hasReviews =
   GOOGLE_BUSINESS.HAS_REVIEWS &&
   parseInt(GOOGLE_BUSINESS.REVIEW_COUNT, 10) > 0;
 
-const organizationSchema = {
+const schemaGraph = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://allosupport.ma",
-  name: "AlloSupport Maroc",
-  description:
-    "Service de dépannage informatique à domicile au Maroc. Intervention rapide à Casablanca, Rabat, Fès, Marrakech et Agadir.",
-  url: "https://allosupport.ma",
-  logo: "https://allosupport.ma/logo.png",
-  image: "https://allosupport.ma/og-image.jpg",
-  telephone: GOOGLE_BUSINESS.PHONE,
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Service à domicile",
-    addressLocality: "Casablanca",
-    addressRegion: "Casablanca-Settat",
-    postalCode: "20000",
-    addressCountry: "MA",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 33.5731,
-    longitude: -7.5898,
-  },
-  areaServed: GOOGLE_BUSINESS.SERVICE_AREA.map((city) => ({
-    "@type": "City",
-    name: city,
-    containedInPlace: {
-      "@type": "Country",
-      name: "Maroc",
-    },
-  })),
-  serviceType: "Dépannage informatique à domicile",
-  provider: {
-    "@type": "Organization",
-    name: "AlloSupport Maroc",
-  },
-  ...(hasReviews
-    ? {
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: GOOGLE_BUSINESS.RATING,
-          reviewCount: GOOGLE_BUSINESS.REVIEW_COUNT,
-          bestRating: "5",
-          worstRating: "1",
-        },
-      }
-    : {}),
-  openingHoursSpecification: [
+  "@graph": [
+    // 1. Organization / ComputerRepairService
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
+      "@type": "ComputerRepairService",
+      "@id": "https://allosupport.ma/#organization",
+      name: "AlloSupport Maroc",
+      description:
+        "Dépannage informatique à distance au Maroc. Intervention rapide à Casablanca, Rabat, Marrakech, Tanger. PC lent, virus, installation Windows. Paiement après réparation.",
+      url: "https://allosupport.ma",
+      logo: "https://allosupport.ma/logo.png",
+      image: "https://allosupport.ma/og-image.jpg",
+      telephone: GOOGLE_BUSINESS.PHONE,
+      priceRange: "150 MAD - 500 MAD",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Service à domicile",
+        addressLocality: "Casablanca",
+        addressRegion: "Casablanca-Settat",
+        postalCode: "20000",
+        addressCountry: "MA",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 33.5731,
+        longitude: -7.5898,
+      },
+      areaServed: [
+        { "@type": "Country", name: "Morocco" },
+        { "@type": "City", name: "Casablanca" },
+        { "@type": "City", name: "Rabat" },
+        { "@type": "City", name: "Marrakech" },
+        { "@type": "City", name: "Tanger" },
       ],
-      opens: "08:00",
-      closes: "20:00",
+      serviceType: "Dépannage informatique à distance",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "08:00",
+        closes: "23:00",
+      },
+      sameAs: [
+        "https://www.facebook.com/AlloSupportMaroc",
+        "https://www.instagram.com/allosupport.ma",
+        GOOGLE_BUSINESS.SHARE_URL,
+        "https://g.page/r/CTT4BBV6QaxrEBM/review",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: GOOGLE_BUSINESS.PHONE,
+        contactType: "customer service",
+        availableLanguage: ["fr", "ar"],
+        areaServed: "MA",
+      },
+      ...(hasReviews
+        ? {
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: GOOGLE_BUSINESS.RATING,
+              reviewCount: GOOGLE_BUSINESS.REVIEW_COUNT,
+              bestRating: "5",
+              worstRating: "1",
+            },
+          }
+        : {}),
     },
+    // 2. WebSite
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "10:00",
-      closes: "18:00",
+      "@type": "WebSite",
+      "@id": "https://allosupport.ma/#website",
+      name: "AlloSupport Maroc",
+      url: "https://allosupport.ma",
+      description:
+        "Dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
+      publisher: { "@id": "https://allosupport.ma/#organization" },
+    },
+    // 3. FAQPage (rich results FAQ sur la home)
+    {
+      "@type": "FAQPage",
+      "@id": "https://allosupport.ma/#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Intervenez-vous partout au Maroc ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui, notre dépannage à distance fonctionne partout au Maroc via TeamViewer. Vous avez uniquement besoin d'une connexion Internet. Nous intervenons à Casablanca, Rabat, Marrakech, Tanger, Fès, Agadir et dans toutes les villes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quel est le prix d'un dépannage informatique ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "À partir de 150 Dhs pour un dépannage simple (suppression virus, optimisation PC). Un formatage avec installation Windows coûte 250 Dhs. Le diagnostic est gratuit. Paiement après réparation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "C'est quoi le dépannage à distance ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "On prend la main sur votre PC à distance via un logiciel sécurisé (TeamViewer). Vous voyez tout ce que fait le technicien en direct. Aucun déplacement : vous restez chez vous, l'intervention dure 15 à 60 minutes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Y a-t-il une garantie ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Satisfait ou Remboursé. Vous payez uniquement après que le problème soit résolu. Si nous ne parvenons pas à réparer, vous ne payez rien. Garantie 7 à 30 jours selon le service.",
+          },
+        },
+      ],
     },
   ],
-  sameAs: [
-    GOOGLE_BUSINESS.SHARE_URL,
-    "https://www.facebook.com/AlloSupportMaroc",
-    "https://g.page/r/CTT4BBV6QaxrEBM/review",
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: GOOGLE_BUSINESS.PHONE,
-    contactType: "customer service",
-    availableLanguage: ["fr", "ar"],
-    areaServed: "MA",
-  },
 };
 
 export default function RootLayout({
@@ -205,7 +248,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(schemaGraph),
           }}
         />
       </head>

@@ -255,7 +255,7 @@ export default function WiFiLentMaroc2026() {
                 <li>✅ Réglages optimaux box Maroc Telecom, Inwi, Orange (login, canal, 5 GHz)</li>
                 <li>✅ Prix et modèles de répéteurs Wi-Fi au Maroc 2026 (150-400 DH)</li>
                 <li>✅ Solutions par ville (Casablanca, Rabat, Marrakech, Fès)</li>
-                <li>✅ Quand faire appel à un expert dépannage à distance</li>
+                <li>✅ Quand faire appel à un <Link href="/depannage-informatique" className="text-emerald-700 hover:underline font-medium">expert dépannage à distance</Link></li>
               </ul>
             </div>
           </div>

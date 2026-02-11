@@ -141,7 +141,7 @@ export default function BlogPostAntivirus() {
                                         En 2026, choisir le <strong>meilleur antivirus gratuit au Maroc</strong> peut vous éviter des pertes de données catastrophiques et des centaines de Dirhams en réparations.
                                     </p>
                                     <p className="mb-4">
-                                        Avec l'augmentation spectaculaire des cyberattaques au Maroc en 2026 (+150% de ransomwares), la protection de votre ordinateur n'est plus une option. Que vous soyez un étudiant à Rabat, un professionnel à Casablanca ou une famille à Marrakech, la menace est réelle.
+                                        Avec l&apos;augmentation spectaculaire des cyberattaques au Maroc en 2026 (+150% de ransomwares), la protection de votre ordinateur n&apos;est plus une option. Que vous soyez un étudiant à Rabat, un professionnel à Casablanca ou une famille à Marrakech, la menace est réelle. En cas d&apos;infection ou pour un audit, notre <Link href="/depannage-informatique" className="text-indigo-600 hover:underline font-medium">dépannage informatique à distance</Link> intervient en 15 min.
                                     </p>
                                     <p className="mb-6">
                                         L'équipe <strong>AlloSupport</strong>, experte en cybersécurité au Maroc, a testé pour vous les solutions les plus populaires. Voici notre comparatif définitif des 7 meilleurs antivirus gratuits, basé sur leur efficacité, leur légèreté et leur fiabilité.
@@ -221,7 +221,7 @@ export default function BlogPostAntivirus() {
 
                                         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
                                             <p className="m-0 text-sm">
-                                                <strong>Note pour les Pros :</strong> AlloSupport installe et configure des solutions antivirus professionnelles (Bitdefender GravityZone, ESET) pour les PME au Maroc. <a href="/contact" className="text-blue-600 hover:underline">Demandez un audit gratuit</a>.
+                                                <strong>Note pour les Pros :</strong> AlloSupport installe et configure des solutions antivirus professionnelles (Bitdefender GravityZone, ESET) pour les PME au Maroc. <Link href="/antivirus-maroc" className="text-blue-600 hover:underline">Découvrez notre offre antivirus et cybersécurité</Link> ou <a href="/contact" className="text-blue-600 hover:underline">demandez un audit gratuit</a>.
                                             </p>
                                         </div>
                                     </section>
