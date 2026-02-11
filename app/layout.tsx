@@ -103,7 +103,6 @@ const schemaGraph = {
         { "@type": "City", name: "Marrakech" },
         { "@type": "City", name: "Tanger" },
       ],
-      serviceType: "Dépannage informatique à distance",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: [
