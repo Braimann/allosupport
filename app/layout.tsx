@@ -62,7 +62,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema @graph All-in-One : ComputerRepairService + WebSite + FAQPage (SEO local Maroc)
+// Schema @graph All-in-One : LocalBusiness + WebSite + FAQPage (SEO local Maroc)
+// LocalBusiness utilisé (ComputerRepairService non reconnu par tous les validateurs ; publisher WebSite exige Organization/LocalBusiness)
 const hasReviews =
   GOOGLE_BUSINESS.HAS_REVIEWS &&
   parseInt(GOOGLE_BUSINESS.REVIEW_COUNT, 10) > 0;
@@ -70,9 +71,9 @@ const hasReviews =
 const schemaGraph = {
   "@context": "https://schema.org",
   "@graph": [
-    // 1. Organization / ComputerRepairService
+    // 1. LocalBusiness (réparation informatique) — type reconnu pour publisher WebSite
     {
-      "@type": "ComputerRepairService",
+      "@type": "LocalBusiness",
       "@id": "https://allosupport.ma/#organization",
       name: "AlloSupport Maroc",
       description:
