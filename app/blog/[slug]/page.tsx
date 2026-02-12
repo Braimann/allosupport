@@ -20,8 +20,16 @@ interface PageProps {
   params: { slug: string };
 }
 
-// Slugs qui ont une page statique dédiée (évite conflit et erreurs vendor-chunks motion)
-const STATIC_BLOG_SLUGS = ["wifi-lent-maroc-2026", "7-pannes-pc-courantes-2026-maroc", "192-168-1-1-admin-login-maroc-routeur-2026", "comparatif-maroc-telecom-inwi-orange-2026"];
+// Slugs qui ont une page statique dédiée (évite conflit : ne pas pré-rendre [slug] pour ces URLs)
+const STATIC_BLOG_SLUGS = [
+  "wifi-lent-maroc-2026",
+  "7-pannes-pc-courantes-2026-maroc",
+  "192-168-1-1-admin-login-maroc-routeur-2026",
+  "comparatif-maroc-telecom-inwi-orange-2026",
+  "installation-windows-11-maroc-2026-prix",
+  "meilleur-antivirus-gratuit-maroc-2026-comparatif",
+  "pc-portable-sans-windows-freedos-maroc",
+];
 
 export function generateStaticParams() {
   return getAllSlugs()
