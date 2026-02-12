@@ -152,45 +152,7 @@ const schemaGraph = {
         "Dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
       publisher: { "@id": "https://allosupport.ma/#organization" },
     },
-    // 3. FAQPage (rich results FAQ sur la home)
-    {
-      "@type": "FAQPage",
-      "@id": "https://allosupport.ma/#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Intervenez-vous partout au Maroc ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Oui, notre dépannage à distance fonctionne partout au Maroc via TeamViewer. Vous avez uniquement besoin d'une connexion Internet. Nous intervenons à Casablanca, Rabat, Marrakech, Tanger, Fès, Agadir et dans toutes les villes.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Quel est le prix d'un dépannage informatique ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "À partir de 150 Dhs pour un dépannage simple (suppression virus, optimisation PC). Un formatage avec installation Windows coûte 250 Dhs. Le diagnostic est gratuit. Paiement après réparation.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "C'est quoi le dépannage à distance ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "On prend la main sur votre PC à distance via un logiciel sécurisé (TeamViewer). Vous voyez tout ce que fait le technicien en direct. Aucun déplacement : vous restez chez vous, l'intervention dure 15 à 60 minutes.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Y a-t-il une garantie ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Satisfait ou Remboursé. Vous payez uniquement après que le problème soit résolu. Si nous ne parvenons pas à réparer, vous ne payez rien. Garantie 7 à 30 jours selon le service.",
-          },
-        },
-      ],
-    },
+    // FAQPage retiré du layout : évite doublon avec les pages qui ont leur propre FAQ (ex. /depannage-informatique). La home peut ajouter un FAQPage dans app/page.tsx si besoin.
   ],
 };
 
