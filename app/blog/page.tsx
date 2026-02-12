@@ -37,6 +37,7 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   "Cloud": Cloud,
   "Infogérance": Server,
   "SEO": Search,
+  "Guides": Settings,
 };
 
 function formatDate(isoDate: string): string {

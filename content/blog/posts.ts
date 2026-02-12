@@ -466,6 +466,27 @@ const BLOG_POSTS: BlogPost[] = [
       "L'article complet est disponible sur cette page. <a href=\"/blog/meilleur-antivirus-gratuit-maroc-2026-comparatif\" class=\"text-primary-600 hover:underline\">Lire le comparatif complet</a>."
     ]),
   },
+  // Installation Windows 11 Maroc 2026 (page dédiée app/blog/installation-windows-11-maroc-2026-prix)
+  {
+    slug: "installation-windows-11-maroc-2026-prix",
+    title: "Installation Windows 11 Maroc 2026 : Guide Complet + Prix Licence (Casablanca, Rabat, Marrakech)",
+    excerpt: "Guide installation Windows 11 au Maroc : clé USB bootable, résoudre VMD (disque non détecté), licence officielle 1200 DH, installation à distance 250 MAD. Technicien certifié.",
+    metaDescription: "Guide installation Windows 11 au Maroc : clé USB bootable, résoudre VMD, licence officielle 1200 DH, installation à distance Casablanca/Rabat/Marrakech. Technicien certifié.",
+    category: "Guides",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/blog/win10.webp",
+    imageAlt: "Installation Windows 11 au Maroc 2026 : guide complet clé USB bootable, VMD, prix licence - Casablanca, Rabat, Marrakech",
+    keywords: ["installation windows 11 maroc", "installer windows 11 au maroc", "licence windows 11 maroc", "probleme vmd windows 11", "installation windows 11 pc freedos", "windows 11 casablanca", "installation windows 11 rabat", "licence windows 11 prix maroc", "installer windows 11 clé usb", "installation windows 11 à distance"],
+    author: "AlloSupport Maroc - Équipe Technique",
+    readTime: "15 min de lecture",
+    publishedAt: "2026-02-12",
+    updatedAt: "2026-02-12",
+    content: toHtml([
+      "Vous avez acheté un PC HP, Lenovo ou Dell sans système chez Jumia, Marjane ou Electroplanet ? Ce guide vous explique comment installer Windows 11 vous-même (clé USB, Rufus, résolution VMD) ou via notre service à distance (250 MAD).",
+      "Nous couvrons : prérequis compatibilité, téléchargement ISO officiel, création clé USB bootable, résolution du problème VMD (disque non détecté), installation pas à pas, drivers HP/Lenovo/Dell, activation et prix licence Windows 11 au Maroc en 2026 (officielle 1200-1500 MAD vs crack à éviter).",
+      "Trop compliqué ? Notre service d'installation Windows 11 à distance en 1 heure : 250 MAD, tous drivers et antivirus 6 mois inclus. <a href=\"/depannage-informatique\" class=\"text-blue-600 font-bold hover:underline\">Dépannage informatique à distance</a>. <a href=\"/blog/pc-portable-sans-windows-freedos-maroc\" class=\"text-primary-600 hover:underline\">PC FreeDOS Maroc</a>, <a href=\"/antivirus-maroc\" class=\"text-primary-600 hover:underline\">Antivirus Maroc</a>, <a href=\"/recuperation-donnees\" class=\"text-primary-600 hover:underline\">Récupération données</a>.",
+    ]),
+  },
 ];
 
 export function getPublishedPosts(): BlogPost[] {
