@@ -48,7 +48,7 @@ export default function SuppressionVirusPage() {
 
   return (
     <ServiceDedicatedLayout
-      content={serviceContent}
+      content={serviceContent as unknown as Parameters<typeof ServiceDedicatedLayout>[0]["content"]}
       slug="suppression-virus"
       whatsappMessage={whatsappUrlMessage}
       serviceNameForSchema={serviceContent.hero.title}

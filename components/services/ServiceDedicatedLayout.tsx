@@ -22,7 +22,7 @@ const PHONE_TEL = "+212775237038";
 
 // Type minimal pour le contenu (sections optionnelles)
 export interface ServiceContentGeneric {
-  metadata: { title: string; description: string; keywords: string[]; ogImage: string };
+  metadata: { title: string; description: string; keywords: readonly string[]; ogImage: string };
   hero: {
     badge: string;
     title: string;
@@ -30,24 +30,24 @@ export interface ServiceContentGeneric {
     mainText: string;
     image?: { url: string; alt: string };
   };
-  idealFor?: { title: string; problems: string[] };
-  pricing: Array<{
+  idealFor?: { title: string; problems: readonly string[] };
+  pricing: ReadonlyArray<{
     name: string;
     price: number | string;
     description: string;
-    features?: string[];
+    features?: readonly string[];
     duration?: string;
     popular?: boolean;
     promo?: number;
     priceUnit?: string;
     ideal?: string;
   }>;
-  solution?: { title: string; intro: string; steps: Array<{ number: number; title: string; description: string; duration: string; icon?: string }> };
-  guarantees?: string[];
-  whyUs?: { title: string; reasons: Array<{ title: string; before: string; after: string }> };
-  commonIssues?: { title: string; list: Array<{ problem: string; cause: string; solution: string; duration: string }> };
-  faq: Array<{ q: string; a: string }>;
-  relatedServices: Array<{ slug: string; title: string; excerpt: string; category: string }>;
+  solution?: { title: string; intro: string; steps: ReadonlyArray<{ number: number; title: string; description: string; duration: string; icon?: string }> };
+  guarantees?: ReadonlyArray<string>;
+  whyUs?: { title: string; reasons: ReadonlyArray<{ title: string; before: string; after: string }> };
+  commonIssues?: { title: string; list: ReadonlyArray<{ problem: string; cause: string; solution: string; duration: string }> };
+  faq: ReadonlyArray<{ q: string; a: string }>;
+  relatedServices: ReadonlyArray<{ slug: string; title: string; excerpt: string; category: string }>;
 }
 
 interface Props {

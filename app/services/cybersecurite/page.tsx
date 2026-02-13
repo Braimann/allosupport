@@ -8,7 +8,7 @@ const BRAND = "AlloSupport.ma";
 export const metadata: Metadata = {
   title: serviceContent.metadata.title,
   description: serviceContent.metadata.description,
-  keywords: serviceContent.metadata.keywords,
+  keywords: serviceContent.metadata.keywords.slice(0, 5),
   alternates: { canonical: `${SITE_URL}/services/cybersecurite` },
   openGraph: {
     title: serviceContent.metadata.title,
