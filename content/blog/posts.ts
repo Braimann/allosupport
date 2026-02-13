@@ -28,6 +28,28 @@ function toHtml(paragraphs: string[]): string {
 }
 
 const BLOG_POSTS: BlogPost[] = [
+  // 20. Supprimer virus PC Maroc
+  {
+    slug: "comment-supprimer-virus-pc-maroc-gratuit",
+    title: "Comment Supprimer Virus PC Maroc Gratuit 2026 - 3 Méthodes",
+    excerpt: "Guide complet 2026 pour supprimer virus, malware gratuitement au Maroc. 3 méthodes testées (Windows Defender, Malwarebytes). Intervention pro 250 DH si échec.",
+    metaDescription: "Guide complet 2026 pour supprimer virus, malware gratuitement au Maroc. 3 méthodes testées (Windows Defender, Malwarebytes). Intervention pro 250 DH si échec.",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/images/blog/supprimer-virus-maroc-hero.svg",
+    imageAlt: "Comment supprimer virus PC Maroc gratuit 2026",
+    keywords: ["supprimer virus pc maroc", "nettoyage virus gratuit casablanca", "malware removal maroc", "pc infecté rabat", "enlever pubs intempestives"],
+    author: "AlloSupport Maroc",
+    readTime: "8 min de lecture",
+    publishedAt: "2026-02-14",
+    updatedAt: "2026-02-14",
+    content: toHtml([
+      "PC infecté ? Découvrez 3 méthodes gratuites testées (Windows Defender, Malwarebytes) pour nettoyer votre ordinateur en 45 min, sans formatage. Guide spécial Maroc 2026.",
+      "Votre PC ralentit soudainement ? Des publicités apparaissent partout sur votre écran ? Votre navigateur a changé de page d'accueil tout seul ? Malheureusement, vous êtes probablement infecté. Au Maroc, avec l'utilisation fréquente de clés USB dans les cybercafés et les logiciels crackés, c'est un problème très courant.",
+      "La bonne nouvelle ? Dans **95% des cas**, un nettoyage complet est possible gratuitement et **sans formatage**. Ce guide vous présente 3 méthodes testées et approuvées sur des centaines de PC marocains pour vous débarrasser définitivement des virus.",
+      "L'article complet est disponible sur cette page. <a href=\"/blog/comment-supprimer-virus-pc-maroc-gratuit\" class=\"text-primary-600 hover:underline\">Lire le guide complet</a>.",
+    ]),
+  },
   // 1. Ordinateur lent
   {
     slug: "ordinateur-lent-astuces-booster-pc",

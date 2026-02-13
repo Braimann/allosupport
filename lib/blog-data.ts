@@ -148,6 +148,33 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min de lecture",
     imageAlt: "Protection cybersécurité entreprise marocaine contre ransomware",
   },
+  {
+    id: 3,
+    slug: "comment-supprimer-virus-pc-maroc-gratuit",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    title: "Comment Supprimer Virus PC Maroc Gratuit 2026 - 3 Méthodes",
+    excerpt:
+      "Guide complet 2026 pour supprimer virus, malware gratuitement au Maroc. 3 méthodes testées (Windows Defender, Malwarebytes). Intervention pro 250 DH si échec.",
+    metaDescription:
+      "Guide complet 2026 pour supprimer virus, malware gratuitement au Maroc. 3 méthodes testées (Windows Defender, Malwarebytes). Intervention pro 250 DH si échec.",
+    keywords: [
+      "supprimer virus pc maroc",
+      "nettoyage virus gratuit casablanca",
+      "malware removal maroc",
+      "pc infecté rabat",
+      "enlever pubs intempestives",
+    ],
+    fullContent: [
+      "Votre PC ralentit soudainement ? Des publicités apparaissent partout sur votre écran ? Votre navigateur a changé de page d'accueil tout seul ? Malheureusement, vous êtes probablement infecté. Au Maroc, avec l'utilisation fréquente de clés USB dans les cybercafés et les logiciels crackés, c'est un problème très courant.",
+      "La bonne nouvelle ? Dans 95% des cas, un nettoyage complet est possible gratuitement et sans formatage. Ce guide vous présente 3 méthodes testées et approuvées sur des centaines de PC marocains pour vous débarrasser définitivement des virus.",
+    ],
+    icon: ShieldAlert,
+    date: "14 Février 2026",
+    dateISO: "2026-02-14",
+    readTime: "8 min de lecture",
+    imageAlt: "Technicien informatique supprimant un virus sur un PC portable au Maroc",
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

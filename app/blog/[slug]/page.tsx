@@ -26,6 +26,7 @@ const STATIC_BLOG_SLUGS = [
   "7-pannes-pc-courantes-2026-maroc",
   "192-168-1-1-admin-login-maroc-routeur-2026",
   "comparatif-maroc-telecom-inwi-orange-2026",
+  "comment-supprimer-virus-pc-maroc-gratuit",
   "installation-windows-11-maroc-2026-prix",
   "meilleur-antivirus-gratuit-maroc-2026-comparatif",
   "pc-portable-sans-windows-freedos-maroc",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -142,6 +142,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const closeTimeoutRef = useRef<number | null>(null);
 
   // ============================================
   // 🔧 EFFECTS
@@ -193,9 +194,31 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current !== null) {
+        window.clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+
   // ============================================
   // 🎨 HANDLERS
   // ============================================
+
+  const cancelDropdownClose = () => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const scheduleDropdownClose = () => {
+    cancelDropdownClose();
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -300,7 +323,7 @@ export default function Header() {
       {/* MAIN HEADER */}
       {/* ============================================ */}
       <header
-        className={`sticky top-0 bg-white z-[999999] transition-shadow duration-300 ${scrolled ? "shadow-lg" : "shadow-md"
+        className={`site-header sticky top-0 bg-white z-[999999] transition-shadow duration-300 ${scrolled ? "shadow-lg" : "shadow-md"
           }`}
       >
         <nav className="container mx-auto px-4">
@@ -339,8 +362,11 @@ export default function Header() {
                     <div>
                       <button
                         onClick={() => toggleDropdown(link.dropdown!)}
-                        onMouseEnter={() => setActiveDropdown(link.dropdown!)}
-                        onMouseLeave={() => setActiveDropdown(null)}
+                        onMouseEnter={() => {
+                          cancelDropdownClose();
+                          setActiveDropdown(link.dropdown!);
+                        }}
+                        onMouseLeave={scheduleDropdownClose}
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${isActive(link.href)
                           ? "text-emerald-600 bg-emerald-50"
                           : "text-slate-700 hover:text-emerald-600 hover:bg-slate-50"
@@ -357,8 +383,11 @@ export default function Header() {
                       {/* Dropdown Menu */}
                       {activeDropdown === link.dropdown && (
                         <div
-                          onMouseEnter={() => setActiveDropdown(link.dropdown!)}
-                          onMouseLeave={() => setActiveDropdown(null)}
+                          onMouseEnter={() => {
+                            cancelDropdownClose();
+                            setActiveDropdown(link.dropdown!);
+                          }}
+                          onMouseLeave={scheduleDropdownClose}
                           className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 py-2 z-[1000000]"
                         >
                           {link.items?.map((item) => (

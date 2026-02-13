@@ -65,15 +65,13 @@ export default async function ServicesPage() {
                       href={`/services/${service.slug}`}
                       className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >
-                      {service.imageUrl && (
-                        <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                          <img
-                            src={service.imageUrl}
-                            alt={service.imageAlt || service.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      )}
+                      <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                        <img
+                          src={service.imageUrl || `/images/services/${service.slug}-card.svg`}
+                          alt={service.imageAlt || service.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
                       
                       <div className="p-6">
                         <div className="flex items-center gap-3 mb-4">

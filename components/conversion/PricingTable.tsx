@@ -31,22 +31,22 @@ export default function PricingTable({
   };
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start my-12">
       {services.map((service, index) => {
         const isHighlighted = highlighted === index || service.popular;
         
         return (
           <div
             key={index}
-            className={`relative bg-white rounded-2xl shadow-lg overflow-hidden border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+            className={`relative bg-white rounded-2xl shadow-sm overflow-hidden border-2 transition-all duration-300 hover:shadow-md ${
               isHighlighted
-                ? "border-primary-500 scale-105"
+                ? "border-emerald-500 scale-105 z-10"
                 : "border-gray-200"
             }`}
           >
             {/* Popular Badge */}
             {isHighlighted && (
-              <div className="absolute top-0 right-0 bg-primary-500 text-white px-4 py-1 rounded-bl-lg text-sm font-semibold z-10">
+              <div className="absolute top-0 right-0 bg-emerald-500 text-white px-4 py-1 rounded-bl-lg text-sm font-semibold z-10">
                 <Zap className="w-4 h-4 inline mr-1" />
                 Populaire
               </div>
@@ -60,14 +60,14 @@ export default function PricingTable({
 
               {/* Price */}
               <div className="mb-4">
-                <span className="text-3xl font-bold text-primary-600">
+                <span className="text-3xl font-bold text-emerald-600">
                   {service.price}
                 </span>
                 <span className="text-gray-500 ml-2">MAD</span>
               </div>
 
               {/* Description */}
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed min-h-[60px]">
                 {service.description}
               </p>
 
@@ -76,7 +76,7 @@ export default function PricingTable({
                 <ul className="space-y-3 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -88,7 +88,7 @@ export default function PricingTable({
                 onClick={() => handleWhatsAppClick(service.name)}
                 className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                   isHighlighted
-                    ? "bg-primary-500 hover:bg-primary-600 text-white shadow-lg hover:shadow-xl"
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-900"
                 }`}
               >

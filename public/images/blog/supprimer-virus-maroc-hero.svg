@@ -1,0 +1,25 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dcfce7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad)" />
+  <rect width="1200" height="630" fill="#ffffff" fill-opacity="0.5" />
+  
+  <!-- Icon Shield -->
+  <circle cx="600" cy="240" r="80" fill="#10b981" fill-opacity="0.1" />
+  <path d="M600 180 C600 180 660 190 660 240 C660 290 600 320 600 320 C600 320 540 290 540 240 C540 190 600 180 600 180 Z" fill="#059669" />
+  <path d="M585 245 L600 260 L625 225" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Text -->
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#0f172a" text-anchor="middle">Comment Supprimer Virus</text>
+  <text x="600" y="440" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#0f172a" text-anchor="middle">PC Maroc Gratuit 2026</text>
+  
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">Guide complet 3 méthodes (Windows Defender, Malwarebytes)</text>
+
+  <!-- Brand -->
+  <rect x="520" y="540" width="160" height="40" rx="20" fill="#059669" />
+  <text x="600" y="567" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">AlloSupport.ma</text>
+</svg>

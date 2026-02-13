@@ -90,6 +90,32 @@ export default async function ServicePage({ params }: PageProps) {
     price: service.pricing?.[0]?.price,
   });
 
+  // Breadcrumb JSON-LD
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: "https://allosupport.ma/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://allosupport.ma/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.heroTitle || service.title,
+        item: `https://allosupport.ma/services/${params.slug}`,
+      },
+    ],
+  };
+
   // Get related services
   const allServices = await getPublishedServices();
   const relatedServices = allServices
@@ -105,54 +131,55 @@ export default async function ServicePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <Header />
 
-      <main className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-emerald-600 via-emerald-700 to-slate-900 text-white py-16 pt-40">
-          <div className="max-w-4xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              {service.heroTitle || service.title}
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
-              {service.heroSubtitle}
-            </p>
-            
-            {/* Trust Signals */}
-            <div className="flex flex-wrap gap-4 text-sm mb-8">
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                ⚡ Intervention 15 min
-              </span>
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                ✅ Satisfait ou Remboursé
-              </span>
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                🔒 Paiement Sécurisé
-              </span>
-            </div>
-
-            {/* Hero CTA */}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Contacter sur WhatsApp
-            </a>
+      {/* HERO Full Width */}
+      <header className="relative w-full bg-gradient-to-br from-emerald-600 via-emerald-700 to-slate-900 text-white pt-32 pb-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            {service.heroTitle || service.title}
+          </h1>
+          <p className="text-xl text-white/90 mb-8">
+            {service.heroSubtitle}
+          </p>
+          <div className="flex flex-wrap gap-4 text-sm mb-8">
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+              ⚡ Intervention 15 min
+            </span>
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+              ✅ Satisfait ou Remboursé
+            </span>
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+              🔒 Paiement Sécurisé
+            </span>
           </div>
-        </section>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-full transition-all"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Contacter sur WhatsApp
+          </a>
+        </div>
+      </header>
 
-        {/* Pricing Table */}
-        {service.pricing && service.pricing.length > 0 && (
-          <section className="py-12 bg-white">
-            <div className="max-w-7xl mx-auto px-4">
+      {/* WRAPPER Full Width background */}
+      <div className="w-full bg-gray-50 min-h-screen">
+        {/* CONTAINER centered */}
+        <main className="mx-auto max-w-6xl px-4 py-16">
+          {service.pricing && service.pricing.length > 0 && (
+            <section>
               <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
                 Tarifs Transparents
               </h2>
-              <p className="text-gray-600 text-center mb-8">
+              <p className="text-gray-700 text-center mb-8">
                 Pas de surprise. Prix fixes affichés.
               </p>
               <PricingTable
@@ -165,21 +192,15 @@ export default async function ServicePage({ params }: PageProps) {
                 }))}
                 highlighted={0}
               />
-            </div>
-          </section>
-        )}
+            </section>
+          )}
 
-        {/* Local Proof */}
-        <section className="py-8 bg-white">
-          <div className="max-w-4xl mx-auto px-4">
+          <section className="mt-8">
             <LocalProof />
-          </div>
-        </section>
+          </section>
 
-        {/* Content */}
-        <section className="py-12">
-          <div className="max-w-4xl mx-auto px-4">
-            <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <section className="mt-12">
+            <article className="bg-white rounded-2xl shadow-sm overflow-hidden">
               {service.imageUrl && (
                 <div className="relative h-64 md:h-96 bg-gray-100">
                   <Image
@@ -194,62 +215,56 @@ export default async function ServicePage({ params }: PageProps) {
 
               <div className="p-8 md:p-12">
                 <div
-                  className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-emerald-600 prose-a:hover:text-emerald-700 prose-ul:text-gray-700 prose-li:text-gray-700"
+                  className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-800 prose-strong:text-gray-900 prose-a:text-emerald-600 prose-a:hover:text-emerald-700 prose-ul:text-gray-800 prose-li:text-gray-800"
                   dangerouslySetInnerHTML={{ __html: service.content }}
                 />
               </div>
             </article>
-          </div>
-        </section>
+          </section>
 
-        {/* Bottom CTA Section */}
-        <section className="py-12 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
-          <div className="max-w-4xl mx-auto px-4 text-center">
+          <section className="mt-12 text-center bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-2xl p-10">
             <h2 className="text-3xl font-bold mb-4">
               Prêt à démarrer ?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Contactez-nous maintenant sur WhatsApp pour une intervention rapide
+            <p className="text-lg text-white/90 mb-8">
+              Contactez-nous sur WhatsApp pour une intervention rapide
             </p>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-emerald-600 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center gap-2 bg-white text-emerald-600 font-bold py-4 px-8 rounded-full transition-all"
             >
               <MessageCircle className="w-5 h-5" />
               Réponse Immédiate sur WhatsApp
             </a>
-          </div>
-        </section>
+          </section>
 
-        {/* Related Services */}
-        {relatedServices.length > 0 && (
-          <section className="py-16 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4">
+          {relatedServices.length > 0 && (
+            <section className="mt-16">
               <h2 className="text-2xl font-bold text-gray-900 mb-8">
                 Autres services qui pourraient vous intéresser
               </h2>
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-3 gap-6 items-start">
                 {relatedServices.map((related) => (
                   <a
                     key={related.slug}
                     href={`/services/${related.slug}`}
-                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+                    className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all"
                   >
                     <h3 className="font-bold text-gray-900 mb-2">
                       {related.heroTitle || related.title}
                     </h3>
-                    <p className="text-sm text-gray-600 line-clamp-2">
+                    <p className="text-sm text-gray-700 min-h-[60px]">
                       {related.heroSubtitle}
                     </p>
                   </a>
                 ))}
               </div>
-            </div>
-          </section>
-        )}
-      </main>
+            </section>
+          )}
+        </main>
+      </div>
 
       <Footer />
     </>

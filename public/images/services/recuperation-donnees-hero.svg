@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.5" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#064e3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#g)"/>
+  <g fill="#ffffff" opacity="0.1">
+    <circle cx="360" cy="240" r="200"/>
+    <rect x="1120" y="140" width="280" height="200" rx="24"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="80" y="170" fill="#a7f3d0" font-size="28" font-weight="700">Récupération de Données</text>
+    <text x="80" y="250" fill="#ffffff" font-size="66" font-weight="800">Fichiers Effacés ? Photos Perdues ? Pas de Panique.</text>
+    <text x="80" y="315" fill="#e5e7eb" font-size="28">Récupération à distance quand c'est possible</text>
+    <text x="80" y="370" fill="#cbd5e1" font-size="22">Paiement uniquement en cas de succès</text>
+  </g>
+  <g transform="translate(1200,520)" opacity="0.9">
+    <rect x="-60" y="-60" width="120" height="120" rx="20" fill="#10b981"/>
+    <path d="M-20 10 l30 30 l60 -60" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

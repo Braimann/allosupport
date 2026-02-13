@@ -1,0 +1,26 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dcfce7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad)" />
+  
+  <!-- Content Area -->
+  <rect x="100" y="100" width="1000" height="430" rx="20" fill="white" fill-opacity="0.9" shadow="true" />
+  
+  <!-- Icon -->
+  <circle cx="600" cy="220" r="60" fill="#10b981" fill-opacity="0.1" />
+  <path d="M600 175 C600 175 645 182.5 645 220 C645 257.5 600 280 600 280 C600 280 555 257.5 555 220 C555 182.5 600 175 600 175 Z" fill="#059669" />
+  <path d="M588.75 223.75 L600 235 L618.75 208.75" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Text -->
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0f172a" text-anchor="middle">Supprimer Virus PC</text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#059669" text-anchor="middle">Maroc Gratuit 2026</text>
+  
+  <text x="600" y="440" font-family="Arial, sans-serif" font-size="28" fill="#64748b" text-anchor="middle">3 Méthodes testées sans formatage</text>
+
+  <!-- Brand -->
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#059669" text-anchor="middle">AlloSupport.ma</text>
+</svg>

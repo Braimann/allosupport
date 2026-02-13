@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1f5f9"/>
+      <stop offset="1" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" fill="url(#g)"/>
+  <g fill="#0f172a" opacity="0.08">
+    <rect x="160" y="160" width="220" height="140" rx="16"/>
+    <circle cx="460" cy="230" r="90"/>
+    <rect x="700" y="180" width="160" height="100" rx="16"/>
+  </g>
+  <text x="60" y="80" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#0f172a">
+    Email & Cloud
+  </text>
+</svg>

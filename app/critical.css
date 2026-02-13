@@ -5,8 +5,8 @@
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#f9fafb}
 
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1)}
-nav{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;height:4rem}
+.site-header{position:sticky;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1)}
+.site-header nav{max-width:1280px;margin:0 auto;padding:0 1rem}
 
 .hero-section{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:7rem;padding-bottom:5rem;background:linear-gradient(135deg,#1e293b 0%,#0f172a 50%,#1e293b 100%);overflow:hidden}
 .hero-content{max-width:1280px;margin:0 auto;padding:0 1rem;width:100%}
