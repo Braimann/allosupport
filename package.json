@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:turbo": "set TURBOPACK=1&& next dev --turbo",
+    "dev:turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "import:vision-maroc": "npx ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/import-vision-maroc-2030.ts"
+    "import:vision-maroc": "npx ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/import-vision-maroc-2030.ts",
+    "audit:seo": "npx unlighthouse --site https://allosupport.ma --sitemap https://allosupport.ma/sitemap.xml --budget 70 --throttle --cache false --reporter json,html,csv --output-path ./unlighthouse-report",
+    "audit:seo:quick": "npx unlighthouse --site https://allosupport.ma --sitemap https://allosupport.ma/sitemap.xml --budget 70 --throttle --cache false --reporter json,html --output-path ./unlighthouse-report --max-routes 15"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.66",
@@ -30,10 +32,12 @@
     "resend": "^6.9.1"
   },
   "devDependencies": {
+    "@unlighthouse/cli": "^0.10.0",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.16",
+    "broken-link-checker": "^0.7.8",
     "eslint": "^8.55.0",
     "eslint-config-next": "14.2.15",
     "postcss": "^8.4.32",

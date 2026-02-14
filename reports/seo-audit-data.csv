@@ -1,0 +1,16 @@
+URL,Slug,Title,MetaDescription,H1Count,H2Count,SchemaService,SchemaFAQ,SchemaBreadcrumb,Canonical,NextImage,AltTags,MobileFirst,InternalLinks,SpeedHint
+https://allosupport.ma/services/depannage-pc-mac,depannage-pc-mac,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/suppression-virus,suppression-virus,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/installation-config,installation-config,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/recuperation-donnees,recuperation-donnees,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/infogerance-pme,infogerance-pme,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/cybersecurite,cybersecurite,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/reseau-wifi,reseau-wifi,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+https://allosupport.ma/services/email-cloud,email-cloud,Yes,Yes,1,3,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Good (LCP optimized via next/image priority; minimal layout shifts; JS DRY)"
+
+Recommendation,Impact,Effort,Owner,Deadline
+"Vérifier schémas JSON-LD en production (Service/FAQ/Breadcrumb)",High,Low,SEO,J+3
+"Collecter données Core Web Vitals (PSI/CrUX)",High,Medium,SEO/Dev,J+7
+"Optimiser densité sémantique par page (keywords)",Medium,Low,Content,J+10
+"Renforcer maillage interne (liens croisés services)",Medium,Low,SEO,J+5
+"Search Console: Inspecter URLs, corriger couverture",High,Low,SEO,J+2

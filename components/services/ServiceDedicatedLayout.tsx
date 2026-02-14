@@ -46,6 +46,10 @@ export interface ServiceContentGeneric {
   guarantees?: ReadonlyArray<string>;
   whyUs?: { title: string; reasons: ReadonlyArray<{ title: string; before: string; after: string }> };
   commonIssues?: { title: string; list: ReadonlyArray<{ problem: string; cause: string; solution: string; duration: string }> };
+  /** Bloc SEO additionnel (ex. signes virus + solutions DIY + CTA) */
+  extraSeoSection?: ReadonlyArray<{ h2: string; paragraphs: ReadonlyArray<string> }>;
+  /** CTA optionnel affiché après extraSeoSection (lien WhatsApp) */
+  extraSeoCta?: { body: string; buttonLabel: string };
   faq: ReadonlyArray<{ q: string; a: string }>;
   relatedServices: ReadonlyArray<{ slug: string; title: string; excerpt: string; category: string }>;
 }
@@ -397,6 +401,35 @@ export default function ServiceDedicatedLayout({
                 </div>
               ))}
             </div>
+          </section>
+        )}
+
+        {content.extraSeoSection && content.extraSeoSection.length > 0 && (
+          <section className="mb-14 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+            {content.extraSeoSection.map((block, i) => (
+              <div key={i} className={i > 0 ? "mt-10" : ""}>
+                <h2 className="text-2xl font-extrabold text-slate-900 mb-4">{block.h2}</h2>
+                {block.paragraphs.map((p, j) => (
+                  <p key={j} className="text-slate-700 leading-relaxed mb-4">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            ))}
+            {content.extraSeoCta && (
+              <div className="mt-10 rounded-xl bg-emerald-50 border-2 border-emerald-200 p-6">
+                <p className="text-slate-800 font-semibold mb-4">{content.extraSeoCta.body}</p>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 transition min-h-[48px]"
+                >
+                  <MessageCircle className="h-5 w-5 shrink-0" aria-hidden />
+                  {content.extraSeoCta.buttonLabel}
+                </a>
+              </div>
+            )}
           </section>
         )}
 

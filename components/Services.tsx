@@ -19,6 +19,7 @@ const services = [
     keywords: ["Réparation PC portable", "Formatage PC prix Maroc", "Récupération données"],
     gradient: "from-blue-500 to-cyan-500",
     glow: "shadow-blue-500/50",
+    href: "/depannage-informatique",
   },
   {
     icon: Home,
@@ -28,6 +29,7 @@ const services = [
     keywords: ["Technicien informatique à domicile", "Intervention sur site"],
     gradient: "from-green-500 to-emerald-500",
     glow: "shadow-green-500/50",
+    href: "/virus-ordinateur-maroc",
   },
   {
     icon: Video,
@@ -37,6 +39,7 @@ const services = [
     keywords: ["Dépannage informatique à distance TeamViewer", "Support IT"],
     gradient: "from-purple-500 to-pink-500",
     glow: "shadow-purple-500/50",
+    href: "/pc-lent-solution",
   },
   {
     icon: Server,
@@ -46,6 +49,7 @@ const services = [
     keywords: ["Contrat maintenance informatique PME", "Gestion parc informatique"],
     gradient: "from-orange-500 to-red-500",
     glow: "shadow-orange-500/50",
+    href: "/formatage-pc",
   },
   {
     icon: Shield,
@@ -55,6 +59,7 @@ const services = [
     keywords: ["Sécurité informatique Maroc", "Installation réseau entreprise"],
     gradient: "from-red-500 to-rose-500",
     glow: "shadow-red-500/50",
+    href: "/recuperation-donnees",
   },
   {
     icon: Search,
@@ -64,6 +69,7 @@ const services = [
     keywords: ["Agence SEO Maroc", "Création site web Maroc", "Google Ads"],
     gradient: "from-teal-500 to-cyan-500",
     glow: "shadow-teal-500/50",
+    href: "/support-pme",
   },
 ];
 
@@ -180,9 +186,8 @@ export default function Services() {
                   ))}
                 </div>
 
-                {/* CTA Link */}
                 <motion.a
-                  href="#devis"
+                  href={service.href}
                   whileHover={{ x: 5 }}
                   className="inline-flex items-center gap-2 text-primary-400 font-semibold mt-auto group-hover:text-primary-300 transition-colors"
                 >

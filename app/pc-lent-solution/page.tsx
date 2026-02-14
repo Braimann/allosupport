@@ -75,39 +75,92 @@ export default function PcLentSolutionPage() {
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                Pourquoi votre PC devient lent ?
-              </h2>
-              <p className="text-slate-700 mb-4">
-                Avec le temps, Windows accumule des programmes au démarrage, fichiers
-                temporaires, mises à jour incomplètes et parfois des logiciels invisibles.
-                Résultat : <strong>PC très lent, blocages, ventilateur qui tourne à fond</strong>.
+        {/* Pourquoi PC Lent Maroc 2026 ? — contenu enrichi SEO */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+              5 Causes PC Lent Maroc 2026
+            </h2>
+            <p className="text-slate-700 mb-4 leading-relaxed">
+              Un <strong>ordinateur lent à Casablanca</strong> ou ailleurs au Maroc n&apos;est pas une fatalité. En 2026, les causes d&apos;un <strong>PC lent Maroc</strong> se regroupent autour de cinq facteurs récurrents. Les identifier permet de choisir la bonne <strong>solution PC qui rame</strong> — parfois gratuite, parfois avec un coup de main professionnel.
+            </p>
+            <ol className="list-decimal list-inside space-y-4 text-slate-700 mb-6">
+              <li className="leading-relaxed">
+                <strong>Chaleur et poussière</strong> : Au Maroc, la chaleur et la poussière encrassent les ventilateurs et les radiateurs. Une étude terrain montre que <strong>73 % des PC au Maroc</strong> présentent des ralentissements liés au refroidissement (poussière, pâte thermique sèche). Le processeur se met alors en throttling : le PC rame dès que la charge monte.
+              </li>
+              <li className="leading-relaxed">
+                <strong>Fichiers temporaires et disque saturé</strong> : Windows et les navigateurs accumulent des dizaines de gigas de fichiers temporaires. Il n&apos;est pas rare de trouver <strong>plus de 20 Go de fichiers temporaires</strong> sur un PC qui n&apos;a jamais été nettoyé. Le disque travaille à 100 %, l&apos;ordinateur lent devient la norme.
+              </li>
+              <li className="leading-relaxed">
+                <strong>Programmes au démarrage</strong> : Trop d&apos;applications lancées au démarrage (mises à jour, messageries, logiciels préinstallés) alourdissent le boot. Le PC met plusieurs minutes à être utilisable — classique pour un <strong>ordinateur lent Casablanca</strong> ou à Rabat après des années d&apos;utilisation.
+              </li>
+              <li className="leading-relaxed">
+                <strong>Connexion et logiciels en arrière-plan</strong> : Un ADSL lent (Maroc Telecom, Orange, Inwi) donne l&apos;impression que tout rame, surtout si OneDrive, Google Drive ou les mises à jour Windows tournent en continu. Couplé à des logiciels pirates ou mal optimisés, le <strong>PC lent Maroc</strong> cumule réseau + CPU surchargés.
+              </li>
+              <li className="leading-relaxed">
+                <strong>Logiciels pirates et malwares</strong> : Les cracks et logiciels piratés consomment des ressources et exposent à des virus ou miners. Ils ralentissent le système en tâche de fond. Une vraie <strong>solution PC qui rame</strong> passe par un nettoyage et, si besoin, une réinstallation propre avec des licences officielles.
+              </li>
+            </ol>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 mt-12">
+              3 Solutions Gratuites à Essayer D&apos;abord
+            </h2>
+            <p className="text-slate-700 mb-4 leading-relaxed">
+              Avant de faire appel à un pro, trois astuces gratuites peuvent déjà améliorer un <strong>PC lent Maroc</strong>. À tester dans l&apos;ordre : nettoyage disque, démarrage, puis sécurité.
+            </p>
+            <ol className="list-decimal list-inside space-y-4 text-slate-700 mb-6">
+              <li className="leading-relaxed">
+                <strong>Nettoyage de disque (Disk Cleanup)</strong> : Dans Windows, cherchez &quot;Liberer de l&apos;espace disque&quot; ou &quot;Nettoyage de disque&quot;. Lancez l&apos;outil sur le disque C:, cochez Fichiers temporaires, Corbeille, Cache. Cela peut libérer plusieurs gigas et soulager un <strong>ordinateur lent Casablanca</strong> si le disque était proche du plein.
+              </li>
+              <li className="leading-relaxed">
+                <strong>Désactiver les programmes au démarrage</strong> : Paramètres → Applications → Démarrage. Désactivez tout ce qui n&apos;est pas indispensable au lancement de Windows (messageries, logiciels de mise à jour, outils inutiles). Redémarrez : le boot est souvent plus rapide. Simple et efficace pour une première <strong>solution PC qui rame</strong>.
+              </li>
+              <li className="leading-relaxed">
+                <strong>Scan antivirus et désinstallation des programmes inutiles</strong> : Lancez Windows Defender (analyse complète) pour écarter virus et malwares. En parallèle, désinstallez les logiciels que vous n&apos;utilisez plus (Paramètres → Applications). Moins de programmes = moins de processus en arrière-plan = PC plus réactif.
+              </li>
+            </ol>
+            <p className="text-slate-700 mb-6 leading-relaxed">
+              Si après ces trois étapes votre machine reste lente, le problème est souvent plus profond : registre, tâches planifiées, pilotes ou accumulation de plusieurs années. C&apos;est le moment d&apos;envisager une optimisation professionnelle.
+            </p>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 mt-12">
+              Quand Appeler AlloSupport ?
+            </h2>
+            <p className="text-slate-700 mb-4 leading-relaxed">
+              Quand les astuces gratuites ne suffisent plus, une <strong>solution PC qui rame</strong> fiable est l&apos;optimisation à distance. AlloSupport intervient sans déplacement : nous prenons la main sur votre PC de façon sécurisée, nous nettoyons en profondeur (fichiers temporaires, programmes inutiles, démarrage), nous optimisons Windows et les réglages. <strong>On optimise à 250 DH sans formater</strong> : vos fichiers restent en place, votre PC retrouve en général une réactivité bien meilleure.
+            </p>
+            <p className="text-slate-700 mb-4 leading-relaxed">
+              Nous garantissons un PC jusqu&apos;à <strong>3 fois plus rapide</strong> après l&apos;intervention (démarrage et usage quotidien). Si vous êtes à Casablanca, Rabat ou ailleurs au Maroc et que votre ordinateur lent vous fait perdre du temps chaque jour, une seule séance d&apos;optimisation peut tout changer. Réponse sous 15 minutes par WhatsApp, intervention le jour même possible.
+            </p>
+            <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-6 mt-6">
+              <p className="text-slate-800 font-semibold mb-2">
+                Si les astuces gratuites ont échoué →
               </p>
-              <ul className="space-y-2 text-slate-700 list-disc list-inside">
-                <li>PC qui démarre en plusieurs minutes</li>
-                <li>Applications qui réagissent très lentement</li>
-                <li>Disque dur ou SSD souvent à 100%</li>
-                <li>Messages &quot;ne répond pas&quot; fréquents</li>
-              </ul>
+              <p className="text-slate-700 mb-4">
+                AlloSupport optimise votre PC à distance pour <strong>250 DH</strong>. PC jusqu&apos;à <strong>3× plus rapide</strong> garanti, sans formatage. Contactez-nous par WhatsApp pour une intervention sous 15 min.
+              </p>
+              <a
+                href={`${whatsappBase}?text=${encodeURIComponent(
+                  "Bonjour, mon PC est toujours lent après les astuces. Je veux une optimisation complète à distance (250 DH)."
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl transition"
+              >
+                Optimiser mon PC — 250 DH
+              </a>
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                Ce que nous faisons pendant l&apos;optimisation
-              </h2>
-              <p className="text-slate-700 mb-4">
-                À distance, nous réalisons un{" "}
-                <strong>nettoyage complet et une optimisation profonde</strong> :
-                désinstallation des programmes inutiles, désactivation des tâches lourdes,
-                nettoyage disque et réglages avancés de Windows.
-              </p>
-              <p className="text-slate-700 mb-4">
-                L&apos;objectif : que votre PC démarre plus vite et réagisse rapidement,
-                sans changer de matériel.
-              </p>
-            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Ce que nous faisons pendant l&apos;optimisation
+            </h2>
+            <p className="text-slate-700 mb-4 leading-relaxed">
+              À distance, nous réalisons un <strong>nettoyage complet et une optimisation profonde</strong> : désinstallation des programmes inutiles, désactivation des tâches lourdes au démarrage, nettoyage disque (fichiers temporaires, cache), réglages avancés de Windows et vérification des pilotes. L&apos;objectif : que votre PC démarre plus vite et réagisse rapidement, sans changer de matériel.
+            </p>
           </div>
         </section>
 

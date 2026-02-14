@@ -5,13 +5,11 @@ export const metadata: Metadata = {
   description:
     "Testez la vitesse de votre connexion internet gratuitement. Mesurez le débit download, upload et la latence (ping). Test de vitesse internet au Maroc.",
   keywords: [
-    "test vitesse internet",
+    "test vitesse internet maroc",
+    "speed test maroc telecom",
+    "débit 4g maroc",
     "test débit internet",
-    "speed test",
     "test connexion internet",
-    "mesurer vitesse internet",
-    "test ping",
-    "test download upload",
     "test internet maroc",
   ],
   openGraph: {

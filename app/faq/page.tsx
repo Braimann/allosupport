@@ -7,6 +7,35 @@ import { Search, ChevronDown, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Metadata } from "next";
 
+// 5 Q/R optimisées featured snippet (≈80 mots chacune) — Position 0 Google
+const FEATURED_FAQ = [
+  {
+    question: "Combien coûte un dépannage informatique à distance au Maroc ?",
+    answer:
+      "Un dépannage informatique à distance au Maroc coûte entre 150 et 250 DH pour une intervention simple (PC lent, paramétrage, aide logicielle). La suppression virus est à 290 DH, le formatage PC avec Windows officiel à 350 DH, la récupération de données à partir de 450 DH si réussie. Le diagnostic est gratuit ; vous ne payez qu'après résolution du problème. Aucun frais caché, tarifs affichés sur le site. Paiement par virement, CMI ou mobile money après l'intervention.",
+  },
+  {
+    question: "Comment fonctionne le dépannage PC à distance ?",
+    answer:
+      "Le dépannage PC à distance se fait en quatre étapes : vous nous contactez par WhatsApp (réponse sous 15 min), nous vous envoyons un lien sécurisé TeamViewer ou AnyDesk, vous lancez la session et autorisez le partage d'écran, notre technicien intervient sous vos yeux pendant 30 à 60 minutes en moyenne. Vous gardez la main : vous voyez chaque action et pouvez couper la connexion à tout moment. Le service fonctionne partout au Maroc dès que vous avez une connexion internet.",
+  },
+  {
+    question: "Est-ce sécurisé de donner accès distant à mon PC ?",
+    answer:
+      "Oui. Nous utilisons TeamViewer ou AnyDesk, logiciels reconnus et chiffrés de bout en bout. Vous voyez en temps réel tout ce que fait le technicien ; vous pouvez interrompre la session en un clic. Nous n'accédons pas à vos fichiers personnels, mots de passe ou données bancaires sans action de votre part. Les sessions sont à usage unique et ne laissent pas d'accès résiduel. Des milliers d'interventions ont été réalisées sans incident ; la confidentialité et la sécurité sont notre priorité.",
+  },
+  {
+    question: "Quels quartiers de Casablanca couvrez-vous ?",
+    answer:
+      "Nous couvrons tous les quartiers de Casablanca car le dépannage est 100 % à distance : Maarif, Twin Center, Sidi Maarouf, Technopark, Ain Diab, corniche, Derb Ghallef, centre-ville, boulevard Mohammed V, Hay Hassani, route d'El Jadida, Bouskoura et environs. Aucun déplacement n'est nécessaire : vous avez besoin uniquement d'une connexion internet. Réponse sous 15 minutes par WhatsApp, intervention le jour même possible avant 20h. Même principe pour Rabat, Marrakech, Fès, Tanger et tout le Maroc.",
+  },
+  {
+    question: "Quelle est la différence entre formatage et nettoyage virus ?",
+    answer:
+      "Le nettoyage virus consiste à supprimer les malwares, adwares et virus sans effacer vos données : vos fichiers, photos et documents restent en place. Intervention typique : 30 à 60 minutes, 290 DH, garantie 30 jours. Le formatage est une réinstallation complète de Windows : le disque est effacé, tout est réinstallé (système, pilotes, logiciels). Durée 45 à 90 minutes, 350 DH avec Windows officiel et sauvegarde possible. On recommande d'abord un nettoyage virus ; le formatage reste une solution si l'infection est trop profonde ou si vous souhaitez repartir de zéro.",
+  },
+];
+
 // Note: Metadata must be exported from a server component, so we'll create a layout
 const faqCategories = [
   {
@@ -139,20 +168,24 @@ export default function FAQPage() {
     ),
   })).filter((category) => category.questions.length > 0);
 
-  // Generate structured data for SEO
+  // Generate structured data for SEO (featured + categories)
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqCategories.flatMap((category) =>
-      category.questions.map((q) => ({
-        "@type": "Question",
+    mainEntity: [
+      ...FEATURED_FAQ.map((q) => ({
+        "@type": "Question" as const,
         name: q.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: q.answer,
-        },
-      }))
-    ),
+        acceptedAnswer: { "@type": "Answer" as const, text: q.answer },
+      })),
+      ...faqCategories.flatMap((category) =>
+        category.questions.map((q) => ({
+          "@type": "Question" as const,
+          name: q.question,
+          acceptedAnswer: { "@type": "Answer" as const, text: q.answer },
+        }))
+      ),
+    ],
   };
 
   return (
@@ -199,6 +232,29 @@ export default function FAQPage() {
               </p>
             )}
           </div>
+
+          {/* 5 Q/R optimisées Featured Snippet (details/summary) */}
+          <section className="mb-10" aria-label="Réponses détaillées dépannage à distance Maroc">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 sr-only">
+              Réponses détaillées : dépannage informatique à distance au Maroc
+            </h2>
+            <div className="space-y-3">
+              {FEATURED_FAQ.map((item, idx) => (
+                <details
+                  key={idx}
+                  className="group rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
+                    <span className="pr-2">{item.question}</span>
+                    <ChevronDown className="w-5 h-5 shrink-0 text-gray-400 transition-transform group-open:rotate-180" aria-hidden />
+                  </summary>
+                  <div className="px-5 pb-4 pt-0">
+                    <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
 
           {/* FAQ Categories */}
           <div className="space-y-6">

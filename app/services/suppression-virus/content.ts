@@ -123,6 +123,49 @@ export const serviceContent = {
     "✅ Prix transparent : aucun frais caché",
   ],
 
+  // Bloc SEO : 5 signes virus + solutions DIY + Avito + CTA (indexation "suppression virus maroc")
+  extraSeoSection: [
+    {
+      h2: "5 Signes Virus PC Maroc 2026",
+      paragraphs: [
+        "Reconnaître les symptômes d’un PC infecté permet d’agir avant que les dégâts (vol de données, ransomware) ne s’aggravent. Cinq signes fréquents doivent vous alerter et justifient un nettoyage ou un diagnostic pro.",
+        "1. Pubs intempestives : fenêtres publicitaires qui s’ouvrent partout, même sans naviguer, ou barres d’outils qui apparaissent dans le navigateur. Souvent lié à des adwares ou à des extensions malveillantes. Enlever les pubs sur le PC passe par la suppression de ces programmes et le nettoyage des navigateurs.",
+        "2. Page d’accueil ou moteur de recherche changés : votre navigateur ouvre un site inconnu au démarrage ou les recherches redirigent vers des pages douteuses. Un malware a modifié les paramètres ; une suppression virus Maroc (nettoyage navigateurs + scan) rétablit la situation.",
+        "3. Antivirus désactivé et impossible à réactiver : les virus désactivent souvent Windows Defender ou votre antivirus pour proliférer. Si vous ne parvenez plus à lancer un scan, le PC est probablement infecté.",
+        "4. PC ultra lent : le processeur ou le disque sont saturés par des processus malveillants en arrière-plan. Un PC qui rame du jour au lendemain, sans raison évidente, peut indiquer un malware ou un miner.",
+        "5. Fichiers disparus ou chiffrés : dossiers inaccessibles, extensions bizarres sur les fichiers (ransomware), ou messages demandant une rançon. Dans ce cas, coupez internet, ne payez pas la rançon et faites appel à un pro pour tenter une récupération.",
+      ],
+    },
+    {
+      h2: "3 Solutions Gratuites à Essayer",
+      paragraphs: [
+        "Avant de payer pour un nettoyage pro, trois actions gratuites peuvent suffire pour une infection légère.",
+        "1. Windows Defender : lancez une analyse complète (Paramètres > Confidentialité et sécurité > Sécurité Windows > Protection contre les virus). Mettez à jour les définitions puis relancez le PC. Pour un nettoyage malware Casablanca ou ailleurs, c’est la première étape.",
+        "2. Malwarebytes gratuit : téléchargez Malwarebytes depuis le site officiel, installez-le et lancez un scan. L’outil détecte beaucoup d’adwares et de malwares que Windows Defender peut manquer. Idéal pour enlever les pubs sur le PC et les redirections.",
+        "3. Mode sans échec + scan : redémarrez en mode sans échec (paramètres de démarrage Windows), puis relancez Windows Defender ou Malwarebytes. Les virus qui se chargent au démarrage sont parfois désactivés en mode sans échec, ce qui permet de les supprimer.",
+        "Si après ces étapes les pubs reviennent, l’antivirus reste désactivé ou le PC reste lent, l’infection est plus profonde. Ne la laissez pas traîner : un virus bancaire au Maroc en 2026 peut vider un compte en quelques heures. Les cas de 10 000 à 15 000 DH volés via des malwares ne sont pas rares. Ne prenez pas le risque.",
+      ],
+    },
+    {
+      h2: "Pourquoi Pas Avito Gratuit ? (Risques)",
+      paragraphs: [
+        "Les annonces « suppression virus gratuit » ou « nettoyage PC 50 DH » sur Avito (ou le dépannage par un proche non formé) présentent des risques réels : intervention sans garantie, logiciels installés à l’aveugle, ou pire — récupération de vos mots de passe et accès bancaires. Un « nettoyage » fait avec des outils crackés ou par quelqu’un qui accède à tout votre PC peut tourner au vol de données ou au chantage.",
+        "Pour la suppression virus Maroc, privilégiez un acteur identifié, avec avis vérifiables et garantie écrite. Le coût d’une intervention pro (à partir de 290 DH) est dérisoire comparé aux milliers de DH que peut coûter un vol bancaire ou une rançon ransomware. Ne prenez pas le risque Avito gratuit.",
+      ],
+    },
+    {
+      h2: "AlloSupport : Nettoyage Pro 290 DH",
+      paragraphs: [
+        "DIY échoue ? Le virus persiste ? AlloSupport nettoie votre PC à distance pour 290 DH : scan complet, suppression des virus, malwares, adwares et pubs, nettoyage des navigateurs et sécurisation. Intervention sans formatage, vos fichiers sont préservés. 100 % garanti ou remboursé : si le problème revient sous 30 jours, nous reprenons la main sans frais.",
+        "Réponse sous 15 minutes par WhatsApp, intervention le jour même possible. Nettoyage malware Casablanca, Rabat et partout au Maroc, à distance. Ne laissez pas un PC infecté traîner : plus vous attendez, plus les risques (vol bancaire, ransomware) augmentent.",
+      ],
+    },
+  ],
+  extraSeoCta: {
+    body: "DIY échoué ? Virus qui persiste ? AlloSupport nettoie votre PC 290 DH — 100 % garanti ou remboursé. Réponse en 15 min.",
+    buttonLabel: "Nettoyage virus 290 DH — WhatsApp",
+  },
+
   // FAQ
   faq: [
     {
