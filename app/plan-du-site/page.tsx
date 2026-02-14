@@ -34,6 +34,7 @@ const categories = [
       { href: "/recuperation-donnees", label: "Récupération de données" },
       { href: "/support-pme", label: "Support informatique PME" },
       { href: "/formatage-pc", label: "Formatage PC prix Maroc" },
+      { href: "/formatage-pc-casablanca", label: "Formatage PC Casablanca 350 DH" },
       { href: "/reparation-ordinateur", label: "Réparation ordinateur Maroc" },
       { href: "/antivirus-maroc", label: "Antivirus Maroc" },
       { href: "/maintenance-informatique", label: "Maintenance informatique" },
