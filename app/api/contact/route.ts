@@ -1,7 +1,13 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const key = process.env.RESEND_API_KEY;
+  if (!key || key === "") {
+    return null;
+  }
+  return new Resend(key);
+}
 
 interface ContactFormData {
   fullName: string;
@@ -317,7 +323,16 @@ Dépannage Informatique à Distance et à Domicile
 Casablanca • Rabat • Fès • Marrakech • Agadir
 `;
 
-    // Envoi des 2 emails via Resend
+    // Envoi des 2 emails via Resend (instancié seulement à l'exécution, pas au build)
+    const resend = getResend();
+    if (!resend) {
+      console.error("RESEND_API_KEY is not set");
+      return NextResponse.json(
+        { error: "Service email non configuré" },
+        { status: 503 }
+      );
+    }
+
     const fromEmail =
       process.env.RESEND_FROM || "Onboarding <onboarding@resend.dev>";
     const adminEmail = process.env.ADMIN_TO || "brahim.boumai97@gmail.com";

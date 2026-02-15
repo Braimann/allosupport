@@ -2,6 +2,7 @@
 
 import { Star, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 
 interface GoogleBadgeProps {
@@ -157,10 +158,12 @@ export default function GoogleBadge({
       href="/avis"
       className={`inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all border-2 border-gray-100 hover:border-yellow-200 ${className}`}
     >
-      <img
+      <Image
         src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
         alt="Google"
-        className="h-5"
+        width={74}
+        height={24}
+        className="h-5 w-auto"
       />
       <div className="flex gap-0.5">
         {[...Array(5)].map((_, i) => (

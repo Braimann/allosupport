@@ -21,6 +21,9 @@ const nextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      { protocol: 'https', hostname: 'www.gstatic.com', pathname: '/**' },
+    ],
   },
   
   // Headers de sécurité et performance
