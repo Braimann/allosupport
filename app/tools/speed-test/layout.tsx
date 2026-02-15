@@ -1,32 +1,4 @@
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Test de Vitesse Internet Gratuit | AlloSupport.ma",
-  description:
-    "Testez la vitesse de votre connexion internet gratuitement. Mesurez le débit download, upload et la latence (ping). Test de vitesse internet au Maroc.",
-  keywords: [
-    "test vitesse internet maroc",
-    "speed test maroc telecom",
-    "débit 4g maroc",
-    "test débit internet",
-    "test connexion internet",
-    "test internet maroc",
-  ],
-  openGraph: {
-    title: "Test de Vitesse Internet Gratuit",
-    description: "Testez la vitesse de votre connexion internet (download, upload, ping).",
-    type: "website",
-    url: "https://allosupport.ma/tools/speed-test",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Test de Vitesse Internet Gratuit",
-    description: "Testez votre connexion internet.",
-  },
-  alternates: {
-    canonical: "https://allosupport.ma/tools/speed-test",
-  },
-};
+// Metadata et canonical définis dans page.tsx (generateMetadata)
 
 export default function SpeedTestLayout({
   children,

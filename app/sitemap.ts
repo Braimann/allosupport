@@ -337,12 +337,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }))
       : [];
 
-  // Combine all pages
-  const allPages = [...staticPages, ...servicePages, ...blogPages];
-  
+  // Combine all pages and deduplicate by URL (blog can appear in static + blogPages)
+  const seen = new Set<string>();
+  const allPages: MetadataRoute.Sitemap = [];
+  for (const page of [...staticPages, ...servicePages, ...blogPages]) {
+    if (seen.has(page.url)) continue;
+    seen.add(page.url);
+    allPages.push(page);
+  }
+
   // Log for debugging (only in development)
   if (process.env.NODE_ENV === "development") {
-    console.log(`✅ Sitemap generated: ${allPages.length} pages total`);
+    console.log(`✅ Sitemap generated: ${allPages.length} pages total (deduplicated)`);
     console.log(`   - Static: ${staticPages.length}`);
     console.log(`   - Services: ${servicePages.length}`);
     console.log(`   - Blog posts: ${blogPages.length}`);

@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/casablanca",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dépannage Informatique Casablanca | AlloSupport",
+    description: "Intervention rapide Maarif, Gauthier, Ain Diab, à domicile.",
+  },
 };
 
 const jsonLd = {

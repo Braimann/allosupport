@@ -117,7 +117,7 @@ export default function FormatagePcCasablancaPage() {
         {/* BLOC 1 : Fil d'Ariane */}
         <nav
           aria-label="Fil d'Ariane"
-          className="border-b border-gray-200 bg-white/80"
+          className="border-b border-gray-200 bg-white/80 pt-16 sm:pt-20"
         >
           <div className="max-w-6xl mx-auto px-4 py-3">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-500">
@@ -146,7 +146,7 @@ export default function FormatagePcCasablancaPage() {
           </div>
         </nav>
 
-        <section className="bg-gradient-to-br from-gray-900 via-slate-900 to-emerald-900 text-white py-16 md:py-20">
+        <section className="bg-gradient-to-br from-gray-900 via-slate-900 to-emerald-900 text-white py-16 pt-24 md:py-20 md:pt-28">
           <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <p className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-emerald-300 bg-emerald-900/40 px-3 py-1 rounded-full mb-3">
@@ -520,7 +520,7 @@ export default function FormatagePcCasablancaPage() {
             </h2>
             <div className="space-y-4">
               <details className="bg-white border border-gray-200 rounded-xl p-4">
-                <summary className="font-semibold text-gray-900 cursor-pointer">
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   Combien de temps dure un formatage PC Casablanca ?
                 </summary>
                 <p className="mt-2 text-gray-700 text-sm">
@@ -528,7 +528,7 @@ export default function FormatagePcCasablancaPage() {
                 </p>
               </details>
               <details className="bg-white border border-gray-200 rounded-xl p-4">
-                <summary className="font-semibold text-gray-900 cursor-pointer">
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   Est-ce que je perds mes fichiers pendant le formatage ?
                 </summary>
                 <p className="mt-2 text-gray-700 text-sm">
@@ -536,7 +536,7 @@ export default function FormatagePcCasablancaPage() {
                 </p>
               </details>
               <details className="bg-white border border-gray-200 rounded-xl p-4">
-                <summary className="font-semibold text-gray-900 cursor-pointer">
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   Pourquoi vous êtes à 350 DH alors que certains sont à 150 DH sur Avito ?
                 </summary>
                 <p className="mt-2 text-gray-700 text-sm">
@@ -544,7 +544,7 @@ export default function FormatagePcCasablancaPage() {
                 </p>
               </details>
               <details className="bg-white border border-gray-200 rounded-xl p-4">
-                <summary className="font-semibold text-gray-900 cursor-pointer">
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   Windows est-il vraiment officiel ?
                 </summary>
                 <p className="mt-2 text-gray-700 text-sm">
@@ -552,7 +552,7 @@ export default function FormatagePcCasablancaPage() {
                 </p>
               </details>
               <details className="bg-white border border-gray-200 rounded-xl p-4">
-                <summary className="font-semibold text-gray-900 cursor-pointer">
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   Pouvez-vous vous déplacer à domicile à Casablanca ?
                 </summary>
                 <p className="mt-2 text-gray-700 text-sm">
@@ -560,7 +560,7 @@ export default function FormatagePcCasablancaPage() {
                 </p>
               </details>
               <details className="bg-white border border-gray-200 rounded-xl p-4">
-                <summary className="font-semibold text-gray-900 cursor-pointer">
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   Quelle est la garantie sur l&apos;intervention ?
                 </summary>
                 <p className="mt-2 text-gray-700 text-sm">
@@ -597,7 +597,7 @@ export default function FormatagePcCasablancaPage() {
                   <tr className="border-t">
                     <td className="px-3 py-3 text-gray-800">Suppression virus et malware</td>
                     <td className="px-3 py-3 text-gray-800">Casablanca</td>
-                    <td className="px-3 py-3 text-gray-800">250 DH</td>
+                    <td className="px-3 py-3 text-gray-800">290 DH</td>
                   </tr>
                   <tr className="border-t">
                     <td className="px-3 py-3 text-gray-800">Récupération de données</td>

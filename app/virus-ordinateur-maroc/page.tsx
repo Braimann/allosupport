@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/virus-ordinateur-maroc",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Virus Ordinateur Maroc | AlloSupport",
+    description: "Suppression virus et malware à distance sans formatage, dès 250 DH.",
+  },
 };
 
 const jsonLd = {

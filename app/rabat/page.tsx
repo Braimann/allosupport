@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/rabat",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dépannage Informatique Rabat | AlloSupport",
+    description: "Intervention à distance 15 min, Agdal, Hay Riad, Souissi, dès 250 DH.",
+  },
 };
 
 const jsonLd = {

@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/marrakech",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Support Informatique Marrakech | AlloSupport",
+    description: "Dépannage PC Marrakech à distance en 15 min, Guéliz, Hivernage, dès 250 DH.",
+  },
 };
 
 const jsonLd = {

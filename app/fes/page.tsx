@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/fes",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dépannage PC Fès | AlloSupport",
+    description: "Technicien informatique Fès, intervention à distance en 15 min, dès 250 DH.",
+  },
 };
 
 const jsonLd = {

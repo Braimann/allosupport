@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/agadir",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dépannage PC Agadir | AlloSupport",
+    description: "Technicien informatique Agadir, intervention à distance 15 min, dès 250 DH.",
+  },
 };
 
 const jsonLd = {

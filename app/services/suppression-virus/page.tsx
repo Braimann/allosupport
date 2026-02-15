@@ -29,6 +29,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: serviceContent.metadata.title,
+    description: serviceContent.metadata.description,
+  },
   robots: {
     index: true,
     follow: true,

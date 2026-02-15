@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: "https://allosupport.ma/pc-lent-solution",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "PC Lent Solution | AlloSupport",
+    description: "Optimisation Windows à distance, accélération PC, dès 250 DH.",
+  },
 };
 
 const jsonLd = {

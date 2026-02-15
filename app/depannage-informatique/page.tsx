@@ -163,6 +163,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: { canonical: "https://allosupport.ma/depannage-informatique" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dépannage Informatique Maroc | AlloSupport",
+    description: "Réparation PC à distance en 15 min, Casablanca, Rabat, Marrakech. Dès 150 DH.",
+  },
   robots: {
     index: true,
     follow: true,

@@ -1,16 +1,34 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Wrench, Shield, Zap, Server } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getPublishedServices } from "@/lib/firebase/services-service";
 
+const CANONICAL = "https://allosupport.ma/services";
+
 export const metadata: Metadata = {
   title: "Nos Services - Dépannage IT à Distance | AlloSupport.ma",
   description:
     "Découvrez tous nos services de dépannage informatique à distance au Maroc. Intervention en 15 minutes. Satisfait ou Remboursé.",
   alternates: {
-    canonical: "https://allosupport.ma/services",
+    canonical: CANONICAL,
+  },
+  openGraph: {
+    url: CANONICAL,
+    title: "Nos Services - Dépannage IT à Distance | AlloSupport.ma",
+    description:
+      "Découvrez tous nos services de dépannage informatique à distance au Maroc. Intervention en 15 minutes. Satisfait ou Remboursé.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nos Services | AlloSupport.ma",
+    description: "Dépannage informatique à distance au Maroc. Intervention 15 min.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
