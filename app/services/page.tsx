@@ -136,7 +136,7 @@ export default async function ServicesPage() {
             <a
               href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j'ai%20besoin%20d'aide."
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
             >
               Contacter sur WhatsApp

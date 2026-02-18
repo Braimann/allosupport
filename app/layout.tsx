@@ -1,46 +1,32 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import StickyWhatsApp from "@/components/conversion/StickyWhatsApp";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
-// FIREBASE AUTH DÉSACTIVÉ - Performance optimization (LCP/FCP)
-// import { lazy, Suspense } from "react";
-// const AuthProviderLazy = lazy(() => import("@/context/AuthProviderLazy"));
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import ScrollTracker from "@/components/analytics/ScrollTracker";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://allosupport.ma"),
   alternates: {
     canonical: "https://allosupport.ma",
   },
-  title: "AlloSupport.ma | Dépannage Informatique à Distance Maroc (15 min)",
+  title: "Dépannage Informatique Maroc | Réparation PC 250 DH | AlloSupport",
   description:
-    "Leader du dépannage informatique à distance au Maroc. PC lent, Virus, Maintenance PME. Siège Casablanca. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
-  keywords: [
-    "dépannage informatique Maroc",
-    "dépannage informatique casablanca",
-    "réparation pc casablanca maroc",
-    "allosupport casablanca",
-    "support informatique à distance",
-    "réparation PC WhatsApp",
-    "dépannage PC urgent Maroc",
-    "technicien informatique distance",
-    "PC lent réparation",
-    "virus ordinateur Maroc",
-    "panne PC assistance",
-    "maintenance informatique PME",
-    "support IT télétravail",
-    "dépannage informatique distance",
-    "réparation PC Maroc",
-    "support IT Casablanca",
-    "maintenance PME Maroc",
-  ],
+    "Dépannage informatique à distance au Maroc dès 250 DH. PC lent, virus, formatage, maintenance PME. Technicien en 15 min via WhatsApp. Paiement après résultat.",
   authors: [{ name: "AlloSupport.ma" }],
   creator: "AlloSupport.ma",
   publisher: "AlloSupport.ma",
-  robots: "index, follow",
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -51,14 +37,14 @@ export const metadata: Metadata = {
     locale: "fr_MA",
     url: "https://allosupport.ma",
     siteName: "AlloSupport.ma",
-    title: "AlloSupport.ma | Dépannage Informatique à Distance - Intervention 15 min",
+    title: "Dépannage Informatique Maroc | Réparation PC 250 DH | AlloSupport",
     description:
-      "Dépannage Informatique à Distance au Maroc. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
+      "Dépannage informatique à distance au Maroc dès 250 DH. Technicien en 15 min. Paiement après résultat.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AlloSupport.ma | Dépannage IT à Distance",
-    description: "Intervention en 15 min. Satisfait ou Remboursé.",
+    title: "Dépannage Informatique Maroc | Réparation PC 250 DH",
+    description: "Réparation PC à distance au Maroc dès 250 DH. Technicien en 15 min. Paiement après résultat.",
   },
 };
 
@@ -75,7 +61,7 @@ const schemaGraph = {
     {
       "@type": "LocalBusiness",
       "@id": "https://allosupport.ma/#organization",
-      name: "AlloSupport Maroc",
+      name: "AlloSupport.ma",
       description:
         "Dépannage informatique à distance au Maroc. Intervention rapide à Casablanca, Rabat, Marrakech, Tanger. PC lent, virus, installation Windows. Paiement après réparation.",
       url: "https://allosupport.ma",
@@ -101,6 +87,8 @@ const schemaGraph = {
         { "@type": "City", name: "Casablanca" },
         { "@type": "City", name: "Rabat" },
         { "@type": "City", name: "Marrakech" },
+        { "@type": "City", name: "Fès" },
+        { "@type": "City", name: "Agadir" },
         { "@type": "City", name: "Tanger" },
       ],
       openingHoursSpecification: {
@@ -142,17 +130,24 @@ const schemaGraph = {
           }
         : {}),
     },
-    // 2. WebSite
+    // 2. WebSite + SearchAction (Sitelinks Search Box)
     {
       "@type": "WebSite",
       "@id": "https://allosupport.ma/#website",
-      name: "AlloSupport Maroc",
+      name: "AlloSupport.ma",
       url: "https://allosupport.ma",
       description:
         "Dépannage informatique à distance au Maroc. Intervention en 15 min via WhatsApp. Satisfait ou Remboursé.",
       publisher: { "@id": "https://allosupport.ma/#organization" },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://allosupport.ma/blog?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
-    // FAQPage retiré du layout : évite doublon avec les pages qui ont leur propre FAQ (ex. /depannage-informatique). La home peut ajouter un FAQPage dans app/page.tsx si besoin.
   ],
 };
 
@@ -162,51 +157,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={poppins.variable} suppressHydrationWarning>
       <head>
-        {/* Critical CSS inline pour LCP < 2.5s. Ne pas ajouter <link onLoad="..."> : onLoad doit être une fonction React, pas une string. */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            *{box-sizing:border-box;margin:0;padding:0}
-            html{scroll-behavior:smooth}
-            body{font-family:'Poppins',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#f9fafb}
-            .site-header{position:sticky;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1)}
-            .site-header nav{max-width:1280px;margin:0 auto;padding:0 1rem}
-            .hero-section{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:7rem;padding-bottom:5rem;background:linear-gradient(135deg,#1e293b 0%,#0f172a 50%,#1e293b 100%);overflow:hidden}
-            .hero-content{max-width:1280px;margin:0 auto;padding:0 1rem;width:100%}
-            .hero-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.2;color:#fff;margin-bottom:1.5rem}
-            .hero-subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.9);margin-bottom:2rem;line-height:1.6}
-            .cta-button{display:inline-flex;align-items:center;gap:0.5rem;background:#22c55e;color:#fff;font-weight:700;padding:1rem 2rem;border-radius:0.75rem;text-decoration:none;transition:all 0.3s;box-shadow:0 10px 25px rgba(34,197,94,0.3)}
-            .cta-button:hover{background:#16a34a;transform:translateY(-2px);box-shadow:0 15px 35px rgba(34,197,94,0.4)}
-          `
-        }} />
-        
-        {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        
-        {/* Preconnect critiques - réduction LCP/FCP (max 4 preconnect) */}
         <link rel="preconnect" href="https://supporttechnique-84e72.firebaseapp.com" />
         <link rel="preconnect" href="https://firestore.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
-        
-        {/* Preload fonts critiques pour LCP */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -214,7 +171,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased bg-gray-50">
+      <body className={`${poppins.className} antialiased bg-gray-50`} suppressHydrationWarning>
         {children}
         <StickyWhatsApp />
         <WhatsAppFloat />

@@ -332,7 +332,7 @@ export default function ComparatifOperateurs2026() {
               <a
                 href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour, je veux un audit gratuit pour choisir mon opérateur")}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 px-6 py-3 rounded-full font-bold transition-all"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -653,7 +653,7 @@ export default function ComparatifOperateurs2026() {
               <h3 className="text-xl font-bold mb-3">🛠️ Configuration Internet + Optimisation Réseau</h3>
               <p className="text-purple-100 mb-4">Vous avez choisi votre opérateur ? AlloSupport configure votre installation (box, WiFi, sécurité) en 45 min.</p>
               <div className="flex flex-wrap gap-3">
-                <a href={`${WHATSAPP_URL}?text=${encodeURIComponent("Configuration Internet Nouvel Abonnement")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 px-6 py-3 rounded-full font-bold">Installation Optimale - 250 DH</a>
+                <a href={`${WHATSAPP_URL}?text=${encodeURIComponent("Configuration Internet Nouvel Abonnement")}`} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 px-6 py-3 rounded-full font-bold">Installation Optimale - 250 DH</a>
                 <Link href="/blog/192-168-1-1-admin-login-maroc-routeur-2026" className="inline-flex items-center gap-2 bg-white text-purple-700 hover:bg-purple-50 px-6 py-3 rounded-full font-bold">Guide Config Gratuit</Link>
               </div>
             </div>
@@ -713,7 +713,7 @@ export default function ComparatifOperateurs2026() {
               <h3 className="text-2xl font-bold mb-3">🤝 Besoin d&apos;Aide pour Choisir ? Consultation Gratuite</h3>
               <p className="text-emerald-100 mb-6 max-w-2xl mx-auto">Nos experts analysent votre situation (adresse, budget, usage) et recommandent l&apos;opérateur optimal + configurent votre installation.</p>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href={`${WHATSAPP_URL}?text=${encodeURIComponent("Consultation Gratuite Choix Opérateur")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4 rounded-full font-bold text-lg transition-all"><MessageCircle className="w-6 h-6" /> Consultation WhatsApp Gratuite</a>
+                <a href={`${WHATSAPP_URL}?text=${encodeURIComponent("Consultation Gratuite Choix Opérateur")}`} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4 rounded-full font-bold text-lg transition-all"><MessageCircle className="w-6 h-6" /> Consultation WhatsApp Gratuite</a>
                 <a href="tel:+212775237038" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-800 px-8 py-4 rounded-full font-bold text-lg transition-all"><Phone className="w-6 h-6" /> Appeler Expert</a>
               </div>
               <p className="text-emerald-200 text-sm mt-4">✅ Réponse &lt;5 min · Sans engagement · 7j/7 disponible</p>
@@ -800,7 +800,7 @@ export default function ComparatifOperateurs2026() {
               <p className="font-bold text-sm">Pas sûr de votre choix ?</p>
               <p className="text-xs text-blue-100">Audit gratuit 10 min</p>
             </div>
-            <a href={`${WHATSAPP_URL}?text=${encodeURIComponent("Audit Gratuit Opérateur")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 px-4 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all">
+            <a href={`${WHATSAPP_URL}?text=${encodeURIComponent("Audit Gratuit Opérateur")}`} target="_blank" rel="noopener noreferrer nofollow" className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 px-4 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all">
               <MessageCircle className="w-5 h-5" />
               Aide Gratuite
             </a>

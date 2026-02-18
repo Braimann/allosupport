@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -37,12 +38,21 @@ const jsonLd = {
     "Service d'accompagnement à la récupération de données au Maroc : diagnostic à distance, conseils, sauvegardes et orientation vers laboratoire spécialisé si nécessaire.",
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Récupération de Données Maroc", url: "https://allosupport.ma/recuperation-donnees" },
+]);
+
 export default function RecuperationDonneesPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -68,7 +78,7 @@ export default function RecuperationDonneesPage() {
                     "Urgent : j'ai perdu des données (PC / disque / clé USB) au Maroc. Pouvez-vous m'aider ?"
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Parler à un expert données
@@ -126,7 +136,7 @@ export default function RecuperationDonneesPage() {
                   "Bonjour, je veux savoir ce qui est possible pour ma récupération de données."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Expliquer ma situation →
@@ -156,7 +166,7 @@ export default function RecuperationDonneesPage() {
                     "Bonjour, je veux le pack diagnostic & conseils récupération de données (150 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Réserver ce pack
@@ -181,7 +191,7 @@ export default function RecuperationDonneesPage() {
                     "Bonjour, je veux une tentative de récupération logicielle (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Tenter une récupération
@@ -203,7 +213,7 @@ export default function RecuperationDonneesPage() {
                     "Bonjour, je pense avoir besoin d'un laboratoire spécialisé. Pouvez-vous m'accompagner ?"
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Discuter de mon cas

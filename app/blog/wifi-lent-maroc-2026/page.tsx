@@ -446,7 +446,7 @@ export default function WiFiLentMaroc2026() {
                   <a
                     href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai besoin d'aide pour mon Wi-Fi :\n\n✅ Ville : [Casablanca/Rabat/Marrakech]\n✅ Problème : [Wi-Fi lent/Coupures/Zones mortes]\n✅ Type logement : [Appartement/Villa/Riad]\n✅ Service souhaité : [Configuration AP/Installation Répéteur/Analyse Technique]")}`}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
                   >
                     <MessageCircle className="w-5 h-5" />
@@ -478,13 +478,13 @@ export default function WiFiLentMaroc2026() {
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"><Signal className="w-6 h-6 text-blue-600" /></div>
                 <h3 className="font-bold text-lg mb-2">Speedtest.net</h3>
                 <p className="text-slate-600 text-sm mb-4">Test général débit (ping, download, upload)</p>
-                <a href="https://speedtest.net" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium text-sm">Tester maintenant →</a>
+                <a href="https://speedtest.net" target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium text-sm">Tester maintenant →</a>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4"><Monitor className="w-6 h-6 text-red-600" /></div>
                 <h3 className="font-bold text-lg mb-2">Fast.com</h3>
                 <p className="text-slate-600 text-sm mb-4">Test débit Netflix (détecte throttling FAI)</p>
-                <a href="https://fast.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-red-600 hover:text-red-800 font-medium text-sm">Tester Netflix →</a>
+                <a href="https://fast.com" target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 text-red-600 hover:text-red-800 font-medium text-sm">Tester Netflix →</a>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4"><Wifi className="w-6 h-6 text-emerald-600" /></div>
@@ -639,7 +639,7 @@ export default function WiFiLentMaroc2026() {
                     <a
                       href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, je veux que vous configuriez ma box Wi-Fi :\n\n✅ Opérateur : [Maroc Telecom/Inwi/Orange]\n✅ Ville : [Votre ville]\n✅ Problème : [Wi-Fi lent/Coupures]\n\nJe suis disponible maintenant pour intervention à distance")}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg"
                     >
                       <MessageCircle className="w-5 h-5" />
@@ -776,7 +776,7 @@ export default function WiFiLentMaroc2026() {
                   <a
                     href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, je veux le Pack Installation Répéteur :\n\n✅ Type logement : [Appartement T2/T3 / Villa / Riad]\n✅ Ville : [Casablanca/Rabat/Marrakech/Autre]\n✅ Superficie : [70m² / 120m² / 200m²+]\n✅ Budget : [200-400 DH / 400-800 DH / 800-1500 DH]\n\nMerci de me conseiller !")}`}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-3 bg-white hover:bg-emerald-50 text-emerald-600 font-bold px-8 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl transform hover:scale-105"
                   >
                     <MessageCircle className="w-5 h-5" />
@@ -845,7 +845,7 @@ export default function WiFiLentMaroc2026() {
               <a
                 href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, mon Wi-Fi est très lent")}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="flex items-center gap-3 bg-white hover:bg-slate-100 text-emerald-600 font-bold px-8 py-4 rounded-full transition-all shadow-2xl"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -896,7 +896,7 @@ export default function WiFiLentMaroc2026() {
                   <a
                     href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, mon Wi-Fi est lent :\n\n✅ Ville :\n✅ Opérateur :\n✅ Débit actuel :\n\nJ'ai besoin d'aide !")}`}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg whitespace-nowrap"
                   >
                     <MessageCircle className="w-5 h-5" />

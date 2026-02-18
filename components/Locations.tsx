@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MapPin, Building2, Globe } from "lucide-react";
 
 const casablancaZones = [
@@ -52,20 +53,20 @@ export default function Locations() {
         {/* SEO city links */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {[
-            { href: "/casablanca", label: "Dépannage PC Casablanca" },
+            { href: "/casablanca", label: "Dépannage informatique Casablanca" },
             { href: "/rabat", label: "Dépannage informatique Rabat" },
             { href: "/fes", label: "Réparation PC Fès" },
-            { href: "/marrakech", label: "Support informatique Marrakech" },
+            { href: "/marrakech", label: "Dépannage informatique Marrakech" },
             { href: "/agadir", label: "Dépannage PC Agadir" },
           ].map((city) => (
-            <a
+            <Link
               key={city.href}
               href={city.href}
               className="inline-flex items-center px-4 py-2 rounded-full border border-accent-200 bg-white hover:bg-accent-50 text-sm font-medium text-accent-700 shadow-sm transition"
             >
               <MapPin className="w-4 h-4 mr-2" />
               {city.label}
-            </a>
+            </Link>
           ))}
         </div>
 

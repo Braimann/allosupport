@@ -752,7 +752,7 @@ export default function BlogPCPortableSansWindowsFreeDOSMaroc() {
                       <a
                         href={WHATSAPP_FREEDOS}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                         className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-4 rounded-xl transition"
                         aria-label="Commander sur WhatsApp"
                       >
@@ -913,7 +913,7 @@ export default function BlogPCPortableSansWindowsFreeDOSMaroc() {
           <a
             href={WHATSAPP_FREEDOS}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             aria-label="Installer Windows maintenant sur WhatsApp"
           >

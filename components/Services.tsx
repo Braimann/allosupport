@@ -13,63 +13,69 @@ import { motion } from "framer-motion";
 const services = [
   {
     icon: Monitor,
-    title: "Dépannage & Réparation PC",
+    title: "Réparation PC & Dépannage",
     description:
-      "Réparation PC portable Casablanca, formatage PC, récupération données disque dur. Nos techniciens résolvent tous vos problèmes matériels et logiciels.",
-    keywords: ["Réparation PC portable", "Formatage PC prix Maroc", "Récupération données"],
+      "Réparation ordinateur Maroc : PC portable lent, écran bleu, formatage PC, récupération données. Technicien à distance en 15 min, dès 250 DH.",
+    keywords: ["Réparation PC Maroc", "Formatage PC prix Maroc", "Récupération données"],
     gradient: "from-blue-500 to-cyan-500",
     glow: "shadow-blue-500/50",
-    href: "/depannage-informatique",
-  },
-  {
-    icon: Home,
-    title: "Technicien à Domicile",
-    description:
-      "Technicien informatique à domicile à Casablanca et Rabat. Intervention sur site pour installation, configuration et dépannage de vos équipements.",
-    keywords: ["Technicien informatique à domicile", "Intervention sur site"],
-    gradient: "from-green-500 to-emerald-500",
-    glow: "shadow-green-500/50",
-    href: "/virus-ordinateur-maroc",
-  },
-  {
-    icon: Video,
-    title: "Support à Distance",
-    description:
-      "Dépannage informatique à distance via TeamViewer. Assistance rapide sans déplacement pour résoudre vos problèmes en quelques minutes.",
-    keywords: ["Dépannage informatique à distance TeamViewer", "Support IT"],
-    gradient: "from-purple-500 to-pink-500",
-    glow: "shadow-purple-500/50",
-    href: "/pc-lent-solution",
-  },
-  {
-    icon: Server,
-    title: "Infogérance PME",
-    description:
-      "Contrat maintenance informatique PME : gestion parc informatique Maroc, sauvegardes automatiques, mises à jour et supervision 24/7.",
-    keywords: ["Contrat maintenance informatique PME", "Gestion parc informatique"],
-    gradient: "from-orange-500 to-red-500",
-    glow: "shadow-orange-500/50",
-    href: "/formatage-pc",
+    href: "/reparation-ordinateur",
+    anchor: "Réparation ordinateur Maroc →",
   },
   {
     icon: Shield,
-    title: "Sécurité & Réseau",
+    title: "Suppression Virus & Sécurité",
     description:
-      "Sécurité informatique Maroc : protection antivirus, pare-feu, VPN. Installation réseau entreprise et audit de sécurité complet.",
-    keywords: ["Sécurité informatique Maroc", "Installation réseau entreprise"],
+      "Suppression virus ordinateur Maroc : malwares, ransomware, pop-ups. Nettoyage complet + installation antivirus professionnel. Paiement après résultat.",
+    keywords: ["Suppression virus PC Maroc", "Antivirus Maroc", "Nettoyage malware"],
     gradient: "from-red-500 to-rose-500",
     glow: "shadow-red-500/50",
-    href: "/recuperation-donnees",
+    href: "/virus-ordinateur-maroc",
+    anchor: "Suppression virus PC Maroc →",
+  },
+  {
+    icon: Video,
+    title: "PC Lent – Optimisation",
+    description:
+      "PC t9il ? Solution rapide : nettoyage système, suppression programmes inutiles, optimisation Windows. Résultat visible en 15 min à distance.",
+    keywords: ["PC lent solution", "Optimisation Windows", "PC t9il"],
+    gradient: "from-purple-500 to-pink-500",
+    glow: "shadow-purple-500/50",
+    href: "/pc-lent-solution",
+    anchor: "PC lent solution rapide →",
+  },
+  {
+    icon: Home,
+    title: "Formatage & Installation Windows",
+    description:
+      "Formatage PC Maroc 350 DH : réinstallation Windows 10/11, pilotes, logiciels. Installation propre à distance sans perte de données.",
+    keywords: ["Formatage PC Maroc 350 DH", "Installation Windows Maroc"],
+    gradient: "from-green-500 to-emerald-500",
+    glow: "shadow-green-500/50",
+    href: "/formatage-pc",
+    anchor: "Formatage PC Maroc 350 DH →",
+  },
+  {
+    icon: Server,
+    title: "Infogérance & Support PME",
+    description:
+      "Infogérance PME Maroc : maintenance préventive, cybersécurité, sauvegardes, support utilisateurs 24/7. Forfaits dès 999 DH/mois.",
+    keywords: ["Infogérance PME Maroc", "Cybersécurité PME", "Support PME"],
+    gradient: "from-orange-500 to-red-500",
+    glow: "shadow-orange-500/50",
+    href: "/infogerance-pme-maroc",
+    anchor: "Infogérance PME Maroc →",
   },
   {
     icon: Search,
-    title: "SEO & Solutions Google",
+    title: "Récupération de Données",
     description:
-      "Agence SEO Maroc : création site web, référencement Google, fiche Google My Business et campagnes Google Ads pour votre visibilité.",
-    keywords: ["Agence SEO Maroc", "Création site web Maroc", "Google Ads"],
+      "Récupération de données Maroc : disque dur, clé USB, carte SD. Fichiers supprimés, disque formaté par erreur. Diagnostic gratuit.",
+    keywords: ["Récupération données Maroc", "Disque dur", "Fichiers supprimés"],
     gradient: "from-teal-500 to-cyan-500",
     glow: "shadow-teal-500/50",
-    href: "/support-pme",
+    href: "/recuperation-donnees",
+    anchor: "Récupération de données Maroc →",
   },
 ];
 
@@ -119,15 +125,15 @@ export default function Services() {
             Nos Expertises
           </motion.span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Support Informatique &{" "}
+            Dépannage Informatique{" "}
             <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              SEO
+              à Distance
             </span>{" "}
             au Maroc
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            De la réparation PC portable au référencement Google, nous
-            accompagnons les PME marocaines dans leur transformation digitale.
+            Réparation PC, suppression virus, formatage, maintenance PME. Technicien
+            connecté en 15 min, partout au Maroc. Paiement uniquement après résultat.
           </p>
         </motion.div>
 
@@ -191,13 +197,7 @@ export default function Services() {
                   whileHover={{ x: 5 }}
                   className="inline-flex items-center gap-2 text-primary-400 font-semibold mt-auto group-hover:text-primary-300 transition-colors"
                 >
-                  En savoir plus
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.span>
+                  {service.anchor}
                 </motion.a>
               </div>
             </motion.article>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -38,12 +39,21 @@ const jsonLd = {
     "Service d'optimisation pour PC lent au Maroc : nettoyage, désinstallation, optimisation démarrage et réglages Windows.",
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "PC Lent Solution", url: "https://allosupport.ma/pc-lent-solution" },
+]);
+
 export default function PcLentSolutionPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         <section className="bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-900 text-white py-20">
@@ -66,7 +76,7 @@ export default function PcLentSolutionPage() {
                     "Bonjour, mon PC est très lent. Je veux une optimisation complète à distance."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Rendre mon PC plus rapide
@@ -149,7 +159,7 @@ export default function PcLentSolutionPage() {
                   "Bonjour, mon PC est toujours lent après les astuces. Je veux une optimisation complète à distance (250 DH)."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl transition"
               >
                 Optimiser mon PC — 250 DH
@@ -212,6 +222,18 @@ export default function PcLentSolutionPage() {
           </div>
         </section>
 
+        {/* Darija Section */}
+        <section className="py-10 bg-emerald-50">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            <p className="text-xl font-semibold text-slate-800 mb-2">
+              PC t9il wla chi9 ? Kayn l7al !
+            </p>
+            <p className="text-slate-700">
+              Ordinateur lent, PC rama, chi9 f Windows ? On se connecte en 15 min et on règle le problème à distance. Bla ma tji l&apos;atelier.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ courte */}
         <section className="py-16 bg-gray-100">
           <div className="max-w-4xl mx-auto px-4 space-y-4">
@@ -252,7 +274,22 @@ export default function PcLentSolutionPage() {
                 </li>
                 <li>
                   <a href="/virus-ordinateur-maroc" className="hover:underline">
-                    Suppression virus & malware
+                    Suppression virus ordinateur Maroc
+                  </a>
+                </li>
+                <li>
+                  <a href="/formatage-pc" className="hover:underline">
+                    Formatage PC prix Maroc
+                  </a>
+                </li>
+                <li>
+                  <a href="/reparation-ordinateur" className="hover:underline">
+                    Réparation ordinateur Maroc
+                  </a>
+                </li>
+                <li>
+                  <a href="/maintenance-informatique" className="hover:underline">
+                    Maintenance informatique Maroc
                   </a>
                 </li>
               </ul>
@@ -262,12 +299,22 @@ export default function PcLentSolutionPage() {
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
                   <a href="/casablanca" className="hover:underline">
-                    Dépannage PC Casablanca
+                    Réparation PC Casablanca
                   </a>
                 </li>
                 <li>
                   <a href="/rabat" className="hover:underline">
                     Dépannage informatique Rabat
+                  </a>
+                </li>
+                <li>
+                  <a href="/marrakech" className="hover:underline">
+                    Support informatique Marrakech
+                  </a>
+                </li>
+                <li>
+                  <a href="/agadir" className="hover:underline">
+                    Dépannage PC Agadir
                   </a>
                 </li>
               </ul>

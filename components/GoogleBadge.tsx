@@ -32,7 +32,7 @@ export default function GoogleBadge({
         <a
           href={GOOGLE_BUSINESS.REVIEW_URL}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="fixed bottom-24 right-6 z-40 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 p-4 rounded-2xl shadow-2xl hover:shadow-3xl transition-all hover:scale-105"
         >
           <div className="text-center">
@@ -91,7 +91,7 @@ export default function GoogleBadge({
             <a
               href={GOOGLE_BUSINESS.REVIEW_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition"
             >
               Laisser le Premier Avis
@@ -128,7 +128,7 @@ export default function GoogleBadge({
           <a
             href={GOOGLE_BUSINESS.REVIEW_URL}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition"
           >
             Laisser un Avis
@@ -145,7 +145,7 @@ export default function GoogleBadge({
       <a
         href={GOOGLE_BUSINESS.REVIEW_URL}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className={`inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 font-bold ${className}`}
       >
         ⭐ Soyez le Premier à Laisser un Avis!

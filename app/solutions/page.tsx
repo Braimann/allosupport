@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Solutions par Métier - Support IT B2B | AlloSupport.ma",
@@ -15,10 +16,10 @@ export const metadata: Metadata = {
 };
 
 const verticals = [
-  { href: "/solutions/cabinets-medicaux", title: "Cabinets médicaux", desc: "Conformité CNDP, secret médical, protection ransomware." },
-  { href: "/solutions/cabinets-avocats", title: "Cabinets d'avocats", desc: "Confidentialité client-avocat, sécurisation emails, accès fichiers sécurisé." },
-  { href: "/solutions/experts-comptables", title: "Experts-comptables", desc: "Sécurité données financières, Sage Ciel EBP, période fiscale." },
-  { href: "/solutions/architectes", title: "Architectes", desc: "Workstations 3D, AutoCAD Revit Archicad, stockage fichiers lourds." },
+  { href: "/solutions/cabinets-medicaux", title: "Cabinets médicaux", desc: "Conformité CNDP, secret médical, protection ransomware.", cta: "Support informatique cabinets médicaux →" },
+  { href: "/solutions/cabinets-avocats", title: "Cabinets d'avocats", desc: "Confidentialité client-avocat, sécurisation emails, accès fichiers sécurisé.", cta: "Support informatique cabinets avocats →" },
+  { href: "/solutions/experts-comptables", title: "Experts-comptables", desc: "Sécurité données financières, Sage Ciel EBP, période fiscale.", cta: "Support informatique experts-comptables →" },
+  { href: "/solutions/architectes", title: "Architectes", desc: "Workstations 3D, AutoCAD Revit Archicad, stockage fichiers lourds.", cta: "Support informatique architectes →" },
 ];
 
 export default function SolutionsPage() {
@@ -43,7 +44,7 @@ export default function SolutionsPage() {
               >
                 <h2 className="text-xl font-bold text-slate-900 mb-2">{v.title}</h2>
                 <p className="text-slate-600 text-sm">{v.desc}</p>
-                <span className="inline-block mt-3 text-emerald-600 font-medium text-sm">En savoir plus →</span>
+                <span className="inline-block mt-3 text-emerald-600 font-medium text-sm">{v.cta}</span>
               </Link>
             ))}
           </div>

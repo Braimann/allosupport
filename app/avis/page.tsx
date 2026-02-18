@@ -46,7 +46,7 @@ export default function AvisPage() {
               <a
                 href={GOOGLE_BUSINESS.REVIEW_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-xl text-lg font-bold transition shadow-xl hover:shadow-2xl hover:scale-105 transform mb-12"
               >
                 Laisser le Premier Avis Google
@@ -115,7 +115,7 @@ export default function AvisPage() {
                   <a
                     href={GOOGLE_BUSINESS.REVIEW_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition"
                   >
                     Laisser un Avis
@@ -125,7 +125,7 @@ export default function AvisPage() {
                   <a
                     href={GOOGLE_BUSINESS.SHARE_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 border-2 border-gray-200 text-gray-900 px-8 py-4 rounded-xl font-bold transition"
                   >
                     Voir Notre Profil Google
@@ -143,7 +143,7 @@ export default function AvisPage() {
                   <a
                     href={GOOGLE_BUSINESS.MAPS_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="text-blue-600 font-semibold hover:underline"
                   >
                     Voir AlloSupport sur Google Maps →

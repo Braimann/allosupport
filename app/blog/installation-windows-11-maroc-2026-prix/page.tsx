@@ -666,7 +666,7 @@ export default function BlogInstallationWindows11Maroc2026Prix() {
                   <a
                     href={WHATSAPP_WINDOWS11}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl text-xl font-bold shadow-xl hover:scale-105 transition"
                     aria-label="Commander installation Windows 11 sur WhatsApp"
                   >
@@ -731,7 +731,7 @@ export default function BlogInstallationWindows11Maroc2026Prix() {
         <a
           href={WHATSAPP_WINDOWS11}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-5 py-4 rounded-full shadow-2xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 min-w-[56px] min-h-[56px]"
           aria-label="Installation Windows 11 Pro 250 MAD via WhatsApp"
         >

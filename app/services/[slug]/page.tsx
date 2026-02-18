@@ -161,7 +161,7 @@ export default async function ServicePage({ params }: PageProps) {
           <a
             href={whatsappUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-full transition-all"
           >
             <MessageCircle className="w-5 h-5" />
@@ -232,7 +232,7 @@ export default async function ServicePage({ params }: PageProps) {
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 bg-white text-emerald-600 font-bold py-4 px-8 rounded-full transition-all"
             >
               <MessageCircle className="w-5 h-5" />

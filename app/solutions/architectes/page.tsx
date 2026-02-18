@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -26,6 +27,12 @@ const jsonLd = {
   areaServed: { "@type": "Country", name: "Morocco" },
   url: "https://allosupport.ma/solutions/architectes",
 };
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Solutions IT", url: "https://allosupport.ma/solutions" },
+  { name: "Architectes", url: "https://allosupport.ma/solutions/architectes" },
+]);
 
 const painPoints = [
   {
@@ -68,6 +75,7 @@ export default function ArchitectesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <main className="min-h-screen bg-gray-50">
         <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 relative z-10">
@@ -82,7 +90,7 @@ export default function ArchitectesPage() {
               <a
                 href={`${whatsappBase}?text=${encodeURIComponent("Bonjour, je suis architecte / bureau d'études et je souhaite un audit gratuit pour optimiser nos postes 3D et le stockage de nos fichiers.")}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl transition"
               >
                 Demander un Audit Gratuit
@@ -135,7 +143,7 @@ export default function ArchitectesPage() {
             <a
               href={`${whatsappBase}?text=${encodeURIComponent("Bonjour, je souhaite un devis sur mesure pour le support IT de mon cabinet d'architecture.")}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl transition"
             >
               Devis Sur Mesure

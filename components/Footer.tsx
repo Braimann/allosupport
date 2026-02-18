@@ -50,14 +50,15 @@ const columnGuidesBlog: Array<{ href: string; label: string }> = [
 ];
 
 const columnVilles: Array<{ href: string; label: string }> = [
-  { href: "/casablanca", label: "Casablanca" },
-  { href: "/rabat", label: "Rabat" },
-  { href: "/marrakech", label: "Marrakech" },
-  { href: "/fes", label: "Fès" },
-  { href: "/agadir", label: "Agadir" },
-  { href: "/formatage-pc", label: "Formatage PC" },
-  { href: "/depannage-informatique", label: "Dépannage Informatique" },
-  { href: "/virus-ordinateur-maroc", label: "Virus Ordinateur" },
+  { href: "/casablanca", label: "Dépannage informatique Casablanca" },
+  { href: "/rabat", label: "Dépannage informatique Rabat" },
+  { href: "/marrakech", label: "Dépannage informatique Marrakech" },
+  { href: "/fes", label: "Réparation PC Fès" },
+  { href: "/agadir", label: "Dépannage PC Agadir" },
+  { href: "/formatage-pc", label: "Formatage PC Maroc 350 DH" },
+  { href: "/depannage-informatique", label: "Dépannage informatique Maroc" },
+  { href: "/virus-ordinateur-maroc", label: "Suppression virus PC Maroc" },
+  { href: "/infogerance-pme-maroc", label: "Infogérance PME Maroc" },
 ];
 
 const columnEntreprise: Array<{ href: string; label: string }> = [
@@ -135,7 +136,7 @@ export default function Footer() {
                 <a
                   href={GOOGLE_BUSINESS.WHATSAPP}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors duration-200 text-sm"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -167,7 +168,7 @@ export default function Footer() {
                   key={name}
                   href={href}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors duration-200"
                   aria-label={ariaLabel}
                 >
@@ -186,7 +187,7 @@ export default function Footer() {
             <a
               href={GOOGLE_BUSINESS.REVIEW_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               <Star className="w-5 h-5 fill-current" />
@@ -195,7 +196,7 @@ export default function Footer() {
             <a
               href={GOOGLE_BUSINESS.SHARE_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               <Share2 className="w-5 h-5" />
@@ -215,7 +216,7 @@ export default function Footer() {
             <a
               href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="bg-white text-emerald-600 font-semibold px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2 shrink-0"
             >
               <MessageCircle className="w-5 h-5" />
@@ -225,10 +226,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Bottom Bar - suppressHydrationWarning: year can differ server vs client (timezone) */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <p className="text-center text-sm text-gray-500">
+          <p className="text-center text-sm text-gray-500" suppressHydrationWarning>
             © {new Date().getFullYear()} AlloSupport.ma · Dépannage informatique à distance Maroc
           </p>
         </div>

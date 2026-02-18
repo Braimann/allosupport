@@ -171,7 +171,7 @@ export default function ServiceDedicatedLayout({
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 sm:px-7 sm:py-4 font-bold text-white shadow-lg hover:bg-emerald-600 transition-colors min-h-[48px]"
             >
               <MessageCircle className="h-5 w-5 shrink-0" aria-hidden />
@@ -287,7 +287,7 @@ export default function ServiceDedicatedLayout({
                   <a
                     href={whatsappUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-bold transition min-h-[48px] ${
                       offer.popular
                         ? "bg-emerald-600 text-white hover:bg-emerald-700"
@@ -422,7 +422,7 @@ export default function ServiceDedicatedLayout({
                 <a
                   href={whatsappUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 transition min-h-[48px]"
                 >
                   <MessageCircle className="h-5 w-5 shrink-0" aria-hidden />

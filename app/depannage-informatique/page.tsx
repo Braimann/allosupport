@@ -24,6 +24,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const WHATSAPP_DEPANNAGE = `${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour, j'ai besoin d'un dépannage informatique à distance pour mon PC.")}`;
 
@@ -369,6 +370,11 @@ const FAQ_ITEMS = [
   },
 ];
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Dépannage Informatique Maroc", url: "https://allosupport.ma/depannage-informatique" },
+]);
+
 export default function DepannageInformatiquePage() {
   return (
     <>
@@ -383,6 +389,10 @@ export default function DepannageInformatiquePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <Header />
@@ -426,7 +436,7 @@ export default function DepannageInformatiquePage() {
                   <a
                     href={WHATSAPP_DEPANNAGE}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex flex-col items-center justify-center px-8 py-5 bg-green-600 hover:bg-green-700 text-white text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all min-h-[56px]"
                     aria-label="Parler à un technicien sur WhatsApp"
                   >
@@ -545,7 +555,7 @@ export default function DepannageInformatiquePage() {
                   <a
                     href={s.href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="block w-full text-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-600 hover:text-white transition-all"
                   >
                     {s.cta} →
@@ -631,7 +641,7 @@ export default function DepannageInformatiquePage() {
                 <a
                   href={WHATSAPP_DEPANNAGE}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block w-full text-center py-3 border-2 border-slate-300 text-slate-700 font-semibold rounded-xl hover:bg-slate-100 transition"
                 >
                   Demander un Diagnostic
@@ -662,7 +672,7 @@ export default function DepannageInformatiquePage() {
                 <a
                   href={WHATSAPP_DEPANNAGE}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block w-full text-center py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl transition"
                 >
                   Commander Maintenant
@@ -691,7 +701,7 @@ export default function DepannageInformatiquePage() {
                 <a
                   href={WHATSAPP_DEPANNAGE}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block w-full text-center py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-600 hover:text-white transition"
                 >
                   Formater Mon PC
@@ -882,7 +892,7 @@ export default function DepannageInformatiquePage() {
               <a
                 href={WHATSAPP_DEPANNAGE}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-5 rounded-2xl shadow-lg transition text-lg min-h-[56px]"
                 aria-label="Parler à un technicien sur WhatsApp"
               >
@@ -912,7 +922,7 @@ export default function DepannageInformatiquePage() {
       <a
         href={WHATSAPP_DEPANNAGE}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-4 rounded-full shadow-2xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 min-w-[56px] min-h-[56px]"
         aria-label="Besoin d'aide ? Contactez-nous sur WhatsApp"
       >

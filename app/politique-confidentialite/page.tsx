@@ -25,7 +25,7 @@ export default function PolitiqueConfidentialitePage() {
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Politique de Confidentialité
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600" suppressHydrationWarning>
               Dernière mise à jour : {new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
             </p>
           </div>

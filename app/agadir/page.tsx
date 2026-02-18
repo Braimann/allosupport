@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -55,12 +57,21 @@ const jsonLd = {
   serviceType: "Dépannage PC Agadir",
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Dépannage Informatique Agadir", url: "https://allosupport.ma/agadir" },
+]);
+
 export default function AgadirPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -84,7 +95,7 @@ export default function AgadirPage() {
                     "Bonjour, je suis à Agadir et j'ai besoin d'un dépannage pour mon PC."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Diagnostic gratuit via WhatsApp
@@ -139,7 +150,7 @@ export default function AgadirPage() {
                   "Bonjour, je suis à Agadir et je veux comprendre comment fonctionne votre dépannage à distance."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Poser une question →
@@ -168,7 +179,7 @@ export default function AgadirPage() {
                     "Bonjour, je suis à Agadir et je veux le Pack Agadir Diagnostic (150 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Réserver ce pack
@@ -190,7 +201,7 @@ export default function AgadirPage() {
                     "Bonjour, je suis à Agadir et je veux le Pack Agadir Complet (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Dépanner mon PC maintenant
@@ -209,13 +220,25 @@ export default function AgadirPage() {
                     "Bonjour, je veux des infos sur le Pack Agadir PME (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Demander un devis PME
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Darija */}
+        <section className="py-10 bg-emerald-50">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            <p className="text-xl font-semibold text-slate-800 mb-2">
+              PC dyalek khsro f Agadir ? Kayn l7al !
+            </p>
+            <p className="text-slate-700">
+              PC t9il, chi9, virus ? On se connecte en 15 min et on répare à distance. Bla ma tji l&apos;atelier.
+            </p>
           </div>
         </section>
 
@@ -271,51 +294,56 @@ export default function AgadirPage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/depannage-informatique" className="hover:underline">
-                    Dépannage informatique à distance
-                  </a>
+                  <Link href="/depannage-informatique" className="hover:underline">
+                    Dépannage informatique Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/pc-lent-solution" className="hover:underline">
-                    PC lent solution
-                  </a>
+                  <Link href="/pc-lent-solution" className="hover:underline">
+                    PC lent solution rapide
+                  </Link>
                 </li>
                 <li>
-                  <a href="/virus-ordinateur-maroc" className="hover:underline">
-                    Suppression virus ordinateur Maroc
-                  </a>
+                  <Link href="/virus-ordinateur-maroc" className="hover:underline">
+                    Suppression virus PC Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/formatage-pc" className="hover:underline">
-                    Formatage PC prix Maroc
-                  </a>
+                  <Link href="/formatage-pc" className="hover:underline">
+                    Formatage PC Maroc 350 DH
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/infogerance-pme-maroc" className="hover:underline">
+                    Infogérance PME Maroc
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Autres villes prises en charge
+                Nos autres villes
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/casablanca" className="hover:underline">
-                    Dépannage PC Casablanca
-                  </a>
+                  <Link href="/casablanca" className="hover:underline">
+                    Dépannage informatique Casablanca
+                  </Link>
                 </li>
                 <li>
-                  <a href="/rabat" className="hover:underline">
+                  <Link href="/rabat" className="hover:underline">
                     Dépannage informatique Rabat
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/fes" className="hover:underline">
+                  <Link href="/fes" className="hover:underline">
                     Réparation PC Fès
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/marrakech" className="hover:underline">
-                    Support informatique Marrakech
-                  </a>
+                  <Link href="/marrakech" className="hover:underline">
+                    Dépannage informatique Marrakech
+                  </Link>
                 </li>
               </ul>
             </div>

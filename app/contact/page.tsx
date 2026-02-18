@@ -125,7 +125,7 @@ export default function ContactPage() {
               <a
                 href={GOOGLE_BUSINESS.WHATSAPP}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white px-8 py-4 rounded-xl font-semibold transition shadow-lg"
               >
                 <MessageSquare className="w-5 h-5" />
@@ -167,7 +167,7 @@ export default function ContactPage() {
                       <a
                         href={GOOGLE_BUSINESS.WHATSAPP}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                         className="text-lg font-bold text-green-600 hover:underline"
                       >
                         {GOOGLE_BUSINESS.PHONE_FORMATTED}

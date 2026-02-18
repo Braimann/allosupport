@@ -62,7 +62,7 @@ export default function InContentCTA({
           <a
             href={whatsappUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="w-full md:w-auto bg-white text-primary-600 font-bold py-3 px-8 rounded-lg hover:bg-primary-50 transition-colors flex items-center justify-center gap-2 shadow-lg"
           >
             <MessageCircle className="w-5 h-5" />

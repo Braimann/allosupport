@@ -102,7 +102,7 @@ export default function MentionsLegalesPage() {
                   </p>
                   <p className="text-gray-700">340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
                   <p className="text-gray-700">
-                    Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">https://vercel.com</a>
+                    Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-600 hover:text-emerald-700">https://vercel.com</a>
                   </p>
                 </div>
               </div>

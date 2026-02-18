@@ -210,7 +210,7 @@ export default function BlogPost7PannesPC() {
             <Link
               href="https://wa.me/212775237038"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-bold transition"
             >
               Devis gratuit migration SSD
@@ -256,7 +256,7 @@ export default function BlogPost7PannesPC() {
             <a
               href="https://support.microsoft.com/fr-fr/windows/resoudre-les-erreurs-d-ecran-bleu-a2b5b8b0-0f6a-72b8-9c26-e1b486c0b313"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="text-teal-600 hover:underline"
             >
               Guide Microsoft écran bleu
@@ -274,7 +274,7 @@ export default function BlogPost7PannesPC() {
             <Link
               href="https://wa.me/212775237038"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="bg-white text-teal-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
             >
               WhatsApp : 07 75 23 70 38
@@ -307,7 +307,7 @@ export default function BlogPost7PannesPC() {
           </p>
           <p className="mb-4">
             Voir aussi : <Link href="/virus-ordinateur-maroc" className="text-teal-600 hover:underline">Suppression virus ordinateur Maroc</Link>. Référence :{" "}
-            <a href="https://www.kaspersky.fr/resource-center/threats/how-to-remove-a-computer-virus" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+            <a href="https://www.kaspersky.fr/resource-center/threats/how-to-remove-a-computer-virus" target="_blank" rel="noopener noreferrer nofollow" className="text-teal-600 hover:underline">
               Kaspersky : supprimer un virus
             </a>.
           </p>
@@ -382,7 +382,7 @@ export default function BlogPost7PannesPC() {
           </div>
           <p className="text-lg">
             <strong>En cas de panne :</strong> tentez les solutions DIY. Si échec ou doute,{" "}
-            <Link href="https://wa.me/212775237038" className="text-teal-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer">
+            <Link href="https://wa.me/212775237038" className="text-teal-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer nofollow">
               AlloSupport intervient en 15 min à distance
             </Link>{" "}
             pour <strong>réparer pc maroc</strong>. Voir aussi <Link href="/depannage-informatique" className="text-teal-600 hover:underline">dépannage informatique</Link> et <Link href="/pc-lent-solution" className="text-teal-600 hover:underline">PC lent solution</Link>.
@@ -461,7 +461,7 @@ export default function BlogPost7PannesPC() {
           <Link
             href="https://wa.me/212775237038"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-block bg-teal-500 hover:bg-teal-600 px-10 py-4 rounded-lg font-bold text-lg transition"
           >
             Contacter AlloSupport maintenant

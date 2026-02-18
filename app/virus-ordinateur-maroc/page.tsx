@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
-  title: "Suppression Virus & Malware à Distance - Maroc | AlloSupport.ma",
+  title: "Suppression Virus Ordinateur Maroc | Nettoyage PC 250 DH | AlloSupport",
   description:
-    "Suppression virus ordinateur au Maroc sans formatage. Nettoyage complet, suppression malware, PC lent, ransomware. Intervention à distance en 15 min via WhatsApp. Dès 250 DH.",
+    "Suppression virus ordinateur Maroc sans formatage. Virus PC Maroc, malware, ransomware. Intervention à distance en 15 min. Dès 250 DH.",
   alternates: {
     canonical: "https://allosupport.ma/virus-ordinateur-maroc",
   },
@@ -52,12 +53,21 @@ const jsonLd = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Suppression Virus PC Maroc", url: "https://allosupport.ma/virus-ordinateur-maroc" },
+]);
+
 export default function VirusOrdinateurMarocPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <main className="min-h-screen bg-gray-50">
@@ -69,7 +79,7 @@ export default function VirusOrdinateurMarocPage() {
                 Virus & Malware PC - Maroc
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Suppression Virus & Malware à Distance - Maroc
+                Suppression Virus Ordinateur Maroc – Nettoyage Sans Formatage
               </h1>
               <p className="text-lg text-slate-100 mb-6">
                 Publicités partout, pages bizarres, PC ultra lent ? Nous réalisons un{" "}
@@ -85,7 +95,7 @@ export default function VirusOrdinateurMarocPage() {
                     "Bonjour, mon PC est infecté par un virus / malware. Je suis au Maroc, pouvez-vous le nettoyer à distance sans formatage ?"
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Nettoyage virus via WhatsApp
@@ -148,7 +158,7 @@ export default function VirusOrdinateurMarocPage() {
                   "Bonjour, je veux un nettoyage complet sans formatage pour mon PC infecté."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Demander un diagnostic virus gratuit →
@@ -178,7 +188,7 @@ export default function VirusOrdinateurMarocPage() {
                     "Bonjour, je veux le pack scan & contrôle sécurité (150 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Réserver ce pack
@@ -202,7 +212,7 @@ export default function VirusOrdinateurMarocPage() {
                     "Bonjour, je veux le pack nettoyage complet virus sans formatage (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Nettoyer mon PC maintenant
@@ -224,13 +234,25 @@ export default function VirusOrdinateurMarocPage() {
                     "Bonjour, je veux des informations sur le pack sécurité PME (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Parler à un expert sécurité
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Darija Section */}
+        <section className="py-10 bg-rose-50">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            <p className="text-xl font-semibold text-slate-800 mb-2">
+              Virus f PC dyali ? Kayn l7al !
+            </p>
+            <p className="text-slate-700">
+              3ndek virus f l&apos;ordinateur ? Pop-ups partout ? PC chi9 wla t9il ? On nettoie ton PC à distance en 15 min, bla formatage, bla ma tji l&apos;atelier.
+            </p>
           </div>
         </section>
 
@@ -302,6 +324,11 @@ export default function VirusOrdinateurMarocPage() {
                 <li>
                   <a href="/support-pme" className="hover:underline">
                     Support informatique PME
+                  </a>
+                </li>
+                <li>
+                  <a href="/antivirus-maroc" className="hover:underline">
+                    Antivirus Maroc - Kaspersky & Bitdefender
                   </a>
                 </li>
               </ul>

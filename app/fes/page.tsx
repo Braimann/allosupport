@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
-  title: "Dépannage PC Fès - Réparation à Distance en 15 min | AlloSupport.ma",
+  title: "Réparation PC Fès | Dépannage à Distance 250 DH | AlloSupport",
   description:
-    "Dépannage PC à Fès pour artisans, riads et étudiants (Ville Nouvelle, Batha, Narjiss). Réparation à distance en 15 min, dès 250 DH. Université Sidi Mohamed Ben Abdellah.",
+    "Réparation PC Fès à distance en 15 min. Artisans, riads, étudiants (Ville Nouvelle, Batha, Narjiss). Dès 250 DH, paiement après résultat.",
   alternates: {
     canonical: "https://allosupport.ma/fes",
   },
@@ -52,8 +54,13 @@ const jsonLd = {
     { "@type": "AdministrativeArea", name: "Narjiss" },
   ],
   priceRange: "150 DH - 499 DH",
-  serviceType: "Dépannage PC Fès",
+  serviceType: "Réparation PC Fès",
 };
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Dépannage Informatique Fès", url: "https://allosupport.ma/fes" },
+]);
 
 export default function FesPage() {
   return (
@@ -61,6 +68,10 @@ export default function FesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -71,7 +82,7 @@ export default function FesPage() {
                 Dépannage PC Fès
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Dépannage PC Fès - Réparation à Distance en 15 min
+                Réparation PC Fès – Dépannage à Distance en 15 min
               </h1>
               <p className="text-lg text-slate-200 mb-6">
                 À Fès, que vous soyez un artisan en Médina ou un étudiant à Narjiss, une
@@ -85,7 +96,7 @@ export default function FesPage() {
                     "Bonjour, je suis à Fès et j'ai besoin d'un dépannage pour mon PC."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Diagnostic gratuit via WhatsApp
@@ -142,7 +153,7 @@ export default function FesPage() {
                   "Bonjour, je veux savoir comment fonctionne le dépannage PC à distance à Fès."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Poser une question à un technicien →
@@ -171,7 +182,7 @@ export default function FesPage() {
                     "Bonjour, je suis à Fès et je veux le Pack Fès Diagnostic (150 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Réserver ce pack
@@ -193,7 +204,7 @@ export default function FesPage() {
                     "Bonjour, je suis à Fès et je veux le Pack Fès Complet (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Dépanner mon PC maintenant
@@ -212,7 +223,7 @@ export default function FesPage() {
                     "Bonjour, je veux des infos sur le Pack Fès PME (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Demander un devis PME
@@ -222,11 +233,23 @@ export default function FesPage() {
           </div>
         </section>
 
+        {/* Darija */}
+        <section className="py-10 bg-emerald-50">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            <p className="text-xl font-semibold text-slate-800 mb-2">
+              PC dyalek khsro f Fès ? Kayn l7al !
+            </p>
+            <p className="text-slate-700">
+              PC t9il, chi9, virus ? On se connecte en 15 min et on répare à distance. Bla ma tkhelli l&apos;PC f l&apos;atelier.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-16 bg-gray-100">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              FAQ – Dépannage PC Fès
+              FAQ – Réparation PC Fès
             </h2>
             <div className="space-y-4">
               <div className="border border-slate-200 rounded-xl p-4 bg-white">
@@ -272,51 +295,56 @@ export default function FesPage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/depannage-informatique" className="hover:underline">
-                    Dépannage informatique à distance
-                  </a>
+                  <Link href="/depannage-informatique" className="hover:underline">
+                    Dépannage informatique Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/pc-lent-solution" className="hover:underline">
-                    PC lent solution
-                  </a>
+                  <Link href="/pc-lent-solution" className="hover:underline">
+                    PC lent solution rapide
+                  </Link>
                 </li>
                 <li>
-                  <a href="/virus-ordinateur-maroc" className="hover:underline">
-                    Suppression virus ordinateur Maroc
-                  </a>
+                  <Link href="/virus-ordinateur-maroc" className="hover:underline">
+                    Suppression virus PC Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/formatage-pc" className="hover:underline">
-                    Formatage PC prix Maroc
-                  </a>
+                  <Link href="/formatage-pc" className="hover:underline">
+                    Formatage PC Maroc 350 DH
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/infogerance-pme-maroc" className="hover:underline">
+                    Infogérance PME Maroc
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Autres villes prises en charge
+                Nos autres villes
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/casablanca" className="hover:underline">
-                    Dépannage PC Casablanca
-                  </a>
+                  <Link href="/casablanca" className="hover:underline">
+                    Dépannage informatique Casablanca
+                  </Link>
                 </li>
                 <li>
-                  <a href="/rabat" className="hover:underline">
+                  <Link href="/rabat" className="hover:underline">
                     Dépannage informatique Rabat
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/marrakech" className="hover:underline">
-                    Support informatique Marrakech
-                  </a>
+                  <Link href="/marrakech" className="hover:underline">
+                    Dépannage informatique Marrakech
+                  </Link>
                 </li>
                 <li>
-                  <a href="/agadir" className="hover:underline">
+                  <Link href="/agadir" className="hover:underline">
                     Dépannage PC Agadir
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -304,7 +304,7 @@ export default function BlogPostPage({ params }: PageProps) {
                     <a
                       href={`https://www.facebook.com/sharer/sharer.php?u=https://allosupport.ma/blog/${post.slug}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center transition-colors"
                       aria-label="Partager sur Facebook"
                     >
@@ -313,7 +313,7 @@ export default function BlogPostPage({ params }: PageProps) {
                     <a
                       href={`https://www.linkedin.com/shareArticle?mini=true&url=https://allosupport.ma/blog/${post.slug}&title=${encodeURIComponent(post.title)}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="w-10 h-10 bg-blue-700 hover:bg-blue-800 text-white rounded-lg flex items-center justify-center transition-colors"
                       aria-label="Partager sur LinkedIn"
                     >
@@ -322,7 +322,7 @@ export default function BlogPostPage({ params }: PageProps) {
                     <a
                       href={`https://twitter.com/intent/tweet?url=https://allosupport.ma/blog/${post.slug}&text=${encodeURIComponent(post.title)}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="w-10 h-10 bg-sky-500 hover:bg-sky-600 text-white rounded-lg flex items-center justify-center transition-colors"
                       aria-label="Partager sur Twitter"
                     >

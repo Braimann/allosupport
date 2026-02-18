@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
-  title: "Support IT Experts-Comptables - Sécurité Données & Période Fiscale | AlloSupport.ma",
+  title: "Support Informatique Experts-Comptables Maroc | Logiciel Sage EBP | AlloSupport",
   description:
-    "Support informatique pour fiduciaires et experts-comptables au Maroc. Sécurité des données financières, maintenance serveurs, Sage Ciel EBP. Devis sur mesure.",
+    "Support informatique expert comptable Maroc. Logiciel Sage, Ciel, EBP. Sécurité données financières, serveurs, sauvegardes. Devis sur mesure.",
   alternates: { canonical: "https://allosupport.ma/solutions/experts-comptables" },
   openGraph: {
     title: "Support IT Experts-Comptables - Continuité & Sécurité",
@@ -26,6 +27,12 @@ const jsonLd = {
   areaServed: { "@type": "Country", name: "Morocco" },
   url: "https://allosupport.ma/solutions/experts-comptables",
 };
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Solutions IT", url: "https://allosupport.ma/solutions" },
+  { name: "Experts-Comptables", url: "https://allosupport.ma/solutions/experts-comptables" },
+]);
 
 const painPoints = [
   {
@@ -68,12 +75,13 @@ export default function ExpertsComptablesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <main className="min-h-screen bg-gray-50">
         <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 relative z-10">
             <p className="text-sm uppercase tracking-widest text-emerald-300 mb-3">Solutions par métier</p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 max-w-3xl">
-              Support IT pour Experts-Comptables
+              Support Informatique Experts-Comptables Maroc – Logiciel Sage EBP
             </h1>
             <p className="text-xl text-slate-200 max-w-2xl">
               En période fiscale, une panne informatique est interdite. Nous garantissons votre continuité.
@@ -82,7 +90,7 @@ export default function ExpertsComptablesPage() {
               <a
                 href={`${whatsappBase}?text=${encodeURIComponent("Bonjour, je suis expert-comptable/fiduciaire et je souhaite un audit gratuit pour la continuité et la sécurité de mon cabinet.")}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl transition"
               >
                 Demander un Audit Gratuit
@@ -135,7 +143,7 @@ export default function ExpertsComptablesPage() {
             <a
               href={`${whatsappBase}?text=${encodeURIComponent("Bonjour, je souhaite un devis sur mesure pour le support IT de mon cabinet d'expertise comptable.")}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl transition"
             >
               Devis Sur Mesure
@@ -161,10 +169,11 @@ export default function ExpertsComptablesPage() {
           <div className="max-w-6xl mx-auto px-4">
             <h3 className="font-semibold text-slate-900 mb-4">Autres solutions par métier</h3>
             <ul className="flex flex-wrap gap-3 text-sm">
+              <li><Link href="/infogerance-pme-maroc" className="text-emerald-600 hover:underline">Infogérance PME Maroc</Link></li>
               <li><Link href="/solutions/cabinets-medicaux" className="text-emerald-600 hover:underline">Cabinets médicaux</Link></li>
               <li><Link href="/solutions/cabinets-avocats" className="text-emerald-600 hover:underline">Cabinets d&apos;avocats</Link></li>
               <li><Link href="/solutions/architectes" className="text-emerald-600 hover:underline">Architectes</Link></li>
-              <li><Link href="/support-pme" className="text-emerald-600 hover:underline">Support PME</Link></li>
+              <li><Link href="/support-pme" className="text-emerald-600 hover:underline">Support informatique PME Maroc</Link></li>
             </ul>
           </div>
         </section>

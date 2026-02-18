@@ -1,34 +1,36 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = GOOGLE_BUSINESS.WHATSAPP;
 
 export const metadata: Metadata = {
-  title: "Dépannage Informatique à Domicile Casablanca | AlloSupport",
-  description: `Service de dépannage informatique à domicile à Casablanca. Intervention rapide tous quartiers: Maarif, Gauthier, Ain Diab. ⭐ ${GOOGLE_BUSINESS.RATING}/5`,
+  title: "Réparation PC Portable Casablanca | Dépannage à Distance 250 DH",
+  description: "Réparation PC portable Casablanca sans déplacement. Technicien en 15 min, paiement après résultat. Dès 250 DH.",
   alternates: {
     canonical: "https://allosupport.ma/casablanca",
   },
   openGraph: {
-    title: "Dépannage Informatique à Domicile Casablanca",
+    title: "Réparation PC Portable Casablanca | Dépannage à Distance",
     description:
-      "Nous venons chez vous à Casablanca pour réparer votre PC",
+      "Réparation PC portable Casablanca sans déplacement. Technicien en 15 min, paiement après résultat.",
     url: "https://allosupport.ma/casablanca",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dépannage Informatique Casablanca | AlloSupport",
-    description: "Intervention rapide Maarif, Gauthier, Ain Diab, à domicile.",
+    title: "Réparation PC Portable Casablanca | AlloSupport",
+    description: "Réparation PC portable Casablanca sans déplacement. Dès 250 DH.",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
-  name: "AlloSupport Casablanca - Dépannage Informatique",
+  name: "AlloSupport.ma",
   description:
-    "Service de dépannage informatique à distance pour particuliers et PME à Casablanca (Derb Ghallef, Maarif, Sidi Maarouf et toute la ville). Intervention en 15 minutes via WhatsApp.",
+    "Réparation PC portable Casablanca à distance",
   url: "https://allosupport.ma/casablanca",
   telephone: "+212775237038",
   address: {
@@ -62,8 +64,9 @@ const jsonLd = {
       name: "Sidi Maarouf",
     },
   ],
-  priceRange: "$$",
-  serviceType: "Dépannage PC Casablanca",
+  serviceArea: "Casablanca",
+  priceRange: "250-500 DH",
+  serviceType: "Réparation PC portable Casablanca",
   offers: [
     {
       "@type": "Offer",
@@ -74,10 +77,10 @@ const jsonLd = {
     },
     {
       "@type": "Offer",
-      name: "Dépannage complet PC Casablanca",
+      name: "Réparation PC portable Casablanca",
       priceCurrency: "MAD",
       price: "250",
-      description: "Dépannage complet pour PC lent, erreurs Windows, virus.",
+      description: "Réparation complète PC portable: lenteur, virus, écran noir.",
     },
     {
       "@type": "Offer",
@@ -89,12 +92,21 @@ const jsonLd = {
   ],
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Dépannage Informatique Casablanca", url: "https://allosupport.ma/casablanca" },
+]);
+
 export default function CasablancaPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -116,7 +128,7 @@ export default function CasablancaPage() {
                     "Bonjour, j'ai besoin d'un dépannage PC à Casablanca (Derb Ghallef / Maarif / Sidi Maarouf...)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Intervention immédiate via WhatsApp
@@ -128,6 +140,42 @@ export default function CasablancaPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Réparation PC Portable Casablanca */}
+        <section className="py-12 bg-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              Réparation PC Portable Casablanca – Sans Déplacement
+            </h2>
+            <p className="text-slate-700 mb-6">
+              Votre PC portable est lent, se bloque ou affiche un écran noir ? Pas besoin de vous déplacer.
+              Un <strong>technicien informatique Casablanca</strong> se connecte à distance en <strong>15 minutes</strong> pour diagnostiquer et réparer
+              votre ordinateur portable. Réparation PC portable Casablanca à partir de <strong>250 DH</strong>,
+              paiement uniquement après résultat.
+            </p>
+            <ul className="grid md:grid-cols-2 gap-3 text-slate-700 mb-6">
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-500 font-bold">✓</span>
+                Réinstallation Windows sur PC portable
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-500 font-bold">✓</span>
+                Suppression virus et malwares sur portable
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-500 font-bold">✓</span>
+                PC portable lent – optimisation et nettoyage
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-500 font-bold">✓</span>
+                Récupération données sur PC portable
+              </li>
+            </ul>
+            <p className="text-slate-800 font-medium italic">
+              PC portable t9il wla chi9 ? On se connecte en 15 min.
+            </p>
           </div>
         </section>
 
@@ -190,7 +238,7 @@ export default function CasablancaPage() {
                   "Bonjour, je suis à Casablanca et je veux comprendre comment fonctionne le dépannage PC à distance."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Parler à un technicien Casablanca →
@@ -219,7 +267,7 @@ export default function CasablancaPage() {
                     "Bonjour, je suis à Casablanca et je veux le pack diagnostic & aide rapide (150 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Réserver ce pack
@@ -241,7 +289,7 @@ export default function CasablancaPage() {
                     "Bonjour, je suis à Casablanca et je veux le pack dépannage complet PC (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Dépanner mon PC maintenant
@@ -261,7 +309,7 @@ export default function CasablancaPage() {
                     "Bonjour, je veux plus d'informations sur le pack Maintenance PME à Casablanca (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Demander un devis PME
@@ -325,58 +373,86 @@ export default function CasablancaPage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/depannage-informatique" className="hover:underline">
-                    Dépannage informatique à distance
-                  </a>
+                  <Link href="/depannage-informatique" className="hover:underline">
+                    Dépannage informatique Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/pc-lent-solution" className="hover:underline">
-                    PC lent solution
-                  </a>
+                  <Link href="/pc-lent-solution" className="hover:underline">
+                    PC lent solution rapide
+                  </Link>
                 </li>
                 <li>
-                  <a href="/virus-ordinateur-maroc" className="hover:underline">
-                    Suppression virus ordinateur Maroc
-                  </a>
+                  <Link href="/virus-ordinateur-maroc" className="hover:underline">
+                    Suppression virus PC Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/formatage-pc" className="hover:underline">
-                    Formatage PC prix Maroc
-                  </a>
+                  <Link href="/formatage-pc" className="hover:underline">
+                    Formatage PC Maroc 350 DH
+                  </Link>
                 </li>
                 <li>
-                  <a href="/support-pme" className="hover:underline">
-                    Support informatique PME
-                  </a>
+                  <Link href="/support-pme" className="hover:underline">
+                    Support informatique PME Maroc
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/infogerance-pme-maroc" className="hover:underline">
+                    Infogérance PME Maroc
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Autres villes prises en charge
+                Nos autres villes
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/rabat" className="hover:underline">
+                  <Link href="/rabat" className="hover:underline">
                     Dépannage informatique Rabat
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/fes" className="hover:underline">
+                  <Link href="/fes" className="hover:underline">
                     Réparation PC Fès
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/marrakech" className="hover:underline">
-                    Support informatique Marrakech
-                  </a>
+                  <Link href="/marrakech" className="hover:underline">
+                    Dépannage informatique Marrakech
+                  </Link>
                 </li>
                 <li>
-                  <a href="/agadir" className="hover:underline">
+                  <Link href="/agadir" className="hover:underline">
                     Dépannage PC Agadir
-                  </a>
+                  </Link>
                 </li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Liens SEO internes */}
+        <section className="py-10 bg-slate-50 border-t border-slate-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <h3 className="font-semibold text-slate-900 mb-4">
+              Services liés à la réparation PC portable Casablanca
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="/formatage-pc"
+                className="inline-block bg-emerald-100 text-emerald-800 px-4 py-2 rounded-lg font-medium hover:bg-emerald-200 transition"
+              >
+                Formatage PC et réinstallation Windows Maroc
+              </a>
+              <a
+                href="/virus-ordinateur-maroc"
+                className="inline-block bg-emerald-100 text-emerald-800 px-4 py-2 rounded-lg font-medium hover:bg-emerald-200 transition"
+              >
+                Suppression virus ordinateur Maroc
+              </a>
             </div>
           </div>
         </section>

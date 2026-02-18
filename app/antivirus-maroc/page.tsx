@@ -22,6 +22,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const WHATSAPP_ANTIVIRUS = `${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour, je souhaite commander un antivirus (Kaspersky ou Bitdefender) avec installation à distance.")}`;
 
@@ -105,9 +106,9 @@ const faqSchema = {
 // ========== METADATA ==========
 export const metadata: Metadata = {
   title:
-    "Antivirus Maroc 🛡️ Kaspersky & Bitdefender | Licence Officielle | Installation 15min",
+    "Antivirus Maroc | Kaspersky & Bitdefender | Licence Officielle 350 DH",
   description:
-    "Achetez votre antivirus au Maroc (Kaspersky, Bitdefender) avec installation à distance en 15min. Licence officielle, paiement après installation. Prix en Dirhams. Support WhatsApp 24/7.",
+    "Antivirus Maroc : Kaspersky, Bitdefender. Licence officielle, installation à distance 15min. Prix en Dirhams dès 350 DH. Support WhatsApp.",
   keywords: [
     "antivirus maroc",
     "kaspersky maroc",
@@ -148,6 +149,11 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Antivirus Maroc", url: "https://allosupport.ma/antivirus-maroc" },
+]);
+
 export default function AntivirusMarocPage() {
   return (
     <>
@@ -162,6 +168,10 @@ export default function AntivirusMarocPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <Header />
@@ -211,7 +221,7 @@ export default function AntivirusMarocPage() {
                   <a
                     href={WHATSAPP_ANTIVIRUS}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                     data-event="cta_click"
                     aria-label="Commander sur WhatsApp"
@@ -371,7 +381,7 @@ export default function AntivirusMarocPage() {
                   <a
                     href={WHATSAPP_ANTIVIRUS}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl transition"
                     data-event="cta_click"
                   >
@@ -414,7 +424,7 @@ export default function AntivirusMarocPage() {
                   <a
                     href={WHATSAPP_ANTIVIRUS}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition"
                     data-event="cta_click"
                   >
@@ -454,7 +464,7 @@ export default function AntivirusMarocPage() {
                   <a
                     href={WHATSAPP_ANTIVIRUS}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl transition"
                     data-event="cta_click"
                   >
@@ -661,7 +671,7 @@ export default function AntivirusMarocPage() {
                 <a
                   href={WHATSAPP_ANTIVIRUS}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-xl"
                   data-event="cta_click"
                 >
@@ -818,7 +828,7 @@ export default function AntivirusMarocPage() {
               <a
                 href={WHATSAPP_ANTIVIRUS}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 bg-white text-green-700 hover:bg-green-50 font-bold px-8 py-4 rounded-xl shadow-lg transition"
                 data-event="cta_click"
                 aria-label="Commander sur WhatsApp"
@@ -839,6 +849,59 @@ export default function AntivirusMarocPage() {
             <p className="text-sm text-blue-100">
               ⚡ Places limitées aujourd&apos;hui : 12 installations déjà réservées
             </p>
+          </div>
+        </section>
+
+        {/* Liens internes */}
+        <section className="py-12 border-t border-slate-200 bg-white">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-2">Services liés</h3>
+                <ul className="text-sm text-emerald-700 space-y-1">
+                  <li>
+                    <Link href="/virus-ordinateur-maroc" className="hover:underline">
+                      Suppression virus ordinateur Maroc
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/depannage-informatique" className="hover:underline">
+                      Dépannage informatique à distance
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/pc-lent-solution" className="hover:underline">
+                      PC lent solution
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/support-pme" className="hover:underline">
+                      Support informatique PME
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-2">Villes principales</h3>
+                <ul className="text-sm text-emerald-700 space-y-1">
+                  <li>
+                    <Link href="/casablanca" className="hover:underline">
+                      Réparation PC Casablanca
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/rabat" className="hover:underline">
+                      Dépannage informatique Rabat
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/marrakech" className="hover:underline">
+                      Dépannage informatique Marrakech
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
       </main>

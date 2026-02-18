@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const WHATSAPP_NUMBER = GOOGLE_BUSINESS.WHATSAPP_PHONE;
 const PHONE_DISPLAY = GOOGLE_BUSINESS.PHONE_FORMATTED;
@@ -52,12 +53,21 @@ const jsonLd = {
   },
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Formatage PC Maroc", url: "https://allosupport.ma/formatage-pc" },
+]);
+
 export default function FormatagePcPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Header />
 
@@ -103,7 +113,7 @@ export default function FormatagePcPage() {
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappFormatage)}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   WhatsApp : formatage PC 15 min

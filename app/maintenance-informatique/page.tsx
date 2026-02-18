@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -32,12 +34,21 @@ const jsonLd = {
     "Service de maintenance informatique au Maroc : mises à jour, sécurité, optimisation, sauvegardes et suivi régulier pour PC et PME.",
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Maintenance Informatique Maroc", url: "https://allosupport.ma/maintenance-informatique" },
+]);
+
 export default function MaintenanceInformatiquePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -63,7 +74,7 @@ export default function MaintenanceInformatiquePage() {
                     "Bonjour, je veux mettre en place une maintenance informatique régulière pour mon PC / mon entreprise au Maroc."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Discuter d&apos;un contrat de maintenance
@@ -118,7 +129,7 @@ export default function MaintenanceInformatiquePage() {
                   "Bonjour, je veux connaître la fréquence et le détail de vos prestations de maintenance informatique."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Obtenir un plan de maintenance →
@@ -148,7 +159,7 @@ export default function MaintenanceInformatiquePage() {
                     "Bonjour, je veux le pack maintenance Essentiel (150 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Choisir ce pack
@@ -171,7 +182,7 @@ export default function MaintenanceInformatiquePage() {
                     "Bonjour, je veux en savoir plus sur le pack maintenance PME (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Discuter de ce pack
@@ -188,7 +199,7 @@ export default function MaintenanceInformatiquePage() {
                     "Bonjour, je veux un devis sur mesure pour la maintenance informatique de mon entreprise."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Demander un devis entreprise
@@ -248,24 +259,29 @@ export default function MaintenanceInformatiquePage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/support-pme" className="hover:underline">
-                    Support informatique PME
-                  </a>
+                  <Link href="/infogerance-pme-maroc" className="hover:underline">
+                    Infogérance PME Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/depannage-informatique" className="hover:underline">
-                    Dépannage informatique à distance
-                  </a>
+                  <Link href="/support-pme" className="hover:underline">
+                    Support informatique PME Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/pc-lent-solution" className="hover:underline">
-                    PC lent solution
-                  </a>
+                  <Link href="/depannage-informatique" className="hover:underline">
+                    Dépannage informatique Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/virus-ordinateur-maroc" className="hover:underline">
-                    Suppression virus ordinateur Maroc
-                  </a>
+                  <Link href="/pc-lent-solution" className="hover:underline">
+                    PC lent solution rapide
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/virus-ordinateur-maroc" className="hover:underline">
+                    Suppression virus PC Maroc
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -275,24 +291,24 @@ export default function MaintenanceInformatiquePage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/casablanca" className="hover:underline">
-                    Dépannage PC Casablanca
-                  </a>
+                  <Link href="/casablanca" className="hover:underline">
+                    Dépannage informatique Casablanca
+                  </Link>
                 </li>
                 <li>
-                  <a href="/rabat" className="hover:underline">
+                  <Link href="/rabat" className="hover:underline">
                     Dépannage informatique Rabat
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/marrakech" className="hover:underline">
-                    Support informatique Marrakech
-                  </a>
+                  <Link href="/marrakech" className="hover:underline">
+                    Dépannage informatique Marrakech
+                  </Link>
                 </li>
                 <li>
-                  <a href="/agadir" className="hover:underline">
+                  <Link href="/agadir" className="hover:underline">
                     Dépannage PC Agadir
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

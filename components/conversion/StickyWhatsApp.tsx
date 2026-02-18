@@ -53,7 +53,7 @@ function WhatsAppButtonContent({
       <a
         href={whatsappUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className={`fixed ${positionClass} bottom-6 z-50 group`}
         aria-label="Contacter AlloSupport via WhatsApp"
         onClick={() => trackWhatsAppClick(context || "sticky_button", defaultMessage)}
@@ -92,7 +92,7 @@ function WhatsAppButtonContent({
           <a
             href={whatsappUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="flex items-center justify-center gap-2 font-semibold"
             onClick={() => trackWhatsAppClick(context || "mobile_bar", defaultMessage)}
           >

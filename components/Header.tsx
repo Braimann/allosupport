@@ -449,7 +449,7 @@ export default function Header() {
               <a
                 href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl"
               >
                 <span className="flex items-center justify-center w-4 h-4">{mounted && <MessageCircle className="w-4 h-4" />}</span>
@@ -573,7 +573,7 @@ export default function Header() {
                 <a
                   href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   onClick={closeMobileMenu}
                   className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-full transition-all shadow-lg"
                   suppressHydrationWarning

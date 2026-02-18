@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -55,12 +57,21 @@ const jsonLd = {
   serviceType: "Dépannage informatique Rabat",
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Dépannage Informatique Rabat", url: "https://allosupport.ma/rabat" },
+]);
+
 export default function RabatPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -85,7 +96,7 @@ export default function RabatPage() {
                     "Bonjour, j'ai besoin d'un dépannage informatique à Rabat (Agdal / Hay Riad / Souissi...)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Intervention immédiate via WhatsApp
@@ -140,7 +151,7 @@ export default function RabatPage() {
                   "Bonjour, je suis à Rabat et je veux savoir comment se passe une intervention à distance."
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Parler à un technicien Rabat →
@@ -169,7 +180,7 @@ export default function RabatPage() {
                     "Bonjour, je suis à Rabat et je veux le pack diagnostic & aide rapide (150 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Réserver ce pack
@@ -194,7 +205,7 @@ export default function RabatPage() {
                     "Bonjour, je suis à Rabat et je veux le pack dépannage complet à distance (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Dépanner mon PC maintenant
@@ -213,13 +224,25 @@ export default function RabatPage() {
                     "Bonjour, je veux des informations sur le pack Maintenance PME Rabat (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Demander un devis PME
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Darija */}
+        <section className="py-10 bg-emerald-50">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            <p className="text-xl font-semibold text-slate-800 mb-2">
+              PC dyalek khsro f Rabat ? Kayn l7al !
+            </p>
+            <p className="text-slate-700">
+              PC t9il, chi9, virus ? On se connecte en 15 min et on répare à distance. Bla ma tji l&apos;atelier, bla ma tkhelli l&apos;PC.
+            </p>
           </div>
         </section>
 
@@ -275,51 +298,56 @@ export default function RabatPage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/depannage-informatique" className="hover:underline">
-                    Dépannage informatique à distance
-                  </a>
+                  <Link href="/depannage-informatique" className="hover:underline">
+                    Dépannage informatique Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/pc-lent-solution" className="hover:underline">
-                    PC lent solution
-                  </a>
+                  <Link href="/pc-lent-solution" className="hover:underline">
+                    PC lent solution rapide
+                  </Link>
                 </li>
                 <li>
-                  <a href="/virus-ordinateur-maroc" className="hover:underline">
-                    Suppression virus ordinateur Maroc
-                  </a>
+                  <Link href="/virus-ordinateur-maroc" className="hover:underline">
+                    Suppression virus PC Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/support-pme" className="hover:underline">
-                    Support informatique PME
-                  </a>
+                  <Link href="/support-pme" className="hover:underline">
+                    Support informatique PME Maroc
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/infogerance-pme-maroc" className="hover:underline">
+                    Infogérance PME Maroc
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Autres villes prises en charge
+                Nos autres villes
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/casablanca" className="hover:underline">
-                    Dépannage PC Casablanca
-                  </a>
+                  <Link href="/casablanca" className="hover:underline">
+                    Dépannage informatique Casablanca
+                  </Link>
                 </li>
                 <li>
-                  <a href="/fes" className="hover:underline">
+                  <Link href="/fes" className="hover:underline">
                     Réparation PC Fès
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/marrakech" className="hover:underline">
-                    Support informatique Marrakech
-                  </a>
+                  <Link href="/marrakech" className="hover:underline">
+                    Dépannage informatique Marrakech
+                  </Link>
                 </li>
                 <li>
-                  <a href="/agadir" className="hover:underline">
+                  <Link href="/agadir" className="hover:underline">
                     Dépannage PC Agadir
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

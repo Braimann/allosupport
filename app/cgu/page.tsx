@@ -22,7 +22,7 @@ export default function CGUPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Conditions Générales d'Utilisation
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600" suppressHydrationWarning>
               Dernière mise à jour : {new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
             </p>
           </div>

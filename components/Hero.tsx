@@ -131,8 +131,9 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className={`text-xl text-white/80 mb-6 leading-relaxed ${!mounted ? "opacity-100" : ""}`}
             >
-              PC lent, virus, panne ? Notre équipe d&apos;experts intervient à distance en{" "}
-              <strong className="text-primary-400">15 minutes</strong>, partout au Maroc.
+              PC lent, virus, formatage, panne Windows ? Nos techniciens interviennent à distance en{" "}
+              <strong className="text-primary-400">15 minutes</strong>, partout au Maroc. Dès{" "}
+              <strong className="text-primary-400">250 DH</strong>.{" "}
               Si on ne répare pas,{" "}
               <strong className="text-primary-400">vous ne payez pas</strong>.
             </motion.p>
@@ -148,13 +149,25 @@ export default function Hero() {
                 href="/casablanca"
                 className="text-sm px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white/90 transition"
               >
-                Dépannage PC Casablanca
+                Dépannage informatique Casablanca
               </a>
               <a
-                href="/pc-lent-solution"
+                href="/virus-ordinateur-maroc"
                 className="text-sm px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white/90 transition"
               >
-                PC lent solution
+                Suppression virus PC Maroc
+              </a>
+              <a
+                href="/infogerance-pme-maroc"
+                className="text-sm px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white/90 transition"
+              >
+                Infogérance PME Maroc
+              </a>
+              <a
+                href="/formatage-pc"
+                className="text-sm px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white/90 transition"
+              >
+                Formatage PC Maroc 350 DH
               </a>
             </motion.div>
 
@@ -205,7 +218,7 @@ export default function Hero() {
                     <a
                       href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, je souhaite un diagnostic gratuit pour mon problème informatique")}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"
                     >
                       <span className="flex items-center justify-center w-5 h-5">
@@ -225,7 +238,7 @@ export default function Hero() {
                     <a
                       href={`${WHATSAPP_URL}?text=${encodeURIComponent("Bonjour AlloSupport, je souhaite un devis pour mon entreprise")}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/50 hover:shadow-xl hover:scale-105"
                     >
                       <span className="flex items-center justify-center w-5 h-5">

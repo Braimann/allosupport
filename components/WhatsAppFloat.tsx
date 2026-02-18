@@ -20,7 +20,7 @@ export default function WhatsAppFloat({
     <a
       href={whatsappUrl}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow"
       className="fixed bottom-6 right-6 z-[9999] group"
       aria-label="Contacter AlloSupport via WhatsApp"
       onClick={() => trackWhatsAppClick("float_button", message)}

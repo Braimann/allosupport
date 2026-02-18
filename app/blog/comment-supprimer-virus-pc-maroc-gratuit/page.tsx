@@ -73,7 +73,7 @@ export default function VirusRemovalGuide() {
       <a
         href="https://wa.me/212775237038"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="fixed bottom-6 right-6 z-50 lg:hidden flex items-center justify-center w-14 h-14 bg-emerald-500 rounded-full shadow-lg text-white animate-bounce"
         aria-label="Contacter sur WhatsApp"
       >

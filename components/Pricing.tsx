@@ -200,7 +200,7 @@ export default function Pricing() {
               "Bonjour AlloSupport, j'aimerais discuter d'une solution personnalisée pour mes besoins informatiques."
             )}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <MessageCircle className="w-5 h-5" />

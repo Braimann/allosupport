@@ -279,7 +279,7 @@ export default function AboutPage() {
             <a
               href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j'ai%20besoin%20d'aide"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 bg-white text-emerald-600 font-semibold py-4 px-8 rounded-full hover:bg-gray-100 transition-colors shadow-lg"
             >
               Contacter un technicien

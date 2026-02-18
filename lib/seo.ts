@@ -161,6 +161,24 @@ export function generateServiceSchema(service: {
 }
 
 /**
+ * Generate BreadcrumbList JSON-LD schema
+ */
+export function generateBreadcrumbSchema(
+  items: { name: string; url: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+/**
  * Validate SEO metadata against checklist
  */
 export function validateSEO(metadata: {

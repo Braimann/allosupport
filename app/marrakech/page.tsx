@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
   title:
-    "Support Informatique Marrakech - Dépannage PC à Distance | AlloSupport.ma",
+    "Dépannage Informatique Marrakech | Réparation PC 250 DH | AlloSupport",
   description:
-    "Support informatique Marrakech pour hôtels, riads et expatriés (Guéliz, Hivernage, Palmeraie). Maintenance PC à distance en 15 min, dès 250 DH.",
+    "Dépannage informatique Marrakech à distance. Hôtels, riads, expatriés (Guéliz, Hivernage, Palmeraie). Intervention 15 min, dès 250 DH.",
   alternates: {
     canonical: "https://allosupport.ma/marrakech",
   },
@@ -54,8 +56,13 @@ const jsonLd = {
     { "@type": "AdministrativeArea", name: "Sidi Youssef Ben Ali" },
   ],
   priceRange: "150 DH - 499 DH",
-  serviceType: "Support informatique Marrakech",
+  serviceType: "Dépannage informatique Marrakech",
 };
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Dépannage Informatique Marrakech", url: "https://allosupport.ma/marrakech" },
+]);
 
 export default function MarrakechPage() {
   return (
@@ -63,6 +70,10 @@ export default function MarrakechPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
@@ -73,7 +84,7 @@ export default function MarrakechPage() {
                 Support informatique Marrakech
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Support Informatique Marrakech - Dépannage PC à Distance
+                Dépannage Informatique Marrakech – Réparation PC à Distance
               </h1>
               <p className="text-lg text-slate-200 mb-6">
                 L&apos;activité touristique à Marrakech ne s&apos;arrête jamais. Nos techniciens
@@ -87,7 +98,7 @@ export default function MarrakechPage() {
                     "Bonjour, je suis à Marrakech et j'ai besoin d'un support informatique pour mon PC / mon activité."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
                 >
                   Contacter un technicien Marrakech
@@ -143,7 +154,7 @@ export default function MarrakechPage() {
                   "Bonjour, pouvez-vous m'expliquer vos services de support informatique pour Marrakech ?"
                 )}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
               >
                 Découvrir les formules PME →
@@ -172,7 +183,7 @@ export default function MarrakechPage() {
                     "Bonjour, je suis à Marrakech et je veux le Pack Marrakech Ponctuel (250 DH)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Planifier une intervention
@@ -195,7 +206,7 @@ export default function MarrakechPage() {
                     "Bonjour, je suis à Marrakech et je veux le Pack Marrakech Mensuel (499 DH / mois)."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
                 >
                   Discuter de mon besoin
@@ -214,7 +225,7 @@ export default function MarrakechPage() {
                     "Bonjour, je suis à Marrakech et je veux un devis sur mesure pour le support informatique de mon entreprise."
                   )}`}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-slate-900 text-white py-2 rounded-lg hover:bg-slate-800 transition"
                 >
                   Demander un devis entreprise
@@ -224,11 +235,23 @@ export default function MarrakechPage() {
           </div>
         </section>
 
+        {/* Darija */}
+        <section className="py-10 bg-emerald-50">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            <p className="text-xl font-semibold text-slate-800 mb-2">
+              PC dyalek khsro f Marrakech ? Kayn l7al !
+            </p>
+            <p className="text-slate-700">
+              PC t9il, chi9, virus f l&apos;riad wla l&apos;hotel ? On se connecte en 15 min et on répare à distance. Bla ma tkhelli l&apos;PC.
+            </p>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-16 bg-gray-100">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              FAQ – Support informatique Marrakech
+              FAQ – Dépannage informatique Marrakech
             </h2>
             <div className="space-y-4">
               <div className="border border-slate-200 rounded-xl p-4 bg-white">
@@ -276,46 +299,51 @@ export default function MarrakechPage() {
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/depannage-informatique" className="hover:underline">
-                    Dépannage informatique à distance
-                  </a>
+                  <Link href="/depannage-informatique" className="hover:underline">
+                    Dépannage informatique Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/support-pme" className="hover:underline">
-                    Support informatique PME
-                  </a>
+                  <Link href="/support-pme" className="hover:underline">
+                    Support informatique PME Maroc
+                  </Link>
                 </li>
                 <li>
-                  <a href="/maintenance-informatique" className="hover:underline">
+                  <Link href="/maintenance-informatique" className="hover:underline">
                     Maintenance informatique Maroc
-                  </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/infogerance-pme-maroc" className="hover:underline">
+                    Infogérance PME Maroc
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Autres villes prises en charge
+                Nos autres villes
               </h3>
               <ul className="text-sm text-emerald-700 space-y-1">
                 <li>
-                  <a href="/casablanca" className="hover:underline">
-                    Dépannage PC Casablanca
-                  </a>
+                  <Link href="/casablanca" className="hover:underline">
+                    Dépannage informatique Casablanca
+                  </Link>
                 </li>
                 <li>
-                  <a href="/rabat" className="hover:underline">
+                  <Link href="/rabat" className="hover:underline">
                     Dépannage informatique Rabat
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/fes" className="hover:underline">
+                  <Link href="/fes" className="hover:underline">
                     Réparation PC Fès
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/agadir" className="hover:underline">
+                  <Link href="/agadir" className="hover:underline">
                     Dépannage PC Agadir
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -31,7 +31,7 @@ export default function WhatsAppButton({
       <a
         href={whatsappUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="fixed bottom-6 right-6 z-50 group"
         aria-label="Contacter AlloSupport via WhatsApp"
       >
@@ -66,7 +66,7 @@ export default function WhatsAppButton({
         <a
           href={whatsappUrl}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="flex items-center justify-center gap-2 font-semibold"
         >
           <MessageCircle className="w-5 h-5" />
