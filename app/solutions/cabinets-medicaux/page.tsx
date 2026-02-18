@@ -28,6 +28,12 @@ const jsonLd = {
   url: "https://allosupport.ma/solutions/cabinets-medicaux",
 };
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Accueil", url: "https://allosupport.ma" },
+  { name: "Solutions IT", url: "https://allosupport.ma/solutions" },
+  { name: "Cabinets Médicaux", url: "https://allosupport.ma/solutions/cabinets-medicaux" },
+]);
+
 const painPoints = [
   {
     title: "Conformité CNDP (Loi 09-08)",
