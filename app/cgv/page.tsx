@@ -1,11 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import { Metadata } from "next";
-import { FileText, DollarSign, CreditCard, RotateCcw, Clock } from "lucide-react";
+import { FileText, DollarSign, CreditCard, Shield, Database, HardDrive, Building2, RotateCcw } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente | AlloSupport.ma",
-  description: "Conditions Générales de Vente du service AlloSupport.ma - Dépannage informatique à distance au Maroc",
+  description: "CGV AlloSupport.ma - Dépannage à distance, sur site, formatage, récupération de données, infogérance PME, paiement post-résultat.",
+  alternates: { canonical: "https://allosupport.ma/cgv" },
 };
 
 export default function CGVPage() {
@@ -14,7 +16,6 @@ export default function CGVPage() {
       <Header />
       <div className="pt-40 pb-20 bg-gray-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4">
-          {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500 rounded-2xl mb-4 shadow-lg">
               <FileText className="w-8 h-8 text-white" />
@@ -27,188 +28,139 @@ export default function CGVPage() {
             </p>
           </div>
 
-          {/* Content */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 md:p-12 space-y-8">
-            {/* Article 1 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <DollarSign className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">1. Objet</h2>
+                <FileText className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-gray-900">§1. Définition du service</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  Les présentes Conditions Générales de Vente (ci-après "CGV") régissent la vente de services de dépannage informatique à distance proposés par <strong>AlloSupport.ma</strong>.
-                </p>
-                <p>
-                  Toute commande implique l'acceptation sans réserve des présentes CGV.
+                  AlloSupport.ma propose une <strong>assistance technique informatique tierce</strong>, non rattachée à aucun constructeur, éditeur logiciel ou opérateur télécom. Les prestations couvrent notamment : dépannage à distance (TeamViewer), dépannage sur site, formatage PC / installation Windows, suppression de virus et malware, récupération de données, infogérance PME, audit et conseil. Toute commande implique l'acceptation sans réserve des présentes CGV.
                 </p>
               </div>
             </section>
 
-            {/* Article 2 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <DollarSign className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">2. Tarifs</h2>
+                <Shield className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-gray-900">§2. Clause TeamViewer (accès à distance)</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-                <p>
-                  Les prix de nos services sont indiqués en <strong>Dirhams Marocains (MAD)</strong> et sont valables pour le territoire marocain.
-                </p>
-                <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                  <h3 className="font-semibold text-gray-900 mb-3">Nos tarifs (TTC) :</h3>
-                  <ul className="space-y-2">
-                    <li className="flex justify-between">
-                      <span>Ticket Urgence (Intervention &lt; 30 min)</span>
-                      <strong className="text-emerald-600">150 DH</strong>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Ticket Standard (Problème complexe)</span>
-                      <strong className="text-emerald-600">250 DH</strong>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Pack Nettoyage Complet (Virus + Optimisation)</span>
-                      <strong className="text-emerald-600">290 DH</strong>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Pack Récupération Données</span>
-                      <strong className="text-emerald-600">350 DH</strong>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Infogérance PME (à partir de)</span>
-                      <strong className="text-emerald-600">1 500 DH/mois</strong>
-                    </li>
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <p className="font-semibold text-gray-800 mb-2"><strong>Clause critique :</strong></p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-700">
+                    <li>L'accès à distance est accordé <strong>volontairement et temporairement</strong> par le client.</li>
+                    <li>Le client peut <strong>couper la session à tout moment</strong>.</li>
+                    <li>AlloSupport.ma <strong>ne stocke, ne copie et ne transmet aucun fichier personnel</strong> sans accord explicite du client.</li>
+                    <li>La responsabilité d'AlloSupport.ma est limitée aux <strong>actions réalisées pendant la session active et visible</strong>.</li>
+                    <li>En cas de réclamation post-session non fondée sur une preuve, la responsabilité d'AlloSupport.ma est <strong>expressément écartée</strong>.</li>
                   </ul>
                 </div>
+              </div>
+            </section>
+
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                <Database className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-gray-900">§3. Clause récupération de données</h2>
+              </div>
+              <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>AlloSupport.ma <strong>ne garantit pas un taux de récupération de 100 %</strong> sur tout support endommagé.</li>
+                    <li>Le client est <strong>informé des risques</strong> avant toute intervention.</li>
+                    <li>La responsabilité est limitée à la <strong>restitution des données effectivement récupérables</strong>.</li>
+                    <li><strong>Aucune responsabilité</strong> n'est engagée en cas de perte irrémédiable liée à l'état préexistant du support.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                <HardDrive className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-gray-900">§4. Clause formatage</h2>
+              </div>
+              <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  AlloSupport.ma se réserve le droit de modifier ses tarifs à tout moment. Les tarifs applicables sont ceux en vigueur au moment de la commande.
+                  Le client est <strong>seul responsable de la sauvegarde de ses données</strong> avant toute intervention de formatage. AlloSupport.ma informe systématiquement le client des conséquences d'un formatage ; toutefois, AlloSupport.ma ne peut être tenu responsable d'une perte de données si le client a validé le démarrage de l'intervention.
                 </p>
               </div>
             </section>
 
-            {/* Article 3 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
                 <CreditCard className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">3. Modalités de paiement</h2>
+                <h2 className="text-2xl font-bold text-gray-900">§5. Clause paiement post-résultat</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  Le paiement s'effectue <strong>après résolution du problème</strong> selon le principe "Satisfait ou Remboursé".
-                </p>
-                <p>Modes de paiement acceptés :</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Virement bancaire</li>
-                  <li>Paiement mobile (Orange Money, Inwi Money, etc.)</li>
-                  <li>Espèces (sur rendez-vous uniquement)</li>
-                </ul>
-                <p className="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded">
-                  <strong>Garantie :</strong> Si le problème n'est pas résolu, vous ne payez rien. Le paiement n'est exigé qu'en cas de résolution réussie.
+                  La notion de <strong>"résultat atteint"</strong> est définie conjointement avant l'intervention (sur WhatsApp ou par écrit). En cas de litige sur le résultat, le client dispose de <strong>48 heures après la session</strong> pour contester. Passé ce délai, le service est réputé accepté. Modes de paiement : CMI, Cash Plus, CIH Mobile, virement bancaire.
                 </p>
               </div>
             </section>
 
-            {/* Article 4 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <Clock className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">4. Délais d'intervention</h2>
+                <Building2 className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-gray-900">§6. Clause infogérance PME</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  Les délais d'intervention varient selon la priorité et le SLA choisi :
-                </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Urgent (15 min)</strong> : Intervention dans les 15 minutes suivant la création du ticket</li>
-                  <li><strong>Standard (1h)</strong> : Intervention dans l'heure</li>
-                  <li><strong>Normal (4h)</strong> : Intervention sous 4 heures</li>
-                  <li><strong>Déféré (24h)</strong> : Intervention sous 24 heures</li>
-                </ul>
-                <p>
-                  Les délais sont indicatifs et peuvent varier en fonction de la complexité du problème et de la disponibilité des techniciens.
+                  Les contrats d'infogérance mensuels sont <strong>résiliables avec préavis de 30 jours</strong>. AlloSupport.ma agit comme <strong>prestataire externe</strong>, non comme salarié ou dirigeant de la PME cliente. Toute décision stratégique reste sous la <strong>responsabilité exclusive du client</strong>.
                 </p>
               </div>
             </section>
 
-            {/* Article 5 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
                 <RotateCcw className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">5. Garantie "Satisfait ou Remboursé"</h2>
+                <h2 className="text-2xl font-bold text-gray-900">§7. Garantie</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  AlloSupport.ma garantit la résolution de votre problème. Si après intervention le problème persiste ou n'est pas résolu, <strong>vous êtes intégralement remboursé</strong>.
-                </p>
-                <p>Conditions de remboursement :</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Le problème doit être signalé dans les <strong>48 heures</strong> suivant l'intervention</li>
-                  <li>Le problème doit être le même que celui initialement déclaré</li>
-                  <li>Le remboursement s'effectue sous <strong>7 jours ouvrés</strong> par le même moyen de paiement</li>
-                </ul>
-                <p className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
-                  <strong>Exception :</strong> Les pannes matérielles (disque dur défectueux, carte mère grillée, etc.) ne sont pas couvertes par cette garantie car elles nécessitent une intervention physique en laboratoire.
+                  Garantie <strong>7 jours</strong> pour le dépannage simple ; garantie <strong>30 jours</strong> pour le formatage / installation Windows, sous réserve des exclusions prévues aux présentes CGV et à la clause de non-responsabilité.
                 </p>
               </div>
             </section>
 
-            {/* Article 6 */}
-            <section>
-              <div className="flex items-center gap-3 mb-4">
-                <Clock className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">6. Droit de rétractation</h2>
-              </div>
-              <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-                <p>
-                  Conformément à la législation marocaine, vous disposez d'un <strong>droit de rétractation de 7 jours</strong> à compter de la commande, sauf si l'intervention a déjà été effectuée avec votre accord.
-                </p>
-                <p>
-                  Pour exercer votre droit de rétractation, contactez-nous via le portail client ou à l'adresse : <strong>contact@allosupport.ma</strong>
-                </p>
-              </div>
-            </section>
-
-            {/* Article 7 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
                 <DollarSign className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">7. Facturation</h2>
+                <h2 className="text-2xl font-bold text-gray-900">§8. Tarifs</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  Une facture électronique vous est envoyée par email après paiement. Les factures sont conformes à la réglementation marocaine et incluent la TVA si applicable.
+                  Les tarifs affichés sur le site sont <strong>indicatifs</strong> et susceptibles d'évolution sans préavis. Les tarifs applicables sont ceux communiqués au moment de la commande ou du devis accepté.
                 </p>
               </div>
             </section>
 
-            {/* Article 8 */}
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <CreditCard className="w-6 h-6 text-emerald-600" />
-                <h2 className="text-2xl font-bold text-gray-900">8. Litiges et réclamations</h2>
+                <FileText className="w-6 h-6 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-gray-900">§9. Droit applicable et juridiction</h2>
               </div>
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  En cas de litige, nous vous encourageons à nous contacter en priorité via le portail client ou par email à <strong>contact@allosupport.ma</strong>. Nous nous engageons à répondre sous <strong>48 heures</strong>.
-                </p>
-                <p>
-                  Conformément à la législation marocaine, vous pouvez également saisir le service de médiation de la consommation ou les tribunaux compétents.
+                  <strong>Droit applicable :</strong> droit marocain (Code des Obligations et Contrats, Loi 09-08 lorsqu'il y a lieu, droit de la consommation). <strong>Juridiction compétente :</strong> Tribunaux de Casablanca.
                 </p>
               </div>
             </section>
 
-            {/* Contact */}
             <section className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Questions sur nos tarifs ?</h3>
-              <p className="text-gray-700 mb-4">
-                Contactez-nous pour obtenir un devis personnalisé :
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li>📧 Email : <strong>contact@allosupport.ma</strong></li>
-                <li>💬 WhatsApp : <strong>+212 6 XX XX XX XX</strong></li>
-                <li>🌐 Site web : <strong>www.allosupport.ma</strong></li>
-              </ul>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Contact</h3>
+              <p className="text-gray-700">Email : <strong>contact@allosupport.ma</strong> — Téléphone : <strong>07 75 23 70 38</strong></p>
             </section>
+
+            <div className="pt-8 border-t border-gray-200 flex flex-wrap gap-4 justify-center">
+              <Link href="/mentions-legales" className="text-emerald-600 hover:text-emerald-700 font-semibold">Mentions légales</Link>
+              <span className="text-gray-400">•</span>
+              <Link href="/cgu" className="text-emerald-600 hover:text-emerald-700 font-semibold">CGU</Link>
+              <span className="text-gray-400">•</span>
+              <Link href="/non-responsabilite" className="text-emerald-600 hover:text-emerald-700 font-semibold">Clause de non-responsabilité</Link>
+            </div>
           </div>
         </div>
       </div>

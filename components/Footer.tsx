@@ -29,6 +29,7 @@ const socialLinks: Array<{ name: string; href: string; icon: React.ComponentType
 
 const columnServices: Array<{ href: string; label: string }> = [
   { href: "/services/depannage-pc-mac", label: "Dépannage PC & Mac" },
+  { href: "/controle-parental-maroc", label: "Contrôle parental Maroc" },
   { href: "/services/suppression-virus", label: "Suppression Virus" },
   { href: "/services/recuperation-donnees", label: "Récupération Données" },
   { href: "/services/infogerance-pme", label: "Infogérance PME" },
@@ -69,6 +70,10 @@ const columnEntreprise: Array<{ href: string; label: string }> = [
   { href: "/avis", label: "Avis Clients" },
   { href: "/mentions-legales", label: "Mentions Légales" },
   { href: "/politique-confidentialite", label: "Politique de Confidentialité" },
+  { href: "/cgv", label: "CGV" },
+  { href: "/cgu", label: "CGU" },
+  { href: "/non-responsabilite", label: "Clause de non-responsabilité" },
+  { href: "/operateurs-telecom", label: "Opérateurs télécom" },
 ];
 
 function FooterNavColumn({
@@ -229,8 +234,8 @@ export default function Footer() {
       {/* Bottom Bar - suppressHydrationWarning: year can differ server vs client (timezone) */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <p className="text-center text-sm text-gray-500" suppressHydrationWarning>
-            © {new Date().getFullYear()} AlloSupport.ma · Dépannage informatique à distance Maroc
+          <p className="text-center text-sm text-gray-500">
+            © 2026 AlloSupport.ma — Tous droits réservés.
           </p>
         </div>
       </div>

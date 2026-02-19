@@ -86,8 +86,10 @@ const categories = [
     links: [
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/politique-confidentialite", label: "Politique de confidentialité" },
-      { href: "/cgu", label: "Conditions générales d'utilisation (CGU)" },
       { href: "/cgv", label: "Conditions générales de vente (CGV)" },
+      { href: "/cgu", label: "Conditions générales d'utilisation (CGU)" },
+      { href: "/non-responsabilite", label: "Clause de non-responsabilité" },
+      { href: "/operateurs-telecom", label: "Opérateurs télécom" },
     ],
   },
 ];

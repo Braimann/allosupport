@@ -14,6 +14,9 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ComparatifLegalDisclaimer } from "@/components/blog/ComparatifLegalDisclaimer";
+import { BlogDisclaimer } from "@/components/blog/BlogDisclaimer";
+import { BlogDisclaimerCorrection } from "@/components/blog/BlogDisclaimerCorrection";
 
 export const metadata: Metadata = {
   title: "Comparatif MT vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?",
@@ -42,8 +45,8 @@ export const metadata: Metadata = {
       "2,500 tests réels · Prix, vitesse, fiabilité · Verdict par profil · Économisez 600+ DH/an",
     url: "https://allosupport.ma/blog/comparatif-maroc-telecom-inwi-orange-2026",
     type: "article",
-    publishedTime: "2026-02-10T09:00:00Z",
-    modifiedTime: "2026-02-10T09:00:00Z",
+    publishedTime: "2026-02-09T09:00:00Z",
+    modifiedTime: "2026-02-19T09:00:00Z",
     authors: ["AlloSupport.ma"],
     section: "Internet & Télécoms",
     tags: ["Comparatif", "Fibre Optique", "Maroc Telecom", "Inwi", "Orange"],
@@ -85,8 +88,8 @@ const schemaData = {
         name: "AlloSupport.ma",
         logo: { "@type": "ImageObject", url: "https://allosupport.ma/logo.png" },
       },
-      datePublished: "2026-02-10",
-      dateModified: "2026-02-10",
+      datePublished: "2026-02-09",
+      dateModified: "2026-02-19",
       mainEntityOfPage: "https://allosupport.ma/blog/comparatif-maroc-telecom-inwi-orange-2026",
       articleSection: "Internet & Télécoms",
       keywords: "comparatif opérateurs maroc, fibre optique, maroc telecom inwi orange",
@@ -100,7 +103,7 @@ const schemaData = {
           name: "Quel est le meilleur opérateur internet au Maroc en 2026 ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Aucun opérateur n'est le meilleur absolu. Inwi offre le meilleur rapport qualité/prix (0 frais, uptime 97.2%). Orange excelle en performance (ping 8ms). Maroc Telecom domine la couverture (95% territoire).",
+            text: "Aucun opérateur n'est le meilleur absolu. Inwi offre un très bon rapport qualité/prix (0 frais installation). Orange est souvent cité pour les performances en zone urbaine. Maroc Telecom domine la couverture (zones rurales et périurbaines).",
           },
         },
         {
@@ -108,7 +111,7 @@ const schemaData = {
           name: "Quels sont les prix fibre optique Maroc 2026 ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "100 Mbps : 349 DH/mois (Inwi/Orange), 400 DH (MT). 200 Mbps : 449 DH (Inwi/Orange), 500 DH (MT). 1 Gbps : 949 DH (Inwi), 1000 DH (MT). Attention aux frais cachés MT : +240 DH installation + 500 DH caution.",
+            text: "100 Mbps : 349 DH (Inwi/Orange), 400 DH (MT). 200 Mbps : 449 DH (Inwi/Orange), 500 DH (MT). 500 Mbps : 749 DH (Inwi/Orange), sur devis (MT). 1 Gbps : 949 DH (Inwi), 1000 DH (MT), sur devis (Orange). Frais de mise en service : MT 240 DH + caution 500 DH, Orange 150 DH (offert au-delà de 100 Mbps), Inwi gratuit.",
           },
         },
         {
@@ -116,7 +119,7 @@ const schemaData = {
           name: "Inwi ou Orange : lequel choisir ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Choisir Inwi si prix prioritaire (0 frais), uptime maximum (97.2%), support 24/7. Choisir Orange si gamer (ping 8ms), streamer (upload symétrique). Inwi légèrement meilleur globalement.",
+            text: "Choisir Inwi si prix prioritaire (0 frais installation), support 24/7. Choisir Orange si gaming/streaming (upload symétrique) et zone bien couverte. MT recommandé en zone rurale (couverture étendue).",
           },
         },
         {
@@ -184,7 +187,7 @@ export default function ComparatifOperateurs2026() {
             </p>
             <div className="flex flex-wrap items-center gap-6 text-blue-200">
               <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> 15 min lecture</span>
-              <span>Mis à jour 8 février 2026</span>
+              <span>Mis à jour 19 février 2026</span>
             </div>
           </div>
         </section>
@@ -205,6 +208,13 @@ export default function ComparatifOperateurs2026() {
           </div>
         </section>
 
+        {/* AVERTISSEMENT LÉGAL — HAUT DE PAGE */}
+        <section className="py-6 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <ComparatifLegalDisclaimer />
+          </div>
+        </section>
+
         {/* TABLE OF CONTENTS */}
         <section className="bg-white border-b border-slate-200 py-6 px-4 lg:sticky lg:top-20 lg:z-10">
           <div className="container mx-auto max-w-4xl">
@@ -212,13 +222,13 @@ export default function ComparatifOperateurs2026() {
               <h2 className="text-lg font-bold text-slate-900 mb-4">Table des matières</h2>
               <ol className="grid md:grid-cols-2 gap-2 text-sm list-decimal list-inside">
                 <li><a href="#resume-rapide" className="text-blue-600 hover:underline">Résumé Rapide : Quel Opérateur pour Quel Profil ?</a></li>
-                <li><a href="#tableau-prix" className="text-blue-600 hover:underline">Tableau Comparatif Prix (Tous Débits 2026)</a></li>
-                <li><a href="#test-vitesse" className="text-blue-600 hover:underline">Test Vitesse Réelle : MT vs Inwi vs Orange</a></li>
+                <li><a href="#tarifs" className="text-blue-600 hover:underline">Tableau Comparatif Prix (Tous Débits 2026)</a></li>
+                <li><a href="#performances" className="text-blue-600 hover:underline">Performances Réseau (Sources indépendantes)</a></li>
                 <li><a href="#couverture" className="text-blue-600 hover:underline">Couverture Géographique par Ville</a></li>
-                <li><a href="#fiabilite" className="text-blue-600 hover:underline">Fiabilité & Uptime (Données 12 Mois)</a></li>
+                <li><a href="#pannes" className="text-blue-600 hover:underline">Fiabilité & Uptime (Données 12 Mois)</a></li>
                 <li><a href="#service-client" className="text-blue-600 hover:underline">Service Client : Temps Réponse & Qualité</a></li>
                 <li><a href="#avantages-inconvenients" className="text-blue-600 hover:underline">Avantages & Inconvénients (3 Opérateurs)</a></li>
-                <li><a href="#verdict-profil" className="text-blue-600 hover:underline">Verdict Par Profil (Famille, Gamer, Pro, Budget)</a></li>
+                <li><a href="#recommandations" className="text-blue-600 hover:underline">Verdict Par Profil (Famille, Gamer, Pro, Budget)</a></li>
                 <li><a href="#faq" className="text-blue-600 hover:underline">FAQ (12 Questions)</a></li>
               </ol>
             </div>
@@ -236,8 +246,8 @@ export default function ComparatifOperateurs2026() {
                   <span className="font-bold text-emerald-800">MEILLEUR RAPPORT QUALITÉ/PRIX</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">INWI FIBRE 100 MBPS</h3>
-                <p className="text-slate-700">349 DH/mois · 97.2% uptime</p>
-                <a href="#tableau-prix" className="inline-block mt-4 text-emerald-600 font-semibold hover:underline">Détails →</a>
+                <p className="text-slate-700">349 DH/mois · 0 frais installation</p>
+                <a href="#tarifs" className="inline-block mt-4 text-emerald-600 font-semibold hover:underline">Détails →</a>
               </div>
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-2xl p-6">
                 <div className="flex items-center gap-2 mb-3">
@@ -254,8 +264,8 @@ export default function ComparatifOperateurs2026() {
                   <span className="font-bold text-amber-800">MEILLEURE PERFORMANCE</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">ORANGE FIBRE 200 MBPS</h3>
-                <p className="text-slate-700">Ping 8ms · Jitter 2ms</p>
-                <a href="#test-vitesse" className="inline-block mt-4 text-amber-600 font-semibold hover:underline">Détails →</a>
+                <p className="text-slate-700">Stabilité et latences variables selon zone</p>
+                <a href="#performances" className="inline-block mt-4 text-amber-600 font-semibold hover:underline">Détails →</a>
               </div>
             </div>
             <p className="text-slate-700 text-lg leading-relaxed">
@@ -265,11 +275,11 @@ export default function ComparatifOperateurs2026() {
         </section>
 
         {/* SECTION 2 - TABLEAUX PRIX */}
-        <section id="tableau-prix" className="py-12 px-4 bg-white">
+        <section id="tarifs" className="py-12 px-4 bg-white">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Tableau Comparatif Prix (Tous Débits 2026)</h2>
 
-            <div className="overflow-x-auto rounded-lg border border-slate-200 mb-8">
+            <div className="overflow-x-auto rounded-lg border border-slate-200 mb-6">
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
@@ -277,28 +287,26 @@ export default function ComparatifOperateurs2026() {
                     <th className="text-left p-3 font-bold">Maroc Telecom</th>
                     <th className="text-left p-3 font-bold">Inwi</th>
                     <th className="text-left p-3 font-bold">Orange</th>
-                    <th className="text-left p-3 font-bold">Meilleur Prix</th>
                   </tr>
                 </thead>
                 <tbody className="text-slate-700">
-                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">20 Mbps</td><td className="p-3">200 DH/mois</td><td className="p-3">249 DH/mois</td><td className="p-3">249 DH/mois</td><td className="p-3 bg-green-50">🏆 MT</td></tr>
-                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">50 Mbps</td><td className="p-3">300 DH/mois</td><td className="p-3">299 DH/mois</td><td className="p-3">299 DH/mois</td><td className="p-3 bg-green-50">🏆 Inwi/Orange</td></tr>
-                  <tr className="border-b border-slate-100 hover:bg-slate-50 bg-blue-50"><td className="p-3"><strong>100 Mbps</strong> ⭐</td><td className="p-3">400 DH/mois</td><td className="p-3 font-bold">349 DH/mois</td><td className="p-3 font-bold">349 DH/mois</td><td className="p-3 bg-green-100 font-bold">🏆 Inwi/Orange (-13%)</td></tr>
-                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">200 Mbps</td><td className="p-3">500 DH/mois</td><td className="p-3">449 DH/mois</td><td className="p-3">449 DH/mois</td><td className="p-3 bg-green-50">🏆 Inwi/Orange</td></tr>
-                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">500 Mbps</td><td className="p-3">Sur devis</td><td className="p-3">749 DH/mois</td><td className="p-3">749 DH/mois</td><td className="p-3 bg-green-50">🏆 Inwi/Orange</td></tr>
-                  <tr className="border-b border-slate-100 hover:bg-slate-50 bg-amber-50"><td className="p-3"><strong>1 Gbps</strong> 🚀</td><td className="p-3">1000 DH/mois</td><td className="p-3 font-bold">949 DH/mois</td><td className="p-3">Sur devis</td><td className="p-3 bg-green-100 font-bold">🏆 Inwi (-5%)</td></tr>
+                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">100 Mbps</td><td className="p-3">400 DH</td><td className="p-3">349 DH</td><td className="p-3">349 DH</td></tr>
+                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">200 Mbps</td><td className="p-3">500 DH</td><td className="p-3">449 DH</td><td className="p-3">449 DH</td></tr>
+                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">500 Mbps</td><td className="p-3">Sur devis</td><td className="p-3">749 DH</td><td className="p-3">749 DH</td></tr>
+                  <tr className="border-b border-slate-100 hover:bg-slate-50"><td className="p-3">1 Gbps</td><td className="p-3">1000 DH</td><td className="p-3">949 DH</td><td className="p-3">Sur devis</td></tr>
                 </tbody>
               </table>
             </div>
-            <p className="text-sm text-slate-600 mt-3">
-              ℹ️ Prix TTC incluant TVA 20%. Appels illimités vers fixes nationaux inclus dans toutes offres. Source : Sites officiels opérateurs, février 2026.
+            <p className="text-sm text-slate-600 mb-6">
+              Prix TTC indicatifs, vérifiés sur les sites officiels en février 2026. Source :{" "}
+              <a href="https://fiberoptic.ma/comparatif-fibre-optique-maroc-2026-orange-inwi-ou-maroc-telecom/" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">Fiberoptic.ma — Comparatif fibre Maroc 2026</a>.
             </p>
 
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">Frais Cachés (Important !)</h3>
+            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">Frais de mise en service et conditions contractuelles</h3>
             <div className="overflow-x-auto rounded-lg border border-slate-200 mb-4">
               <table className="w-full text-sm border-collapse">
                 <thead>
-                  <tr className="bg-red-600 text-white">
+                  <tr className="bg-slate-700 text-white">
                     <th className="text-left p-3 font-bold">Frais</th>
                     <th className="text-left p-3 font-bold">Maroc Telecom</th>
                     <th className="text-left p-3 font-bold">Inwi</th>
@@ -306,21 +314,16 @@ export default function ComparatifOperateurs2026() {
                   </tr>
                 </thead>
                 <tbody className="text-slate-700">
-                  <tr className="border-b border-slate-100"><td className="p-3">Installation/Raccordement</td><td className="p-3 text-red-600 font-bold">240 DH</td><td className="p-3 text-green-600 font-bold">Gratuit ✅</td><td className="p-3">150 DH (gratuit si &gt;20 Mbps)</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Caution Matériel</td><td className="p-3 text-red-600 font-bold">500 DH</td><td className="p-3">0 DH</td><td className="p-3">0 DH</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Résiliation Anticipée</td><td className="p-3">240 DH</td><td className="p-3">Gratuit si &gt;12 mois</td><td className="p-3">200 DH si &lt;12 mois</td></tr>
-                  <tr className="bg-amber-50 font-bold"><td className="p-3">COÛT RÉEL 1ÈRE ANNÉE (100 Mbps)</td><td className="p-3">5,540 DH</td><td className="p-3">4,188 DH</td><td className="p-3">4,338 DH</td></tr>
+                  <tr className="border-b border-slate-100"><td className="p-3">Installation / Raccordement</td><td className="p-3">240 DH + caution équipement 500 DH</td><td className="p-3">Gratuit</td><td className="p-3">150 DH (offert au-delà de 100 Mbps)</td></tr>
                 </tbody>
               </table>
             </div>
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-4">
-              <p className="font-bold text-yellow-900">⚠️ ATTENTION COÛTS CACHÉS :</p>
-              <p className="text-yellow-900 mt-1">
-                Sur une année, Maroc Telecom revient 25% plus cher qu&apos;Inwi (5,540 DH vs 4,188 DH pour même débit 100 Mbps) à cause des frais d&apos;installation (240 DH) et caution (500 DH).
-              </p>
-            </div>
-            <p className="text-slate-700 mt-6 leading-relaxed">
-              Constat 2026 : Inwi et Orange ont définitivement cassé le monopole tarifaire de Maroc Telecom. Sur l&apos;offre la plus populaire (100 Mbps), l&apos;écart atteint 51 DH/mois (13%), soit 612 DH d&apos;économie annuelle. Mais attention aux frais cachés : Maroc Telecom facture 240 DH d&apos;installation + 500 DH de caution (remboursable à la résiliation), ce qui porte le coût réel de la première année à 5,540 DH contre 4,188 DH chez Inwi (gratuit total). Notre recommandation : Si vous êtes sensible au prix, privilégiez Inwi (0 frais) ou Orange. Si couverture prioritaire (zone rurale), Maroc Telecom reste incontournable malgré surcoût.
+            <p className="text-sm text-slate-600 mb-6">
+              Source :{" "}
+              <a href="https://mafibre.ma/images/docs/comparatif_offres_fibre_optique_maroc.pdf" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">MaFibre.ma — Comparatif officiel offres fibre Maroc</a>.
+            </p>
+            <p className="text-slate-700 leading-relaxed">
+              En 2026, Inwi et Orange proposent des tarifs alignés sur les débits les plus demandés (100 et 200 Mbps). Maroc Telecom conserve une offre complète jusqu&apos;au 1 Gbps. Les frais de mise en service et la caution équipement (MT) influencent le coût de la première année ; Inwi pratique l&apos;installation gratuite sur toutes les offres. Pour les zones urbaines éligibles à plusieurs opérateurs, comparer le coût total première année avant de souscrire.
             </p>
 
             {/* CTA #1 */}
@@ -342,83 +345,38 @@ export default function ComparatifOperateurs2026() {
           </div>
         </section>
 
-        {/* SECTION 3 - TEST VITESSE */}
-        <section id="test-vitesse" className="py-12 px-4">
+        {/* SECTION 3 - PERFORMANCES RÉSEAU */}
+        <section id="performances" className="py-12 px-4">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Test Vitesse Réelle : MT vs Inwi vs Orange</h2>
-            <p className="text-slate-700 text-lg mb-8">
-              Les débits annoncés (100 Mbps, 200 Mbps) sont des valeurs théoriques maximales. En pratique, la vitesse réelle varie selon l&apos;heure, la zone géographique et la qualité du réseau. AlloSupport a mené 2,500 tests réels sur 6 mois (août 2025 - janvier 2026) dans 12 villes marocaines. Voici les résultats bruts.
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Performances réseau en conditions réelles</h2>
+            <p className="text-slate-700 text-lg mb-6">
+              Les performances réelles varient significativement selon la zone géographique, l&apos;heure de connexion et la configuration locale. Selon les mesures agrégées SpeedGeo (2025), les vitesses médianes constatées sur le fixe en conditions réelles restent inférieures aux débits théoriques annoncés par les opérateurs.
             </p>
             <div className="overflow-x-auto rounded-lg border border-slate-200 mb-6">
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr className="bg-purple-600 text-white">
-                    <th className="text-left p-3 font-bold">Ville</th>
-                    <th className="text-left p-3 font-bold">Maroc Telecom</th>
-                    <th className="text-left p-3 font-bold">Inwi</th>
-                    <th className="text-left p-3 font-bold">Orange</th>
-                    <th className="text-left p-3 font-bold">Meilleur</th>
+                    <th className="text-left p-3 font-bold">Opérateur</th>
+                    <th className="text-left p-3 font-bold">Vitesse médiane fixe (SpeedGeo 2025)</th>
+                    <th className="text-left p-3 font-bold">Latence</th>
                   </tr>
                 </thead>
                 <tbody className="text-slate-700">
-                  <tr className="border-b border-slate-100"><td className="p-3">Casablanca</td><td className="p-3">92 Mbps (92%)</td><td className="p-3">95 Mbps (95%)</td><td className="p-3 font-bold">98 Mbps (98%)</td><td className="p-3">🏆 Orange</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Rabat</td><td className="p-3">89 Mbps (89%)</td><td className="p-3 font-bold">96 Mbps (96%)</td><td className="p-3">94 Mbps (94%)</td><td className="p-3">🏆 Inwi</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Marrakech</td><td className="p-3 font-bold">94 Mbps (94%)</td><td className="p-3">91 Mbps (91%)</td><td className="p-3">93 Mbps (93%)</td><td className="p-3">🏆 MT</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Tanger</td><td className="p-3">87 Mbps (87%)</td><td className="p-3">90 Mbps (90%)</td><td className="p-3 font-bold">95 Mbps (95%)</td><td className="p-3">🏆 Orange</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Agadir</td><td className="p-3 font-bold">91 Mbps (91%)</td><td className="p-3">88 Mbps (88%)</td><td className="p-3">89 Mbps (89%)</td><td className="p-3">🏆 MT</td></tr>
-                  <tr className="border-b border-slate-100"><td className="p-3">Fès</td><td className="p-3">86 Mbps (86%)</td><td className="p-3 font-bold">93 Mbps (93%)</td><td className="p-3">91 Mbps (91%)</td><td className="p-3">🏆 Inwi</td></tr>
-                  <tr className="bg-slate-100 font-bold"><td className="p-3">MOYENNE NATIONALE</td><td className="p-3">90 Mbps (90%)</td><td className="p-3">92 Mbps (92%)</td><td className="p-3">93 Mbps (93%)</td><td className="p-3">🏆 Orange</td></tr>
+                  <tr className="border-b border-slate-100"><td className="p-3">Maroc Telecom</td><td className="p-3">34,8 Mbps</td><td className="p-3">~47 ms</td></tr>
+                  <tr className="border-b border-slate-100"><td className="p-3">Orange Maroc</td><td className="p-3">23,1 Mbps</td><td className="p-3">~58 ms</td></tr>
+                  <tr className="border-b border-slate-100"><td className="p-3">Inwi</td><td className="p-3">13,2 Mbps</td><td className="p-3">~65 ms</td></tr>
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-slate-600 mb-8">
-              📊 Méthodologie : 50 tests/ville, répartis heures creuses (6h-9h, 14h-17h) et heures pleines (19h-23h). Outil : Speedtest.net + Fast.com. Période : août 2025 - janvier 2026.
+            <p className="text-sm text-slate-600 mb-4">
+              En conditions réelles, les latences sont variables selon la zone et l&apos;heure. Nous ne citons pas de chiffres de ping précis sans protocole de mesure certifié ; les valeurs ci-dessus proviennent du rapport SpeedGeo et peuvent différer selon votre situation.
             </p>
-            <div className="bg-slate-50 rounded-xl p-6 mb-8">
-              <h4 className="font-bold mb-4">📉 Stabilité Vitesse (19h-23h Heures Pleines)</h4>
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between mb-1"><span>Orange Maroc</span><span className="font-bold text-green-600">-3% dégradation</span></div>
-                  <div className="w-full bg-slate-200 rounded-full h-4"><div className="bg-green-500 h-4 rounded-full" style={{ width: "97%" }} /></div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-1"><span>Inwi</span><span className="font-bold text-green-600">-7% dégradation</span></div>
-                  <div className="w-full bg-slate-200 rounded-full h-4"><div className="bg-green-400 h-4 rounded-full" style={{ width: "93%" }} /></div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-1"><span>Maroc Telecom</span><span className="font-bold text-amber-600">-12% dégradation</span></div>
-                  <div className="w-full bg-slate-200 rounded-full h-4"><div className="bg-amber-500 h-4 rounded-full" style={{ width: "88%" }} /></div>
-                </div>
-              </div>
-              <p className="text-sm text-slate-600 mt-4">
-                Orange conserve 97% de sa vitesse maximale aux heures pleines (19h-23h), contre 93% pour Inwi et 88% pour Maroc Telecom. Explication : Orange a modernisé son backbone en 2025.
-              </p>
-            </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-              <h4 className="font-bold text-blue-900 mb-3">🎮 PING MOYEN (Crucial pour Gamers)</h4>
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-1">8ms</div>
-                  <div className="text-sm text-slate-600">Orange Maroc</div>
-                  <div className="text-xs text-green-600 mt-1">⚡ Excellent</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-green-500 mb-1">11ms</div>
-                  <div className="text-sm text-slate-600">Inwi</div>
-                  <div className="text-xs text-green-500 mt-1">✅ Très bon</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-amber-600 mb-1">15ms</div>
-                  <div className="text-sm text-slate-600">Maroc Telecom</div>
-                  <div className="text-xs text-amber-600 mt-1">⚠️ Correct</div>
-                </div>
-              </div>
-              <p className="text-sm text-slate-700 mt-4">
-                💡 <strong>Verdict Gamers :</strong> Orange domine avec 8ms de ping moyen (idéal pour FPS, MOBA). Inwi acceptable (11ms). Maroc Telecom à éviter pour gaming compétitif (15ms = désavantage en PvP).
-              </p>
-            </div>
-            <p className="mt-6 text-slate-600">
-              Pour tester votre débit actuel avant de changer d&apos;opérateur, consultez notre guide <Link href="/blog/wifi-lent-maroc-2026" className="text-blue-600 hover:underline">Wi-Fi lent au Maroc</Link> (section test de débit).
+            <p className="text-sm text-slate-600 mb-6">
+              Source :{" "}
+              <a href="https://www.speedgeo.net/reports/morocco-internet-guide" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">SpeedGeo — Morocco Internet Performance Report 2025</a>.
+            </p>
+            <p className="text-slate-700">
+              Pour tester votre débit actuel, consultez notre guide <Link href="/blog/wifi-lent-maroc-2026" className="text-blue-600 hover:underline">Wi-Fi lent au Maroc</Link> (section test de débit).
             </p>
           </div>
         </section>
@@ -458,42 +416,23 @@ export default function ComparatifOperateurs2026() {
           </div>
         </section>
 
-        {/* SECTION 5 - FIABILITÉ */}
-        <section id="fiabilite" className="py-12 px-4">
+        {/* SECTION 5 - FIABILITÉ & PANNES */}
+        <section id="pannes" className="py-12 px-4">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Fiabilité & Uptime (Données 12 Mois)</h2>
-            <p className="text-slate-700 mb-6">Données pannes fév 2025 - jan 2026.</p>
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-white border-2 border-green-200 rounded-xl p-6">
-                <div className="flex items-center justify-between mb-4"><h4 className="font-bold">Inwi</h4><span className="text-3xl">🥇</span></div>
-                <div className="text-4xl font-bold text-green-600 mb-2">97.2%</div>
-                <div className="text-sm text-slate-600 mb-4">Uptime annuel</div>
-                <ul className="text-sm space-y-2"><li>✅ 3 pannes majeures (&gt;2h)</li><li>✅ Durée moy panne : 1h25</li><li>✅ 8 jours downtime total</li></ul>
-              </div>
-              <div className="bg-white border-2 border-blue-200 rounded-xl p-6">
-                <div className="flex items-center justify-between mb-4"><h4 className="font-bold">Orange</h4><span className="text-3xl">🥈</span></div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">96.8%</div>
-                <div className="text-sm text-slate-600 mb-4">Uptime annuel</div>
-                <ul className="text-sm space-y-2"><li>⚠️ 5 pannes majeures</li><li>✅ Durée moy panne : 1h40</li><li>⚠️ 11 jours downtime total</li></ul>
-              </div>
-              <div className="bg-white border-2 border-amber-200 rounded-xl p-6">
-                <div className="flex items-center justify-between mb-4"><h4 className="font-bold">Maroc Telecom</h4><span className="text-3xl">🥉</span></div>
-                <div className="text-4xl font-bold text-amber-600 mb-2">94.5%</div>
-                <div className="text-sm text-slate-600 mb-4">Uptime annuel</div>
-                <ul className="text-sm space-y-2"><li>❌ 8 pannes majeures</li><li>⚠️ Durée moy panne : 2h15</li><li>❌ 20 jours downtime total</li></ul>
-              </div>
-            </div>
-            <p className="text-sm text-slate-600 mb-6">📊 Source : Monitoring AlloSupport + rapports Downdetector Maroc. Pannes majeures = coupure nationale affectant &gt;10,000 users.</p>
+            <p className="text-slate-700 mb-6">
+              Uptime estimé sur la base de notre monitoring interne (échantillon clients AlloSupport.ma, jan 2025 — jan 2026) : Maroc Telecom ~94-95 %, Inwi ~97 %, Orange ~96 %. Ces estimations ne constituent pas une mesure officielle certifiée.
+            </p>
             <details className="bg-slate-50 rounded-xl p-6">
-              <summary className="font-bold cursor-pointer">📅 Historique Pannes Majeures 2025 (Cliquer pour déplier)</summary>
-              <div className="overflow-x-auto mt-4">
+              <summary className="font-bold cursor-pointer">📅 Historique pannes majeures (sources citées)</summary>
+              <div className="overflow-x-auto mt-4 space-y-4">
                 <table className="w-full text-sm">
-                  <thead><tr><th className="text-left p-2">Date</th><th className="text-left p-2">Opérateur</th><th className="text-left p-2">Durée</th><th className="text-left p-2">Cause</th><th className="text-left p-2">Zones</th></tr></thead>
+                  <thead><tr><th className="text-left p-2">Date</th><th className="text-left p-2">Opérateur</th><th className="text-left p-2">Constat</th><th className="text-left p-2">Source</th></tr></thead>
                   <tbody className="text-slate-700">
-                    <tr><td className="p-2">27 avril 2025</td><td className="p-2">Orange</td><td className="p-2">4h30</td><td className="p-2">Panne électrique Europe</td><td className="p-2">Casa, Rabat, Marrakech</td></tr>
-                    <tr><td className="p-2">12 juin 2025</td><td className="p-2">Maroc Telecom</td><td className="p-2">3h15</td><td className="p-2">Maintenance backbone</td><td className="p-2">National</td></tr>
-                    <tr><td className="p-2">5 sept 2025</td><td className="p-2">Inwi</td><td className="p-2">2h05</td><td className="p-2">Câble sous-marin</td><td className="p-2">Villes côtières</td></tr>
-                    <tr><td className="p-2">18 nov 2025</td><td className="p-2">Maroc Telecom</td><td className="p-2">5h20</td><td className="p-2">Cyberattaque DDoS</td><td className="p-2">National</td></tr>
+                    <tr><td className="p-2">28 avril 2025</td><td className="p-2">Orange</td><td className="p-2">Panne câble sous-marin Espagne/Portugal — confirmée Orange Maroc et Downdetector</td><td className="p-2"><a href="https://www.tic-maroc.com/2025/04/perturbations-internet-chez-orange.html" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">TIC-Maroc.com</a></td></tr>
+                    <tr><td className="p-2">Février 2026</td><td className="p-2">Orange</td><td className="p-2">Panne confirmée médias</td><td className="p-2"><a href="https://fnh.ma/article/actualites-marocaines/orange-maroc-panne-electrique" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">FNH.ma</a></td></tr>
+                    <tr><td className="p-2">18 nov 2025</td><td className="p-2">Maroc Telecom</td><td className="p-2">Incident réseau MT — durée constatée par nos clients : environ 14h (source : monitoring interne)</td><td className="p-2">—</td></tr>
+                    <tr><td className="p-2">5 sept 2025</td><td className="p-2">Inwi</td><td className="p-2">Incident réseau Inwi — signalé par nos abonnés clients (source : monitoring interne AlloSupport)</td><td className="p-2">—</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -569,10 +508,10 @@ export default function ComparatifOperateurs2026() {
                   <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> INCONVÉNIENTS</h4>
                   <ul className="space-y-2 text-sm text-slate-700">
                     <li><strong>Prix +13% plus cher</strong> que concurrence</li>
-                    <li>Frais cachés : 240 DH install + 500 DH caution</li>
+                    <li>Frais de mise en service : 240 DH + caution équipement 500 DH</li>
                     <li>Hotline saturée (attente 12 min)</li>
-                    <li>Uptime 94.5% (le plus faible)</li>
-                    <li>8 pannes majeures en 2025</li>
+                    <li>Uptime estimé inférieur à Inwi/Orange (monitoring interne)</li>
+                    <li>Incidents réseau signalés en 2025</li>
                   </ul>
                 </div>
               </div>
@@ -592,8 +531,8 @@ export default function ComparatifOperateurs2026() {
                   <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2"><CheckCircle className="w-5 h-5" /> AVANTAGES</h4>
                   <ul className="space-y-2 text-sm text-slate-700">
                     <li><strong>Meilleur rapport qualité/prix 2026</strong></li>
-                    <li>0 frais installation/caution (économie 740 DH)</li>
-                    <li>Uptime 97.2% (le plus fiable)</li>
+                    <li>0 frais installation/caution</li>
+                    <li>Uptime estimé parmi les plus élevés (monitoring interne)</li>
                     <li>Chat 24/7 ultra-réactif (5 min attente moy)</li>
                     <li>App mobile moderne</li>
                     <li>Offre 1 Gbps la moins chère (949 DH)</li>
@@ -624,8 +563,8 @@ export default function ComparatifOperateurs2026() {
                 <div>
                   <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2"><CheckCircle className="w-5 h-5" /> AVANTAGES</h4>
                   <ul className="space-y-2 text-sm text-slate-700">
-                    <li><strong>Meilleur ping (8ms)</strong> = idéal gamers</li>
-                    <li>Stabilité vitesse 97% heures pleines</li>
+                    <li>Réseau souvent cité pour le gaming (latences variables selon zone)</li>
+                    <li>Stabilité en heures pleines</li>
                     <li>Router WiFi 6 fourni</li>
                     <li>Installation gratuite si débit &gt;20 Mbps</li>
                     <li>Support compétent (7 min attente)</li>
@@ -644,7 +583,7 @@ export default function ComparatifOperateurs2026() {
               </div>
               <div className="bg-white rounded-lg p-4 mt-4">
                 <p className="text-sm font-bold text-slate-900 mb-2">🎯 PROFIL IDÉAL :</p>
-                <p className="text-sm text-slate-700">Gamers (ping 8ms). Streamers (upload symétrique). Zones urbaines bien couvertes.</p>
+                <p className="text-sm text-slate-700">Gamers et streamers (upload symétrique). Zones urbaines bien couvertes.</p>
               </div>
             </div>
 
@@ -661,7 +600,7 @@ export default function ComparatifOperateurs2026() {
         </section>
 
         {/* SECTION 8 - VERDICT PAR PROFIL */}
-        <section id="verdict-profil" className="py-12 px-4 bg-white">
+        <section id="recommandations" className="py-12 px-4 bg-white">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Verdict Par Profil (Famille, Gamer, Pro, Budget)</h2>
 
@@ -674,31 +613,35 @@ export default function ComparatifOperateurs2026() {
               <div className="bg-white border-2 border-purple-200 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4"><span className="text-4xl">🎮</span><div><h3 className="text-xl font-bold">PROFIL GAMER / STREAMER</h3><p className="text-sm text-slate-600">Usage : FPS compétitif, streaming Twitch/YouTube</p></div></div>
                 <div className="bg-purple-50 rounded-lg p-4 mb-4"><p className="font-bold text-purple-900 mb-2">🎯 RECOMMANDATION :</p><p className="text-sm text-purple-900"><strong className="text-lg">ORANGE FIBRE 200 MBPS - 449 DH/mois</strong></p></div>
-                <p className="text-sm text-slate-700">Ping 8ms crucial FPS, upload symétrique pour streamer, stabilité 97% heures pleines. Éviter Maroc Telecom : ping 15ms = désavantage compétitif.</p>
+                <p className="text-sm text-slate-700">Latences variables selon zone ; Orange et Inwi souvent cités pour le gaming en zone urbaine. Upload symétrique utile pour le streaming. Vérifier l&apos;éligibilité et les performances réelles dans votre zone.</p>
               </div>
               <div className="bg-white border-2 border-green-200 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4"><span className="text-4xl">💼</span><div><h3 className="text-xl font-bold">PROFIL TÉLÉTRAVAIL / INDÉPENDANT</h3><p className="text-sm text-slate-600">Usage : Visioconférences, cloud, VPN, uptime critique</p></div></div>
                 <div className="bg-green-50 rounded-lg p-4 mb-4"><p className="font-bold text-green-900 mb-2">🎯 RECOMMANDATION :</p><p className="text-sm text-green-900"><strong className="text-lg">INWI FIBRE 100 MBPS - 349 DH/mois</strong><br /><span className="text-xs">+ Backup 4G (Flybox 150 DH/mois)</span></p></div>
-                <p className="text-sm text-slate-700">Uptime 97.2%, 100 Mbps suffisant visio 1080p, support 24/7. Setup redondance : Flybox 4G ou hotspot mobile si revenus dépendent internet.</p>
+                <p className="text-sm text-slate-700">100 Mbps suffisant pour visio 1080p, support réactif. Setup redondance : Flybox 4G ou hotspot mobile si vos revenus dépendent de l&apos;internet.</p>
               </div>
               <div className="bg-white border-2 border-amber-200 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4"><span className="text-4xl">💰</span><div><h3 className="text-xl font-bold">PROFIL PETIT BUDGET</h3><p className="text-sm text-slate-600">Usage : Navigation basique, réseaux sociaux, 1-2 devices</p></div></div>
                 <div className="bg-amber-50 rounded-lg p-4 mb-4"><p className="font-bold text-amber-900 mb-2">🎯 RECOMMANDATION :</p><p className="text-sm text-amber-900"><strong className="text-lg">MAROC TELECOM 20 MBPS - 200 DH/mois</strong><br /><span className="text-xs">Ou INWI 50 MBPS - 299 DH/mois si éligible</span></p></div>
-                <p className="text-sm text-slate-700">Prix le plus bas (200 DH/mois), 20 Mbps = Netflix HD. Inwi 50 Mbps si éligible : 2.5× plus rapide, 0 frais install.</p>
+                <p className="text-sm text-slate-700">Comparer les offres entrée de gamme selon votre éligibilité ; Inwi pratique l&apos;installation gratuite sur toutes les offres.</p>
               </div>
             </div>
 
             <div className="bg-slate-100 rounded-xl p-6 mt-8">
               <h3 className="font-bold text-lg mb-4">📋 RÉCAPITULATIF : QUEL OPÉRATEUR POUR QUEL PROFIL ?</h3>
+              <p className="text-slate-700 text-sm mb-4">
+                Maroc Telecom est recommandé pour les zones rurales et périurbaines où sa couverture reste la plus étendue. Pour les zones urbaines denses avec éligibilité multi-opérateurs, Inwi et Orange offrent des tarifs plus compétitifs à débit équivalent. Source couverture :{" "}
+                <a href="https://fiberoptic.ma/fibre-optique-maroc-2026-couverture-ftth-prix-eligibilite/" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">Fiberoptic.ma — Couverture FTTH Maroc 2026</a>.
+              </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
-                  <thead><tr className="border-b-2 border-slate-300"><th className="text-left p-2">Votre Profil</th><th className="text-left p-2">1er Choix</th><th className="text-left p-2">2e Choix</th><th className="text-left p-2">À Éviter</th></tr></thead>
+                  <thead><tr className="border-b-2 border-slate-300"><th className="text-left p-2">Votre Profil</th><th className="text-left p-2">1er Choix</th><th className="text-left p-2">2e Choix</th></tr></thead>
                   <tbody className="text-slate-700">
-                    <tr><td className="p-2">👨‍👩‍👧‍👦 Famille</td><td className="p-2 font-bold text-green-600">Inwi 200 Mbps</td><td className="p-2">Orange 200 Mbps</td><td className="p-2 text-red-600">MT (trop cher)</td></tr>
-                    <tr className="bg-white"><td className="p-2">🎮 Gamer</td><td className="p-2 font-bold text-green-600">Orange 200 Mbps</td><td className="p-2">Inwi 200 Mbps</td><td className="p-2 text-red-600">MT (ping 15ms)</td></tr>
-                    <tr><td className="p-2">💼 Télétravail</td><td className="p-2 font-bold text-green-600">Inwi 100 + backup 4G</td><td className="p-2">Orange 100 Mbps</td><td className="p-2 text-red-600">MT (uptime 94.5%)</td></tr>
-                    <tr className="bg-white"><td className="p-2">💰 Petit budget</td><td className="p-2 font-bold text-green-600">MT 20 Mbps</td><td className="p-2">Inwi 50 Mbps</td><td className="p-2 text-red-600">-</td></tr>
-                    <tr><td className="p-2">🏞️ Zone rurale</td><td className="p-2 font-bold text-green-600">MT (seul disponible)</td><td className="p-2">-</td><td className="p-2 text-red-600">Inwi/Orange (absents)</td></tr>
+                    <tr><td className="p-2">👨‍👩‍👧‍👦 Famille</td><td className="p-2 font-bold text-green-600">Inwi 200 Mbps</td><td className="p-2">Orange 200 Mbps</td></tr>
+                    <tr className="bg-white"><td className="p-2">🎮 Gamer</td><td className="p-2 font-bold text-green-600">Orange 200 Mbps</td><td className="p-2">Inwi 200 Mbps</td></tr>
+                    <tr><td className="p-2">💼 Télétravail</td><td className="p-2 font-bold text-green-600">Inwi 100 + backup 4G</td><td className="p-2">Orange 100 Mbps</td></tr>
+                    <tr className="bg-white"><td className="p-2">💰 Petit budget</td><td className="p-2 font-bold text-green-600">MT ou Inwi selon éligibilité</td><td className="p-2">—</td></tr>
+                    <tr><td className="p-2">🏞️ Zone rurale</td><td className="p-2 font-bold text-green-600">MT (couverture étendue)</td><td className="p-2">—</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -728,15 +671,15 @@ export default function ComparatifOperateurs2026() {
             <div className="space-y-4">
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">❓ Quel est le meilleur opérateur internet au Maroc en 2026 ?</summary>
-                <p className="text-sm text-slate-700 mt-3">Aucun opérateur n&apos;est &quot;le meilleur&quot; absolu. Cela dépend de votre profil : <strong>Meilleur rapport qualité/prix :</strong> Inwi (0 frais, uptime 97.2%). <strong>Meilleure performance :</strong> Orange (ping 8ms, stabilité 97%). <strong>Meilleure couverture :</strong> Maroc Telecom (95% territoire).</p>
+                <p className="text-sm text-slate-700 mt-3">Aucun opérateur n&apos;est &quot;le meilleur&quot; absolu. Cela dépend de votre profil : <strong>Rapport qualité/prix :</strong> Inwi (0 frais installation). <strong>Performance en zone urbaine :</strong> Orange et Inwi. <strong>Couverture zones rurales :</strong> Maroc Telecom.</p>
               </details>
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">💰 Quels sont les prix fibre optique Maroc 2026 ?</summary>
-                <div className="text-sm text-slate-700 mt-3">100 Mbps : 349 DH (Inwi/Orange), 400 DH (MT). 200 Mbps : 449 DH (Inwi/Orange), 500 DH (MT). 500 Mbps : 749 DH. 1 Gbps : 949 DH (Inwi), 1000 DH (MT). ⚠️ Attention frais cachés MT : +240 DH installation + 500 DH caution.</div>
+                <div className="text-sm text-slate-700 mt-3">100 Mbps : 349 DH (Inwi/Orange), 400 DH (MT). 200 Mbps : 449 DH (Inwi/Orange), 500 DH (MT). 500 Mbps : 749 DH (Inwi/Orange), sur devis (MT). 1 Gbps : 949 DH (Inwi), 1000 DH (MT), sur devis (Orange). Frais de mise en service : MT 240 DH + caution 500 DH, Orange 150 DH (offert au-delà de 100 Mbps), Inwi gratuit.</div>
               </details>
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">🏆 Inwi ou Orange : lequel choisir ?</summary>
-                <p className="text-sm text-slate-700 mt-3"><strong>Choisir Inwi si :</strong> Prix prioritaire (0 frais install), uptime maximum (97.2%), support 24/7. <strong>Choisir Orange si :</strong> Gamer (ping 8ms), streamer (upload symétrique), zones où Inwi absent. Inwi légèrement meilleur globalement.</p>
+                <p className="text-sm text-slate-700 mt-3"><strong>Choisir Inwi si :</strong> Prix prioritaire (0 frais installation), support 24/7. <strong>Choisir Orange si :</strong> Gaming, streaming (upload symétrique), zone bien couverte. Vérifier l&apos;éligibilité et les performances dans votre zone.</p>
               </details>
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">📍 Comment vérifier couverture fibre à mon adresse ?</summary>
@@ -756,11 +699,11 @@ export default function ComparatifOperateurs2026() {
               </details>
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">🎮 Quel ping pour jouer sans lag ?</summary>
-                <p className="text-sm text-slate-700 mt-3">&lt;10ms : Parfait (FPS). 10-20ms : Très bon (MOBA). 20-50ms : Acceptable. &gt;50ms : Lag perceptible. Classement Maroc : 1. Orange 8ms, 2. Inwi 11ms, 3. MT 15ms.</p>
+                <p className="text-sm text-slate-700 mt-3">Les latences varient selon la zone et l&apos;heure. En général : &lt;20 ms très bon pour FPS/MOBA, 20-50 ms acceptable, &gt;50 ms lag perceptible. Consulter les rapports SpeedGeo ou tester chez vous avant de souscrire.</p>
               </details>
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">💼 Meilleure connexion pour télétravail ?</summary>
-                <p className="text-sm text-slate-700 mt-3">Critères : Uptime (Inwi 97.2% 🏆), upload 20+ Mbps, support réactif 24/7, backup 4G. Setup optimal : Inwi Fibre 100 Mbps (349 DH) + Flybox 4G backup (150 DH) = 499 DH/mois.</p>
+                <p className="text-sm text-slate-700 mt-3">Critères : stabilité, upload suffisant (20+ Mbps), support réactif, backup 4G si revenus dépendent du réseau. Comparer Inwi et Orange en zone urbaine ; MT en zone rurale si seul éligible.</p>
               </details>
               <details className="bg-white border border-slate-200 rounded-lg p-4">
                 <summary className="font-bold cursor-pointer">🏞️ Internet zone rurale : quelles options ?</summary>
@@ -790,6 +733,27 @@ export default function ComparatifOperateurs2026() {
               {" · "}
               <Link href="/devis" className="text-blue-600 hover:underline">Devis</Link>
             </p>
+
+            <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-4">Sources</h2>
+            <ol className="text-sm text-slate-700 space-y-2 list-decimal list-inside">
+              <li>Tarifs officiels fibre Maroc 2026 — <a href="https://fiberoptic.ma/comparatif-fibre-optique-maroc-2026-orange-inwi-ou-maroc-telecom/" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">Fiberoptic.ma</a></li>
+              <li>Mise à jour offres Inwi avril 2025 — <a href="https://medias24.com/2025/04/22/apres-maroc-telecom-et-orange-inwi-devoile-la-nouvelle-grille-tarifaire-de-son-offre-fibre-optique" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">Médias24.com</a></li>
+              <li>Mise à jour offres Orange avril 2025 — <a href="https://www.tic-maroc.com/2025/04/orange-maroc-met-jour-ses-offres-fibre.html" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">TIC-Maroc.com</a></li>
+              <li>Panne Orange 28 avril 2025 — <a href="https://www.tic-maroc.com/2025/04/perturbations-internet-chez-orange.html" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">TIC-Maroc.com</a></li>
+              <li>Panne Orange février 2026 — <a href="https://fnh.ma/article/actualites-marocaines/orange-maroc-panne-electrique" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">FNH.ma</a></li>
+              <li>Performance réseau Maroc 2025 — <a href="https://www.speedgeo.net/reports/morocco-internet-guide" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">SpeedGeo.net</a></li>
+              <li>Couverture fibre FTTH Maroc 2026 — <a href="https://fiberoptic.ma/fibre-optique-maroc-2026-couverture-ftth-prix-eligibilite/" rel="nofollow noopener noreferrer" target="_blank" className="text-blue-600 hover:underline">Fiberoptic.ma</a></li>
+            </ol>
+
+            <BlogDisclaimerCorrection
+              publishDate="9 février 2026"
+              updateDate="19 février 2026"
+              articleTitle="Comparatif Maroc Telecom vs Inwi vs Orange 2026"
+            />
+
+            <div className="mt-12">
+              <BlogDisclaimer showOperateurs variant="comparatif" publishDate="2026-02-09" updateDate="2026-02-19" />
+            </div>
           </div>
         </section>
 

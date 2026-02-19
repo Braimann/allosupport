@@ -18,6 +18,8 @@ export interface BlogPost {
   readTime: string;
   publishedAt: string;
   updatedAt: string;
+  /** Si true, affiche le bloc Marques & Opérateurs (MT, Inwi, Orange) dans BlogDisclaimer */
+  operateurs?: boolean;
 }
 
 function p(text: string): string {
@@ -382,6 +384,7 @@ const BLOG_POSTS: BlogPost[] = [
     readTime: "8 min de lecture",
     publishedAt: "2026-02-06",
     updatedAt: "2026-02-06",
+    operateurs: true,
     content: toHtml([
       "Guide complet des 7 pannes PC les plus courantes au Maroc en 2026 : PC lent chronique, surchauffe, écran bleu Windows 11, virus et malwares, problèmes WiFi Maroc Telecom, PC qui ne démarre plus, périphériques défaillants. Solutions DIY et intervention dépannage informatique Casablanca à distance par AlloSupport.",
       "L'article complet est disponible sur cette page avec sommaire, FAQ et liens utiles. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
@@ -402,6 +405,7 @@ const BLOG_POSTS: BlogPost[] = [
     readTime: "12 min de lecture",
     publishedAt: "2026-02-07",
     updatedAt: "2026-02-07",
+    operateurs: true,
     content: toHtml([
       "Guide WiFi lent au Maroc 2026 : causes (box Maroc Telecom/Orange/Inwi, pilote WiFi PC, position routeur, trop d'appareils) et solutions. Dépannage à distance AlloSupport pour diagnostic et optimisation.",
       "L'article complet est sur cette page. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/blog/7-pannes-pc-courantes-2026-maroc\" class=\"text-primary-600 hover:underline\">7 pannes PC</a>.",
@@ -422,6 +426,7 @@ const BLOG_POSTS: BlogPost[] = [
     readTime: "15 min de lecture",
     publishedAt: "2026-02-10",
     updatedAt: "2026-02-10",
+    operateurs: true,
     content: toHtml([
       "Guide complet 192.168.1.1 au Maroc : accès interface admin routeur Maroc Telecom (Technicolor, ZTE, Huawei), Inwi, Orange. Tous mots de passe par défaut (admin/admin, Menara/Menara), configuration WiFi, contrôle parental, dépannage.",
       "L'article complet est sur cette page avec tableaux logins, étapes, FAQ. <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/blog/wifi-lent-maroc-2026\" class=\"text-primary-600 hover:underline\">WiFi lent Maroc</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
@@ -431,8 +436,8 @@ const BLOG_POSTS: BlogPost[] = [
   {
     slug: "comparatif-maroc-telecom-inwi-orange-2026",
     title: "Comparatif Complet Maroc Telecom vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?",
-    excerpt: "Prix, vitesse, couverture, fiabilité : analyse 2026 basée sur 2,500 tests réels. Verdict par profil (famille, gamer, pro, budget). Économisez 600+ DH/an.",
-    metaDescription: "Comparatif MT vs Inwi vs Orange 2026 : prix fibre, vitesse réelle, couverture, fiabilité. 2,500 tests. Verdict par profil. Guide AlloSupport.",
+    excerpt: "Prix, vitesse, couverture, fiabilité : analyse 2026. Verdict par profil (famille, gamer, pro, budget). Données vérifiées février 2026.",
+    metaDescription: "Comparatif MT vs Inwi vs Orange 2026 : prix fibre, performances SpeedGeo, couverture, fiabilité. Verdict par profil. Guide AlloSupport.",
     category: "Dépannage",
     categoryColor: "bg-blue-500",
     imageUrl: "/blog/comparatif.webp",
@@ -440,8 +445,9 @@ const BLOG_POSTS: BlogPost[] = [
     keywords: ["comparatif maroc telecom inwi orange", "meilleur opérateur internet maroc 2026", "prix fibre optique maroc", "inwi vs orange vs maroc telecom", "quel fai choisir maroc"],
     author: "AlloSupport Maroc",
     readTime: "15 min de lecture",
-    publishedAt: "2026-02-10",
-    updatedAt: "2026-02-10",
+    publishedAt: "2026-02-09",
+    updatedAt: "2026-02-19",
+    operateurs: true,
     content: toHtml([
       "Comparatif complet 2026 : Maroc Telecom, Inwi, Orange. Prix fibre (20 Mbps à 1 Gbps), frais cachés, test vitesse réelle par ville, couverture, uptime, service client. Verdict par profil : famille, gamer, télétravail, petit budget, zone rurale.",
       "L'article complet est sur cette page. <a href=\"/blog/192-168-1-1-admin-login-maroc-routeur-2026\" class=\"text-primary-600 hover:underline\">Config box 192.168.1.1</a> · <a href=\"/blog/wifi-lent-maroc-2026\" class=\"text-primary-600 hover:underline\">WiFi lent</a> · <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis</a>.",

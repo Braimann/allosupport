@@ -93,11 +93,39 @@ export default function PolitiqueConfidentialitePage() {
               </div>
             </section>
 
+            {/* Specific treatments: TeamViewer, Chatbot, WhatsApp */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                <Shield className="w-6 h-6 text-emerald-500" />
+                3. Traitements spécifiques (TeamViewer, Chatbot, WhatsApp)
+              </h2>
+              <div className="space-y-4">
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2">3.1. Clause TeamViewer (sessions à distance)</h3>
+                  <p className="text-gray-700 text-sm">
+                    Les sessions TeamViewer sont <strong>éphémères</strong>. AlloSupport.ma ne conserve pas d'enregistrement vidéo des sessions sauf accord écrit du client. <strong>Aucune donnée personnelle</strong> (fichiers, mots de passe, données bancaires) n'est extraite ni stockée lors d'une session.
+                  </p>
+                </div>
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2">3.2. Clause Chatbot OpenAI</h3>
+                  <p className="text-gray-700 text-sm">
+                    Les messages sont transmis à l'API OpenAI de façon <strong>anonymisée</strong>. Aucun nom, téléphone ou email n'est inclus dans les requêtes envoyées à OpenAI. Les échanges avec le chatbot ne permettent pas d'identifier les personnes.
+                  </p>
+                </div>
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2">3.3. Clause WhatsApp</h3>
+                  <p className="text-gray-700 text-sm">
+                    Les échanges WhatsApp sont conservés à des fins de <strong>preuve et de suivi technique</strong>. <strong>Durée de conservation : 2 ans</strong> à compter du dernier échange, sauf obligation légale ou litige en cours.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Usage */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Lock className="w-6 h-6 text-emerald-500" />
-                3. Utilisation des Données
+                4. Utilisation des Données
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Nous utilisons vos données personnelles pour les finalités suivantes :
@@ -116,26 +144,26 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Shield className="w-6 h-6 text-emerald-500" />
-                4. Partage des Données
+                5. Partage des Données
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Nous ne vendons jamais vos données personnelles. Nous pouvons partager vos informations uniquement dans les cas suivants :
               </p>
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">4.1. Prestataires de services</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">5.1. Prestataires de services</h3>
                   <p className="text-gray-700 text-sm">
                     Nous pouvons partager vos données avec des prestataires tiers qui nous aident à fournir nos services (hébergement, paiement, analyse). Ces prestataires sont contractuellement tenus de protéger vos données.
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">4.2. Obligations légales</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">5.2. Obligations légales</h3>
                   <p className="text-gray-700 text-sm">
                     Nous pouvons divulguer vos données si la loi l'exige ou en réponse à une demande légale valide.
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">4.3. Protection de nos droits</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">5.3. Protection de nos droits</h3>
                   <p className="text-gray-700 text-sm">
                     Nous pouvons partager des informations pour protéger nos droits, notre propriété ou la sécurité de nos utilisateurs.
                   </p>
@@ -147,7 +175,7 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Lock className="w-6 h-6 text-emerald-500" />
-                5. Sécurité des Données
+                6. Sécurité des Données
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles :
@@ -169,26 +197,26 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Eye className="w-6 h-6 text-emerald-500" />
-                6. Cookies et Technologies Similaires
+                7. Cookies et Technologies Similaires
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Notre site utilise des cookies et technologies similaires pour améliorer votre expérience :
               </p>
               <div className="space-y-3">
                 <div className="bg-emerald-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">6.1. Cookies essentiels</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">7.1. Cookies essentiels</h3>
                   <p className="text-gray-700 text-sm">
                     Nécessaires au fonctionnement du site (authentification, sécurité). Ces cookies ne peuvent pas être désactivés.
                   </p>
                 </div>
                 <div className="bg-emerald-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">6.2. Cookies analytiques</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">7.2. Cookies analytiques</h3>
                   <p className="text-gray-700 text-sm">
                     Nous utilisons des outils d'analyse (Google Analytics) pour comprendre comment les visiteurs utilisent notre site. Vous pouvez désactiver ces cookies dans les paramètres de votre navigateur.
                   </p>
                 </div>
                 <div className="bg-emerald-50 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">6.3. Cookies de préférences</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">7.3. Cookies de préférences</h3>
                   <p className="text-gray-700 text-sm">
                     Mémorisent vos préférences (langue, région) pour améliorer votre expérience.
                   </p>
@@ -203,7 +231,7 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Shield className="w-6 h-6 text-emerald-500" />
-                7. Vos Droits
+                8. Vos Droits (accès, rectification, suppression)
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Conformément à la loi 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel au Maroc, vous disposez des droits suivants :
@@ -247,7 +275,7 @@ export default function PolitiqueConfidentialitePage() {
                 </div>
               </div>
               <p className="text-gray-700 leading-relaxed mt-4">
-                Pour exercer vos droits, contactez-nous à <a href="mailto:contact@allosupport.ma" className="text-emerald-600 hover:text-emerald-700 font-semibold">contact@allosupport.ma</a>. Nous répondrons à votre demande dans un délai raisonnable (généralement sous 30 jours).
+                Pour exercer vos droits (accès, rectification, suppression), contactez-nous à <a href="mailto:contact@allosupport.ma" className="text-emerald-600 hover:text-emerald-700 font-semibold">contact@allosupport.ma</a>. <strong>Nous nous engageons à répondre sous 30 jours</strong> à toute demande relative à vos données personnelles.
               </p>
             </section>
 
@@ -255,7 +283,7 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <FileText className="w-6 h-6 text-emerald-500" />
-                8. Conservation des Données
+                9. Conservation des Données
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Nous conservons vos données personnelles uniquement aussi longtemps que nécessaire pour les finalités pour lesquelles elles ont été collectées :
@@ -263,7 +291,7 @@ export default function PolitiqueConfidentialitePage() {
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li><strong>Données de compte :</strong> Tant que votre compte est actif, puis 3 ans après la dernière activité</li>
                 <li><strong>Données de facturation :</strong> 10 ans (obligation légale marocaine)</li>
-                <li><strong>Données de communication :</strong> 2 ans après la fin de la relation contractuelle</li>
+                <li><strong>Données de communication (dont WhatsApp) :</strong> 2 ans après la fin de la relation contractuelle (preuve et suivi technique)</li>
                 <li><strong>Données analytiques :</strong> 26 mois maximum (conformément aux standards Google Analytics)</li>
                 <li><strong>Cookies :</strong> Selon leur type (de quelques minutes à 2 ans maximum)</li>
               </ul>
@@ -276,7 +304,7 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Shield className="w-6 h-6 text-emerald-500" />
-                9. Services Tiers
+                10. Services Tiers
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Notre site peut contenir des liens vers des sites web tiers ou utiliser des services tiers. Nous ne sommes pas responsables des pratiques de confidentialité de ces tiers. Nous vous encourageons à lire les politiques de confidentialité de chaque site que vous visitez.
@@ -296,7 +324,7 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Shield className="w-6 h-6 text-emerald-500" />
-                10. Protection des Mineurs
+                11. Protection des Mineurs
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 Nos services ne sont pas destinés aux personnes de moins de 18 ans. Nous ne collectons pas sciemment de données personnelles auprès de mineurs. Si nous apprenons qu'un mineur nous a fourni des données personnelles, nous les supprimerons immédiatement. Si vous êtes parent ou tuteur et que vous savez que votre enfant nous a fourni des données personnelles, veuillez nous contacter.
@@ -307,7 +335,7 @@ export default function PolitiqueConfidentialitePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <FileText className="w-6 h-6 text-emerald-500" />
-                11. Modifications de cette Politique
+                12. Modifications de cette Politique
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Nous vous informerons de tout changement significatif en publiant la nouvelle politique sur cette page et en mettant à jour la date de "Dernière mise à jour". Nous vous encourageons à consulter régulièrement cette page pour rester informé de la façon dont nous protégeons vos données.
@@ -318,7 +346,7 @@ export default function PolitiqueConfidentialitePage() {
             <section className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                 <Mail className="w-6 h-6 text-emerald-600" />
-                12. Contact
+                13. Contact
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits, contactez-nous :
@@ -354,19 +382,13 @@ export default function PolitiqueConfidentialitePage() {
 
             {/* Back Links */}
             <div className="pt-8 border-t border-gray-200 flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/cgu"
-                className="text-emerald-600 hover:text-emerald-700 font-semibold"
-              >
-                ← Conditions Générales d'Utilisation
-              </Link>
+              <Link href="/cgu" className="text-emerald-600 hover:text-emerald-700 font-semibold">← CGU</Link>
               <span className="text-gray-400">•</span>
-              <Link
-                href="/cgv"
-                className="text-emerald-600 hover:text-emerald-700 font-semibold"
-              >
-                Conditions Générales de Vente →
-              </Link>
+              <Link href="/cgv" className="text-emerald-600 hover:text-emerald-700 font-semibold">CGV</Link>
+              <span className="text-gray-400">•</span>
+              <Link href="/non-responsabilite" className="text-emerald-600 hover:text-emerald-700 font-semibold">Clause de non-responsabilité</Link>
+              <span className="text-gray-400">•</span>
+              <Link href="/operateurs-telecom" className="text-emerald-600 hover:text-emerald-700 font-semibold">Opérateurs télécom</Link>
             </div>
           </div>
         </div>

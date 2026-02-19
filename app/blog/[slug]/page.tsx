@@ -6,6 +6,7 @@ import { ArrowLeft, Calendar, Clock, Share2, Facebook, Linkedin, Twitter, Monito
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InContentCTA from "@/components/conversion/InContentCTA";
+import { BlogDisclaimer } from "@/components/blog/BlogDisclaimer";
 import { getPostBySlug, getPublishedPosts, getAllSlugs } from "@/content/blog/posts";
 import { generateTitle, generateDescription, generateCanonical } from "@/lib/seo";
 
@@ -274,6 +275,13 @@ export default function BlogPostPage({ params }: PageProps) {
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
                 )}
+
+                {/* BlogDisclaimer — en bas de chaque article */}
+                <BlogDisclaimer
+                  showOperateurs={post.operateurs === true}
+                  publishDate={post.publishedAt}
+                  updateDate={post.updatedAt}
+                />
 
                 {/* Tags */}
                 {post.keywords && post.keywords.length > 0 && (
