@@ -92,7 +92,7 @@ const videoSchema = {
   description:
     "Réparation PC à distance en 15 min. Virus, formatage, lenteur. Paiement après résultat. Dès 250 DH. Tout le Maroc.",
   thumbnailUrl: "https://i.ytimg.com/vi/2RPhvTiQkiI/maxresdefault.jpg",
-  uploadDate: "2026-02-18",
+  uploadDate: "2026-02-18T12:00:00+00:00",
   duration: "PT30S",
   embedUrl: "https://www.youtube-nocookie.com/embed/2RPhvTiQkiI",
   contentUrl: "https://youtube.com/shorts/2RPhvTiQkiI",

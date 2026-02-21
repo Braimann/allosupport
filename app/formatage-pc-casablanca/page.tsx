@@ -49,15 +49,9 @@ const jsonLdGraph = {
       ],
       offers: {
         "@type": "Offer",
-        price: "350",
+        price: 350,
         priceCurrency: "MAD",
         availability: "https://schema.org/InStock",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "7",
-        bestRating: "5",
       },
     },
     {

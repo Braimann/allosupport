@@ -515,6 +515,26 @@ const BLOG_POSTS: BlogPost[] = [
       "Trop compliqué ? Notre service d'installation Windows 11 à distance en 1 heure : 250 MAD, tous drivers et antivirus 6 mois inclus. <a href=\"/depannage-informatique\" class=\"text-blue-600 font-bold hover:underline\">Dépannage informatique à distance</a>. <a href=\"/blog/pc-portable-sans-windows-freedos-maroc\" class=\"text-primary-600 hover:underline\">PC FreeDOS Maroc</a>, <a href=\"/antivirus-maroc\" class=\"text-primary-600 hover:underline\">Antivirus Maroc</a>, <a href=\"/recuperation-donnees\" class=\"text-primary-600 hover:underline\">Récupération données</a>.",
     ]),
   },
+  // 21. Windows 11 redémarrage boucle KB5077181 (page dédiée app/blog/windows-11-redemarrage-boucle-kb5077181-maroc-2026)
+  {
+    slug: "windows-11-redemarrage-boucle-kb5077181-maroc-2026",
+    title: "Windows 11 Redémarre en Boucle après Mise à Jour Février 2026 (KB5077181) — Solution Maroc",
+    excerpt: "PC Windows 11 redémarre en boucle après KB5077181 (février 2026) ? 3 solutions rapides testées + dépannage à distance au Maroc 250 DH. Réparation en 15 min.",
+    metaDescription: "PC Windows 11 redémarre en boucle après KB5077181 (février 2026) ? 3 solutions rapides testées + dépannage à distance au Maroc 250 DH. Réparation en 15 min.",
+    category: "Dépannage",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/blog/kb5077181-windows11-maroc.png",
+    imageAlt: "Windows 11 redémarrage en boucle KB5077181 - Solution Maroc. Support à distance AlloSupport.",
+    keywords: ["windows 11 boucle redémarrage", "KB5077181", "windows 11 redémarre en boucle", "mise à jour février 2026", "dépannage windows 11 maroc"],
+    author: "AlloSupport — Dépannage Informatique Maroc",
+    readTime: "8 min de lecture",
+    publishedAt: "2026-02-21",
+    updatedAt: "2026-02-21",
+    content: toHtml([
+      "Si votre PC Windows 11 redémarre en boucle depuis le 11 février 2026, vous n'êtes pas seul. La mise à jour KB5077181 (Patch Tuesday) provoque des boucles de redémarrage, erreur 0x800f0983, WiFi/Bluetooth coupés, écran noir. Ce guide donne 3 solutions : désinstaller KB5077181, démarrer en mode sans échec, bloquer la réinstallation avec wushowhide.diagcab. AlloSupport intervient à distance en 15 min pour 250 DH si besoin.",
+      "L'article complet est sur cette page. <a href=\"/blog/windows-11-redemarrage-boucle-kb5077181-maroc-2026\" class=\"text-primary-600 hover:underline\">Lire le guide KB5077181</a> · <a href=\"/depannage-informatique\" class=\"text-primary-600 hover:underline\">Dépannage informatique</a> · <a href=\"/blog/7-pannes-pc-courantes-2026-maroc\" class=\"text-primary-600 hover:underline\">7 pannes PC courantes</a>.",
+    ]),
+  },
 ];
 
 export function getPublishedPosts(): BlogPost[] {
