@@ -119,6 +119,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/recuperation-donnees-casablanca`,
+      lastModified: new Date("2026-02-22"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recuperation-donnees-rabat`,
+      lastModified: new Date("2026-02-22"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recuperation-donnees-disque-dur-ssd`,
+      lastModified: new Date("2026-02-22"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recuperation-donnees-cle-usb`,
+      lastModified: new Date("2026-02-22"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/maintenance-informatique`,
       lastModified: now,
       changeFrequency: "weekly",
@@ -219,6 +243,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/blog/comment-supprimer-virus-pc-maroc-gratuit`,
       lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/disque-dur-panne-que-faire-maroc`,
+      lastModified: new Date("2026-02-22"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
