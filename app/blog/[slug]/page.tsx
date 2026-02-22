@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InContentCTA from "@/components/conversion/InContentCTA";
 import { BlogDisclaimer } from "@/components/blog/BlogDisclaimer";
+import RelatedServices from "@/components/RelatedServices";
 import { getPostBySlug, getPublishedPosts, getAllSlugs } from "@/content/blog/posts";
 import { generateTitle, generateDescription, generateCanonical } from "@/lib/seo";
 
@@ -32,6 +33,15 @@ const STATIC_BLOG_SLUGS = [
   "meilleur-antivirus-gratuit-maroc-2026-comparatif",
   "pc-portable-sans-windows-freedos-maroc",
 ];
+
+const SLUG_RELATED_SERVICES: Record<string, Array<{ href: string; label: string }>> = {
+  "windows-11-vs-10-maroc-2026": [
+    { href: "/installation-windows", label: "Installation Windows Maroc" },
+  ],
+  "recuperation-donnees-disque-dur-maroc": [
+    { href: "/recuperation-donnees", label: "Récupération données disque dur Maroc" },
+  ],
+};
 
 export function generateStaticParams() {
   return getAllSlugs()
@@ -132,11 +142,11 @@ export default function BlogPostPage({ params }: PageProps) {
     description: post.metaDescription || post.excerpt,
     image: absoluteImageUrl
       ? {
-          "@type": "ImageObject" as const,
-          url: absoluteImageUrl,
-          width: 1200,
-          height: 630,
-        }
+        "@type": "ImageObject" as const,
+        url: absoluteImageUrl,
+        width: 1200,
+        height: 630,
+      }
       : `${BASE_URL}/blog/${post.slug}.jpg`,
     datePublished: formatDateISO(post.publishedAt),
     dateModified: formatDateISO(post.updatedAt),
@@ -244,33 +254,33 @@ export default function BlogPostPage({ params }: PageProps) {
                 {/* First paragraphs */}
                 {hasEnoughParagraphs && (
                   <>
-                    <div 
+                    <div
                       className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-primary-600 prose-a:hover:text-primary-700"
-                      dangerouslySetInnerHTML={{ 
+                      dangerouslySetInnerHTML={{
                         __html: contentParts.slice(0, 2).join('</p>') + '</p>'
                       }}
                     />
-                    
+
                     {/* InContentCTA */}
-                    <InContentCTA 
+                    <InContentCTA
                       serviceName={serviceName}
                       price={price}
                       context={post.title}
                     />
-                    
+
                     {/* Rest of content */}
-                    <div 
+                    <div
                       className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-primary-600 prose-a:hover:text-primary-700"
-                      dangerouslySetInnerHTML={{ 
+                      dangerouslySetInnerHTML={{
                         __html: contentParts.slice(2).join('</p>')
                       }}
                     />
                   </>
                 )}
-                
+
                 {/* If not enough paragraphs, show all content */}
                 {!hasEnoughParagraphs && (
-                  <div 
+                  <div
                     className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-primary-600 prose-a:hover:text-primary-700"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
@@ -405,6 +415,7 @@ export default function BlogPostPage({ params }: PageProps) {
             </Link>
           </div>
         </section>
+        <RelatedServices links={SLUG_RELATED_SERVICES[params.slug] ?? []} />
       </main>
 
       <Footer />

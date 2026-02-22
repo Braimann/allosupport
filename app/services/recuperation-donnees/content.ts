@@ -11,14 +11,17 @@ export const serviceContent = {
       "récupération clé usb",
       "disque formaté récupération",
     ],
-    ogImage: "/images/services/recuperation-donnees-og.jpg",
+    ogImage: "/images/recuperation-donnees-maroc.png",
   },
   hero: {
     badge: "Récupération - Paiement si succès",
     title: "Fichiers Effacés ? Photos Perdues ? Pas de Panique.",
     subtitle: "Récupération à distance quand c'est possible",
     mainText: "Vous avez vidé la corbeille par erreur ou formaté une clé USB ? Arrêtez tout ! Si vous n'écrivez rien dessus, nous pouvons souvent récupérer vos fichiers à distance. Paiement uniquement si les données sont récupérées.",
-    image: { url: "/images/services/recuperation-donnees-hero.svg", alt: "Récupération de données Maroc" },
+    image: {
+      url: "/images/recuperation-donnees-maroc.png",
+      alt: "Récupération données Maroc : disque dur en panne, SSD, clés USB, assistance à distance WhatsApp, diagnostic AlloSupport.ma — services informatiques Maroc",
+    },
   },
   idealFor: {
     title: "On peut vous aider si",

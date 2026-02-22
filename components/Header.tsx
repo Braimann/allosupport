@@ -61,7 +61,7 @@ const servicesParticuliers = [
   },
   {
     name: "Récupération Données",
-    href: "/services/recuperation-donnees",
+    href: "/recuperation-donnees",
     icon: HardDrive,
     desc: "Photos et fichiers perdus",
   },
@@ -293,15 +293,29 @@ export default function Header() {
       <div className="bg-slate-900 text-white py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a
-              href={`tel:${GOOGLE_BUSINESS.PHONE}`}
-              className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
-            >
-              <span className="flex items-center justify-center w-4 h-4">
-                {mounted && <Phone className="w-4 h-4" />}
-              </span>
-              <span>{GOOGLE_BUSINESS.PHONE_FORMATTED}</span>
-            </a>
+            {/* Numéros de contact : fixe (masqué sur mobile) | mobile */}
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:+212520970675"
+                className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-emerald-400 transition-colors"
+                aria-label="Appeler AlloSupport numéro fixe"
+              >
+                <span className="flex items-center justify-center w-4 h-4">
+                  {mounted && <Phone className="w-4 h-4" />}
+                </span>
+                05 20 97 06 75
+              </a>
+              <span className="hidden md:inline text-gray-300 select-none">|</span>
+              <a
+                href={`tel:${GOOGLE_BUSINESS.PHONE}`}
+                className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
+              >
+                <span className="flex items-center justify-center w-4 h-4">
+                  {mounted && <Phone className="w-4 h-4" />}
+                </span>
+                <span>{GOOGLE_BUSINESS.PHONE_FORMATTED}</span>
+              </a>
+            </div>
             <a
               href={`mailto:${EMAIL}`}
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"

@@ -67,7 +67,7 @@ const schemaGraph = {
       url: "https://allosupport.ma",
       logo: "https://allosupport.ma/logo.png",
       image: "https://allosupport.ma/og-image.jpg",
-      telephone: GOOGLE_BUSINESS.PHONE,
+      telephone: "+212520970675",
       priceRange: "150 MAD - 500 MAD",
       address: {
         "@type": "PostalAddress",
@@ -111,13 +111,22 @@ const schemaGraph = {
         GOOGLE_BUSINESS.SHARE_URL,
         "https://g.page/r/CTT4BBV6QaxrEBM/review",
       ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: GOOGLE_BUSINESS.PHONE,
-        contactType: "customer service",
-        availableLanguage: ["fr", "ar"],
-        areaServed: "MA",
-      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+212520970675",
+          contactType: "customer service",
+          areaServed: "MA",
+          availableLanguage: ["French", "Arabic"],
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: GOOGLE_BUSINESS.PHONE,
+          contactType: "technical support",
+          contactOption: "TollFree",
+          areaServed: "MA",
+        },
+      ],
       ...(hasReviews
         ? {
             aggregateRating: {

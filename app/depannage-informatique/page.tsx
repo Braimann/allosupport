@@ -17,12 +17,13 @@ import {
   Building,
   Download,
   CheckCircle,
-  MapPin,
   Star,
   ChevronDown,
+  MapPin,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RelatedServices from "@/components/RelatedServices";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
@@ -916,6 +917,12 @@ export default function DepannageInformatiquePage() {
             </p>
           </div>
         </section>
+        <RelatedServices
+          links={[
+            { href: "/installation-windows", label: "Installation Windows Maroc" },
+            { href: "/recuperation-donnees", label: "Récupération données disque dur Maroc" },
+          ]}
+        />
       </main>
 
       {/* Sticky WhatsApp - visible after scroll */}

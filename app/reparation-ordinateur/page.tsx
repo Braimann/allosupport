@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { generateBreadcrumbSchema } from "@/lib/seo";
+import RelatedServices from "@/components/RelatedServices";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -77,7 +78,7 @@ export default function ReparationOrdinateurPage() {
               <p className="text-lg text-slate-100 mb-6">
                 Un seul point de contact pour tous vos problèmes PC :{" "}
                 <strong className="text-emerald-300">écran bleu, lenteur, plantage,
-                virus, mises à jour bloquées</strong>. Intervention en 15 min, paiement après résultat.
+                  virus, mises à jour bloquées</strong>. Intervention en 15 min, paiement après résultat.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -294,6 +295,12 @@ export default function ReparationOrdinateurPage() {
             </div>
           </div>
         </section>
+        <RelatedServices
+          links={[
+            { href: "/installation-windows", label: "Installation Windows Maroc" },
+            { href: "/recuperation-donnees", label: "Récupération données disque dur Maroc" },
+          ]}
+        />
       </main>
     </>
   );

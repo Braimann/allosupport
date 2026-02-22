@@ -88,6 +88,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/services/recuperation-donnees',
+        destination: '/recuperation-donnees',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

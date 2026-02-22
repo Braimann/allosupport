@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { generateBreadcrumbSchema } from "@/lib/seo";
+import RelatedServices from "@/components/RelatedServices";
 
 const whatsappBase = "https://wa.me/212775237038";
 
@@ -68,7 +69,7 @@ export default function PcLentSolutionPage() {
               <p className="text-lg text-slate-100 mb-6">
                 Votre PC met des minutes à démarrer, se bloque et vous fait perdre du temps ?
                 Nous le <strong className="text-emerald-300">rendons rapide comme au
-                premier jour</strong>, à distance, sans formater.
+                  premier jour</strong>, à distance, sans formater.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -321,6 +322,12 @@ export default function PcLentSolutionPage() {
             </div>
           </div>
         </section>
+        <RelatedServices
+          links={[
+            { href: "/installation-windows", label: "Installation Windows Maroc" },
+            { href: "/recuperation-donnees", label: "Récupération données disque dur Maroc" },
+          ]}
+        />
       </main>
     </>
   );
