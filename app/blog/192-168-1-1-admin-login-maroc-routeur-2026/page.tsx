@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BannerCTA from "@/components/BannerCTA";
 
 export const metadata: Metadata = {
   title: "192.168.1.1 Admin Maroc : Login Maroc Telecom, Inwi, Orange | Tous Mots de Passe 2026",
@@ -272,6 +273,12 @@ export default function Page19216811AdminMaroc() {
             </p>
             <p className="text-slate-700 text-lg leading-relaxed">
               Ce guide 2026 recense les <strong>logins et mots de passe par défaut</strong> pour plus de 20 modèles de routeurs (Technicolor, ZTE, Huawei, Sagem, etc.) utilisés par les trois opérateurs, puis détaille les étapes pour accéder à l&apos;interface, les actions courantes (changer le Wi-Fi, canal, contrôle parental) et les solutions aux problèmes fréquents (page qui ne s&apos;affiche pas, mot de passe refusé).
+            </p>
+            <p className="text-slate-700 text-lg leading-relaxed">
+              Si la page 192.168.1.1 reste inaccessible après ces étapes, le problème vient souvent d&apos;un conflit réseau plus profond. Nos techniciens règlent ce type de panne{" "}
+              <Link href="/depannage-informatique-a-domicile" className="text-blue-700 underline font-medium">
+                à distance en 30 min
+              </Link>.
             </p>
           </div>
         </section>
@@ -622,6 +629,15 @@ export default function Page19216811AdminMaroc() {
             </a>
           </div>
         </div>
+
+        <section className="py-8 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <BannerCTA
+              titre="Page 192.168.1.1 toujours inaccessible ?"
+              messageWhatsApp="Bonjour, je n'arrive pas à accéder à ma page admin 192.168.1.1. Opérateur : [Maroc Telecom/Inwi/Orange]"
+            />
+          </div>
+        </section>
       </main>
       <Footer />
     </>

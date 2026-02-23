@@ -4,41 +4,41 @@ import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = GOOGLE_BUSINESS.WHATSAPP;
+const WHATSAPP_CTA_CASA = "Bonjour, j'ai besoin d'un dépannage informatique à Casablanca. Mon problème : [décrire]";
 
 export const metadata: Metadata = {
-  title: "Réparation PC Portable Casablanca | Dépannage à Distance 250 DH",
-  description: "Réparation PC portable Casablanca sans déplacement. Technicien en 15 min, paiement après résultat. Dès 250 DH.",
+  title: "Dépannage Informatique Casablanca — Intervention 2h | AlloSupport",
+  description:
+    "Dépannage informatique à Casablanca : PC lent, virus, formatage. Technicien à domicile en 2h. Maarif, Agdal, Hay Riad. 250 DH, paiement après résultat.",
   alternates: {
     canonical: "https://allosupport.ma/casablanca",
   },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Réparation PC Portable Casablanca | Dépannage à Distance",
+    title: "Dépannage Informatique Casablanca — Intervention 2h | AlloSupport",
     description:
-      "Réparation PC portable Casablanca sans déplacement. Technicien en 15 min, paiement après résultat.",
+      "Dépannage informatique à Casablanca : PC lent, virus, formatage. Technicien à domicile en 2h. Maarif, Agdal, Hay Riad. 250 DH, paiement après résultat.",
     url: "https://allosupport.ma/casablanca",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Réparation PC Portable Casablanca | AlloSupport",
-    description: "Réparation PC portable Casablanca sans déplacement. Dès 250 DH.",
+    title: "Dépannage Informatique Casablanca | AlloSupport",
+    description: "Dépannage informatique Casablanca : PC lent, virus, formatage. 250 DH, paiement après résultat.",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
-  name: "AlloSupport.ma",
-  description:
-    "Réparation PC portable Casablanca à distance",
-  url: "https://allosupport.ma/casablanca",
-  telephone: "+212775237038",
+  "@type": "LocalBusiness",
+  "@id": "https://allosupport.ma/casablanca",
+  name: "AlloSupport.ma — Dépannage Informatique Casablanca",
+  telephone: GOOGLE_BUSINESS.PHONE,
+  priceRange: "250-500 DH",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Casablanca",
     addressRegion: "Casablanca-Settat",
-    postalCode: "20000",
     addressCountry: "MA",
   },
   geo: {
@@ -46,56 +46,26 @@ const jsonLd = {
     latitude: 33.5731,
     longitude: -7.5898,
   },
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Casablanca",
-    },
-    {
-      "@type": "AdministrativeArea",
-      name: "Derb Ghallef",
-    },
-    {
-      "@type": "AdministrativeArea",
-      name: "Maarif",
-    },
-    {
-      "@type": "AdministrativeArea",
-      name: "Sidi Maarouf",
-    },
-  ],
-  serviceArea: "Casablanca",
-  priceRange: "250-500 DH",
-  serviceType: "Réparation PC portable Casablanca",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Diagnostic & aide rapide",
-      priceCurrency: "MAD",
-      price: "150",
-      description: "Diagnostic et résolution de petits problèmes à distance.",
-    },
-    {
-      "@type": "Offer",
-      name: "Réparation PC portable Casablanca",
-      priceCurrency: "MAD",
-      price: "250",
-      description: "Réparation complète PC portable: lenteur, virus, écran noir.",
-    },
-    {
-      "@type": "Offer",
-      name: "Pack Maintenance PME Casablanca",
-      priceCurrency: "MAD",
-      price: "499",
-      description: "Support informatique mensuel pour PME et TPE à Casablanca.",
-    },
-  ],
+  areaServed: ["Maarif", "Agdal", "Hay Riad", "Ain Diab", "Casablanca"],
+  url: "https://allosupport.ma/casablanca",
 };
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Accueil", url: "https://allosupport.ma" },
   { name: "Dépannage Informatique Casablanca", url: "https://allosupport.ma/casablanca" },
 ]);
+
+const QUARTIERS_CASA = [
+  "Maarif",
+  "Agdal",
+  "Hay Riad",
+  "Ain Diab",
+  "Bourgogne",
+  "Gauthier",
+  "Anfa",
+  "Sidi Bernoussi",
+  "Derb Sultan",
+];
 
 export default function CasablancaPage() {
   return (
@@ -124,9 +94,7 @@ export default function CasablancaPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent(
-                    "Bonjour, j'ai besoin d'un dépannage PC à Casablanca (Derb Ghallef / Maarif / Sidi Maarouf...)."
-                  )}`}
+                  href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_CASA)}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
@@ -176,6 +144,25 @@ export default function CasablancaPage() {
             <p className="text-slate-800 font-medium italic">
               PC portable t9il wla chi9 ? On se connecte en 15 min.
             </p>
+          </div>
+        </section>
+
+        {/* Nos quartiers d'intervention */}
+        <section className="py-10 bg-slate-50 border-y border-slate-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Nos quartiers d&apos;intervention
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {QUARTIERS_CASA.map((q) => (
+                <span
+                  key={q}
+                  className="bg-slate-100 rounded-full px-3 py-1 text-sm text-slate-700"
+                >
+                  {q}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -234,9 +221,7 @@ export default function CasablancaPage() {
                 logicielles.
               </p>
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent(
-                  "Bonjour, je suis à Casablanca et je veux comprendre comment fonctionne le dépannage PC à distance."
-                )}`}
+                href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_CASA)}`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
@@ -285,9 +270,7 @@ export default function CasablancaPage() {
                   Pour PC lent, bugs Windows, virus, problème internet ou imprimante.
                 </p>
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent(
-                    "Bonjour, je suis à Casablanca et je veux le pack dépannage complet PC (250 DH)."
-                  )}`}
+                  href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_CASA)}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
@@ -432,6 +415,28 @@ export default function CasablancaPage() {
               </ul>
             </div>
           </div>
+
+          {/* Maillage interne géo */}
+          <div className="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-slate-200">
+            <p className="text-sm text-slate-600 mb-2">Navigation :</p>
+            <ul className="flex flex-wrap gap-4 text-sm">
+              <li>
+                <Link href="/" className="text-blue-700 hover:underline font-medium">
+                  ← Retour à l&apos;accueil
+                </Link>
+              </li>
+              <li>
+                <Link href="/depannage-informatique-a-domicile" className="text-blue-700 hover:underline font-medium">
+                  Dépannage à domicile Casablanca
+                </Link>
+              </li>
+              <li>
+                <Link href="/formatage-pc" className="text-blue-700 hover:underline font-medium">
+                  Formatage PC Casablanca
+                </Link>
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* Liens SEO internes */}
@@ -460,4 +465,3 @@ export default function CasablancaPage() {
     </>
   );
 }
-

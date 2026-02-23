@@ -1,45 +1,44 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
-const whatsappBase = "https://wa.me/212775237038";
+const whatsappBase = GOOGLE_BUSINESS.WHATSAPP;
+const WHATSAPP_CTA_RABAT = "Bonjour, j'ai besoin d'un dépannage informatique à Rabat. Mon problème : [décrire]";
 
 export const metadata: Metadata = {
-  title:
-    "Dépannage Informatique Rabat - Intervention à Distance en 15 min | AlloSupport.ma",
+  title: "Dépannage Informatique Rabat — Technicien à Domicile 2h | AlloSupport",
   description:
-    "Dépannage informatique et réparation PC à Rabat (Agdal, Hay Riad, Souissi, Hassan). PC lent, virus, formatage, Windows. Intervention 100% à distance en 15 minutes, dès 250 DH.",
+    "Dépannage informatique à Rabat : PC lent, virus, formatage à domicile. Agdal, Hassan, Hay Riad. 250 DH, paiement après résultat. AlloSupport.",
   alternates: {
     canonical: "https://allosupport.ma/rabat",
   },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Dépannage Informatique Rabat - Intervention à Distance en 15 min",
+    title: "Dépannage Informatique Rabat — Technicien à Domicile 2h | AlloSupport",
     description:
-      "Réparation PC et dépannage informatique à Rabat. Intervention immédiate à distance via WhatsApp, sans déplacement. Tarifs transparents dès 250 DH.",
+      "Dépannage informatique à Rabat : PC lent, virus, formatage à domicile. Agdal, Hassan, Hay Riad. 250 DH, paiement après résultat. AlloSupport.",
     url: "https://allosupport.ma/rabat",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Dépannage Informatique Rabat | AlloSupport",
-    description: "Intervention à distance 15 min, Agdal, Hay Riad, Souissi, dès 250 DH.",
+    description: "Dépannage informatique Rabat : PC lent, virus, formatage. 250 DH, paiement après résultat.",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
-  name: "Dépannage informatique Rabat - AlloSupport.ma",
-  description:
-    "Service de dépannage informatique à distance pour particuliers et PME à Rabat (Agdal, Hay Riad, Souissi, Hassan, Centre‑ville). Intervention en 15 minutes via WhatsApp.",
-  url: "https://allosupport.ma/rabat",
-  telephone: "+212 7 75 23 70 38",
+  "@type": "LocalBusiness",
+  "@id": "https://allosupport.ma/rabat",
+  name: "AlloSupport.ma — Dépannage Informatique Rabat",
+  telephone: GOOGLE_BUSINESS.PHONE,
+  priceRange: "250-500 DH",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Rabat",
     addressRegion: "Rabat-Salé-Kénitra",
-    postalCode: "10000",
     addressCountry: "MA",
   },
   geo: {
@@ -47,20 +46,25 @@ const jsonLd = {
     latitude: 34.0209,
     longitude: -6.8416,
   },
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Rabat",
-    },
-  ],
-  priceRange: "150 DH - 499 DH",
-  serviceType: "Dépannage informatique Rabat",
+  areaServed: ["Agdal", "Hassan", "Hay Riad", "Souissi", "Rabat"],
+  url: "https://allosupport.ma/rabat",
 };
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Accueil", url: "https://allosupport.ma" },
   { name: "Dépannage Informatique Rabat", url: "https://allosupport.ma/rabat" },
 ]);
+
+const QUARTIERS_RABAT = [
+  "Agdal",
+  "Hassan",
+  "Hay Riad",
+  "Souissi",
+  "Océan",
+  "Centre-ville",
+  "Aviation",
+  "Yacoub El Mansour",
+];
 
 export default function RabatPage() {
   return (
@@ -92,9 +96,7 @@ export default function RabatPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent(
-                    "Bonjour, j'ai besoin d'un dépannage informatique à Rabat (Agdal / Hay Riad / Souissi...)."
-                  )}`}
+                  href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_RABAT)}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
@@ -107,6 +109,25 @@ export default function RabatPage() {
                   Satisfait ou Remboursé
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Nos quartiers d'intervention */}
+        <section className="py-10 bg-slate-50 border-y border-slate-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Nos quartiers d&apos;intervention
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {QUARTIERS_RABAT.map((q) => (
+                <span
+                  key={q}
+                  className="bg-slate-100 rounded-full px-3 py-1 text-sm text-slate-700"
+                >
+                  {q}
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -147,9 +168,7 @@ export default function RabatPage() {
                 <strong>conseils pour éviter que le problème ne revienne</strong>.
               </p>
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent(
-                  "Bonjour, je suis à Rabat et je veux savoir comment se passe une intervention à distance."
-                )}`}
+                href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_RABAT)}`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
@@ -201,9 +220,7 @@ export default function RabatPage() {
                   virus, Wi‑Fi...
                 </p>
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent(
-                    "Bonjour, je suis à Rabat et je veux le pack dépannage complet à distance (250 DH)."
-                  )}`}
+                  href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_RABAT)}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
@@ -352,9 +369,30 @@ export default function RabatPage() {
               </ul>
             </div>
           </div>
+
+          {/* Maillage interne géo */}
+          <div className="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-slate-200">
+            <p className="text-sm text-slate-600 mb-2">Navigation :</p>
+            <ul className="flex flex-wrap gap-4 text-sm">
+              <li>
+                <Link href="/" className="text-blue-700 hover:underline font-medium">
+                  ← Retour à l&apos;accueil
+                </Link>
+              </li>
+              <li>
+                <Link href="/depannage-informatique-a-domicile" className="text-blue-700 hover:underline font-medium">
+                  Dépannage à domicile Rabat
+                </Link>
+              </li>
+              <li>
+                <Link href="/formatage-pc" className="text-blue-700 hover:underline font-medium">
+                  Formatage PC Rabat
+                </Link>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
     </>
   );
 }
-

@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BannerCTA from "@/components/BannerCTA";
 
 export const metadata: Metadata = {
   title: "Wi-Fi Lent au Maroc 2026 : 10 Solutions + Réglages Box Inwi, Maroc Telecom, Orange | AlloSupport",
@@ -546,6 +547,13 @@ export default function WiFiLentMaroc2026() {
               </ol>
               <p className="mt-4 text-emerald-100"><strong>Résultat :</strong> Dans 70% des cas, ces 3 actions suffisent !</p>
             </div>
+            <div className="mt-6">
+              <BannerCTA
+                titre="Wifi lent même après ces solutions ?"
+                sousTitre="On prend la main à distance et on règle ça en 30 min. 250 DH, paiement après résultat."
+                messageWhatsApp="Bonjour, mon wifi est toujours lent après avoir essayé plusieurs solutions. Opérateur : [nom]. Box : [modèle]."
+              />
+            </div>
           </div>
         </section>
 
@@ -589,6 +597,10 @@ export default function WiFiLentMaroc2026() {
                     <li>Sauvegardez → Redémarrez box</li>
                   </ol>
                 </div>
+                <p className="text-slate-700 text-sm mt-3">Si cette solution ne règle pas ton problème →{" "}
+                  <Link href="/depannage-informatique-a-domicile" className="text-blue-700 underline font-medium">
+                    diagnostic réseau à distance 250 DH
+                  </Link>.</p>
               </div>
             </div>
             <div className="mb-12 bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-xl border border-orange-200">
@@ -688,6 +700,10 @@ export default function WiFiLentMaroc2026() {
                 <p><strong className="text-emerald-600">✅ Solution :</strong> Vérifier couverture fibre, antenne 4G externe, répéteur + CPL.</p>
               </div>
             </div>
+            <p className="text-slate-700 text-sm mt-4">Si cette solution ne règle pas ton problème →{" "}
+              <Link href="/depannage-informatique-a-domicile" className="text-blue-700 underline font-medium">
+                diagnostic réseau à distance 250 DH
+              </Link>.</p>
           </div>
         </section>
 
@@ -725,6 +741,10 @@ export default function WiFiLentMaroc2026() {
               <h3 className="font-bold text-xl mb-3">💡 Conseil AlloSupport 2026 :</h3>
               <p>T2-T3 : <strong>TP-Link RE305</strong> (180 DH). Villas/riads : <strong>CPL</strong> (300-400 DH) ou <strong>Mesh</strong> (1,500+ DH). PME : <Link href="/services/reseau-wifi" className="text-emerald-400 hover:text-emerald-300 underline">Contactez-nous</Link></p>
             </div>
+            <p className="text-slate-700 text-sm mt-4">Si cette solution ne règle pas ton problème →{" "}
+              <Link href="/depannage-informatique-a-domicile" className="text-blue-700 underline font-medium">
+                diagnostic réseau à distance 250 DH
+              </Link>.</p>
           </div>
         </section>
 
@@ -915,6 +935,15 @@ export default function WiFiLentMaroc2026() {
             </div>
           </div>
         </div>
+
+        <section className="py-8 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <BannerCTA
+              titre="Toujours pas résolu ?"
+              messageWhatsApp="Bonjour, mon wifi reste lent malgré tout. J'ai besoin d'un technicien."
+            />
+          </div>
+        </section>
       </main>
       <Footer />
     </>

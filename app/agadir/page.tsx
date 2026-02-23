@@ -1,44 +1,44 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
-const whatsappBase = "https://wa.me/212775237038";
+const whatsappBase = GOOGLE_BUSINESS.WHATSAPP;
+const WHATSAPP_CTA_AGADIR = "Bonjour, j'ai besoin d'un dépannage informatique à Agadir. Mon problème : [décrire]";
 
 export const metadata: Metadata = {
-  title: "Dépannage PC Agadir - Réparation à Distance | AlloSupport.ma",
+  title: "Dépannage Informatique Agadir — Intervention PC à Domicile | AlloSupport",
   description:
-    "Dépannage informatique Agadir pour PME, freelances et particuliers du Souss-Massa (Talborjt, Cité Suisse, Hay Dakhla). Intervention à distance en 15 min, dès 250 DH.",
+    "Dépannage informatique à Agadir : réparation PC, virus, formatage. Technicien à domicile, 250 DH, paiement après résultat. AlloSupport Maroc.",
   alternates: {
     canonical: "https://allosupport.ma/agadir",
   },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Dépannage PC Agadir - Réparation à Distance",
+    title: "Dépannage Informatique Agadir — Intervention PC à Domicile | AlloSupport",
     description:
-      "Réparation PC à Agadir sans déplacement. Intervention rapide à distance via WhatsApp, tarifs transparents dès 250 DH.",
+      "Dépannage informatique à Agadir : réparation PC, virus, formatage. Technicien à domicile, 250 DH, paiement après résultat. AlloSupport Maroc.",
     url: "https://allosupport.ma/agadir",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dépannage PC Agadir | AlloSupport",
-    description: "Technicien informatique Agadir, intervention à distance 15 min, dès 250 DH.",
+    title: "Dépannage Informatique Agadir | AlloSupport",
+    description: "Dépannage informatique Agadir : réparation PC, virus, formatage. 250 DH, paiement après résultat.",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
-  name: "Dépannage PC Agadir - AlloSupport.ma",
-  description:
-    "Dépannage informatique à distance à Agadir pour PME, agriculture, pêche, freelances et particuliers (Talborjt, Cité Suisse, Hay Dakhla, Sonaba).",
-  url: "https://allosupport.ma/agadir",
-  telephone: "+212 7 75 23 70 38",
+  "@type": "LocalBusiness",
+  "@id": "https://allosupport.ma/agadir",
+  name: "AlloSupport.ma — Dépannage Informatique Agadir",
+  telephone: GOOGLE_BUSINESS.PHONE,
+  priceRange: "250-500 DH",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Service à domicile tous quartiers",
     addressLocality: "Agadir",
     addressRegion: "Souss-Massa",
-    postalCode: "80000",
     addressCountry: "MA",
   },
   geo: {
@@ -46,21 +46,24 @@ const jsonLd = {
     latitude: 30.4278,
     longitude: -9.5981,
   },
-  areaServed: [
-    { "@type": "City", name: "Agadir" },
-    { "@type": "AdministrativeArea", name: "Talborjt" },
-    { "@type": "AdministrativeArea", name: "Cité Suisse" },
-    { "@type": "AdministrativeArea", name: "Hay Dakhla" },
-    { "@type": "AdministrativeArea", name: "Sonaba" },
-  ],
-  priceRange: "150 DH - 499 DH",
-  serviceType: "Dépannage PC Agadir",
+  areaServed: ["Centre-ville", "Hay Mohammadi", "Tikiouine", "Anza", "Agadir"],
+  url: "https://allosupport.ma/agadir",
 };
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Accueil", url: "https://allosupport.ma" },
   { name: "Dépannage Informatique Agadir", url: "https://allosupport.ma/agadir" },
 ]);
+
+const QUARTIERS_AGADIR = [
+  "Centre-ville",
+  "Hay Mohammadi",
+  "Tikiouine",
+  "Anza",
+  "Founty",
+  "Talborjt",
+  "Dakhla",
+];
 
 export default function AgadirPage() {
   return (
@@ -91,9 +94,7 @@ export default function AgadirPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent(
-                    "Bonjour, je suis à Agadir et j'ai besoin d'un dépannage pour mon PC."
-                  )}`}
+                  href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_AGADIR)}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition"
@@ -106,6 +107,25 @@ export default function AgadirPage() {
                   Satisfait ou Remboursé
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Nos quartiers d'intervention */}
+        <section className="py-10 bg-slate-50 border-y border-slate-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Nos quartiers d&apos;intervention
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {QUARTIERS_AGADIR.map((q) => (
+                <span
+                  key={q}
+                  className="bg-slate-100 rounded-full px-3 py-1 text-sm text-slate-700"
+                >
+                  {q}
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -146,9 +166,7 @@ export default function AgadirPage() {
                 Nous intervenons partout à Agadir et dans le Souss-Massa, sans déplacement.
               </p>
               <a
-                href={`${whatsappBase}?text=${encodeURIComponent(
-                  "Bonjour, je suis à Agadir et je veux comprendre comment fonctionne votre dépannage à distance."
-                )}`}
+                href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_AGADIR)}`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 text-emerald-600 font-semibold"
@@ -197,9 +215,7 @@ export default function AgadirPage() {
                   Résolution des pannes courantes : lenteur, virus, Wi‑Fi, imprimante, compta.
                 </p>
                 <a
-                  href={`${whatsappBase}?text=${encodeURIComponent(
-                    "Bonjour, je suis à Agadir et je veux le Pack Agadir Complet (250 DH)."
-                  )}`}
+                  href={`${whatsappBase}?text=${encodeURIComponent(WHATSAPP_CTA_AGADIR)}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="block text-center text-sm font-semibold bg-emerald-500 text-white py-2 rounded-lg hover:bg-emerald-600 transition"
@@ -348,9 +364,30 @@ export default function AgadirPage() {
               </ul>
             </div>
           </div>
+
+          {/* Maillage interne géo */}
+          <div className="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-slate-200">
+            <p className="text-sm text-slate-600 mb-2">Navigation :</p>
+            <ul className="flex flex-wrap gap-4 text-sm">
+              <li>
+                <Link href="/" className="text-blue-700 hover:underline font-medium">
+                  ← Retour à l&apos;accueil
+                </Link>
+              </li>
+              <li>
+                <Link href="/depannage-informatique-a-domicile" className="text-blue-700 hover:underline font-medium">
+                  Dépannage à domicile Agadir
+                </Link>
+              </li>
+              <li>
+                <Link href="/formatage-pc" className="text-blue-700 hover:underline font-medium">
+                  Formatage PC Agadir
+                </Link>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
     </>
   );
 }
-

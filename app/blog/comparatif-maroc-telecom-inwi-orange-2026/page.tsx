@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BannerCTA from "@/components/BannerCTA";
 import { ComparatifLegalDisclaimer } from "@/components/blog/ComparatifLegalDisclaimer";
 import { BlogDisclaimer } from "@/components/blog/BlogDisclaimer";
 import { BlogDisclaimerCorrection } from "@/components/blog/BlogDisclaimerCorrection";
@@ -378,6 +379,15 @@ export default function ComparatifOperateurs2026() {
             <p className="text-slate-700">
               Pour tester votre débit actuel, consultez notre guide <Link href="/blog/wifi-lent-maroc-2026" className="text-blue-600 hover:underline">Wi-Fi lent au Maroc</Link> (section test de débit).
             </p>
+            <p className="text-slate-700 mt-4">
+              Quel que soit ton opérateur, si ta connexion reste lente après le changement, le problème vient souvent de la configuration de ta box ou de ton réseau interne. Découvre{" "}
+              <Link href="/depannage-informatique-a-domicile" className="text-blue-700 underline font-medium">
+                notre service de dépannage réseau à domicile
+              </Link>{" "}ou consulte{" "}
+              <Link href="/blog/wifi-lent-maroc-2026" className="text-blue-700 underline font-medium">
+                notre guide wifi lent au Maroc
+              </Link>.
+            </p>
           </div>
         </section>
 
@@ -413,6 +423,15 @@ export default function ComparatifOperateurs2026() {
             <p className="text-slate-600 text-sm">
               💡 <strong>CONSEIL :</strong> Vérifier disponibilité AVANT de souscrire : MT (iam.ma → Vérifier éligibilité), Inwi (inwi.ma → Couverture), Orange (orange.ma → Vérification zone).
             </p>
+          </div>
+        </section>
+
+        <section className="py-8 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <BannerCTA
+              titre="Ton opérateur te déçoit ? Le problème vient peut-être de ta box."
+              messageWhatsApp="Bonjour, j'ai un problème de connexion lente avec [opérateur]. J'ai besoin d'aide."
+            />
           </div>
         </section>
 
