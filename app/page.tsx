@@ -5,9 +5,6 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import GoogleBadge from "@/components/GoogleBadge";
-import Pricing from "@/components/Pricing";
-import Services from "@/components/Services";
-import Trust from "@/components/Trust";
 import VideoEmbed from "@/components/VideoEmbed";
 import HomeLazySections from "@/components/HomeLazySections";
 import { generateBreadcrumbSchema } from "@/lib/seo";
@@ -36,6 +33,9 @@ export const metadata: Metadata = {
   },
 };
 
+const Pricing = dynamic(() => import("@/components/Pricing"), { ssr: true });
+const Services = dynamic(() => import("@/components/Services"), { ssr: true });
+const Trust = dynamic(() => import("@/components/Trust"), { ssr: true });
 const Locations = dynamic(() => import("@/components/Locations"));
 const Footer = dynamic(() => import("@/components/Footer"));
 

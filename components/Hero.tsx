@@ -9,15 +9,24 @@ export default function Hero() {
   const [activeTab, setActiveTab] = useState<"particuliers" | "entreprises">("particuliers");
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
   const [mounted, setMounted] = useState(false);
+  const [particleCount, setParticleCount] = useState(0);
 
   useEffect(() => {
     // SSR-safe: Only access window on client side
     if (typeof window !== "undefined") {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-      setMounted(true); // Mark as mounted to enable animations
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      setWindowSize({ width: w, height: h });
+      setMounted(true);
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      setParticleCount(reducedMotion ? 0 : w < 768 ? 4 : 12);
 
       const handleResize = () => {
-        setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+        const ww = window.innerWidth;
+        const hh = window.innerHeight;
+        setWindowSize({ width: ww, height: hh });
+        const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        setParticleCount(rm ? 0 : ww < 768 ? 4 : 12);
       };
 
       window.addEventListener("resize", handleResize);
@@ -27,9 +36,9 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
-      {/* Animated Background Particles */}
+      {/* Animated Background Particles (réduit sur mobile / reduced-motion pour TBT) */}
       <div className="absolute inset-0 overflow-hidden">
-        {mounted && [...Array(20)].map((_, i) => (
+        {mounted && particleCount > 0 && [...Array(particleCount)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-primary-500/30 rounded-full"
