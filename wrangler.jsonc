@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "allosupport-ma",
+  "name": "allosupport",
   "build": {
     "command": "npm run build:worker"
   },
