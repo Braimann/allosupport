@@ -10,7 +10,7 @@ import { generateTitle, generateDescription, generateCanonical, generateServiceS
 import { MessageCircle } from "lucide-react";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Revalidate every 60 seconds (ISR)
@@ -30,7 +30,8 @@ const whatsappMessages: Record<string, string> = {
 
 // Generate metadata for each service page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const service = await getServiceBySlug(params.slug);
+  const { slug } = await params;
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     return {
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     service.metaDescription || service.heroSubtitle,
     160
   );
-  const canonical = generateCanonical(`services/${params.slug}`);
+  const canonical = generateCanonical(`services/${slug}`);
 
   return {
     title,
@@ -77,7 +78,8 @@ export async function generateStaticParams() {
 }
 
 export default async function ServicePage({ params }: PageProps) {
-  const service = await getServiceBySlug(params.slug);
+  const { slug } = await params;
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     notFound();
@@ -111,7 +113,7 @@ export default async function ServicePage({ params }: PageProps) {
         "@type": "ListItem",
         position: 3,
         name: service.heroTitle || service.title,
-        item: `https://allosupport.ma/services/${params.slug}`,
+        item: `https://allosupport.ma/services/${slug}`,
       },
     ],
   };
@@ -122,7 +124,7 @@ export default async function ServicePage({ params }: PageProps) {
     .filter((s) => s.slug !== service.slug)
     .slice(0, 3);
 
-  const whatsappMessage = whatsappMessages[params.slug] || "Bonjour AlloSupport, je suis intéressé par ce service.";
+  const whatsappMessage = whatsappMessages[slug] || "Bonjour AlloSupport, je suis intéressé par ce service.";
   const whatsappUrl = generateWhatsAppURL("212775237038", whatsappMessage, service.title);
 
   return (

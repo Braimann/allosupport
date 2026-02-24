@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { MessageCircle, Mail, Lock, AlertCircle, Loader2 } from "lucide-react";
 import { signIn, onAuthChange, isAdmin } from "@/lib/firebase/auth-service";
 
@@ -152,12 +153,12 @@ export default function AdminLoginPage() {
 
         {/* Back Link */}
         <div className="mt-6 text-center">
-          <a
+          <Link
             href="/"
             className="text-sm text-gray-500 hover:text-primary-600 transition-colors"
           >
             ← Retour au site
-          </a>
+          </Link>
         </div>
       </div>
     </div>

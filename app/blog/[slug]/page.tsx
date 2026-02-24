@@ -19,7 +19,7 @@ function getAbsoluteImageUrl(imageUrl: string | undefined): string | undefined {
 }
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Slugs qui ont une page statique dédiée (évite conflit : ne pas pré-rendre [slug] pour ces URLs)
@@ -74,8 +74,9 @@ function formatDateISO(isoDate: string): string {
   return new Date(isoDate).toISOString().split("T")[0];
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return { title: "Article non trouvé | AlloSupport.ma" };
@@ -83,7 +84,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   const title = generateTitle(post.title, "Guide Pratique");
   const description = generateDescription(post.metaDescription || post.excerpt, 160);
-  const canonical = generateCanonical(`blog/${params.slug}`);
+  const canonical = generateCanonical(`blog/${slug}`);
 
   const absoluteImageUrl = getAbsoluteImageUrl(post.imageUrl);
 
@@ -111,8 +112,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -415,7 +417,7 @@ export default function BlogPostPage({ params }: PageProps) {
             </Link>
           </div>
         </section>
-        <RelatedServices links={SLUG_RELATED_SERVICES[params.slug] ?? []} />
+        <RelatedServices links={SLUG_RELATED_SERVICES[slug] ?? []} />
       </main>
 
       <Footer />

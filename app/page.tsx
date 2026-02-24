@@ -9,6 +9,7 @@ import Pricing from "@/components/Pricing";
 import Services from "@/components/Services";
 import Trust from "@/components/Trust";
 import VideoEmbed from "@/components/VideoEmbed";
+import HomeLazySections from "@/components/HomeLazySections";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -35,10 +36,7 @@ export const metadata: Metadata = {
   },
 };
 
-const ClientPortal = dynamic(() => import("@/components/ClientPortal"), { ssr: false });
 const Locations = dynamic(() => import("@/components/Locations"));
-const Blog = dynamic(() => import("@/components/Blog"), { ssr: false });
-const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
 const Footer = dynamic(() => import("@/components/Footer"));
 
 const LoadingPlaceholder = () => (
@@ -259,18 +257,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Below the fold - lazy loaded */}
+      {/* Below the fold - lazy loaded (ClientPortal, Blog, Contact via client component for ssr: false) */}
       <Suspense fallback={<LoadingPlaceholder />}>
-        <ClientPortal />
+        <HomeLazySections />
       </Suspense>
       <Suspense fallback={<LoadingPlaceholder />}>
         <Locations />
-      </Suspense>
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <Blog />
-      </Suspense>
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <Contact />
       </Suspense>
       <Suspense fallback={null}>
         <Footer />

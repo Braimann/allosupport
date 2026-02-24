@@ -6,7 +6,7 @@ const nextConfig = {
   // Optimisations PageSpeed
   compress: true,
   poweredByHeader: false,
-  swcMinify: true,
+  // swcMinify retiré en Next.js 15 (minification SWC par défaut)
   
   // Éviter polyfills inutiles (target ES2020+)
   experimental: {
