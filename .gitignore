@@ -64,3 +64,7 @@ logs
 # Temporary files
 *.tmp
 *.temp
+
+# Cloudflare Workers / OpenNext
+.wrangler/
+.open-next/

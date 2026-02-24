@@ -10,7 +10,10 @@
     "lint": "next lint",
     "import:vision-maroc": "npx ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/import-vision-maroc-2030.ts",
     "audit:seo": "npx unlighthouse --site https://allosupport.ma --sitemap https://allosupport.ma/sitemap.xml --budget 70 --throttle --cache false --reporter json,html,csv --output-path ./unlighthouse-report",
-    "audit:seo:quick": "npx unlighthouse --site https://allosupport.ma --sitemap https://allosupport.ma/sitemap.xml --budget 70 --throttle --cache false --reporter json,html --output-path ./unlighthouse-report --max-routes 15"
+    "audit:seo:quick": "npx unlighthouse --site https://allosupport.ma --sitemap https://allosupport.ma/sitemap.xml --budget 70 --throttle --cache false --reporter json,html --output-path ./unlighthouse-report --max-routes 15",
+    "build:worker": "opennextjs-cloudflare build",
+    "dev:worker": "wrangler dev",
+    "deploy:worker": "wrangler deploy"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.66",
@@ -32,6 +35,7 @@
     "resend": "^6.9.1"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.17.0",
     "@unlighthouse/cli": "^0.10.0",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.0",
@@ -42,6 +46,7 @@
     "eslint-config-next": "14.2.15",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "wrangler": "^4.65.0"
   }
 }
