@@ -69,3 +69,29 @@ pm2 restart allosupp
 ```
 
 Rendre le script exécutable : `chmod +x deploy.sh`, puis lancer `./deploy.sh` à chaque déploiement.
+
+---
+
+## Déploiement Cloudflare Workers (OpenNext)
+
+Si tu déploies sur **Cloudflare Workers** via le tableau de bord Cloudflare (ou l’intégration Git), la commande de build doit utiliser **OpenNext**, pas le build Next.js seul.
+
+### Configuration dans le tableau de bord Cloudflare
+
+Dans **Workers & Pages** → ton projet → **Settings** → **Build configuration** :
+
+| Champ | Valeur |
+|--------|--------|
+| **Build command** | `npm run build:worker` |
+| **Build output directory** | (laisser vide ou `.open-next` selon l’interface) |
+| **Deploy command** | `npx wrangler deploy` (ou laisser la valeur par défaut si elle appelle déjà `wrangler deploy`) |
+
+**Important :** ne pas utiliser `npm run build` comme commande de build. Cette commande fait uniquement `next build` et ne produit pas le dossier `.open-next/` attendu par `wrangler deploy`. Il faut utiliser `npm run build:worker` qui exécute `opennextjs-cloudflare build`.
+
+### En local / CI
+
+```bash
+npm ci
+npm run build:worker   # produit .open-next/
+npx wrangler deploy
+```
