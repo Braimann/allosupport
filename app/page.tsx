@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       <div className="flex justify-center -mt-8 relative z-10">
-        <GoogleBadge variant="inline" inviteOnly />
+        <GoogleBadge variant="inline" inviteOnly priority />
       </div>
       <GoogleBadge variant="floating" inviteOnly />
       <Pricing />

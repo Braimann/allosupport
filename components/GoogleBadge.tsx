@@ -10,6 +10,8 @@ interface GoogleBadgeProps {
   showCTA?: boolean;
   /** N'affiche que l'invitation à laisser un avis, sans note ni nombre d'avis (évite les mensonges) */
   inviteOnly?: boolean;
+  /** LCP: précharge l'image (premier visuel above-the-fold) */
+  priority?: boolean;
   className?: string;
 }
 
@@ -17,6 +19,7 @@ export default function GoogleBadge({
   variant = "inline",
   showCTA = false,
   inviteOnly = false,
+  priority = false,
   className = "",
 }: GoogleBadgeProps) {
   const hasReviews =
@@ -163,7 +166,9 @@ export default function GoogleBadge({
         alt="Google"
         width={74}
         height={24}
+        priority={priority}
         className="h-5 w-auto"
+        sizes="74px"
       />
       <div className="flex gap-0.5">
         {[...Array(5)].map((_, i) => (

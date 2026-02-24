@@ -169,6 +169,13 @@ export default function RootLayout({
     <html lang="fr" className={poppins.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Preconnects: fonts (next/font utilise Poppins, préconnexion explicite pour LCP) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preconnects: homepage — Google logo (LCP possible), YouTube (VideoEmbed) */}
+        <link rel="preconnect" href="https://www.gstatic.com" />
+        <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+        <link rel="dns-prefetch" href="https://i.ytimg.com" />
         <link rel="preconnect" href="https://supporttechnique-84e72.firebaseapp.com" />
         <link rel="preconnect" href="https://firestore.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

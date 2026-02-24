@@ -7,12 +7,12 @@ const GA4_ID = "G-26K5EC69SQ";
 export default function GoogleAnalytics() {
   return (
     <>
-      {/* GA4 lazyOnload: chargé après contenu principal pour ne pas bloquer LCP/FCP */}
+      {/* GA4 afterInteractive: analytics critique pour le business, chargé après hydratation */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
