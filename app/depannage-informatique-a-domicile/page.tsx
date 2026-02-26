@@ -337,7 +337,7 @@ export default function DepannageInformatiqueADomicilePage() {
             <div className="grid md:grid-cols-3 gap-6">
               {TEMOIGNAGES.map((t) => (
                 <div key={t.prenom} className="bg-slate-50 rounded-xl p-5 border border-slate-200">
-                  <div className="flex items-center gap-1 mb-2" aria-label={`Note : ${t.note} sur 5`}>
+                  <div className="flex items-center gap-1 mb-2" role="img" aria-label={`Note : ${t.note} sur 5`}>
                     {Array.from({ length: t.note }).map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" aria-hidden />
                     ))}

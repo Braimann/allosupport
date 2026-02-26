@@ -447,28 +447,30 @@ export default function Header() {
             </div>
 
             {/* ============================================ */}
-            {/* DESKTOP CTA */}
+            {/* DESKTOP CTA — wrapper réserve l'espace (lg) pour éviter CLS à l'hydratation */}
             {/* ============================================ */}
-            <div className="hidden lg:flex items-center gap-3">
-              <Link
-                href="/contact"
-                className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-emerald-600 font-medium transition-colors rounded-lg hover:bg-slate-50"
-              >
-                <span className="flex items-center justify-center w-4 h-4">
-                  {mounted && <Send className="w-4 h-4" />}
-                </span>
-                <span>Contact</span>
-              </Link>
+            <div className="w-0 lg:w-[280px] flex justify-end overflow-hidden shrink-0">
+              <div className="flex items-center gap-3 opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto">
+                <Link
+                  href="/contact"
+                  className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-emerald-600 font-medium transition-colors rounded-lg hover:bg-slate-50"
+                >
+                  <span className="flex items-center justify-center w-4 h-4">
+                    {mounted && <Send className="w-4 h-4" />}
+                  </span>
+                  <span>Contact</span>
+                </Link>
 
-              <a
-                href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl"
-              >
-                <span className="flex items-center justify-center w-4 h-4">{mounted && <MessageCircle className="w-4 h-4" />}</span>
-                <span>Réponse Immédiate</span>
-              </a>
+                <a
+                  href={`${GOOGLE_BUSINESS.WHATSAPP}?text=${encodeURIComponent("Bonjour AlloSupport, j'ai une urgence informatique")}`}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl"
+                >
+                  <span className="flex items-center justify-center w-4 h-4">{mounted && <MessageCircle className="w-4 h-4" />}</span>
+                  <span>Réponse Immédiate</span>
+                </a>
+              </div>
             </div>
 
             {/* ============================================ */}

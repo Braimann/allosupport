@@ -165,7 +165,13 @@ export default function BlogDisqueDurPanneQueFaireMaroc() {
                 <div className="prose prose-lg max-w-none">
                   {/* Intro — 150 mots max */}
                   <p className="text-xl leading-relaxed mb-4">
-                    Vous allumez votre PC ce matin au Maroc, et rien. Ou pire : un bruit de cliquetis, un écran bleu, des fichiers qui ont disparu. Quand votre <strong>disque dur tombe en panne</strong>, la panique est normale — surtout si vous avez des données importantes. La bonne nouvelle : dans la majorité des cas, les données sont récupérables, à condition de ne pas commettre les erreurs classiques. Continuer à utiliser le PC, ouvrir le disque vous-même ou formater « pour remettre à zéro » peut rendre la perte définitive. Ce guide vous dit exactement quoi faire (et quoi ne pas faire) dans les premières minutes, comment distinguer une panne logicielle d&apos;une panne physique, et quels tarifs raisonnables attendre pour une <Link href="/recuperation-donnees" className="text-teal-600 font-medium hover:underline">récupération données disque dur Maroc</Link>.
+                    Vous allumez votre PC ce matin au Maroc, et rien. Ou pire : un bruit de cliquetis, un écran bleu, des fichiers qui ont disparu. Quand votre <strong>disque dur tombe en panne</strong>, la panique est normale — surtout si vous avez des données importantes. La bonne nouvelle : dans la majorité des cas, les données sont récupérables, à condition de ne pas commettre les erreurs classiques. Continuer à utiliser le PC, ouvrir le disque vous-même ou formater « pour remettre à zéro » peut rendre la perte définitive. Ce guide vous dit exactement quoi faire (et quoi ne pas faire) dans les premières minutes, comment distinguer une panne logicielle d&apos;une panne physique, et quels tarifs raisonnables attendre pour une <Link href="/recuperation-donnees" className="text-teal-600 font-medium hover:underline">récupération données disque dur Maroc</Link>. En cas de panne physique, nous vous orientons vers notre{" "}
+                  <Link
+                    href="/recuperation-donnees/laboratoire-partenaire"
+                    className="text-teal-600 font-medium hover:underline"
+                  >
+                    laboratoire partenaire certifié Recoveo
+                  </Link>.
                   </p>
 
                   {/* H2 #1 */}

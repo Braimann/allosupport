@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   MapPin,
   Receipt,
@@ -145,6 +146,33 @@ export default function Trust() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Partenaire Alliance Recoveo — aucun lien autour du bloc (règle SEO) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="flex justify-center mb-16"
+        >
+          <div className="flex flex-col items-center gap-2 p-4 border border-gray-100 rounded-xl shadow-sm max-w-[180px]">
+            <Image
+              src="/partenaires/recoveo-partenaire-alliance-maroc.webp"
+              alt="AlloSupport.ma Partenaire Alliance Recoveo — Laboratoire certifié ISO 9001 récupération données Maroc"
+              width={120}
+              height={120}
+              loading="lazy"
+              className="rounded-lg"
+            />
+            <p className="text-xs text-center text-gray-500 leading-tight">
+              Partenaire Alliance officiel
+              <br />
+              <strong className="text-gray-800">Recoveo</strong>
+              <br />
+              <span>Laboratoire certifié ISO 9001</span>
+            </p>
+          </div>
         </motion.div>
 
         {/* Social Proof Bar */}

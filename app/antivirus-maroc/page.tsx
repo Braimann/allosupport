@@ -738,7 +738,7 @@ export default function AntivirusMarocPage() {
                   key={i}
                   className="bg-white rounded-xl p-6 shadow-md border border-slate-200"
                 >
-                  <div className="flex gap-1 mb-3" aria-label={`${t.stars} étoiles`}>
+                  <div className="flex gap-1 mb-3" role="img" aria-label={`${t.stars} étoiles sur 5`}>
                     {Array.from({ length: t.stars }).map((_, j) => (
                       <Star
                         key={j}

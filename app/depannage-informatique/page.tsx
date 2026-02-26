@@ -745,7 +745,15 @@ export default function DepannageInformatiquePage() {
             </div>
             <p className="text-center mt-8 text-slate-600 max-w-xl mx-auto">
               📍 Notre service de dépannage à distance fonctionne partout au Maroc. Vous avez juste
-              besoin d&apos;une connexion Internet (WiFi ou 4G). Besoin d&apos;un{" "}
+              besoin d&apos;une connexion Internet (WiFi ou 4G). Pour les pannes matérielles (disque
+              dur endommagé), nous proposons une{" "}
+              <Link
+                href="/recuperation-donnees/laboratoire-partenaire"
+                className="text-blue-600 font-medium hover:underline"
+              >
+                récupération de données en salle blanche certifiée
+              </Link>
+              . Besoin d&apos;un{" "}
               <Link href="/casablanca" className="text-blue-600 font-medium hover:underline">
                 dépannage informatique à Casablanca
               </Link>{" "}
@@ -816,7 +824,7 @@ export default function DepannageInformatiquePage() {
                   key={i}
                   className="bg-slate-50 rounded-xl p-6 border border-slate-200"
                 >
-                  <div className="flex gap-1 mb-3" aria-label="5 étoiles">
+                  <div className="flex gap-1 mb-3" role="img" aria-label="5 étoiles sur 5">
                     {[1, 2, 3, 4, 5].map((_) => (
                       <Star
                         key={_}

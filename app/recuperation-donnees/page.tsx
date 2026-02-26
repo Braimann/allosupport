@@ -296,6 +296,37 @@ export default function RecuperationDonneesPage() {
           </div>
         </section>
 
+        {/* ========== HERO SECONDAIRE — Partenaire Alliance (lien interne uniquement) ========== */}
+        <section className="bg-gray-50 border-l-4 border-red-600 p-5 rounded-r-xl my-6 flex flex-col sm:flex-row items-center gap-5 max-w-6xl mx-auto px-4">
+          <Image
+            src="/partenaires/recoveo-partenaire-alliance-maroc.webp"
+            alt="Badge Partenaire Alliance Recoveo — Récupération données salle blanche Maroc"
+            width={90}
+            height={90}
+            loading="lazy"
+            className="rounded-md flex-shrink-0"
+          />
+          <div>
+            <p className="font-bold text-gray-900 text-base">
+              Partenaire Alliance — Laboratoire Recoveo certifié ISO 9001
+            </p>
+            <p className="text-sm text-gray-600 mt-1">
+              En cas de panne physique (disque qui claque, SSD grillé, choc), AlloSupport.ma vous
+              oriente vers son laboratoire partenaire officiel Recoveo — salle blanche ISO 5
+              classe 100, filiale à Casablanca, paiement en dirhams.
+            </p>
+            <p className="text-sm font-medium text-red-600 mt-2">
+              → Voir notre page partenariat :{" "}
+              <Link
+                href="/recuperation-donnees/laboratoire-partenaire"
+                className="underline ml-1"
+              >
+                Laboratoire certifié ISO 9001
+              </Link>
+            </p>
+          </div>
+        </section>
+
         {/* ========== VISUEL RÉCUPÉRATION DONNÉES ========== */}
         <section className="relative bg-slate-900 overflow-hidden">
           <div className="relative w-full aspect-[16/9] max-h-[480px]">
@@ -325,7 +356,14 @@ export default function RecuperationDonneesPage() {
               annoncent &quot;gratuit&quot; puis ajoutent des frais cachés. Chez
               AlloSupport, le diagnostic est à <strong>150 DH</strong>, la
               réponse arrive en 15 min sur WhatsApp et vous ne payez
-              qu&apos;après résultat.
+              qu&apos;après résultat.{" "}
+              <Link
+                href="/recuperation-donnees/laboratoire-partenaire"
+                className="text-emerald-700 font-medium hover:underline"
+              >
+                Voir notre partenariat laboratoire ISO 9001
+              </Link>
+              .
             </p>
             <div className="overflow-x-auto rounded-xl border border-slate-200">
               <table className="w-full text-left text-sm">
