@@ -1,4 +1,4 @@
-name: Deploy AlloSupport.mav1
+name: Deploy AlloSupport.ma
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
             .next/ public/ package.json package-lock.json next.config.js \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_APP_DIR }}/
 
-     - name: Restart PM2
+      - name: Restart PM2
         run: |
           ssh -i ~/.ssh/deploy_key \
               -o StrictHostKeyChecking=no \
@@ -54,7 +54,6 @@ jobs:
                  --interpreter none \
                  -- start && \
                pm2 save"
-          ENDSSH
 
       - name: Health check
         run: |
