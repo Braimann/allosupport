@@ -265,6 +265,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog/arnaque-faux-technicien-informatique-maroc`,
+      lastModified: new Date("2026-02-27"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/cgu`,
       lastModified: now,
       changeFrequency: "yearly",

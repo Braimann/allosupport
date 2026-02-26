@@ -66,17 +66,44 @@ const localBusinessSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Dépannage Informatique à Distance",
-  provider: { "@type": "LocalBusiness", name: "AlloSupport Maroc" },
-  areaServed: { "@type": "Country", name: "Morocco" },
+  name: "Dépannage Informatique à Distance Maroc",
+  description:
+    "Service de dépannage informatique professionnel à distance et à domicile au Maroc. Intervention en 15 minutes, paiement après résultat.",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "AlloSupport.ma",
+    url: "https://allosupport.ma",
+    telephone: "+212775237038",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Casablanca",
+      addressCountry: "MA",
+    },
+  },
+  areaServed: [
+    { "@type": "City", name: "Casablanca" },
+    { "@type": "City", name: "Rabat" },
+    { "@type": "City", name: "Marrakech" },
+    { "@type": "City", name: "Tanger" },
+    { "@type": "City", name: "Fès" },
+    { "@type": "City", name: "Agadir" },
+  ],
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "150",
+    highPrice: "499",
+    priceCurrency: "MAD",
+    offerCount: "6",
+  },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Services de Dépannage Informatique",
+    name: "Services de dépannage informatique",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage Virus & Malware" }, price: "150", priceCurrency: "MAD" },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Réparation PC Lent" }, price: "200", priceCurrency: "MAD" },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Installation Windows 11" }, price: "250", priceCurrency: "MAD" },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Récupération de Données" }, price: "400", priceCurrency: "MAD" },
+      { "@type": "Offer", name: "Suppression Virus", price: "150", priceCurrency: "MAD" },
+      { "@type": "Offer", name: "PC Lent Optimisation", price: "200", priceCurrency: "MAD" },
+      { "@type": "Offer", name: "Installation Windows 11", price: "250", priceCurrency: "MAD" },
+      { "@type": "Offer", name: "Récupération Données", price: "400", priceCurrency: "MAD" },
+      { "@type": "Offer", name: "Maintenance PME", price: "499", priceCurrency: "MAD" },
     ],
   },
 };
@@ -125,15 +152,47 @@ const faqSchema = {
         text: "Oui, absolument. Nous utilisons TeamViewer, un logiciel mondialement reconnu et sécurisé. Vous voyez tout ce que fait le technicien en temps réel. Vous pouvez couper la connexion à tout moment. Nous ne touchons jamais à vos fichiers personnels.",
       },
     },
+    {
+      "@type": "Question",
+      name: "Quel est le tarif d'un dépannage informatique à domicile au Maroc ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Le tarif d'un dépannage informatique à domicile au Maroc commence à 150 DH pour une intervention simple (virus, configuration). Un formatage complet avec installation Windows coûte 250 DH. Des frais de déplacement de 50 DH s'appliquent pour les interventions physiques à Casablanca, Rabat et Marrakech. Le diagnostic initial est toujours gratuit.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Peut-on faire un dépannage informatique à distance au Maroc ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. AlloSupport.ma intervient à distance via TeamViewer depuis n'importe quelle ville du Maroc (Casablanca, Rabat, Marrakech, Tanger, Fès, Agadir). L'intervention démarre en 15 minutes après votre contact WhatsApp. Vous voyez tout ce que fait le technicien en temps réel.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Dépannage informatique PME : quelles sont les options pour les entreprises ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AlloSupport.ma propose un contrat de maintenance informatique mensuel pour PME à partir de 499 DH/mois. Cela inclut support illimité, gestion des serveurs, sauvegardes automatiques et intervention prioritaire en moins de 2 heures.",
+      },
+    },
   ],
 };
 
 // ========== METADATA ==========
 export const metadata: Metadata = {
-  title:
-    "Dépannage Informatique Maroc 🛠️ Réparation PC à Distance 15min | Casablanca, Rabat",
+  title: "Dépannage Informatique Maroc — 250 DH | Intervention 15min à Distance",
   description:
-    "Dépannage informatique à distance au Maroc. Intervention en 15min via WhatsApp. PC Lent, Virus, Windows, Drivers. Casablanca, Rabat, Marrakech. Paiement après réparation. À partir de 150 DH.",
+    "Dépannage informatique à domicile et à distance au Maroc dès 150 DH. PC lent, virus, écran bleu, Windows : techniciens certifiés 7j/7. Paiement après résultat. Casablanca, Rabat, Marrakech.",
+  alternates: {
+    canonical: "https://allosupport.ma/depannage-informatique",
+  },
+  openGraph: {
+    title: "Dépannage Informatique Maroc — 250 DH | 15min à Distance",
+    description:
+      "PC lent, virus, écran bleu au Maroc ? Intervention à distance en 15min. Paiement après résultat.",
+    url: "https://allosupport.ma/depannage-informatique",
+  },
   keywords: [
     "dépannage informatique casablanca",
     "réparation pc casablanca",
@@ -148,28 +207,6 @@ export const metadata: Metadata = {
     "technicien pc maarif",
     "maintenance informatique pme",
   ],
-  openGraph: {
-    title: "Dépannage Informatique Maroc - Intervention à Distance en 15 min",
-    description:
-      "Technicien informatique à distance • PC Lent, Virus, Windows • Casablanca, Rabat, Tout le Maroc • Paiement après réparation",
-    url: "https://allosupport.ma/depannage-informatique",
-    images: [
-      {
-        url: "https://allosupport.ma/og-depannage-informatique-maroc.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dépannage informatique à distance au Maroc",
-      },
-    ],
-    locale: "fr_MA",
-    type: "website",
-  },
-  alternates: { canonical: "https://allosupport.ma/depannage-informatique" },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dépannage Informatique Maroc | AlloSupport",
-    description: "Réparation PC à distance en 15 min, Casablanca, Rabat, Marrakech. Dès 150 DH.",
-  },
   robots: {
     index: true,
     follow: true,
@@ -369,12 +406,38 @@ const FAQ_ITEMS = [
     q: "Puis-je avoir une facture pour mon entreprise ?",
     a: "Oui. Nous émettons des factures et reçus pour les particuliers et les PME. Demandez-le à votre technicien ou sur WhatsApp.",
   },
+  {
+    q: "Quel est le tarif d'un dépannage informatique à domicile au Maroc ?",
+    a: "Le tarif d'un dépannage informatique à domicile au Maroc commence à 150 DH pour une intervention simple (virus, configuration). Un formatage complet avec installation Windows coûte 250 DH. Des frais de déplacement de 50 DH s'appliquent pour les interventions physiques à Casablanca, Rabat et Marrakech. Le diagnostic initial est toujours gratuit.",
+  },
+  {
+    q: "Peut-on faire un dépannage informatique à distance au Maroc ?",
+    a: "Oui. AlloSupport.ma intervient à distance via TeamViewer depuis n'importe quelle ville du Maroc (Casablanca, Rabat, Marrakech, Tanger, Fès, Agadir). L'intervention démarre en 15 minutes après votre contact WhatsApp. Vous voyez tout ce que fait le technicien en temps réel.",
+  },
+  {
+    q: "Dépannage informatique PME : quelles sont les options pour les entreprises ?",
+    a: "AlloSupport.ma propose un contrat de maintenance informatique mensuel pour PME à partir de 499 DH/mois. Cela inclut support illimité, gestion des serveurs, sauvegardes automatiques et intervention prioritaire en moins de 2 heures.",
+  },
 ];
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Accueil", url: "https://allosupport.ma" },
   { name: "Dépannage Informatique Maroc", url: "https://allosupport.ma/depannage-informatique" },
 ]);
+
+const breadcrumbListSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://allosupport.ma" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Dépannage Informatique",
+      item: "https://allosupport.ma/depannage-informatique",
+    },
+  ],
+};
 
 export default function DepannageInformatiquePage() {
   return (
@@ -395,6 +458,10 @@ export default function DepannageInformatiquePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbListSchema) }}
+      />
 
       <Header />
 
@@ -405,10 +472,12 @@ export default function DepannageInformatiquePage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-slate-900">
-                  Dépannage Informatique à Distance au Maroc
-                  <span className="block text-blue-600 mt-2">Intervention en 15 Minutes</span>
+                  Dépannage Informatique au Maroc — À Distance & À Domicile
                 </h1>
-                <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed">
+                <p className="text-xl text-gray-600 mt-2">
+                  Intervention en 15 minutes • Dès 150 DH • Paiement après résultat
+                </p>
+                <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed mt-4">
                   Votre PC est en panne ? Ne perdez pas 2 heures à aller à Derb Ghallef.{" "}
                   <strong className="text-slate-900">
                     On répare à distance devant vos yeux.
@@ -552,7 +621,39 @@ export default function DepannageInformatiquePage() {
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">{s.title}</h3>
                   <p className="text-xl font-bold text-blue-600 mb-3">{s.price}</p>
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">{s.description}</p>
+                  <p
+                    className={
+                      "text-slate-600 text-sm leading-relaxed " +
+                      (s.title.includes("Suppression Virus") ||
+                      s.title.includes("Récupération de Données") ||
+                      s.title.includes("Maintenance PME")
+                        ? "mb-2"
+                        : "mb-6")
+                    }
+                  >
+                    {s.description}
+                  </p>
+                  {s.title.includes("Suppression Virus") && (
+                    <p className="text-sm mb-4">
+                      <Link href="/virus-ordinateur-maroc" className="text-blue-600 font-medium hover:underline">
+                        supprimer un virus au Maroc
+                      </Link>
+                    </p>
+                  )}
+                  {s.title.includes("Récupération de Données") && (
+                    <p className="text-sm mb-4">
+                      <Link href="/recuperation-donnees" className="text-blue-600 font-medium hover:underline">
+                        récupération de données Casablanca
+                      </Link>
+                    </p>
+                  )}
+                  {s.title.includes("Maintenance PME") && (
+                    <p className="text-sm mb-4">
+                      <Link href="/support-pme" className="text-blue-600 font-medium hover:underline">
+                        support informatique PME Maroc
+                      </Link>
+                    </p>
+                  )}
                   <a
                     href={s.href}
                     target="_blank"
@@ -618,12 +719,15 @@ export default function DepannageInformatiquePage() {
           </div>
         </section>
 
-        {/* ========== SECTION 5: Pricing ========== */}
-        <section className="py-16 lg:py-20 bg-slate-50">
+        {/* ========== SECTION 5: Tarifs (id pour SEO "tarif dépannage à domicile") ========== */}
+        <section id="tarifs-depannage-informatique" className="py-16 lg:py-20 bg-slate-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl lg:text-4xl font-bold text-slate-900 mb-4 text-center">
-              Tarifs Dépannage Informatique Maroc (Prix Fixes, Aucune Surprise)
+            <h2 className="text-2xl lg:text-4xl font-bold text-slate-900 mb-2 text-center">
+              Tarifs Dépannage Informatique au Maroc 2026
             </h2>
+            <p className="text-slate-600 text-center mb-8">
+              Prix fixes, aucune surprise. Paiement uniquement après résolution.
+            </p>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-12">
               <div className="bg-white rounded-2xl p-8 shadow-md border border-slate-200">
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Diagnostic Gratuit</h3>
@@ -712,6 +816,10 @@ export default function DepannageInformatiquePage() {
             <p className="text-center mt-8 text-slate-600 text-sm">
               💡 Paiement accepté : CMI (carte bancaire marocaine), Cash Plus, CIH Mobile, Virement
               bancaire
+            </p>
+            <p className="text-sm text-gray-500 mt-3 text-center max-w-xl mx-auto">
+              * Tarif dépannage informatique à domicile Casablanca : +50 DH déplacement. Diagnostic
+              gratuit partout au Maroc.
             </p>
           </div>
         </section>
@@ -919,6 +1027,16 @@ export default function DepannageInformatiquePage() {
             </div>
             <p className="text-sm text-blue-100 mb-4">
               ⚡ Ne laissez pas un PC en panne ruiner votre journée. Contactez-nous maintenant.
+            </p>
+            <p className="text-sm text-blue-100 mb-2">
+              Besoin d&apos;un{" "}
+              <Link
+                href="/depannage-informatique-a-domicile"
+                className="text-white font-semibold underline underline-offset-2 hover:text-blue-100"
+              >
+                dépannage informatique à domicile Casablanca
+              </Link>{" "}
+              ? Nous intervenons aussi sur site.
             </p>
             <p className="text-xs text-blue-200">
               Paiement : CMI • Cash Plus • CIH Mobile • Virement
