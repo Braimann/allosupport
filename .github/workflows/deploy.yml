@@ -39,18 +39,21 @@ jobs:
             .next/ public/ package.json package-lock.json next.config.js \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_APP_DIR }}/
 
-      - name: Restart PM2
+     - name: Restart PM2
         run: |
           ssh -i ~/.ssh/deploy_key \
               -o StrictHostKeyChecking=no \
-              ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'ENDSSH'
-                cd ${{ secrets.VPS_APP_DIR }}
-                npm ci --omit=dev
-                export PATH=$PATH:/usr/local/bin
-                export NVM_DIR=~/.nvm
-                source ~/.nvm/nvm.sh 2>/dev/null || true
-                pm2 restart 0 || pm2 restart 1 || pm2 start npm --name "allosupport" -- start
-                pm2 save
+              ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+              "cd ${{ secrets.VPS_APP_DIR }} && \
+               npm ci --omit=dev && \
+               export NVM_DIR=/home/brahim/.nvm && \
+               source /home/brahim/.nvm/nvm.sh && \
+               pm2 delete allosupport 2>/dev/null || true && \
+               pm2 start node_modules/.bin/next \
+                 --name 'allosupport' \
+                 --interpreter none \
+                 -- start && \
+               pm2 save"
           ENDSSH
 
       - name: Health check
