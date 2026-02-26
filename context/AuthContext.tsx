@@ -1,34 +1,21 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { User } from "firebase/auth";
-import { onAuthChange } from "@/lib/firebase/auth-service";
+import { createContext, useContext, ReactNode } from "react";
 
+/** Stub: plus de Firebase. user toujours null, loading false. */
 interface AuthContextType {
-  user: User | null;
+  user: null;
   loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  loading: true,
+  loading: false,
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthChange((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
   return (
-    <AuthContext.Provider value={{ user, loading }}>
+    <AuthContext.Provider value={{ user: null, loading: false }}>
       {children}
     </AuthContext.Provider>
   );

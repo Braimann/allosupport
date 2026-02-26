@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Wrench, Shield, Zap, Server } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getPublishedServices } from "@/lib/firebase/services-service";
+import { getAllStaticServices } from "@/lib/services-data";
 
 const CANONICAL = "https://allosupport.ma/services";
 
@@ -43,7 +43,7 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
 };
 
 export default async function ServicesPage() {
-  const services = await getPublishedServices();
+  const services = getAllStaticServices().filter((s) => s.published);
 
   return (
     <>
@@ -79,7 +79,7 @@ export default async function ServicesPage() {
                   
                   return (
                     <Link
-                      key={service.id}
+                      key={service.slug}
                       href={`/services/${service.slug}`}
                       className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >

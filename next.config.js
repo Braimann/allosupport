@@ -11,6 +11,9 @@ const nextConfig = {
   experimental: {
     // framer-motion retiré : évite "Cannot find module vendor-chunks/motion-dom.js" en dev
     optimizePackageImports: ['lucide-react'],
+    // CSS critique : inline les styles dans le <head> au lieu de <link> (réduit render-blocking ~950ms)
+    // Compatible Next.js 14 App Router + Tailwind v3. En dev : désactivé (uniquement en production).
+    inlineCss: true,
   },
   
   // Optimisation images (WebP automatique)
@@ -23,6 +26,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       { protocol: 'https', hostname: 'www.gstatic.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'i.ytimg.com', pathname: '/**' },
     ],
   },
   

@@ -11,16 +11,16 @@ const PHONE_TEL = GOOGLE_BUSINESS.PHONE.replace("+", "");
 const WHATSAPP_NUMBER = GOOGLE_BUSINESS.WHATSAPP_PHONE;
 
 export const metadata: Metadata = {
-  title: "Formatage PC Casablanca 350 DH | Officiel | AlloSupport",
+  title: "Formatage PC Casablanca 350 DH — Garantie 30 j | AlloSupport",
   description:
-    "Formatage PC Casablanca 350 DH : Windows officiel + Office + Antivirus 6 mois. À distance, sans déplacer votre PC. 7 avis 5★. ☎️ 0775237038",
+    "Formatage PC Casablanca 350 DH : Windows officiel à distance, garantie 30 j. Réponse en 15 min. Maarif, Agdal, Derb Ghallef. AlloSupport.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Formatage PC Casablanca 350 DH tout compris",
+    title: "Formatage PC Casablanca 350 DH — Garantie 30 j | AlloSupport",
     description:
-      "Formatage PC Casablanca avec Windows officiel, Office, antivirus 6 mois et sauvegarde. Service à distance, paiement après satisfaction.",
+      "Formatage PC Casablanca 350 DH : Windows officiel à distance, garantie 30 j. Réponse en 15 min. Maarif, Agdal, Derb Ghallef. AlloSupport.",
     url: PAGE_URL,
     type: "website",
   },

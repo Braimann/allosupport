@@ -8,7 +8,7 @@ import GoogleBadge from "@/components/GoogleBadge";
 import Pricing from "@/components/Pricing";
 import Services from "@/components/Services";
 import Trust from "@/components/Trust";
-import VideoEmbed from "@/components/VideoEmbed";
+import YouTubeFacade from "@/components/YouTubeFacade";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -126,11 +126,16 @@ export default function Home() {
       <Header />
       <Hero />
 
-      {/* Video proof — visible immediately, autoplay muted */}
+      {/* Video proof — façade cliquable (iframe chargée au clic = pas de 862 KiB YouTube au load) */}
       <section className="py-10 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-8">
-            <VideoEmbed />
+            <div className="w-full lg:max-w-[560px] flex-shrink-0">
+              <YouTubeFacade
+                videoId="2RPhvTiQkiI"
+                title="AlloSupport - Dépannage PC Maroc"
+              />
+            </div>
             <div className="text-center lg:text-left flex-1">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                 Voyez comment on répare votre PC à distance en 15 min

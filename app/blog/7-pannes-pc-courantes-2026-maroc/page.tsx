@@ -6,9 +6,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Les 7 Pannes PC Les Plus Courantes en 2026 au Maroc (Solutions)",
+  title: "Pannes PC Courantes Maroc 2026 — Solutions + Dépannage 250 DH",
   description:
-    "7 pannes PC courantes Maroc : PC lent, écran bleu, virus. Solutions + dépannage informatique casablanca par AlloSupport.",
+    "7 pannes PC courantes au Maroc : solutions et dépannage à distance 250 DH. PC lent, écran bleu, virus. Réponse en 15 min. AlloSupport.",
   keywords: [
     "pannes pc courantes maroc",
     "ordinateur lent 2026",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "AlloSupport Maroc" }],
   openGraph: {
-    title: "Les 7 Pannes PC Les Plus Courantes en 2026 au Maroc",
+    title: "Pannes PC Courantes Maroc 2026 — Solutions + Dépannage 250 DH",
     description:
-      "PC lent, écran bleu, virus. Solutions pro + dépannage casablanca par AlloSupport.",
+      "7 pannes PC courantes au Maroc : solutions et dépannage à distance 250 DH. PC lent, écran bleu, virus. Réponse en 15 min. AlloSupport.",
     type: "article",
     url: "https://allosupport.ma/blog/7-pannes-pc-courantes-2026-maroc",
     publishedTime: "2026-02-06T12:00:00Z",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "7 Pannes PC Courantes Maroc 2026",
-    description: "Solutions pannes pc + dépannage casablanca",
+    title: "Pannes PC Courantes Maroc 2026 — Solutions 250 DH",
+    description: "7 pannes PC courantes : solutions + dépannage à distance 250 DH. Réponse 15 min.",
     images: ["/blog/6pro.webp"],
   },
   alternates: {

@@ -19,7 +19,6 @@
     "@types/qrcode": "^1.5.6",
     "ai": "^3.0.0",
     "date-fns": "^4.1.0",
-    "firebase": "^12.8.0",
     "framer-motion": "^12.29.2",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.0.0",

@@ -8,19 +8,20 @@ import { getPublishedPosts } from "@/content/blog/posts";
 import type { BlogPost } from "@/content/blog/posts";
 
 export const metadata: Metadata = {
-  title: "Blog & Actualités IT | AlloSupport.ma",
+  title: "Blog Dépannage Informatique Maroc — Conseils, Astuces, 250 DH",
   description:
-    "Conseils d'experts en dépannage informatique à distance, astuces PC, cybersécurité et productivité pour particuliers et PME au Maroc. Articles et guides pratiques.",
+    "Blog AlloSupport : conseils dépannage informatique au Maroc. PC lent, virus, formatage. Intervention 250 DH à distance. Casablanca, Rabat.",
   keywords: [
+    "blog dépannage informatique maroc",
     "blog informatique Maroc",
-    "actualités IT",
     "conseils dépannage PC",
     "dépannage informatique distance",
     "support IT Maroc",
   ],
   openGraph: {
-    title: "Blog & Actualités IT | AlloSupport.ma",
-    description: "Conseils d'experts en dépannage informatique à distance pour particuliers et PME au Maroc.",
+    title: "Blog Dépannage Informatique Maroc — Conseils, Astuces, 250 DH",
+    description:
+      "Blog AlloSupport : conseils dépannage informatique au Maroc. PC lent, virus, formatage. Intervention 250 DH à distance. Casablanca, Rabat.",
     type: "website",
     url: "https://allosupport.ma/blog",
   },

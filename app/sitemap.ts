@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllPostsForSitemap } from "@/content/blog/posts";
-import { getAllServicesForSitemap } from "@/lib/firebase/services-service";
+import { getAllServicesForSitemap } from "@/lib/services-data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://allosupport.ma";
@@ -374,22 +374,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic service pages (Pillar Pages) - Higher priority with real dates
-  let servicePages: MetadataRoute.Sitemap = [];
-  try {
-    const services = await getAllServicesForSitemap();
-    if (services && services.length > 0) {
-      servicePages = services.map((service) => ({
-        url: `${baseUrl}/services/${service.slug}`,
-        lastModified: service.updatedAt,
-        changeFrequency: "weekly" as const,
-        priority: 0.9, // High priority for commercial pages
-      }));
-    }
-  } catch (error) {
-    console.warn("⚠️  Warning: Could not generate service sitemap. Firebase may not be configured. Error:", error);
-    // Continue without service pages - static pages will still be included
-  }
+  // Pages service (données statiques, plus de Firebase)
+  const services = getAllServicesForSitemap();
+  const servicePages: MetadataRoute.Sitemap =
+    services.length > 0
+      ? services.map((service) => ({
+          url: `${baseUrl}/services/${service.slug}`,
+          lastModified: service.updatedAt,
+          changeFrequency: "weekly" as const,
+          priority: 0.9,
+        }))
+      : [];
 
   // Blog posts (local content/blog/posts) — inclut tous les articles dont 192.168.1.1 et comparatif MT/Inwi/Orange
   const blogPosts = getAllPostsForSitemap();

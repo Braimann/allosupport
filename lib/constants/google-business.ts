@@ -22,11 +22,15 @@ export const GOOGLE_BUSINESS = {
     "Agadir",
   ],
 
-  // Contact
+  // Contact — une seule source de vérité pour tout le site
+  /** Mobile (principal) — affiché partout, WhatsApp, CTA */
   PHONE: "+212775237038",
   PHONE_FORMATTED: "07 75 23 70 38",
   WHATSAPP_PHONE: "212775237038",
   WHATSAPP: "https://wa.me/212775237038",
+  /** Fixe — 05 20 97 06 75 (Header, Footer, schema) */
+  PHONE_FIXE: "+212520970675",
+  PHONE_FIXE_FORMATTED: "05 20 97 06 75",
 } as const;
 
 export type GoogleBusinessData = typeof GOOGLE_BUSINESS;

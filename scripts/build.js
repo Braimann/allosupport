@@ -1,6 +1,5 @@
 /**
- * Build script: crée .build-in-progress pour que tous les workers Next.js
- * (qui n'héritent pas toujours des env) n'initialisent pas Firebase.
+ * Build script: lance next build avec NEXT_PHASE=phase-production-build.
  */
 const fs = require("fs");
 const path = require("path");

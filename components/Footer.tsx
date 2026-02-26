@@ -155,11 +155,11 @@ export default function Footer() {
               <div className="space-y-2">
                 {/* Téléphone fixe */}
                 <a
-                  href="tel:+212520970675"
+                  href={`tel:${GOOGLE_BUSINESS.PHONE_FIXE}`}
                   className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors duration-200 text-sm"
                 >
                   <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                  05 20 97 06 75
+                  {GOOGLE_BUSINESS.PHONE_FIXE_FORMATTED}
                 </a>
                 <a
                   href={`tel:${GOOGLE_BUSINESS.PHONE}`}

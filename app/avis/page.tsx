@@ -10,11 +10,11 @@ const hasReviews =
 
 export const metadata: Metadata = {
   title: hasReviews
-    ? `Avis Clients ⭐ ${GOOGLE_BUSINESS.RATING}/5 | AlloSupport Maroc`
-    : "Avis Clients Google | AlloSupport Maroc",
+    ? `Avis AlloSupport — Note ${GOOGLE_BUSINESS.RATING}/5 | Dépannage Maroc`
+    : "Avis AlloSupport — Témoignages Dépannage PC Maroc",
   description: hasReviews
-    ? `Découvrez les ${GOOGLE_BUSINESS.REVIEW_COUNT} avis Google de nos clients. Note ${GOOGLE_BUSINESS.RATING}/5.`
-    : "Nouvelle entreprise de dépannage informatique. Laissez le premier avis et aidez-nous à grandir!",
+    ? `Avis AlloSupport : note Google et témoignages dépannage PC à Casablanca, Rabat. Réparation à distance, paiement après résultat.`
+    : "Avis AlloSupport : dépannage informatique au Maroc. Laissez votre avis et aidez d'autres clients. Réponse 15 min, 250 DH.",
   alternates: {
     canonical: "https://allosupport.ma/avis",
   },

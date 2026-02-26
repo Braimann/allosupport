@@ -296,14 +296,14 @@ export default function Header() {
             {/* Numéros de contact : fixe (masqué sur mobile) | mobile */}
             <div className="flex items-center gap-3">
               <a
-                href="tel:+212520970675"
-                className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-emerald-400 transition-colors"
-                aria-label="Appeler AlloSupport numéro fixe"
+                href={`tel:${GOOGLE_BUSINESS.PHONE_FIXE}`}
+                className="inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-emerald-400 transition-colors"
+                aria-label="Appeler AlloSupport numéro fixe 05 20 97 06 75"
               >
                 <span className="flex items-center justify-center w-4 h-4">
                   {mounted && <Phone className="w-4 h-4" />}
                 </span>
-                05 20 97 06 75
+                {GOOGLE_BUSINESS.PHONE_FIXE_FORMATTED}
               </a>
               <span className="hidden md:inline text-gray-300 select-none">|</span>
               <a

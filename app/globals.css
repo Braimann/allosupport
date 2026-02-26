@@ -79,12 +79,13 @@
     }
   }
 
+  /* Shimmer : transform (compositing GPU) au lieu de background-position (layout thrashing) */
   @keyframes shimmer {
     0% {
-      background-position: -1000px 0;
+      transform: translateX(-100%);
     }
     100% {
-      background-position: 1000px 0;
+      transform: translateX(100%);
     }
   }
 
@@ -102,14 +103,23 @@
   }
 
   .animate-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .animate-shimmer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
     background: linear-gradient(
       90deg,
       transparent,
       rgba(255, 255, 255, 0.1),
       transparent
     );
-    background-size: 1000px 100%;
     animation: shimmer 2s infinite;
+    will-change: transform;
+    pointer-events: none;
   }
 
   /* Glassmorphism effect */

@@ -212,9 +212,9 @@ const BLOG_POSTS: BlogPost[] = [
   // 6. PC lent 10 solutions rapides Maroc 2026
   {
     slug: "pc-lent-10-solutions-rapides-maroc",
-    title: "PC Lent au Maroc ? 10 Solutions Rapides pour Accélérer Votre Ordinateur (2026)",
+    title: "PC Lent Maroc : 10 Solutions Rapides",
     excerpt: "Guide 2026 : 10 solutions rapides pour un PC lent au Maroc. SSD, RAM, nettoyage, antivirus. Intervention à distance en 15 minutes.",
-    metaDescription: "PC lent en 2026 au Maroc ? 10 solutions rapides pour accélérer votre ordinateur. SSD, RAM, nettoyage. AlloSupport intervient à distance.",
+    metaDescription: "PC lent au Maroc ? 10 solutions rapides sans formatage. Dépannage à distance 250 DH, réponse en 15 min, paiement après résultat. AlloSupport Casablanca, Rabat.",
     category: "Dépannage",
     categoryColor: "bg-blue-500",
     imageUrl: "",

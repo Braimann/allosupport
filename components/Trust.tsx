@@ -156,7 +156,7 @@ export default function Trust() {
           className="relative bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 rounded-3xl p-8 text-white overflow-hidden"
         >
           {/* Animated Background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+          <div className="absolute inset-0 overflow-hidden animate-shimmer" />
           
           <div className="grid md:grid-cols-4 gap-8 text-center relative z-10">
             {stats.map((stat, idx) => (

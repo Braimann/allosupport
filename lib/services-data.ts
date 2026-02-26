@@ -1,6 +1,28 @@
-import { ServicePage } from "./firebase/services-service";
+// Type des pages service (données statiques uniquement, plus de Firebase)
+export interface ServicePage {
+  id?: string;
+  slug: string;
+  title: string;
+  metaDescription: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  pricing: Array<{
+    name: string;
+    price: string;
+    description: string;
+    features?: string[];
+  }>;
+  content: string;
+  keywords: string[];
+  relatedBlogPosts: string[];
+  imageUrl?: string;
+  imageAlt?: string;
+  published: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
-// Static service pages data - Fallback if Firebase doesn't have them yet
+// Données statiques des pages service
 export const staticServices: ServicePage[] = [
   // ========== PARTICULIERS ==========
   {
@@ -262,4 +284,11 @@ export function getStaticServiceBySlug(slug: string): ServicePage | null {
 // Helper function to get all static services
 export function getAllStaticServices(): ServicePage[] {
   return staticServices;
+}
+
+/** Pour le sitemap : slugs + dates (plus de Firebase) */
+export function getAllServicesForSitemap(): Array<{ slug: string; updatedAt: Date }> {
+  return staticServices
+    .filter((s) => s.published)
+    .map((s) => ({ slug: s.slug, updatedAt: s.updatedAt }));
 }

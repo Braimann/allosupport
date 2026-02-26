@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Wrench, Shield, Zap } from "lucide-react";
-import { ServicePage } from "@/lib/firebase/services-service";
+import type { ServicePage } from "@/lib/services-data";
 
 interface RelatedPillarsProps {
   services: ServicePage[];

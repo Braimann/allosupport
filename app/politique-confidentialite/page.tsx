@@ -182,8 +182,8 @@ export default function PolitiqueConfidentialitePage() {
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>Chiffrement SSL/TLS pour toutes les communications</li>
-                <li>Authentification sécurisée via Firebase Authentication</li>
-                <li>Stockage sécurisé des données dans Firebase (conformité aux standards internationaux)</li>
+                <li>Authentification et accès sécurisés</li>
+                <li>Stockage des données conforme aux bonnes pratiques</li>
                 <li>Accès restreint aux données personnelles (seul le personnel autorisé)</li>
                 <li>Sauvegardes régulières et sécurisées</li>
                 <li>Surveillance continue des systèmes pour détecter les intrusions</li>
@@ -312,7 +312,6 @@ export default function PolitiqueConfidentialitePage() {
               <div className="bg-gray-50 rounded-lg p-4">
                 <h3 className="font-semibold text-gray-900 mb-2">Services tiers utilisés :</h3>
                 <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4 text-sm">
-                  <li><strong>Firebase (Google) :</strong> Hébergement, authentification, base de données</li>
                   <li><strong>Vercel :</strong> Hébergement et déploiement</li>
                   <li><strong>OpenAI :</strong> Service de chatbot (données anonymisées)</li>
                   <li><strong>Google Analytics :</strong> Analyse du trafic (si activé)</li>

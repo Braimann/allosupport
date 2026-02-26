@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingTable from "@/components/conversion/PricingTable";
 import LocalProof from "@/components/conversion/LocalProof";
-import { getServiceBySlug, getPublishedServices } from "@/lib/firebase/services-service";
+import { getStaticServiceBySlug, getAllStaticServices } from "@/lib/services-data";
 import { generateTitle, generateDescription, generateCanonical, generateServiceSchema, generateWhatsAppURL } from "@/lib/seo";
 import { MessageCircle } from "lucide-react";
 
@@ -30,7 +30,7 @@ const whatsappMessages: Record<string, string> = {
 
 // Generate metadata for each service page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const service = await getServiceBySlug(params.slug);
+  const service = getStaticServiceBySlug(params.slug);
 
   if (!service) {
     return {
@@ -68,16 +68,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-// Generate static params for all service pages
-export async function generateStaticParams() {
-  const services = await getPublishedServices();
+// Generate static params for all service pages (données statiques, plus de Firebase)
+export function generateStaticParams() {
+  const services = getAllStaticServices().filter((s) => s.published);
   return services.map((service) => ({
     slug: service.slug,
   }));
 }
 
 export default async function ServicePage({ params }: PageProps) {
-  const service = await getServiceBySlug(params.slug);
+  const service = getStaticServiceBySlug(params.slug);
 
   if (!service) {
     notFound();
@@ -116,8 +116,8 @@ export default async function ServicePage({ params }: PageProps) {
     ],
   };
 
-  // Get related services
-  const allServices = await getPublishedServices();
+  // Get related services (données statiques)
+  const allServices = getAllStaticServices().filter((s) => s.published);
   const relatedServices = allServices
     .filter((s) => s.slug !== service.slug)
     .slice(0, 3);

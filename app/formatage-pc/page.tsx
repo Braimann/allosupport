@@ -13,23 +13,23 @@ const whatsappFormatage =
   "Bonjour, je souhaite un formatage PC avec Windows officiel. Mon ordinateur est lent / infecté.";
 
 export const metadata: Metadata = {
-  title: "Formatage PC Maroc 350 DH | Windows Officiel à Distance | AlloSupport.ma",
+  title: "Formatage PC Maroc 350 DH — Garantie 30 j, à distance | AlloSupport",
   description:
-    "Formatage PC Maroc 350 DH tout compris : Windows officiel, Office, antivirus 6 mois, sauvegarde. Formatage à distance sans déplacer votre PC. Garantie 30 jours. Avito 150 DH = cracks, nous 350 DH = légal.",
+    "Formatage PC Maroc 350 DH tout compris : Windows officiel à distance, garantie 30 jours écrite. Réponse WhatsApp 15 min. Casablanca, Rabat, Salé.",
   alternates: {
     canonical: "https://allosupport.ma/formatage-pc",
   },
   openGraph: {
-    title: "Formatage PC Maroc 350 DH - Windows Officiel à Distance",
+    title: "Formatage PC Maroc 350 DH — Garantie 30 j, à distance | AlloSupport",
     description:
-      "Seul service formatage Maroc 100 % à distance avec Windows officiel et garantie 30 jours écrite. Pas de cracks, pas de fausse économie.",
+      "Formatage PC Maroc 350 DH tout compris : Windows officiel à distance, garantie 30 jours écrite. Réponse WhatsApp 15 min. Casablanca, Rabat, Salé.",
     url: "https://allosupport.ma/formatage-pc",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formatage PC Maroc 350 DH | AlloSupport",
-    description: "Windows officiel à distance, garantie 30 jours, 350 DH tout compris.",
+    title: "Formatage PC Maroc 350 DH — Garantie 30 j | AlloSupport",
+    description: "Windows officiel à distance, garantie 30 jours. Réponse 15 min. Casablanca, Rabat.",
   },
 };
 

@@ -67,7 +67,7 @@ const schemaGraph = {
       url: "https://allosupport.ma",
       logo: "https://allosupport.ma/logo.png",
       image: "https://allosupport.ma/og-image.jpg",
-      telephone: "+212520970675",
+      telephone: GOOGLE_BUSINESS.PHONE_FIXE,
       priceRange: "150 MAD - 500 MAD",
       address: {
         "@type": "PostalAddress",
@@ -114,7 +114,7 @@ const schemaGraph = {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          telephone: "+212520970675",
+          telephone: GOOGLE_BUSINESS.PHONE_FIXE,
           contactType: "customer service",
           areaServed: "MA",
           availableLanguage: ["French", "Arabic"],
@@ -168,11 +168,26 @@ export default function RootLayout({
   return (
     <html lang="fr" className={poppins.variable} suppressHydrationWarning>
       <head>
+        {/* 1. Critical CSS above-the-fold (hero) — évite FOUC avant .css */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `/* Tailwind hero: text-4xl, md:text-5xl, lg:text-6xl, font-bold, leading-tight, bg-gradient-to-r, flex, items-center, justify-center */
+.text-4xl{font-size:2.25rem;line-height:2.5rem}
+@media(min-width:768px){.md\\:text-5xl{font-size:3rem;line-height:1}}
+@media(min-width:1024px){.lg\\:text-6xl{font-size:3.75rem;line-height:1}}
+.font-bold{font-weight:700}
+.leading-tight{line-height:1.25}
+.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}
+.flex{display:flex}
+.items-center{align-items:center}
+.justify-center{justify-content:center}`,
+          }}
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="preconnect" href="https://supporttechnique-84e72.firebaseapp.com" />
-        <link rel="preconnect" href="https://firestore.googleapis.com" />
+        {/* 2. dns-prefetch uniquement (pas preconnect) : GTM et Clarity chargés après LCP, pas above-the-fold */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        {/* 3. Pas de preconnect Firebase/ytimg/firestore — non utilisés above-the-fold ; next/font sert les polices en même origine (pas de gstatic). Si polices CDN externes : preconnect + crossOrigin="anonymous" sur fonts.gstatic.com */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -188,18 +203,6 @@ export default function RootLayout({
         {/* Analytics chargés après le contenu principal (lazyOnload) pour ne pas bloquer LCP/FCP */}
         <GoogleAnalytics />
         <MicrosoftClarity />
-        {/* FIREBASE AUTH DÉSACTIVÉ - Performance optimization - Réactivation: décommenter ci-dessous et réimporter lazy, Suspense, AuthProviderLazy, ErrorBoundary
-        <ErrorBoundary fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
-          <Suspense fallback={<>{children}<StickyWhatsApp /><WhatsAppFloat /><ScrollTracker /></>}>
-            <AuthProviderLazy>
-              {children}
-              <StickyWhatsApp />
-              <WhatsAppFloat />
-              <ScrollTracker />
-            </AuthProviderLazy>
-          </Suspense>
-        </ErrorBoundary>
-        */}
       </body>
     </html>
   );
