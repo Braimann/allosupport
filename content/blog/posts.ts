@@ -535,6 +535,34 @@ const BLOG_POSTS: BlogPost[] = [
       "L'article complet est sur cette page. <a href=\"/blog/windows-11-redemarrage-boucle-kb5077181-maroc-2026\" class=\"text-primary-600 hover:underline\">Lire le guide KB5077181</a> · <a href=\"/depannage-informatique\" class=\"text-primary-600 hover:underline\">Dépannage informatique</a> · <a href=\"/blog/7-pannes-pc-courantes-2026-maroc\" class=\"text-primary-600 hover:underline\">7 pannes PC courantes</a>.",
     ]),
   },
+  // 22. Récupération données clé USB, carte SD et SSD Maroc (page dédiée app/blog/recuperation-donnees-cle-usb-carte-sd-ssd-maroc)
+  {
+    slug: "recuperation-donnees-cle-usb-carte-sd-ssd-maroc",
+    title: "Récupération de Données sur Clé USB, Carte SD et SSD au Maroc",
+    excerpt:
+      "Fichiers perdus sur clé USB, carte SD ou SSD ? Guide complet pour récupérer vos données au Maroc : distance ou laboratoire. Diagnostic gratuit.",
+    metaDescription:
+      "Vous avez perdu des fichiers sur une clé USB, une carte SD ou un SSD ? Récupérez vos données au Maroc : intervention à distance ou laboratoire. Diagnostic gratuit sur WhatsApp.",
+    category: "Récupération de Données",
+    categoryColor: "bg-slate-700",
+    imageUrl: "",
+    imageAlt: "Récupération données clé USB carte SD SSD Maroc 2026",
+    keywords: [
+      "récupération données clé USB maroc",
+      "récupérer fichiers carte SD maroc",
+      "SSD données perdues maroc",
+      "récupération carte mémoire maroc 2026",
+      "clé USB formatée récupération maroc",
+    ],
+    author: "AlloSupport.ma",
+    readTime: "6 min de lecture",
+    publishedAt: "2026-03-07",
+    updatedAt: "2026-03-07",
+    content: toHtml([
+      "Votre clé USB n'est plus reconnue ? Vos photos ont disparu de votre carte SD après un formatage accidentel ? Ce guide explique comment récupérer vos données sur supports amovibles au Maroc : récupération à distance (dès 200 Dhs) ou laboratoire pour les pannes physiques. Diagnostic gratuit sur WhatsApp.",
+      "L'article complet est sur cette page. <a href=\"/blog/recuperation-donnees-cle-usb-carte-sd-ssd-maroc\" class=\"text-primary-600 hover:underline\">Guide récupération clé USB carte SD SSD Maroc</a> · <a href=\"/recuperation-donnees\" class=\"text-primary-600 hover:underline\">Récupération données</a>.",
+    ]),
+  },
 ];
 
 export function getPublishedPosts(): BlogPost[] {

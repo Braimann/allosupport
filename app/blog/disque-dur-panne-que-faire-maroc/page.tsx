@@ -318,7 +318,10 @@ export default function BlogDisqueDurPanneQueFaireMaroc() {
                     </table>
                   </div>
                   <p className="mb-6 text-gray-700">
-                    À titre de comparaison : <strong>Stellar.ma</strong> facture environ 134 € (1 400 DH) pour le diagnostic seul. À Derb Ghallef, pas de garantie ni de salle blanche — le risque de destruction du disque est réel. Pour une <strong>récupération données disque dur en panne maroc</strong> sérieuse et à prix contenu, le diagnostic puis l&apos;orientation (à distance ou labo) restent la meilleure option.
+                    À titre de comparaison : <strong>Stellar.ma</strong> facture environ 134 € (1 400 DH) pour le diagnostic seul. À Derb Ghallef, pas de garantie ni de salle blanche — le risque de destruction du disque est réel. Pour une <strong>récupération données disque dur en panne maroc</strong> sérieuse et à prix contenu, le diagnostic puis l&apos;orientation (à distance ou labo) restent la meilleure option. Pour les supports amovibles comme les clés USB ou les SSD, consultez notre guide complet sur la{" "}
+                  <Link href="/blog/recuperation-donnees-cle-usb-carte-sd-ssd-maroc" className="text-teal-600 font-medium hover:underline">
+                    récupération de données clé USB, carte SD et SSD au Maroc
+                  </Link>.
                   </p>
 
                   {/* H2 #6 */}

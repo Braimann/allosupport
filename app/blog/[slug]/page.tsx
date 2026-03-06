@@ -32,6 +32,7 @@ const STATIC_BLOG_SLUGS = [
   "installation-windows-11-maroc-2026-prix",
   "meilleur-antivirus-gratuit-maroc-2026-comparatif",
   "pc-portable-sans-windows-freedos-maroc",
+  "recuperation-donnees-cle-usb-carte-sd-ssd-maroc",
 ];
 
 const SLUG_RELATED_SERVICES: Record<string, Array<{ href: string; label: string }>> = {

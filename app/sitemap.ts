@@ -271,6 +271,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog/recuperation-donnees-cle-usb-carte-sd-ssd-maroc`,
+      lastModified: new Date("2026-03-07"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/cgu`,
       lastModified: now,
       changeFrequency: "yearly",

@@ -633,6 +633,10 @@ export default function RecuperationDonneesPage() {
                   href: "/blog/recuperation-donnees-disque-dur-maroc",
                   label: "Guide récupération données disque dur Maroc",
                 },
+                {
+                  href: "/blog/recuperation-donnees-cle-usb-carte-sd-ssd-maroc",
+                  label: "Guide complet : récupérer vos données sur clé USB, carte SD et SSD →",
+                },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
