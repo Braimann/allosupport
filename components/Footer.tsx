@@ -83,22 +83,12 @@ const columnEntreprise: Array<{ href: string; label: string }> = [
   { href: "/operateurs-telecom", label: "Opérateurs télécom" },
 ];
 
-const NOFOLLOW_PATHS = new Set([
-  "/mentions-legales",
-  "/cgv",
-  "/cgu",
-  "/non-responsabilite",
-  "/politique-confidentialite",
-]);
-
 function FooterNavColumn({
   title,
   links,
-  nofollowPaths,
 }: {
   title: string;
   links: Array<{ href: string; label: string }>;
-  nofollowPaths?: Set<string>;
 }) {
   return (
     <nav aria-label={title}>
@@ -106,28 +96,16 @@ function FooterNavColumn({
         {title}
       </h3>
       <ul className="space-y-2">
-        {links.map(({ href, label }) =>
-          nofollowPaths?.has(href) ? (
-            <li key={href}>
-              <a
-                href={href}
-                rel="nofollow"
-                className="text-gray-400 hover:text-emerald-400 transition-colors duration-200"
-              >
-                {label}
-              </a>
-            </li>
-          ) : (
-            <li key={href}>
-              <Link
-                href={href}
-                className="text-gray-400 hover:text-emerald-400 transition-colors duration-200"
-              >
-                {label}
-              </Link>
-            </li>
-          )
-        )}
+        {links.map(({ href, label }) => (
+          <li key={href}>
+            <Link
+              href={href}
+              className="text-gray-400 hover:text-emerald-400 transition-colors duration-200"
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
@@ -143,7 +121,7 @@ export default function Footer() {
           <FooterNavColumn title="Guides & Blog" links={columnGuidesBlog} />
           <FooterNavColumn title="Villes" links={columnVilles} />
           <FooterNavColumn title="Professionnels" links={columnProfessionnels} />
-          <FooterNavColumn title="Entreprise" links={columnEntreprise} nofollowPaths={NOFOLLOW_PATHS} />
+          <FooterNavColumn title="Entreprise" links={columnEntreprise} />
         </div>
 
         {/* Bloc Logo + Contact + Social (full width sous les colonnes) */}
