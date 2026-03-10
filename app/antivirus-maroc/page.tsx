@@ -285,7 +285,7 @@ export default function AntivirusMarocPage() {
               Pourquoi Choisir un Antivirus Payant au Maroc ?
             </h2>
             <p className="text-slate-600 mb-4">
-              Les antivirus gratuits offrent une protection limitée et exposent vos données (banque, documents) aux ransomwares et au phishing. Une licence officielle Kaspersky ou Bitdefender vous protège à 100 %, avec mises à jour permanentes et support en français et en Darija.
+              Les antivirus gratuits offrent une protection limitée et exposent vos <Link href="/recuperation-donnees" className="text-blue-600 font-medium hover:underline">données</Link> (banque, documents) aux ransomwares et au phishing. Une licence officielle Kaspersky ou Bitdefender vous protège à 100 %, avec mises à jour permanentes et support en français et en Darija.
             </p>
             <p className="text-slate-600">
               Que vous soyez à Casablanca, Rabat, Marrakech ou ailleurs au Maroc, l&apos;installation à distance en 15 minutes vous évite tout déplacement. Prix en Dirhams, paiement sécurisé CMI ou après installation.
@@ -320,8 +320,8 @@ export default function AntivirusMarocPage() {
                 <div className="text-2xl mb-2" aria-hidden>👾</div>
                 <h3 className="font-bold text-slate-900 mb-2">Malware Ralentit Votre PC</h3>
                 <p className="text-slate-600 text-sm">
-                  Virus et logiciels malveillants consomment vos ressources. Votre PC rame sans
-                  raison ? Souvent un malware.
+                  <Link href="/blog/comment-supprimer-virus-pc-maroc-gratuit" className="text-blue-600 font-medium hover:underline">Virus</Link> et logiciels malveillants consomment vos ressources. Votre PC rame sans
+                  raison ? Consultez notre <Link href="/blog/pc-lent-10-solutions-rapides-maroc" className="text-blue-600 font-medium hover:underline">guide 10 solutions</Link> ; souvent un malware.
                 </p>
               </div>
               <div className="p-6 rounded-xl border-2 border-red-200 bg-red-50/50">
@@ -336,6 +336,8 @@ export default function AntivirusMarocPage() {
             <p className="text-center mt-8 text-slate-700 font-medium">
               Ne prenez pas de risques. Protégez-vous maintenant avec une{" "}
               <strong className="text-slate-900">licence officielle</strong>.
+              Pour les pannes PC fréquentes au Maroc, consultez notre{" "}
+              <Link href="/blog/pannes-pc-frequentes-maroc-solutions" className="text-blue-600 font-medium hover:underline">guide</Link>.
             </p>
           </div>
         </section>
@@ -664,6 +666,9 @@ export default function AntivirusMarocPage() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-4 text-center text-slate-700 text-sm">
+                En cas de virus grave, un <Link href="/formatage-pc" className="text-blue-600 font-medium hover:underline">formatage</Link> peut s&apos;avérer nécessaire.
+              </p>
               <p className="mt-6 text-center font-bold text-slate-900">
                 Ne risquez pas vos données pour 300 MAD. Achetez une licence officielle.
               </p>
@@ -812,6 +817,41 @@ export default function AntivirusMarocPage() {
                 </details>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ========== Nos guides sur ce sujet ========== */}
+        <section className="py-12 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-xl font-bold text-slate-900 mb-6">
+              Nos guides sur ce sujet
+            </h2>
+            <ul className="grid sm:grid-cols-3 gap-4">
+              <li>
+                <Link
+                  href="/blog/comment-supprimer-virus-pc-maroc-gratuit"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  Comment supprimer un virus PC au Maroc gratuitement
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/pc-lent-10-solutions-rapides-maroc"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  PC lent : 10 solutions rapides au Maroc
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/pannes-pc-frequentes-maroc-solutions"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  7 pannes PC fréquentes au Maroc et leurs solutions
+                </Link>
+              </li>
+            </ul>
           </div>
         </section>
 

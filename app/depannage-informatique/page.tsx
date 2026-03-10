@@ -478,7 +478,7 @@ export default function DepannageInformatiquePage() {
                   Intervention en 15 minutes • Dès 150 DH • Paiement après résultat
                 </p>
                 <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed mt-4">
-                  Votre PC est en panne ? Ne perdez pas 2 heures à aller à Derb Ghallef.{" "}
+                  Votre PC est en <Link href="/blog/pannes-pc-frequentes-maroc-solutions" className="text-blue-600 font-medium hover:underline">panne</Link> ? Ne perdez pas 2 heures à aller à Derb Ghallef.{" "}
                   <strong className="text-slate-900">
                     On répare à distance devant vos yeux.
                   </strong>{" "}
@@ -670,7 +670,23 @@ export default function DepannageInformatiquePage() {
               <Link href="/antivirus-maroc" className="text-blue-600 font-medium hover:underline">
                 antivirus professionnel
               </Link>{" "}
-              pour éviter les réinfections.
+              pour éviter les réinfections. PC lent ? Consultez notre{" "}
+              <Link href="/blog/pc-lent-10-solutions-rapides-maroc" className="text-blue-600 font-medium hover:underline">
+                guide 10 solutions rapides
+              </Link>
+              . Virus à supprimer vous-même ?{" "}
+              <Link href="/blog/comment-supprimer-virus-pc-maroc-gratuit" className="text-blue-600 font-medium hover:underline">
+                Guide gratuit
+              </Link>
+              . Formatage ou installation Windows 11 ? Voir notre{" "}
+              <Link href="/formatage-pc" className="text-blue-600 font-medium hover:underline">
+                formatage PC
+              </Link>{" "}
+              et notre{" "}
+              <Link href="/blog/installation-windows-11-maroc-2026-prix" className="text-blue-600 font-medium hover:underline">
+                guide Windows 11
+              </Link>
+              .
             </p>
           </div>
         </section>
@@ -993,6 +1009,41 @@ export default function DepannageInformatiquePage() {
               </Link>
               .
             </p>
+          </div>
+        </section>
+
+        {/* ========== Nos guides sur ce sujet ========== */}
+        <section className="py-12 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-xl font-bold text-slate-900 mb-6">
+              Nos guides sur ce sujet
+            </h2>
+            <ul className="grid sm:grid-cols-3 gap-4">
+              <li>
+                <Link
+                  href="/blog/pannes-pc-frequentes-maroc-solutions"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  7 pannes PC fréquentes au Maroc et leurs solutions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/pc-lent-10-solutions-rapides-maroc"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  PC lent : 10 solutions rapides au Maroc
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/comment-supprimer-virus-pc-maroc-gratuit"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  Comment supprimer un virus PC au Maroc gratuitement
+                </Link>
+              </li>
+            </ul>
           </div>
         </section>
 

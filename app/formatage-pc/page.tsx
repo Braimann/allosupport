@@ -105,7 +105,7 @@ export default function FormatagePcPage() {
                 Formatage PC Maroc 350 DH : Windows Officiel, Garantie 30 Jours
               </h1>
               <p className="text-lg text-slate-100 mb-4">
-                Quand un simple nettoyage ne suffit plus, le <strong className="text-sky-200">formatage PC Maroc</strong> avec Windows officiel permet de repartir sur une base propre et rapide. Sauvegarde de vos données, réinstallation légale, antivirus 6 mois : tout compris en un forfait unique.
+                Quand un simple nettoyage ne suffit plus, le <strong className="text-sky-200">formatage PC Maroc</strong> avec Windows officiel permet de repartir sur une base propre et rapide. Sauvegarde de vos données, réinstallation légale, <Link href="/antivirus-maroc" className="text-emerald-600 hover:underline">antivirus</Link> 6 mois : tout compris en un forfait unique.
               </p>
               <p className="text-sm text-slate-300 mb-6">
                 Avito 150 DH = cracks et zéro garantie. AlloSupport 350 DH = <strong className="text-emerald-300">Windows officiel + formatage à distance + garantie 30 jours écrite</strong>. Seul service formatage Maroc à combiner 100 % à distance, licence légale et engagement écrit.
@@ -145,7 +145,7 @@ export default function FormatagePcPage() {
               Pourquoi formater votre PC au Maroc en 2026 ?
             </h2>
             <p className="text-gray-700 mb-4 leading-relaxed">
-              Un <strong>formatage PC Maroc</strong> bien fait remet votre ordinateur à zéro : plus de ralentissements, plus de virus résiduels, plus de fichiers temporaires qui s&apos;accumulent. En 2026, une étude terrain montre que <strong>73 % des PC au Maroc</strong> sont ralentis par des logiciels pirates ou plus de <strong>20 Go de fichiers temporaires</strong> et de mises à jour inachevées. Quand votre machine devient ce qu&apos;on appelle en darija un <strong>&quot;pc t9il&quot;</strong> — un PC lourd qui rame à chaque clic —, le formatage avec <strong>Windows officiel</strong> reste la solution la plus propre et la plus durable.
+              Un <strong>formatage PC Maroc</strong> bien fait remet votre ordinateur à zéro : plus de <Link href="/blog/pc-lent-10-solutions-rapides-maroc" className="text-emerald-600 hover:underline">ralentissements</Link>, plus de <Link href="/blog/comment-supprimer-virus-pc-maroc-gratuit" className="text-emerald-600 hover:underline">virus</Link> résiduels, plus de fichiers temporaires qui s&apos;accumulent. En 2026, une étude terrain montre que <strong>73 % des PC au Maroc</strong> sont ralentis par des logiciels pirates ou plus de <strong>20 Go de fichiers temporaires</strong> et de mises à jour inachevées. Quand votre machine devient ce qu&apos;on appelle en darija un <strong>&quot;pc t9il&quot;</strong> — un PC lourd qui rame à chaque clic —, le formatage avec <strong>Windows officiel</strong> reste la solution la plus propre et la plus durable.
             </p>
             <p className="text-gray-700 mb-4 leading-relaxed">
               Beaucoup de Marocains se tournent vers des annonces à 150 DH sur Avito ou des boutiques à Derb Ghallef pour un &quot;formatage casa&quot; ou un formatage PC pas cher. Le risque : recevoir une installation crackée. Les cracks exposent votre PC aux malwares, bloquent les mises à jour Microsoft et peuvent mener à une désactivation de Windows sans préavis. Ce n&apos;est pas une économie, c&apos;est une fausse bonne affaire. Pour un <strong>formatage à distance</strong> sérieux, avec une vraie licence et une garantie écrite, il faut viser un prix honnête. AlloSupport propose un forfait <strong>formatage PC Maroc 350 DH</strong> tout compris : Windows 10 ou 11 officiel, Office ou LibreOffice, antivirus 6 mois, sauvegarde de vos documents et garantie 30 jours. Vous payez après avoir validé le résultat — aucun frais caché.
@@ -222,7 +222,7 @@ export default function FormatagePcPage() {
               Ce que vous recevez avec AlloSupport 350 DH
             </h2>
             <p className="text-gray-700 mb-4 leading-relaxed">
-              Le forfait <strong>formatage PC Maroc 350 DH</strong> est pensé pour les particuliers et freelances qui veulent un PC propre, rapide et conforme sans perdre leurs données. Dès la prise de contact, nous planifions une <strong>sauvegarde</strong> de vos documents importants (Bureau, Documents, Photos) vers Google Drive ou un disque externe. Ensuite : réinstallation complète avec <strong>Windows 10 ou 11 officiel</strong>, activé avec une licence légale. Aucun crack, aucun activateur dangereux — vos mises à jour Windows restent actives et votre ordinateur reste conforme aux normes Microsoft.
+              Le forfait <strong>formatage PC Maroc 350 DH</strong> est pensé pour les particuliers et freelances qui veulent un PC propre, rapide et conforme sans perdre leurs données. Dès la prise de contact, nous planifions une <strong>sauvegarde</strong> de vos documents importants (Bureau, Documents, Photos) vers Google Drive ou un disque externe. Ensuite : réinstallation complète avec <strong>Windows 10 ou 11 officiel</strong>, activé avec une licence légale. Aucun crack, aucun activateur dangereux — vos mises à jour Windows restent actives et votre ordinateur reste conforme aux normes Microsoft. Pour toutes les étapes détaillées, consultez notre <Link href="/blog/formatage-pc-reinstallation-windows-maroc-guide" className="text-emerald-600 hover:underline">guide formatage PC complet</Link>.
             </p>
             <p className="text-gray-700 mb-4 leading-relaxed">
               Nous installons <strong>Office</strong> (Microsoft 365 si vous avez une licence) ou <strong>LibreOffice</strong> gratuit, selon votre besoin. Un <strong>antivirus</strong> premium est fourni pour 6 mois avec mises à jour automatiques. Navigateurs (Chrome, Edge), extensions utiles et optimisation du démarrage sont inclus : votre PC démarre en quelques secondes au lieu de plusieurs minutes. Nettoyage du registre et des fichiers temporaires, tests de stabilité : tout est fait pour que le <strong>formatage à distance</strong> donne un résultat durable.
@@ -261,6 +261,41 @@ export default function FormatagePcPage() {
             <p className="mt-4 text-sm text-gray-600">
               Réponse sous 15 minutes par WhatsApp pour planifier votre formatage PC Maroc. Casablanca, Rabat, Marrakech, Fès, Agadir et tout le Maroc.
             </p>
+          </div>
+        </section>
+
+        {/* Nos guides sur ce sujet */}
+        <section className="py-12 bg-slate-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-xl font-bold text-slate-900 mb-6">
+              Nos guides sur ce sujet
+            </h2>
+            <ul className="grid sm:grid-cols-3 gap-4">
+              <li>
+                <Link
+                  href="/blog/formatage-pc-reinstallation-windows-maroc-guide"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  Formatage PC &amp; Réinstallation Windows au Maroc : Guide 2026
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/installation-windows-11-maroc-2026-prix"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  Installation Windows 11 au Maroc : prix et guide 2026
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/pc-lent-10-solutions-rapides-maroc"
+                  className="block bg-white border border-slate-200 rounded-xl p-4 hover:border-emerald-300 hover:shadow-md transition text-slate-800 font-medium text-sm"
+                >
+                  PC lent : 10 solutions rapides au Maroc
+                </Link>
+              </li>
+            </ul>
           </div>
         </section>
 
