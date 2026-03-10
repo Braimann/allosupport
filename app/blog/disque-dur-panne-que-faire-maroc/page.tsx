@@ -10,9 +10,9 @@ const ogImageUrl = "https://allosupport.ma/og-blog-disque-dur.png";
 const ogImageAlt = "disque dur panne maroc que faire";
 
 export const metadata: Metadata = {
-  title: "Disque Dur en Panne au Maroc — Que Faire ? Guide Urgence 2026",
+  title: "Disque Dur en Panne au Maroc : Que Faire ? Solutions & Récupération 2026",
   description:
-    "Disque dur tombe en panne au Maroc ? Ne rien toucher. Guide urgence : cliquetis, PC bloqué, données à récupérer. AlloSupport répond en 15 min.",
+    "Votre disque dur ne répond plus ? Cliquements, PC ne démarre pas, données inaccessibles : diagnostic et récupération à distance au Maroc dès 150 DH.",
   keywords: [
     "disque dur tombe en panne maroc",
     "disque dur fait du bruit maroc",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     canonical: canonicalUrl,
   },
   openGraph: {
-    title: "Disque Dur en Panne au Maroc — Que Faire ? Guide Urgence 2026",
+    title: "Disque Dur en Panne au Maroc : Que Faire ? Solutions & Récupération 2026",
     description:
-      "Disque dur tombe en panne au Maroc ? Ne rien toucher. Guide urgence : cliquetis, PC bloqué, données à récupérer. AlloSupport répond en 15 min.",
+      "Votre disque dur ne répond plus ? Cliquements, PC ne démarre pas, données inaccessibles : diagnostic et récupération à distance au Maroc dès 150 DH.",
     type: "article",
     publishedTime: "2026-02-22T10:00:00+00:00",
     url: canonicalUrl,

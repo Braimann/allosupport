@@ -6,13 +6,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: "Comment Supprimer Virus PC Maroc Gratuit 2026 - 3 Méthodes | AlloSupport",
-  description: "Guide complet 2026 pour supprimer virus, malware gratuitement au Maroc. 3 méthodes testées (Windows Defender, Malwarebytes). Intervention pro 250 DH si échec.",
+  title: "Supprimer un Virus PC au Maroc : Guide Gratuit 2026 (Sans Perte de Données)",
+  description: "PC infecté au Maroc ? Supprimez virus, malwares et spywares gratuitement en 2026. Guide étape par étape ou technicien à distance dès 150 DH.",
   keywords: "supprimer virus pc maroc, nettoyage virus gratuit casablanca, malware removal maroc, pc infecté rabat, enlever pubs intempestives",
   alternates: { canonical: "https://allosupport.ma/blog/comment-supprimer-virus-pc-maroc-gratuit" },
   openGraph: {
-    title: "Supprimer Virus PC Maroc Gratuit - Guide 2026",
-    description: "Guide complet 2026 pour supprimer virus, malware gratuitement au Maroc. 3 méthodes testées (Windows Defender, Malwarebytes). Intervention pro 250 DH si échec.",
+    title: "Supprimer un Virus PC au Maroc : Guide Gratuit 2026 (Sans Perte de Données)",
+    description: "PC infecté au Maroc ? Supprimez virus, malwares et spywares gratuitement en 2026. Guide étape par étape ou technicien à distance dès 150 DH.",
     images: [{ url: "/images/blog/supprimer-virus-maroc-og.jpg", width: 1200, height: 630 }],
     type: "article",
     locale: "fr_MA"
@@ -118,7 +118,7 @@ export default function VirusRemovalGuide() {
               c'est un problème très courant.
             </p>
             <p>
-              La bonne nouvelle ? Dans <strong>95% des cas</strong>, un nettoyage complet est possible gratuitement et <strong>sans formatage</strong>. 
+              La bonne nouvelle ? Dans <strong>95% des cas</strong>, un nettoyage complet est possible gratuitement et <strong>sans <Link href="/formatage-pc" className="text-emerald-600 hover:underline font-medium">formatage</Link></strong>. 
               Ce guide vous présente 3 méthodes testées et approuvées sur des centaines de PC marocains pour vous débarrasser définitivement des virus.
             </p>
 
@@ -127,7 +127,7 @@ export default function VirusRemovalGuide() {
               <div className="flex items-start gap-4">
                 <AlertTriangle className="h-6 w-6 text-amber-600 shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-lg font-bold text-amber-900 mb-2">Le virus résiste ou vous avez peur de perdre vos données ?</h3>
+                  <h3 className="text-lg font-bold text-amber-900 mb-2">Le virus résiste ou vous avez peur de perdre vos <Link href="/recuperation-donnees" className="text-emerald-600 hover:underline font-medium">données</Link> ?</h3>
                   <p className="text-amber-800 mb-3">
                     Notre équipe d'experts intervient à distance en 15 minutes. Nettoyage garanti satisfait ou remboursé.
                   </p>
@@ -376,7 +376,7 @@ export default function VirusRemovalGuide() {
               {/* Card 4 */}
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <Shield className="h-8 w-8 text-emerald-500 mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">4. Installer un bon antivirus</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">4. Installer un bon <Link href="/antivirus-maroc" className="text-emerald-600 hover:underline font-medium">antivirus</Link></h3>
                 <p className="text-slate-600 text-sm mb-4">
                   Windows Defender est bien, mais pas infaillible. Consultez notre comparatif pour choisir la meilleure protection gratuite.
                 </p>
@@ -460,7 +460,7 @@ export default function VirusRemovalGuide() {
                   <ChevronDown className="h-5 w-5 text-slate-400 group-open:rotate-180 transition-transform" />
                 </summary>
                 <div className="p-5 pt-0 text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
-                  Si les virus sont partis mais que la lenteur persiste, le problème peut être matériel (disque dur fatigué, manque de RAM) ou logiciel (trop de programmes au démarrage). Consultez notre guide d'optimisation ou notre service de dépannage à distance.
+                  Si les virus sont partis mais que la lenteur persiste, le problème peut être matériel (disque dur fatigué, manque de RAM) ou logiciel (trop de programmes au démarrage). Consultez notre guide d'optimisation ou notre service de <Link href="/depannage-informatique" className="text-emerald-600 hover:underline font-medium">dépannage</Link> à distance.
                 </div>
               </details>
 
@@ -525,6 +525,25 @@ export default function VirusRemovalGuide() {
               </details>
             </div>
           </section>
+
+          {/* À lire aussi */}
+          <div className="mt-10 p-5 bg-slate-50 border border-slate-200 rounded-xl mb-14">
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">
+              À lire aussi
+            </p>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/services/cybersecurite" className="text-emerald-600 hover:underline font-medium text-sm">
+                  Cybersécurité et protection PME
+                </Link>
+              </li>
+              <li>
+                <Link href="/virus-ordinateur-maroc" className="text-emerald-600 hover:underline font-medium text-sm">
+                  Suppression virus PC Maroc
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Articles Connexes */}
           <section className="mb-14">

@@ -6,9 +6,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Pannes PC Courantes Maroc 2026 — Solutions + Dépannage 250 DH",
+  title: "7 Pannes PC Fréquentes au Maroc en 2026 + Solutions Rapides",
   description:
-    "7 pannes PC courantes au Maroc : solutions et dépannage à distance 250 DH. PC lent, écran bleu, virus. Réponse en 15 min. AlloSupport.",
+    "PC qui ne démarre pas, écran bleu, surchauffe, WiFi perdu… Les 7 pannes les plus courantes au Maroc et comment les résoudre rapidement.",
   keywords: [
     "pannes pc courantes maroc",
     "ordinateur lent 2026",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "AlloSupport Maroc" }],
   openGraph: {
-    title: "Pannes PC Courantes Maroc 2026 — Solutions + Dépannage 250 DH",
+    title: "7 Pannes PC Fréquentes au Maroc en 2026 + Solutions Rapides",
     description:
-      "7 pannes PC courantes au Maroc : solutions et dépannage à distance 250 DH. PC lent, écran bleu, virus. Réponse en 15 min. AlloSupport.",
+      "PC qui ne démarre pas, écran bleu, surchauffe, WiFi perdu… Les 7 pannes les plus courantes au Maroc et comment les résoudre rapidement.",
     type: "article",
     url: "https://allosupport.ma/blog/7-pannes-pc-courantes-2026-maroc",
     publishedTime: "2026-02-06T12:00:00Z",

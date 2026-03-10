@@ -21,9 +21,9 @@ import Footer from "@/components/Footer";
 import BannerCTA from "@/components/BannerCTA";
 
 export const metadata: Metadata = {
-  title: "Wi-Fi Lent au Maroc 2026 : 10 Solutions + Réglages Box Inwi, Maroc Telecom, Orange | AlloSupport",
+  title: "WiFi Lent au Maroc en 2026 : 10 Causes et Solutions en 5 Minutes",
   description:
-    "Wi-Fi lent à Casablanca, Rabat ou Marrakech ? Découvrez 10 solutions rapides 2026 pour booster connexion. Guide réglages box FAI + Prix répéteurs.",
+    "Internet lent malgré un bon abonnement ? Débit qui chute, coupures fréquentes au Maroc : 10 causes réelles et solutions testées pour Maroc Telecom, Inwi et Orange.",
   keywords: [
     "wifi lent maroc",
     "wifi lent casablanca",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     "box wifi maroc 2026",
   ],
   openGraph: {
-    title: "Wi-Fi Lent au Maroc ? 10 Solutions Rapides 2026",
+    title: "WiFi Lent au Maroc en 2026 : 10 Causes et Solutions en 5 Minutes",
     description:
-      "Guide complet pour booster votre Wi-Fi : réglages box, répéteurs, solutions par ville (Casablanca, Rabat, Marrakech)",
+      "Internet lent malgré un bon abonnement ? Débit qui chute, coupures fréquentes au Maroc : 10 causes réelles et solutions testées pour Maroc Telecom, Inwi et Orange.",
     url: "https://allosupport.ma/blog/wifi-lent-maroc-2026",
     type: "article",
     publishedTime: "2026-02-07T21:00:00Z",

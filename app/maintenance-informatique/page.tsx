@@ -5,16 +5,16 @@ import { generateBreadcrumbSchema } from "@/lib/seo";
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
-  title: "Maintenance Informatique au Maroc - Préventive & Corrective | AlloSupport.ma",
+  title: "Maintenance Informatique Maroc à Distance — Contrat PME | AlloSupport",
   description:
-    "Maintenance informatique pour particuliers exigeants et PME au Maroc : mises à jour, sécurité, sauvegardes, optimisation. Packs mensuels dès 499 DH.",
+    "Contrat de maintenance informatique pour particuliers et PME au Maroc. Mises à jour, sauvegardes, sécurité et dépannage illimité. Intervention en moins de 15 min.",
   alternates: {
     canonical: "https://allosupport.ma/maintenance-informatique",
   },
   openGraph: {
-    title: "Maintenance Informatique au Maroc - Préventive & Corrective",
+    title: "Maintenance Informatique Maroc à Distance — Contrat PME | AlloSupport",
     description:
-      "Anticipez les pannes informatiques au Maroc : maintenance régulière, optimisation et sécurité pour PC et PME.",
+      "Contrat de maintenance informatique pour particuliers et PME au Maroc. Mises à jour, sauvegardes, sécurité et dépannage illimité. Intervention en moins de 15 min.",
     url: "https://allosupport.ma/maintenance-informatique",
     type: "website",
   },

@@ -28,9 +28,9 @@ import Footer from "@/components/Footer";
 import BannerCTA from "@/components/BannerCTA";
 
 export const metadata: Metadata = {
-  title: "192.168.1.1 Admin Maroc : Login Maroc Telecom, Inwi, Orange | Tous Mots de Passe 2026",
+  title: "192.168.1.1 Maroc : Accéder à votre Box en 2 min (Maroc Telecom, Inwi, Orange)",
   description:
-    "Accès 192.168.1.1 au Maroc : login et mot de passe par défaut TOUS routeurs Maroc Telecom (Technicolor, ZTE), Inwi, Orange. Changer WiFi, contrôle parental. Guide complet 2026.",
+    "Connectez-vous à votre box via 192.168.1.1 au Maroc. Guide pas à pas pour Maroc Telecom, Inwi et Orange : changer mot de passe WiFi, nom réseau, sécuriser votre box.",
   keywords: [
     "192.168.1.1",
     "192.168.1.1 admin",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     "192.168.1.1 inwi",
   ],
   openGraph: {
-    title: "192.168.1.1 Admin Maroc : Login Tous Routeurs MT, Inwi, Orange",
+    title: "192.168.1.1 Maroc : Accéder à votre Box en 2 min (Maroc Telecom, Inwi, Orange)",
     description:
-      "Guide complet accès 192.168.1.1 au Maroc. Login/password par défaut 20+ modèles routeurs. Changer WiFi, contrôle parental, troubleshooting.",
+      "Connectez-vous à votre box via 192.168.1.1 au Maroc. Guide pas à pas pour Maroc Telecom, Inwi et Orange : changer mot de passe WiFi, nom réseau, sécuriser votre box.",
     url: "https://allosupport.ma/blog/192-168-1-1-admin-login-maroc-routeur-2026",
     type: "article",
     publishedTime: "2026-02-10T09:00:00Z",

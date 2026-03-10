@@ -5,16 +5,16 @@ import { generateBreadcrumbSchema } from "@/lib/seo";
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
-  title: "Infogérance PME Maroc | Support Informatique Externalisé | AlloSupport",
+  title: "Infogérance PME Maroc : Gestion IT Complète à Distance | AlloSupport",
   description:
-    "Infogérance PME Maroc : externalisez votre informatique. Maintenance, cybersécurité, serveurs, sauvegardes. Forfait dès 999 DH/mois. Support 24/7.",
+    "Externalisez votre informatique au Maroc. Maintenance, sécurité, sauvegardes et support illimité pour PME. Forfaits mensuels, réponse en 15 min. Devis gratuit.",
   alternates: {
     canonical: "https://allosupport.ma/infogerance-pme-maroc",
   },
   openGraph: {
-    title: "Infogérance PME Maroc | Support Informatique Externalisé",
+    title: "Infogérance PME Maroc : Gestion IT Complète à Distance | AlloSupport",
     description:
-      "Externalisez votre informatique avec AlloSupport. Infogérance complète pour PME au Maroc : maintenance, sécurité, serveurs.",
+      "Externalisez votre informatique au Maroc. Maintenance, sécurité, sauvegardes et support illimité pour PME. Forfaits mensuels, réponse en 15 min. Devis gratuit.",
     url: "https://allosupport.ma/infogerance-pme-maroc",
     type: "website",
   },

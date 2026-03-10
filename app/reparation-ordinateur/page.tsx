@@ -5,16 +5,16 @@ import RelatedServices from "@/components/RelatedServices";
 const whatsappBase = "https://wa.me/212775237038";
 
 export const metadata: Metadata = {
-  title: "Réparation Ordinateur Maroc | PC Portable & Fixe 250 DH | AlloSupport",
+  title: "Réparation Ordinateur Maroc à Distance — Résultat Garanti | AlloSupport",
   description:
-    "Réparation ordinateur Maroc à distance. PC portable, fixe, Windows, virus, lenteur. Technicien en 15 min, paiement après résultat. Dès 250 DH.",
+    "Réparation ordinateur PC et Mac au Maroc sans déplacement. Diagnostic gratuit, intervention en 30 min, paiement après résolution. Dès 150 DH.",
   alternates: {
     canonical: "https://allosupport.ma/reparation-ordinateur",
   },
   openGraph: {
-    title: "Réparation Ordinateur Maroc - À Distance",
+    title: "Réparation Ordinateur Maroc à Distance — Résultat Garanti | AlloSupport",
     description:
-      "Réparez votre PC sans vous déplacer. Réparation ordinateur à distance au Maroc, diagnostic gratuit et tarifs transparents.",
+      "Réparation ordinateur PC et Mac au Maroc sans déplacement. Diagnostic gratuit, intervention en 30 min, paiement après résolution. Dès 150 DH.",
     url: "https://allosupport.ma/reparation-ordinateur",
     type: "website",
   },

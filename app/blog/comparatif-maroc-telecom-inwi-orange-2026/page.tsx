@@ -20,9 +20,9 @@ import { BlogDisclaimer } from "@/components/blog/BlogDisclaimer";
 import { BlogDisclaimerCorrection } from "@/components/blog/BlogDisclaimerCorrection";
 
 export const metadata: Metadata = {
-  title: "Comparatif MT vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?",
+  title: "Maroc Telecom vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?",
   description:
-    "Analyse complète 2026 : Prix, vitesse, couverture, fiabilité. 2,500 tests réels + verdict par profil (famille, gamer, pro). Économisez 600+ DH/an.",
+    "Comparatif complet des 3 opérateurs internet au Maroc en 2026 : débit, prix, fiabilité, service client. Tout pour choisir le meilleur forfait fibre ou mobile pour votre domicile ou PME.",
   keywords: [
     "comparatif maroc telecom inwi orange",
     "meilleur opérateur internet maroc 2026",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     "ping gaming maroc",
   ],
   openGraph: {
-    title: "Comparatif Complet MT vs Inwi vs Orange 2026",
+    title: "Maroc Telecom vs Inwi vs Orange 2026 : Quel Opérateur Choisir ?",
     description:
-      "2,500 tests réels · Prix, vitesse, fiabilité · Verdict par profil · Économisez 600+ DH/an",
+      "Comparatif complet des 3 opérateurs internet au Maroc en 2026 : débit, prix, fiabilité, service client. Tout pour choisir le meilleur forfait fibre ou mobile pour votre domicile ou PME.",
     url: "https://allosupport.ma/blog/comparatif-maroc-telecom-inwi-orange-2026",
     type: "article",
     publishedTime: "2026-02-09T09:00:00Z",

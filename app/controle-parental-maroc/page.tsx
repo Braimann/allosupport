@@ -116,9 +116,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 // ========== METADATA ==========
 export const metadata: Metadata = {
   title:
-    "Contrôle Parental Maroc 2026 — Configuration PC, Téléphone & Box à Distance | AlloSupport.ma",
+    "Contrôle Parental Maroc : Bloquer Sites & Limiter Écrans | AlloSupport",
   description:
-    "Protégez vos enfants en ligne : configuration contrôle parental à distance au Maroc en 20 min. PC, Android, iPhone, box internet. À partir de 250 DH. Technicien disponible maintenant.",
+    "Installez un contrôle parental efficace sur PC, téléphone et tablette au Maroc. Configuration à distance en 30 min. Toutes marques. Dès 150 DH.",
   keywords: [
     "contrôle parental Maroc",
     "bloquer internet enfant Maroc",
@@ -134,9 +134,9 @@ export const metadata: Metadata = {
   alternates: { canonical: CANONICAL },
   openGraph: {
     title:
-      "Contrôle Parental Maroc 2026 — Configuration à Distance | AlloSupport.ma",
+      "Contrôle Parental Maroc : Bloquer Sites & Limiter Écrans | AlloSupport",
     description:
-      "Configuration contrôle parental PC, téléphone et box en 20 min. À partir de 250 DH. Paiement après résultat.",
+      "Installez un contrôle parental efficace sur PC, téléphone et tablette au Maroc. Configuration à distance en 30 min. Toutes marques. Dès 150 DH.",
     url: CANONICAL,
     type: "website",
   },
