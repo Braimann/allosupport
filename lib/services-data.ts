@@ -1,3 +1,8 @@
+/** URL publique du service : récupération-donnees est en /recuperation-donnees, les autres en /services/{slug} */
+export function getServicePath(slug: string): string {
+  return slug === "recuperation-donnees" ? "/recuperation-donnees" : `/services/${slug}`;
+}
+
 // Type des pages service (données statiques uniquement, plus de Firebase)
 export interface ServicePage {
   id?: string;

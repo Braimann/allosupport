@@ -180,8 +180,8 @@ export default function FormatagePcCasablancaPage() {
               <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl" />
               <div className="relative h-full flex items-center justify-center">
                 <Image
-                  src="/images/services/formatage-pc-hero.webp"
-                  alt="Technicien formatage PC Casablanca avec Windows 10/11 officiel"
+                  src="/images/services/depannage-pc-mac-hero.svg"
+                  alt="Formatage et dépannage PC Casablanca à distance — Windows 10/11 officiel"
                   fill
                   className="object-cover rounded-3xl shadow-2xl shadow-emerald-900/50"
                 />

@@ -4,11 +4,20 @@ import { Shield, Lock, Eye, FileText, Mail, Phone, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+const CANONICAL = "https://allosupport.ma/politique-confidentialite";
+
 export const metadata: Metadata = {
   title: "Politique de Confidentialité | AlloSupport.ma",
   description:
     "Politique de confidentialité d'AlloSupport.ma - Protection des données personnelles, cookies, et droits des utilisateurs conformément à la législation marocaine.",
   robots: "index, follow",
+  alternates: {
+    canonical: CANONICAL,
+  },
+  openGraph: {
+    url: CANONICAL,
+    type: "website",
+  },
 };
 
 export default function PolitiqueConfidentialitePage() {

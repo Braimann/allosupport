@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Wrench, Shield, Zap, Server } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getAllStaticServices } from "@/lib/services-data";
+import { getAllStaticServices, getServicePath } from "@/lib/services-data";
 
 const CANONICAL = "https://allosupport.ma/services";
 
@@ -80,7 +80,7 @@ export default async function ServicesPage() {
                   return (
                     <Link
                       key={service.slug}
-                      href={`/services/${service.slug}`}
+                      href={getServicePath(service.slug)}
                       className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                     >
                       <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">

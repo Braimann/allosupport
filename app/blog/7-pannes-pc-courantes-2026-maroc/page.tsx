@@ -208,7 +208,7 @@ export default function BlogPost7PannesPC() {
               <li><strong>Total indicatif : 650–850 DH</strong></li>
             </ul>
             <Link
-              href="https://wa.me/212775237038"
+              href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
               target="_blank"
               rel="noopener noreferrer nofollow"
               className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-bold transition"
@@ -272,7 +272,7 @@ export default function BlogPost7PannesPC() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://wa.me/212775237038"
+              href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
               target="_blank"
               rel="noopener noreferrer nofollow"
               className="bg-white text-teal-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
@@ -382,7 +382,7 @@ export default function BlogPost7PannesPC() {
           </div>
           <p className="text-lg">
             <strong>En cas de panne :</strong> tentez les solutions DIY. Si échec ou doute,{" "}
-            <Link href="https://wa.me/212775237038" className="text-teal-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer nofollow">
+            <Link href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide" className="text-teal-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer nofollow">
               AlloSupport intervient en 15 min à distance
             </Link>{" "}
             pour <strong>réparer pc maroc</strong>. Voir aussi <Link href="/depannage-informatique" className="text-teal-600 hover:underline">dépannage informatique</Link> et <Link href="/pc-lent-solution" className="text-teal-600 hover:underline">PC lent solution</Link>.
@@ -459,7 +459,7 @@ export default function BlogPost7PannesPC() {
             Dépannage informatique Casablanca à distance en 15 minutes – partout au Maroc
           </p>
           <Link
-            href="https://wa.me/212775237038"
+            href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-block bg-teal-500 hover:bg-teal-600 px-10 py-4 rounded-lg font-bold text-lg transition"

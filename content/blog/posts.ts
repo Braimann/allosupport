@@ -110,7 +110,7 @@ const BLOG_POSTS: BlogPost[] = [
       "**Applications de bureau**",
       "Si vous avez besoin d'Excel avancé (macros, tableaux croisés dynamiques complexes) ou Access, Microsoft 365 est incontournable. Google Sheets est suffisant pour 80% des usages.",
       "**Sécurité et conformité**",
-      "Les deux solutions offrent un excellent niveau de sécurité. Microsoft propose des options de conformité plus avancées pour les secteurs réglementés (finance, santé).",
+      "Les deux solutions offrent un excellent niveau de sécurité. Microsoft propose des options de conformité plus avancées pour les secteurs réglementés (finance, santé). Les <a href=\"/solutions/experts-comptables\" class=\"text-primary-600 hover:text-primary-700 underline\">cabinets comptables au Maroc</a> et les <a href=\"/solutions/cabinets-medicaux\" class=\"text-primary-600 hover:text-primary-700 underline\">professionnels de santé</a> ont des besoins spécifiques en collaboration et emails professionnels que nous accompagnons au cas par cas.",
       "**Notre recommandation pour les PME marocaines**",
       "→ Équipe qui travaille principalement en ligne et collabore beaucoup : **Google Workspace** → Besoin d'applications de bureau puissantes (Excel avancé, Access) : **Microsoft 365** → Budget serré avec besoin de stockage : **Microsoft 365 Business Basic**",
       "**Besoin d'accompagnement ?** AlloSupport vous aide à choisir, migrer et former vos équipes. Pour une <a href=\"/support-pme\" class=\"text-blue-600 font-bold hover:underline\">gestion de parc informatique PME</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contactez-nous</a> pour un audit gratuit ! Voir aussi notre <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">guide Vision Maroc 2030</a> et <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">demander un devis</a>.",
@@ -134,7 +134,7 @@ const BLOG_POSTS: BlogPost[] = [
     content: toHtml([
       "Les attaques par ransomware ont augmenté de 150% au Maroc en 2025. Votre entreprise est-elle protégée ? Voici notre guide complet de cybersécurité.",
       "**Qu'est-ce qu'un ransomware ?**",
-      "Un ransomware est un logiciel malveillant qui chiffre vos données et exige une rançon (souvent en Bitcoin) pour les débloquer. Les montants demandés aux entreprises marocaines varient de 10 000 à 500 000 MAD.",
+      "Un ransomware est un logiciel malveillant qui chiffre vos données et exige une rançon (souvent en Bitcoin) pour les débloquer. Les montants demandés aux entreprises marocaines varient de 10 000 à 500 000 MAD. Les secteurs ciblés incluent notamment les professions à données sensibles : la <a href=\"/solutions/cabinets-avocats\" class=\"text-primary-600 hover:text-primary-700 underline\">confidentialité avocat-client</a> et les <a href=\"/solutions/experts-comptables\" class=\"text-primary-600 hover:text-primary-700 underline\">données fiscales et comptables</a> sont des enjeux majeurs.",
       "**Les 5 mesures essentielles de protection**",
       "**1. Sauvegarde externalisée (règle 3-2-1)** : Gardez 3 copies de vos données, sur 2 supports différents, dont 1 hors site (Cloud).",
       "**2. Formation des employés** : 90% des attaques commencent par un email de phishing. Formez vos équipes à reconnaître les emails suspects.",
@@ -185,7 +185,7 @@ const BLOG_POSTS: BlogPost[] = [
       '<p class="my-3 text-gray-700 leading-relaxed"><strong>Audit infrastructure gratuit</strong> (3 h), <strong>Packs clés en main</strong> : Starter PME 15 000 DH (5 PC, Windows 11, M365, antivirus, formation 2 h), Croissance 45 000 DH (10 postes, cloud, réseau, CRM), Transformation complète 120 000+ DH. Support continu 2 500 DH/mois, formations sur-mesure 1 500 DH/jour.</p>',
       '<h2 class="text-2xl font-bold mt-8 mb-3 text-gray-900">Conclusion</h2>',
       '<p class="my-3 text-gray-700 leading-relaxed">La Vision Maroc 2030 n\'est pas un slogan : c\'est une <strong>transformation profonde</strong> de l\'économie. Pour les PME : se digitaliser ou disparaître. AlloSupport accompagne chaque PME avec des solutions adaptées à tous les budgets, du <a href="/devis" class="text-primary-600 hover:text-primary-700 underline">diagnostic gratuit</a> aux installations complètes.</p>',
-      '<p class="my-3 text-gray-700 leading-relaxed"><strong>Prêt à préparer votre PME pour 2030 ?</strong> <a href="/devis" class="text-primary-600 hover:text-primary-700 underline">Demander un audit gratuit</a> • Téléphone : <a href="tel:+212775237038" class="text-primary-600 hover:text-primary-700 underline">07 75 23 70 38</a> • <a href="https://wa.me/212775237038" class="text-primary-600 hover:text-primary-700 underline">WhatsApp</a> • Casablanca, Rabat, Fès, Marrakech, Agadir.</p>',
+      '<p class="my-3 text-gray-700 leading-relaxed"><strong>Prêt à préparer votre PME pour 2030 ?</strong> <a href="/devis" class="text-primary-600 hover:text-primary-700 underline">Demander un audit gratuit</a> • Téléphone : <a href="tel:+212775237038" class="text-primary-600 hover:text-primary-700 underline">07 75 23 70 38</a> • <a href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide" target="_blank" rel="nofollow noopener noreferrer" class="text-primary-600 hover:text-primary-700 underline">WhatsApp</a> • Casablanca, Rabat, Fès, Marrakech, Agadir.</p>',
       '<p class="my-3 text-gray-700 leading-relaxed">Articles reliés : <a href="/blog/ordinateur-lent-astuces-booster-pc" class="text-primary-600 hover:text-primary-700 underline">PC lent</a>, <a href="/blog" class="text-primary-600 hover:text-primary-700 underline">Blog</a>, <a href="/services" class="text-primary-600 hover:text-primary-700 underline">Services</a>, <a href="/support-pme" class="text-primary-600 hover:text-primary-700 underline">Support PME</a>, <a href="/devis" class="text-primary-600 hover:text-primary-700 underline">Devis</a>, <a href="/contact" class="text-primary-600 hover:text-primary-700 underline">Contact</a>.</p>',
     ].join("\n"),
   },
@@ -265,7 +265,7 @@ const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2026-01-28",
     updatedAt: "2026-01-28",
     content: toHtml([
-      "La cybersécurité pour les PME au Maroc en 2026 : enjeux (ransomware, phishing, vol de données), bonnes pratiques (mots de passe forts, 2FA, sauvegardes 3-2-1, antivirus pro, mises à jour, formation des employés).",
+      "La cybersécurité pour les PME au Maroc en 2026 : enjeux (ransomware, phishing, vol de données), bonnes pratiques (mots de passe forts, 2FA, sauvegardes 3-2-1, antivirus pro, mises à jour, formation des employés). Les secteurs soumis à des exigences de conformité ou manipulant des données sensibles sont plus exposés : les <a href=\"/solutions/cabinets-medicaux\" class=\"text-primary-600 hover:text-primary-700 underline\">cabinets médicaux</a> et les <a href=\"/solutions/cabinets-avocats\" class=\"text-primary-600 hover:text-primary-700 underline\">cabinets d'avocats</a> sont particulièrement exposés.",
       "Budget raisonnable : antivirus, sauvegarde cloud, formation. Pour un <a href=\"/support-pme\" class=\"text-blue-600 font-bold hover:underline\">Audit de sécurité IT gratuit</a>, contactez-nous. En cas d'incident : isoler les postes, ne pas payer la rançon, contacter un expert. <a href=\"/blog/ransomware-maroc-proteger-donnees-entreprise\" class=\"text-primary-600 hover:text-primary-700 underline\">Ransomware Maroc</a>, <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>.",
     ]),
   },
@@ -326,6 +326,7 @@ const BLOG_POSTS: BlogPost[] = [
     updatedAt: "2026-02-08",
     content: toHtml([
       "La maintenance préventive des PC en entreprise au Maroc permet d'éviter pannes, pertes de données et temps morts. Actions : mises à jour, antivirus, sauvegardes, nettoyage logiciel et physique, monitoring.",
+      "Secteurs prioritaires pour la maintenance préventive : <a href=\"/solutions/cabinets-medicaux\" class=\"text-primary-600 hover:text-primary-700 underline\">cabinets médicaux</a>, <a href=\"/solutions/cabinets-avocats\" class=\"text-primary-600 hover:text-primary-700 underline\">cabinets d'avocats</a>, <a href=\"/solutions/experts-comptables\" class=\"text-primary-600 hover:text-primary-700 underline\">experts-comptables</a>, <a href=\"/solutions/architectes\" class=\"text-primary-600 hover:text-primary-700 underline\">architectes</a> — tous métiers où la continuité et la sécurité des données sont critiques.",
       "Coût préventif bien inférieur au coût d'une panne (downtime, réparation urgente). AlloSupport propose des forfaits maintenance pour PME. <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/blog/cybersecurite-pme-maroc-guide-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">cybersécurité</a>, <a href=\"/support-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Support PME</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
@@ -469,7 +470,7 @@ const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2026-02-15",
     updatedAt: "2026-02-15",
     content: toHtml([
-      "Télétravail au Maroc en 2026 : PC portable ou fixe (i5/Ryzen 5, 16 Go RAM, SSD), connexion internet stable (fibre si possible), VPN si l'entreprise l'exige, webcam et micro corrects, bureau et chaise ergonomiques, bonne lumière.",
+      "Télétravail au Maroc en 2026 : PC portable ou fixe (i5/Ryzen 5, 16 Go RAM, SSD), connexion internet stable (fibre si possible), VPN si l'entreprise l'exige, webcam et micro corrects, bureau et chaise ergonomiques, bonne lumière. Pour les métiers qui manipulent des fichiers lourds (maquettes, rendus 3D), les <a href=\"/solutions/architectes\" class=\"text-primary-600 hover:text-primary-700 underline\">architectes et bureaux d'études</a> ont des besoins spécifiques en performance et stockage que nous accompagnons.",
       "Conseils : sauvegardes, cybersécurité (mots de passe, pas de WiFi public sensible). Découvrez nos <a href=\"/support-pme\" class=\"text-blue-600 font-bold hover:underline\">solutions télétravail entreprise</a>. <a href=\"/blog/vision-maroc-2030-transformation-digitale-pme\" class=\"text-primary-600 hover:text-primary-700 underline\">Vision 2030</a>, <a href=\"/blog/guide-achat-ordinateur-professionnel-maroc-2026\" class=\"text-primary-600 hover:text-primary-700 underline\">guide achat PC</a>, <a href=\"/blog/google-workspace-vs-office-365-pme-maroc\" class=\"text-primary-600 hover:text-primary-700 underline\">Google vs Office 365</a>, <a href=\"/devis\" class=\"text-primary-600 hover:text-primary-700 underline\">devis</a>, <a href=\"/contact\" class=\"text-primary-600 hover:text-primary-700 underline\">contact</a>.",
     ]),
   },
@@ -561,6 +562,60 @@ const BLOG_POSTS: BlogPost[] = [
     content: toHtml([
       "Votre clé USB n'est plus reconnue ? Vos photos ont disparu de votre carte SD après un formatage accidentel ? Ce guide explique comment récupérer vos données sur supports amovibles au Maroc : récupération à distance (dès 200 Dhs) ou laboratoire pour les pannes physiques. Diagnostic gratuit sur WhatsApp.",
       "L'article complet est sur cette page. <a href=\"/blog/recuperation-donnees-cle-usb-carte-sd-ssd-maroc\" class=\"text-primary-600 hover:underline\">Guide récupération clé USB carte SD SSD Maroc</a> · <a href=\"/recuperation-donnees\" class=\"text-primary-600 hover:underline\">Récupération données</a>.",
+    ]),
+  },
+  // 23. Formatage PC réinstallation Windows Maroc (page dédiée app/blog/formatage-pc-reinstallation-windows-maroc-guide)
+  {
+    slug: "formatage-pc-reinstallation-windows-maroc-guide",
+    title: "Formatage PC & Réinstallation Windows au Maroc : Guide Complet 2026",
+    excerpt:
+      "Quand formater son PC ? Comment réinstaller Windows sans perdre ses données ? Prix, étapes et conseils pour particuliers et PME au Maroc.",
+    metaDescription:
+      "Quand formater son PC ? Comment réinstaller Windows sans perdre ses données ? Prix, étapes et conseils d'expert pour particuliers et PME au Maroc.",
+    category: "Guides",
+    categoryColor: "bg-blue-500",
+    imageUrl: "",
+    imageAlt: "Formatage PC et réinstallation Windows au Maroc guide 2026",
+    keywords: [
+      "formatage PC Maroc",
+      "réinstallation Windows Maroc",
+      "formatage PC prix Maroc",
+      "formatage PC Casablanca",
+      "technicien formatage PC à distance Maroc",
+    ],
+    author: "Équipe AlloSupport.ma",
+    readTime: "8 min de lecture",
+    publishedAt: "2026-03-01",
+    updatedAt: "2026-03-09",
+    content: toHtml([
+      "Guide complet formatage PC et réinstallation Windows au Maroc : différence formatage / réinitialisation, 5 signes qu'il faut formater, étapes pour réinstaller Windows sans perdre ses données, prix 2026 (350 DH avec Windows officiel), intervention à distance. <a href=\"/formatage-pc\" class=\"text-primary-600 hover:underline\">Formatage PC à distance</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a> · <a href=\"/contact\" class=\"text-primary-600 hover:underline\">Contact</a>.",
+    ]),
+  },
+  // 24. Installer imprimante WiFi Maroc (page dédiée app/blog/installer-imprimante-wifi-maroc-guide)
+  {
+    slug: "installer-imprimante-wifi-maroc-guide",
+    title: "Installer une Imprimante WiFi au Maroc : Guide Complet 2026",
+    excerpt:
+      "Comment installer et configurer une imprimante WiFi au Maroc ? Pilotes HP Canon Epson Brother, connexion réseau, dépannage. Guide étape par étape + tarifs technicien 150 DH.",
+    metaDescription:
+      "Comment installer et configurer une imprimante WiFi au Maroc ? Pilotes, connexion réseau, dépannage HP Canon Epson Brother. Guide étape par étape + tarifs technicien.",
+    category: "Guides",
+    categoryColor: "bg-blue-500",
+    imageUrl: "",
+    imageAlt: "Installer imprimante WiFi Maroc guide 2026 HP Canon Epson Brother",
+    keywords: [
+      "installer imprimante wifi maroc",
+      "configurer imprimante wifi maroc",
+      "imprimante wifi maroc",
+      "pilotes imprimante HP Canon Epson Brother",
+      "installation imprimante à distance maroc",
+    ],
+    author: "Équipe AlloSupport.ma",
+    readTime: "6 min de lecture",
+    publishedAt: "2026-03-10",
+    updatedAt: "2026-03-10",
+    content: toHtml([
+      "Guide complet pour installer et configurer une imprimante WiFi au Maroc : pourquoi l'installation échoue, étapes sous Windows 10/11, solutions si l'imprimante est détectée mais n'imprime pas, partage réseau bureau, tarifs technicien à distance (dès 150 DH). <a href=\"/installation-imprimante-maroc\" class=\"text-primary-600 hover:underline\">Installation imprimante à distance</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
     ]),
   },
 ];

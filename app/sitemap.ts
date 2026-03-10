@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllPostsForSitemap } from "@/content/blog/posts";
-import { getAllServicesForSitemap } from "@/lib/services-data";
+import { getAllServicesForSitemap, getServicePath } from "@/lib/services-data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://allosupport.ma";
@@ -102,6 +102,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/installation-windows`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/installation-imprimante-maroc`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
@@ -277,6 +283,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog/formatage-pc-reinstallation-windows-maroc-guide`,
+      lastModified: new Date("2026-03-09"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/installer-imprimante-wifi-maroc-guide`,
+      lastModified: new Date("2026-03-10"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/cgu`,
       lastModified: now,
       changeFrequency: "yearly",
@@ -397,7 +415,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const servicePages: MetadataRoute.Sitemap =
     services.length > 0
       ? services.map((service) => ({
-          url: `${baseUrl}/services/${service.slug}`,
+          url: `${baseUrl}${getServicePath(service.slug)}`,
           lastModified: service.updatedAt,
           changeFrequency: "weekly" as const,
           priority: 0.9,

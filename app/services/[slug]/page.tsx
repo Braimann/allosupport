@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingTable from "@/components/conversion/PricingTable";
 import LocalProof from "@/components/conversion/LocalProof";
-import { getStaticServiceBySlug, getAllStaticServices } from "@/lib/services-data";
+import { getStaticServiceBySlug, getAllStaticServices, getServicePath } from "@/lib/services-data";
 import { generateTitle, generateDescription, generateCanonical, generateServiceSchema, generateWhatsAppURL } from "@/lib/seo";
 import { MessageCircle } from "lucide-react";
 
@@ -249,7 +249,7 @@ export default async function ServicePage({ params }: PageProps) {
                 {relatedServices.map((related) => (
                   <a
                     key={related.slug}
-                    href={`/services/${related.slug}`}
+                    href={getServicePath(related.slug)}
                     className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all"
                   >
                     <h3 className="font-bold text-gray-900 mb-2">

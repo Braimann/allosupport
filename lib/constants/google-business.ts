@@ -28,6 +28,8 @@ export const GOOGLE_BUSINESS = {
   PHONE_FORMATTED: "07 75 23 70 38",
   WHATSAPP_PHONE: "212775237038",
   WHATSAPP: "https://wa.me/212775237038",
+  /** Lien WhatsApp avec message par défaut (CTA) — à utiliser pour les liens génériques */
+  WHATSAPP_CTA: "https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide",
   /** Fixe — 05 20 97 06 75 (Header, Footer, schema) */
   PHONE_FIXE: "+212520970675",
   PHONE_FIXE_FORMATTED: "05 20 97 06 75",

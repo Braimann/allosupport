@@ -31,7 +31,7 @@ const columnServices: Array<{ href: string; label: string }> = [
   { href: "/services/depannage-pc-mac", label: "Dépannage PC & Mac" },
   { href: "/controle-parental-maroc", label: "Contrôle parental Maroc" },
   { href: "/services/suppression-virus", label: "Suppression Virus" },
-  { href: "/services/recuperation-donnees", label: "Récupération Données" },
+  { href: "/recuperation-donnees", label: "Récupération Données" },
   { href: "/services/infogerance-pme", label: "Infogérance PME" },
   { href: "/services/cybersecurite", label: "Cybersécurité" },
   { href: "/services/installation-config", label: "Installation & Config" },
@@ -60,6 +60,13 @@ const columnVilles: Array<{ href: string; label: string }> = [
   { href: "/depannage-informatique", label: "Dépannage informatique Maroc" },
   { href: "/virus-ordinateur-maroc", label: "Suppression virus PC Maroc" },
   { href: "/infogerance-pme-maroc", label: "Infogérance PME Maroc" },
+];
+
+const columnProfessionnels: Array<{ href: string; label: string }> = [
+  { href: "/solutions/cabinets-medicaux", label: "Support IT cabinets médicaux" },
+  { href: "/solutions/cabinets-avocats", label: "Infogérance cabinets avocats" },
+  { href: "/solutions/experts-comptables", label: "Maintenance Sage EBP experts-comptables" },
+  { href: "/solutions/architectes", label: "Support informatique architectes" },
 ];
 
 const columnEntreprise: Array<{ href: string; label: string }> = [
@@ -131,10 +138,11 @@ export default function Footer() {
     <footer id="contact" className="bg-gray-900 text-white">
       {/* Main Footer - 4 colonnes desktop, 1 colonne mobile */}
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5">
           <FooterNavColumn title="Services" links={columnServices} />
           <FooterNavColumn title="Guides & Blog" links={columnGuidesBlog} />
           <FooterNavColumn title="Villes" links={columnVilles} />
+          <FooterNavColumn title="Professionnels" links={columnProfessionnels} />
           <FooterNavColumn title="Entreprise" links={columnEntreprise} nofollowPaths={NOFOLLOW_PATHS} />
         </div>
 
@@ -169,9 +177,9 @@ export default function Footer() {
                   {GOOGLE_BUSINESS.PHONE_FORMATTED}
                 </a>
                 <a
-                  href={GOOGLE_BUSINESS.WHATSAPP}
+                  href={GOOGLE_BUSINESS.WHATSAPP_CTA}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="nofollow noopener noreferrer"
                   className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors duration-200 text-sm"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />

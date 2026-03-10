@@ -369,9 +369,9 @@ export default function BlogWindows11RedemarrageBoucleKB5077181() {
                     <p className="text-xl font-bold mb-2">Votre PC est toujours bloqué ?</p>
                     <p className="mb-4">Technicien AlloSupport en 15 min à distance — 250 DH</p>
                     <a
-                      href="https://wa.me/212775237038"
+                      href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow noopener noreferrer"
                       className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-blue-50 transition"
                     >
                       WhatsApp : 07 75 23 70 38

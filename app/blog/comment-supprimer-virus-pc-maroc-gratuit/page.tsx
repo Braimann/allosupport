@@ -71,9 +71,9 @@ export default function VirusRemovalGuide() {
       
       {/* WhatsApp Sticky Mobile */}
       <a
-        href="https://wa.me/212775237038"
+        href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
         target="_blank"
-        rel="noopener noreferrer nofollow"
+        rel="nofollow noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 lg:hidden flex items-center justify-center w-14 h-14 bg-emerald-500 rounded-full shadow-lg text-white animate-bounce"
         aria-label="Contacter sur WhatsApp"
       >
@@ -587,8 +587,9 @@ export default function VirusRemovalGuide() {
                 Commander le nettoyage pro (250 DH)
               </Link>
               <Link 
-                href="https://wa.me/212775237038"
+                href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
                 target="_blank"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-colors border border-white/30"
               >
                 <MessageCircle className="h-5 w-5" />

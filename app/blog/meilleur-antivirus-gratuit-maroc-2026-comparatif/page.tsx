@@ -124,7 +124,7 @@ export default function BlogPostAntivirus() {
                                         </li>
                                         <span aria-hidden> &gt; </span>
                                         <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                                            <Link href="/blog/categories/securite" itemProp="item"><span itemProp="name">Sécurité</span></Link>
+                                            <Link href="/antivirus-maroc" itemProp="item"><span itemProp="name">Sécurité</span></Link>
                                             <meta itemProp="position" content="3" />
                                         </li>
                                         <span aria-hidden> &gt; </span>
@@ -343,8 +343,9 @@ export default function BlogPostAntivirus() {
                                         </p>
                                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                             <Link
-                                                href="https://wa.me/212775237038"
+                                                href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
                                                 target="_blank"
+                                                rel="nofollow noopener noreferrer"
                                                 className="bg-white text-red-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition shadow-md"
                                             >
                                                 WhatsApp : 07 75 23 70 38
@@ -463,8 +464,9 @@ export default function BlogPostAntivirus() {
                                             <li className="flex gap-2"><Check className="w-5 h-5 text-green-400" /> Audit sécurité PME gratuit</li>
                                         </ul>
                                         <Link
-                                            href="https://wa.me/212775237038"
+                                            href="https://wa.me/212775237038?text=Bonjour%20AlloSupport%2C%20j%27ai%20besoin%20d%27aide"
                                             target="_blank"
+                                            rel="nofollow noopener noreferrer"
                                             className="inline-block bg-orange-500 hover:bg-orange-600 px-10 py-4 rounded-lg font-bold text-lg transition shadow-lg transform hover:scale-105"
                                         >
                                             Contacter AlloSupport maintenant

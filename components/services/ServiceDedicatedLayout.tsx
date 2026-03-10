@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getServicePath } from "@/lib/services-data";
 
 const WHATSAPP_NUMBER = "212775237038";
 const PHONE_DISPLAY = "07 75 23 70 38";
@@ -459,7 +460,7 @@ export default function ServiceDedicatedLayout({
             {content.relatedServices.map((s) => (
               <Link
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={getServicePath(s.slug)}
                 className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:border-emerald-200 hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 <p className="text-xs font-bold uppercase tracking-wide text-emerald-600">{s.category}</p>

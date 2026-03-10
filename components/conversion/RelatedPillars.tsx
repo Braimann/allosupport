@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Wrench, Shield, Zap } from "lucide-react";
-import type { ServicePage } from "@/lib/services-data";
+import { getServicePath, type ServicePage } from "@/lib/services-data";
 
 interface RelatedPillarsProps {
   services: ServicePage[];
@@ -37,7 +37,7 @@ export default function RelatedPillars({
             return (
               <Link
                 key={service.id}
-                href={`/services/${service.slug}`}
+                href={getServicePath(service.slug)}
                 className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200"
               >
                 <div className="flex items-start gap-4">

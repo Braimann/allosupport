@@ -214,6 +214,45 @@ export default function SupportPmePage() {
           </div>
         </section>
 
+        {/* Solutions par secteur */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
+              Solutions par secteur
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link
+                href="/solutions/cabinets-medicaux"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-md transition text-center"
+              >
+                <h3 className="font-semibold text-slate-900 mb-2">Support IT cabinets médicaux Maroc</h3>
+                <p className="text-sm text-slate-600">Conformité CNDP, données patients</p>
+              </Link>
+              <Link
+                href="/solutions/cabinets-avocats"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-md transition text-center"
+              >
+                <h3 className="font-semibold text-slate-900 mb-2">Infogérance cabinets d&apos;avocats Maroc</h3>
+                <p className="text-sm text-slate-600">Confidentialité, sécurité emails</p>
+              </Link>
+              <Link
+                href="/solutions/experts-comptables"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-md transition text-center"
+              >
+                <h3 className="font-semibold text-slate-900 mb-2">Maintenance Sage EBP experts-comptables</h3>
+                <p className="text-sm text-slate-600">Sage, EBP, période fiscale</p>
+              </Link>
+              <Link
+                href="/solutions/architectes"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-md transition text-center"
+              >
+                <h3 className="font-semibold text-slate-900 mb-2">Support informatique architectes Maroc</h3>
+                <p className="text-sm text-slate-600">CAO, sauvegardes, télétravail</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Liens internes */}
         <section className="py-12 border-t border-slate-200 bg-white">
           <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
@@ -238,6 +277,11 @@ export default function SupportPmePage() {
                 <li>
                   <Link href="/solutions/experts-comptables" className="hover:underline">
                     Support informatique experts-comptables Maroc
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/solutions/architectes" className="hover:underline">
+                    Support informatique architectes Maroc
                   </Link>
                 </li>
               </ul>
