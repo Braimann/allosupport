@@ -295,6 +295,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog/bitlocker-bloque-ssd-casablanca-recuperation-donnees`,
+      lastModified: new Date("2026-03-10"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/cgu`,
       lastModified: now,
       changeFrequency: "yearly",

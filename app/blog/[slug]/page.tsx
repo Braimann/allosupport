@@ -35,6 +35,7 @@ const STATIC_BLOG_SLUGS = [
   "recuperation-donnees-cle-usb-carte-sd-ssd-maroc",
   "formatage-pc-reinstallation-windows-maroc-guide",
   "installer-imprimante-wifi-maroc-guide",
+  "bitlocker-bloque-ssd-casablanca-recuperation-donnees",
 ];
 
 const SLUG_RELATED_SERVICES: Record<string, Array<{ href: string; label: string }>> = {

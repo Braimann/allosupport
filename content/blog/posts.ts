@@ -618,6 +618,32 @@ const BLOG_POSTS: BlogPost[] = [
       "Guide complet pour installer et configurer une imprimante WiFi au Maroc : pourquoi l'installation échoue, étapes sous Windows 10/11, solutions si l'imprimante est détectée mais n'imprime pas, partage réseau bureau, tarifs technicien à distance (dès 150 DH). <a href=\"/installation-imprimante-maroc\" class=\"text-primary-600 hover:underline\">Installation imprimante à distance</a> · <a href=\"/devis\" class=\"text-primary-600 hover:underline\">Devis gratuit</a>.",
     ]),
   },
+  // 25. BitLocker bloqué SSD Casablanca (page dédiée app/blog/bitlocker-bloque-ssd-casablanca-recuperation-donnees)
+  {
+    slug: "bitlocker-bloque-ssd-casablanca-recuperation-donnees",
+    title: "BitLocker Bloqué sur SSD à Casablanca : Récupérez Vos Données (2026)",
+    excerpt:
+      "PC bloqué sur BitLocker à Casablanca ? SSD NVMe chiffré inaccessible ? AlloSupport récupère vos données à distance ou en labo. Taux de succès 92%. Dès 250 DH. Paiement après résultat.",
+    metaDescription:
+      "PC bloqué sur BitLocker à Casablanca ? SSD NVMe chiffré inaccessible ? AlloSupport récupère vos données à distance ou en labo. Taux de succès 92%. Dès 250 DH.",
+    category: "Récupération données",
+    categoryColor: "bg-blue-500",
+    imageUrl: "/images/blog/bitlocker-ssd-casablanca.png",
+    imageAlt: "Récupération données BitLocker SSD Casablanca AlloSupport.ma",
+    keywords: [
+      "BitLocker bloqué Casablanca",
+      "récupération données SSD NVMe Maroc",
+      "BitLocker SSD chiffré",
+      "clé récupération BitLocker perdue",
+    ],
+    author: "AlloSupport.ma",
+    readTime: "8 min de lecture",
+    publishedAt: "2026-03-10",
+    updatedAt: "2026-03-10",
+    content: toHtml([
+      "BitLocker bloque votre SSD après une mise à jour ou un changement matériel. Éteignez immédiatement votre PC pour éviter que TRIM n'efface les données. AlloSupport récupère vos données à Casablanca dès 250 DH avec 92% de succès. Diagnostic WhatsApp gratuit en 15 min. <a href=\"/blog/bitlocker-bloque-ssd-casablanca-recuperation-donnees\" class=\"text-primary-600 hover:underline\">Lire le guide complet</a> · <a href=\"/recuperation-donnees-casablanca\" class=\"text-primary-600 hover:underline\">Récupération données Casablanca</a>.",
+    ]),
+  },
 ];
 
 export function getPublishedPosts(): BlogPost[] {

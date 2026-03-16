@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { GOOGLE_BUSINESS } from "@/lib/constants/google-business";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
@@ -76,6 +78,7 @@ export default function AgadirPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <Header />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
@@ -388,6 +391,7 @@ export default function AgadirPage() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

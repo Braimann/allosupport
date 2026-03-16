@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
 const whatsappBase = "https://wa.me/212775237038";
@@ -73,6 +75,7 @@ export default function FesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <Header />
       <main className="min-h-screen bg-gray-50">
         {/* Hero */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
@@ -351,6 +354,7 @@ export default function FesPage() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

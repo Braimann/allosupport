@@ -116,9 +116,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 // ========== METADATA ==========
 export const metadata: Metadata = {
   title:
-    "Contrôle Parental Maroc : Bloquer Sites & Limiter Écrans | AlloSupport",
+    "Contrôle Parental au Maroc : Installation à Distance dès 150 DH",
   description:
-    "Installez un contrôle parental efficace sur PC, téléphone et tablette au Maroc. Configuration à distance en 30 min. Toutes marques. Dès 150 DH.",
+    "Protégez vos enfants sur internet au Maroc. Installation et configuration contrôle parental à distance sur PC, tablette et téléphone. Intervention en 15 min. AlloSupport.ma",
   keywords: [
     "contrôle parental Maroc",
     "bloquer internet enfant Maroc",
@@ -134,9 +134,9 @@ export const metadata: Metadata = {
   alternates: { canonical: CANONICAL },
   openGraph: {
     title:
-      "Contrôle Parental Maroc : Bloquer Sites & Limiter Écrans | AlloSupport",
+      "Contrôle Parental au Maroc : Installation à Distance dès 150 DH",
     description:
-      "Installez un contrôle parental efficace sur PC, téléphone et tablette au Maroc. Configuration à distance en 30 min. Toutes marques. Dès 150 DH.",
+      "Protégez vos enfants sur internet au Maroc. Installation et configuration contrôle parental à distance sur PC, tablette et téléphone. Intervention en 15 min. AlloSupport.ma",
     url: CANONICAL,
     type: "website",
   },
