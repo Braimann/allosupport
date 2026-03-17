@@ -131,6 +131,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: "https://allosupport.ma/guides/guide-recuperation-donnees-maroc-allosupport-2026-v2.pdf",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/recuperation-donnees/laboratoire-partenaire`,
       lastModified: now,
       changeFrequency: "monthly",

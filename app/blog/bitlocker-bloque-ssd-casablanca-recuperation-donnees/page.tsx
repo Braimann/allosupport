@@ -523,6 +523,21 @@ export default function BlogBitlockerBloqueSsdCasablanca() {
                     partenaire. Paiement uniquement après résultat.
                   </p>
 
+                  <div className="border border-emerald-200 bg-emerald-50 rounded-xl p-5 my-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="text-emerald-600 text-sm font-medium flex-1">
+                      📥 <strong>Guide PDF gratuit</strong> — Téléchargez notre guide complet récupération données au Maroc : méthodes, tarifs, cas clients, conseils préventifs (14 pages)
+                    </div>
+                    <a
+                      href="/guides/guide-recuperation-donnees-maroc-allosupport-2026-v2.pdf"
+                      download="guide-recuperation-donnees-maroc-allosupport-2026-v2.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 text-sm font-semibold text-emerald-700 border border-emerald-300 hover:bg-emerald-100 px-4 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap"
+                    >
+                      Télécharger PDF →
+                    </a>
+                  </div>
+
                   <h2 className="text-2xl font-bold mt-10 mb-4 text-slate-900">
                     Pourquoi les Logiciels Gratuits Échouent sur BitLocker
                   </h2>

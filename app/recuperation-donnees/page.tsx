@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Récupération Données Maroc — Disque Dur, SSD, Clé USB dès 150 DH",
     description:
-      "Vos fichiers ont disparu ? Disque dur en panne ? Diagnostic à distance 150 DH, réponse WhatsApp en 15 min, paiement après résultat.",
+      "Vos fichiers ont disparu ? Disque dur en panne ? Diagnostic à distance 150 DH, réponse WhatsApp en 15 min, paiement après résultat. Téléchargez notre guide PDF gratuit récupération données Maroc 2026 — 14 pages, tarifs, méthodes, partenaires.",
     url: "https://allosupport.ma/recuperation-donnees",
     type: "website",
     locale: "fr_MA",
@@ -164,6 +164,34 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   },
 ]);
 
+const digitalDocumentSchema = {
+  "@context": "https://schema.org",
+  "@type": "DigitalDocument",
+  name: "Guide Complet Récupération de Données au Maroc 2026 — AlloSupport.ma",
+  description:
+    "Guide PDF complet récupération données SSD NVMe, HDD, BitLocker au Maroc. Méthodes, tarifs, partenaires, cas clients. AlloSupport.ma — dès 150 DH.",
+  url: "https://allosupport.ma/guides/guide-recuperation-donnees-maroc-allosupport-2026-v2.pdf",
+  encodingFormat: "application/pdf",
+  inLanguage: "fr-MA",
+  author: {
+    "@type": "Organization",
+    name: "AlloSupport.ma",
+    url: "https://allosupport.ma",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "AlloSupport.ma",
+  },
+  datePublished: "2026-02-22",
+  dateModified: "2026-02-22",
+  keywords:
+    "récupération données Maroc, SSD NVMe Casablanca, BitLocker Maroc, HDD récupération, AlloSupport",
+  isPartOf: {
+    "@type": "WebPage",
+    url: "https://allosupport.ma/recuperation-donnees",
+  },
+};
+
 /* ─────────────────────────── CAS DATA ─────────────────────────── */
 
 const CAS_TRAITES = [
@@ -243,6 +271,12 @@ export default function RecuperationDonneesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(digitalDocumentSchema),
         }}
       />
 
@@ -695,6 +729,39 @@ export default function RecuperationDonneesPage() {
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ========== GUIDE PDF TÉLÉCHARGEMENT ========== */}
+        <section className="max-w-5xl mx-auto px-4">
+          <div className="bg-slate-800 rounded-2xl p-6 my-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="bg-emerald-500/20 rounded-xl p-3 flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-lg">
+                  Guide Complet — Récupération de Données au Maroc 2026
+                </p>
+                <p className="text-slate-400 text-sm mt-1">
+                  14 pages · Méthodes, tarifs, partenaires, cas clients · PDF gratuit
+                </p>
+              </div>
+            </div>
+            <a
+              href="/guides/guide-recuperation-donnees-maroc-allosupport-2026-v2.pdf"
+              download="guide-recuperation-donnees-maroc-allosupport-2026-v2.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200 whitespace-nowrap"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Télécharger le guide PDF
+            </a>
           </div>
         </section>
 
