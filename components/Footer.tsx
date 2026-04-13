@@ -77,6 +77,7 @@ const columnEntreprise: Array<{ href: string; label: string }> = [
   { href: "/avis", label: "Avis Clients" },
   { href: "/mentions-legales", label: "Mentions Légales" },
   { href: "/politique-confidentialite", label: "Politique de Confidentialité" },
+  { href: "/politique-confidentialite-app", label: "Politique de confidentialité (App)" },
   { href: "/cgv", label: "CGV" },
   { href: "/cgu", label: "CGU" },
   { href: "/non-responsabilite", label: "Clause de non-responsabilité" },
