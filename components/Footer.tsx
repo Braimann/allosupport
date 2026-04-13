@@ -50,7 +50,7 @@ const columnGuidesBlog: Array<{ href: string; label: string }> = [
   { href: "/blog/teletravail-maroc-equipement-informatique", label: "Télétravail Équipement" },
 ];
 
-const columnVilles: Array<{ href: string; label: string }> = [
+const columnVilles: Array<{ href: string; label: string; badge?: string }> = [
   { href: "/casablanca", label: "Dépannage informatique Casablanca" },
   { href: "/rabat", label: "Dépannage informatique Rabat" },
   { href: "/marrakech", label: "Dépannage informatique Marrakech" },
@@ -60,6 +60,7 @@ const columnVilles: Array<{ href: string; label: string }> = [
   { href: "/depannage-informatique", label: "Dépannage informatique Maroc" },
   { href: "/virus-ordinateur-maroc", label: "Suppression virus PC Maroc" },
   { href: "/infogerance-pme-maroc", label: "Infogérance PME Maroc" },
+  { href: "/computer-repair-morocco", label: "Computer Repair Morocco", badge: "EN" },
 ];
 
 const columnProfessionnels: Array<{ href: string; label: string }> = [
@@ -89,7 +90,7 @@ function FooterNavColumn({
   links,
 }: {
   title: string;
-  links: Array<{ href: string; label: string }>;
+  links: Array<{ href: string; label: string; badge?: string }>;
 }) {
   return (
     <nav aria-label={title}>
@@ -97,12 +98,15 @@ function FooterNavColumn({
         {title}
       </h3>
       <ul className="space-y-2">
-        {links.map(({ href, label }) => (
+        {links.map(({ href, label, badge }) => (
           <li key={href}>
             <Link
               href={href}
-              className="text-gray-400 hover:text-emerald-400 transition-colors duration-200"
+              className={`text-gray-400 hover:text-emerald-400 transition-colors duration-200 ${badge ? "flex items-center gap-1" : ""}`}
             >
+              {badge ? (
+                <span className="text-xs text-emerald-500 font-semibold mr-1">{badge}</span>
+              ) : null}
               {label}
             </Link>
           </li>

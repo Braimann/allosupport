@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema @graph : LocalBusiness + ProfessionalService + WebSite + FAQPage (SEO local Maroc)
+// Schema @graph : LocalBusiness + ProfessionalService + WebSite (SEO local Maroc)
 const WIKIDATA_ID = "Q138640787";
 const SCHEMA_REVIEW_COUNT = "14"; // À vérifier sur Google Business Profile
 
@@ -312,44 +312,6 @@ const schemaGraph = {
         },
         "query-input": "required name=search_term_string",
       },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://allosupport.ma/#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Quel est le prix du dépannage informatique au Maroc ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "AlloSupport propose le dépannage informatique à distance dès 150 DH au Maroc. Le formatage PC avec Windows officiel coûte 350 DH. La récupération de données commence à 300 DH. Paiement uniquement après résolution du problème.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Comment fonctionne le dépannage informatique à distance au Maroc ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Le technicien AlloSupport se connecte à votre PC via un logiciel sécurisé (TeamViewer ou AnyDesk) depuis votre message WhatsApp. L'intervention commence en moins de 15 minutes, sans déplacement, partout au Maroc.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "AlloSupport intervient-il dans toutes les villes du Maroc ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Oui, AlloSupport intervient à distance dans toutes les villes du Maroc : Casablanca, Rabat, Marrakech, Fès, Agadir, Tanger, Meknès, Oujda et partout ailleurs. Aucun déplacement nécessaire.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Que faire si mon PC est infecté par un virus au Maroc ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Contactez AlloSupport via WhatsApp au +212775237038. Un technicien se connecte à distance en moins de 15 minutes pour supprimer le virus, nettoyer le système et installer un antivirus (Kaspersky ou Bitdefender). Dès 150 DH.",
-          },
-        },
-      ],
     },
   ],
 };
